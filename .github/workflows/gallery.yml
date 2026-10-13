@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: arnovich/forseti-lean
-          ref: 8c6efd72ff7bbacf6a0f78f056390e0d670b3200
+          ref: 52331d1afd282a4b9be64acf0e243be2794ed2b9
           path: .gallery-runtime
           persist-credentials: false
       - name: Install Lean and the Linux sandbox
@@ -63,7 +63,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .gallery-runtime/.lake
-          key: gallery-lean-${{ runner.os }}-8c6efd72-v1
+          key: gallery-lean-${{ runner.os }}-52331d1a-v1
       - name: Prepare Lean modules used by the diagrams
         working-directory: .gallery-runtime
         run: |
@@ -85,7 +85,7 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: .gallery-runtime/.lake
-          key: gallery-lean-${{ runner.os }}-8c6efd72-v1
+          key: gallery-lean-${{ runner.os }}-52331d1a-v1
       - name: Restore unchanged diagrams
         uses: actions/cache@v4
         with:
