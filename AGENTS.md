@@ -26,8 +26,8 @@ To activate publication, set **Settings → Pages → Source → GitHub Actions*
 run the workflow. Restrict the `github-pages` environment to `main`. Update README
 gallery/image URLs if the repository name or owner changes.
 
-Use Python 3.12+, Node 22.22.2 and a built Forseti Lean v1.30.0 checking
-environment (Lean 4.32.1, with its pinned Asgard Lean v1.19.0 and Mathlib
+Use Python 3.12+, Node 22.22.2 and a built Forseti Lean v0.1.0 checking
+environment (Lean 4.32.1, with its pinned Asgard Lean v0.1.0 and Mathlib
 dependencies). In that Forseti Lean checkout, run:
 
 ```sh
