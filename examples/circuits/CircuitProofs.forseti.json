@@ -1,0 +1,185 @@
+{
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "first": {
+      "context": "00d337d97805ef32d1f6992878a90af2acba88927dddfaab4b6c5046eaa2e3c3",
+      "proof": "c51f6e65a22cd6451a39a0defb2d1256a473a8fb6d9fb0e85b659d96d72babd5",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "cde4e921fed90bad10b637c87a816ef48450e172fa1ead196a053869c066ed03",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "second": {
+      "context": "d37ea2c107f32b9a68d30d6418c13ebd70ed4aaf1cd41f852ff2326b1d5049d3",
+      "proof": "b43cc77b79f7fbd326740b314ea22f728c4ba09dc2cba5d750784fc2c63e2f17",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "4acd06761dbeb8dae8ebe0f0825cc3c306627dbe135217a9cf40a46e6aede4ff",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "whole": {
+      "context": "abe401baedfdfa57950b0004091388f3cb7bffb7b9ce1126cb013f05cb187298",
+      "proof": "35264e461641995b852c892f64c7d27a37b1578bf72c7a34526cbea60c98c931",
+      "verdict": "holds",
+      "uses": [
+        "first",
+        "second"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "forsetiClaim_1",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "4958244a3fa66e90cccd98b61b53449d55a5f9ece25153ea9d7d1646d8ef65a5",
+      "assumed": {
+        "first": "cde4e921fed90bad10b637c87a816ef48450e172fa1ead196a053869c066ed03",
+        "second": "4acd06761dbeb8dae8ebe0f0825cc3c306627dbe135217a9cf40a46e6aede4ff"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "exchange_preserves": {
+      "context": "2bea0d4e2c691671eb46ec7beeaa95941430d774a5cd6d8d34d97fe7869fb44f",
+      "proof": "996d2f77a61a4035656be6e64691c853a7836c37a7bb776ae69bda55e6c9275b",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "53317ffa35bfef29d5eed048614b030f90decbb19ce9755898a4581ecc25b136",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "refutations": {},
+  "cells": {
+    "source": "53c4df8991e65c87a9e29a40077f67ba910f121d9c21e36a6651cbb5cc84a6bd",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "complete": true,
+    "claims": {
+      "first": "cde4e921fed90bad10b637c87a816ef48450e172fa1ead196a053869c066ed03",
+      "second": "4acd06761dbeb8dae8ebe0f0825cc3c306627dbe135217a9cf40a46e6aede4ff",
+      "whole": "4958244a3fa66e90cccd98b61b53449d55a5f9ece25153ea9d7d1646d8ef65a5",
+      "exchange_preserves": "53317ffa35bfef29d5eed048614b030f90decbb19ce9755898a4581ecc25b136"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "75c7ea657c3fc61a38ffe21d168fb626435b26c50b300cc3c62eac4e55f565d4",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ],
+        [
+          "d20cf09d100e70a1d5b59627806d9aba9ecb81b18144c746d2b56db523acefa3",
+          "88400c6483a10fd15c966830114c875296c5fa323866c149cb2701ed513c0200",
+          []
+        ],
+        [
+          "40b2063605014bf41ef0481a74523c0a218253e765abb9cba365da482c816ffc",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.P",
+            "Notebook.CircuitProofs.P._proof_1"
+          ]
+        ],
+        [
+          "e3f901148552520f6c16a9c66c901f7ba2703faea178394381e4669518efc310",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.M._proof_1",
+            "Notebook.CircuitProofs.M"
+          ]
+        ],
+        [
+          "94e16b3cc9ef7b4aca6431a62c63d5e1bf75a3cfb83628be10fe449d53a12e89",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.Q",
+            "Notebook.CircuitProofs.Q._proof_1"
+          ]
+        ],
+        [
+          "2c6e9f8cbddeb47c88bb8adce0b022bb776dcb1d7289487c40e45263b5f53c9e",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.double"
+          ]
+        ],
+        [
+          "af83cf0ccad4459802fe2abc899b54de224b32a87d8cce02ddd8eeb90df55bf2",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.triple"
+          ]
+        ],
+        [
+          "e5a24b68980e4d88dd84358e7b99ea1f8ac8f5addab43a53e73aba0af0fa26dc",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.pipeline"
+          ]
+        ]
+      ],
+      [],
+      [
+        [
+          "d80cd2be12bc588d1d09f39687c54a8ff6c8dc2e103cbaa4a496d93671014a77",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.unitDisk._proof_1",
+            "Notebook.CircuitProofs.unitDisk"
+          ]
+        ],
+        [
+          "028839eda866ff3205fcc78d0526c1e6e246fbbfec8bbae1e5a3ce10aa0d3bbb",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          [
+            "Notebook.CircuitProofs.exchange"
+          ]
+        ]
+      ],
+      [
+        [
+          "c414b9fac34df5fe80ac6ddf7a1a01ab946daf19b5f63d1e3233422ff7718488",
+          "e35fb6f07c0d0e845ec72390a167bc0e7f713adfcc2d0a5ae858bbf829c5ec42",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Notebook.CircuitProofs.unitDisk": "29b3f3445500fe14e0d5a0901d774ada292eb375899925f499e8a1087546a74a",
+      "Notebook.CircuitProofs.double": "7b0c433eae0573c74bce3c0428acf90323832b57b73990b2ec333211a1105122",
+      "Notebook.CircuitProofs.unitDisk._proof_1": "e940b9b8ce30b80c10e27662bd4d4e329d1bef6cd59d8dba513e309fb00c3259",
+      "Notebook.CircuitProofs.P._proof_1": "b36d199ec0d7d64af32512135d1fd198349527375ec9d203f80624ba440904e0",
+      "Notebook.CircuitProofs.exchange": "8a0cc476f765fc014c6e7f772b87916c0a6d9040895a482bc7ec04c4ac3ee4e1",
+      "Notebook.CircuitProofs.Q._proof_1": "b293ed7906700c5682c33aba9955c8e8584de1c80390e021deb9cca974f9c2a8",
+      "Notebook.CircuitProofs.Q": "2b65cc93935fa91ba5665e436131890c0123271426b718af55684d855047784b",
+      "Notebook.CircuitProofs.pipeline": "bacaa0cd66ccb94f2cd47c73daab12be48431c162b73df65fccb1b170cc37508",
+      "Notebook.CircuitProofs.M": "42d537641c30a2a4839fef8dc452f2bf00ca4a275e68e4e9ecbe9f3475b36534",
+      "Notebook.CircuitProofs.triple": "bc1d93b89d14d29565702c5581a4492820bbc7d2aede32f290f949e4fc2143fd",
+      "Notebook.CircuitProofs.M._proof_1": "999a334f7af1de0193ec1651075af7930ca2d6a918e9722b3b36f5a8839f20ab",
+      "Notebook.CircuitProofs.P": "7f98feba7aa9ab13fab76e7c2730e1825bd0135e786fcfb279676e45fa0b07cc"
+    }
+  }
+}

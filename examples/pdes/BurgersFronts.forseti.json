@@ -1,0 +1,949 @@
+{
+  "runs": [
+    {
+      "id": "dc-fast_truncation-20261002T122353-1786c4",
+      "claim": "fast_truncation",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1 interpretation analytic-tail basis ogf potential exponentials [1, 0], [1, -1] truncation u window 16, 16 radius 1/12, 1/16 epsilon 1/1000000",
+      "context": "fbc233d60a7d0a4fb704e264de9fd41b76232c3f9138be659645817843f76d53",
+      "started": 1790936633.0114756,
+      "ended": 1790936645.1573162,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "refine ⟨⟨_, 0, _, Gimle.Asgard.Streams.ColeHopf.circuit_front ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) 0⟩, fun a unused v rel => ⟨fun x hx => ?_, ?_⟩⟩",
+        "· have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]) ≠ 0 := by",
+        "    rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]",
+        "    decide +kernel",
+        "  simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel",
+        "  rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 1) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 1) : ℚ) _) a unused v rel]",
+        "  exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx",
+        "· exact Gimle.Asgard.Streams.ColeHopf.front_truncation (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) a unused v rel"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/TruncationClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "tail",
+          "outcome": "found",
+          "detail": "ρ = 1, inverse radii (r_t, r_x) = (1/2, 1/3), certified bound 2134495165562497/5048572829560461066240 ≤ ε = 1/1000000",
+          "search_ms": 1,
+          "check": "validated",
+          "check_ms": 12142,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_fast_truncation\n\ndef forsetiBox : Gimle.Asgard.Streams.Box 2 :=\n  ⟨![(mkRat (1) 12), (mkRat (1) 16)], by decide +kernel⟩\n\ndef forsetiRoot : Prop :=\n  (∃ a unused v : Gimle.Asgard.Streams.Stream 2,\n      (Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1)).Rel\n        ![a, Gimle.Asgard.Streams.ColeHopf.zeroSlice (Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]), unused] ![v, a]) ∧\n  ∀ a unused v : Gimle.Asgard.Streams.Stream 2,\n      (Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1)).Rel\n        ![a, Gimle.Asgard.Streams.ColeHopf.zeroSlice (Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]), unused] ![v, a] →\n    (∀ x, forsetiBox.Mem x →\n      HasSum (Gimle.Asgard.Streams.seriesTerm .ogf a x)\n      (Gimle.Asgard.Streams.analyticField .ogf a x)) ∧\n    Gimle.Asgard.Streams.TruncationBound .ogf a forsetiBox ![16, 16] (mkRat (1) 1000000)\n\ndef forsetiRadii : Fin 2 → ℚ := ![(mkRat (1) 2), (mkRat (1) 3)]\n\n/-- u is the stream the Burgers circuit at viscosity 1 rebuilds from the t = 0 slice of the Cole–Hopf front −2ν φ_x/φ of the potential Σ cᵢ·e^(aᵢx) given by the pairs (cᵢ, aᵢ), u_t its other output; its series converges on the box, and its window (16, 16) is within 1/1000000 of the sum there. The stream decider proved it. Goal (stream): stream burgers viscosity 1 interpretation analytic-tail basis ogf potential exponentials [1, 0], [1, -1] truncation u window 16, 16 radius 1/12, 1/16 epsilon 1/1000000 -/\ntheorem fast_truncation :\n    have circuit := Gimle.Asgard.Streams.Burgers.circuit .ogf 1\n    have slice := Gimle.Asgard.Streams.ColeHopf.zeroSlice\n      (Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)])\n    (∃ u unused u_t : Gimle.Asgard.Streams.Stream 2,\n      circuit.Rel ![u, slice, unused] ![u_t, u]) ∧\n    ∀ u unused u_t : Gimle.Asgard.Streams.Stream 2,\n      circuit.Rel ![u, slice, unused] ![u_t, u] →\n      ∀ t x : ℝ, |t| ≤ 1/12 ∧ |x| ≤ 1/16 →\n        HasSum (Gimle.Asgard.Streams.seriesTerm .ogf u ![t, x])\n          (Gimle.Asgard.Streams.analyticField .ogf u ![t, x]) ∧\n        |Gimle.Asgard.Streams.analyticField .ogf u ![t, x] -\n          Gimle.Asgard.Streams.windowField .ogf ![16, 16] u ![t, x]| ≤ 1/1000000 := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    refine ⟨⟨_, 0, _, Gimle.Asgard.Streams.ColeHopf.circuit_front ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) 0⟩, fun a unused v rel => ⟨fun x hx => ?_, ?_⟩⟩\n    · have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]) ≠ 0 := by\n        rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]\n        decide +kernel\n      simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel\n      rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 1) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 1) : ℚ) _) a unused v rel]\n      exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx\n    · exact Gimle.Asgard.Streams.ColeHopf.front_truncation (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) a unused v rel\n  have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] = Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)] := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1) = Gimle.Asgard.Streams.Burgers.circuit .ogf 1 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/12 ∧ |x| ≤ 1/16 := by\n    intro t x\n    norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1) 1000000) : ℚ) : ℝ) = (1/1000000) := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot\n    rw [forsetiFront, forsetiCircuit]\n    obtain ⟨realized, every⟩ := claim\n    refine ⟨realized, fun u unused u_t rel => ⟨fun z inside => ?_, fun z inside => ?_⟩⟩\n    all_goals\n      have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl\n      have holds := every u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))\n      rw [point] at holds\n    · exact holds.1\n    · rw [forsetiCast0]\n      exact holds.2\n  · intro lane\n    unfold forsetiRoot at lane\n    rw [forsetiFront, forsetiCircuit] at lane\n    dsimp only\n    obtain ⟨realized, every⟩ := lane\n    refine ⟨realized, fun u unused u_t rel t x inside => ?_⟩\n    obtain ⟨sums, bound⟩ := every u unused u_t rel\n    have mem := (forsetiInside t x).mpr inside\n    have close := bound _ mem\n    rw [forsetiCast0] at close\n    exact ⟨sums _ mem, close⟩\n\nend Decided_fast_truncation",
+      "shared": "",
+      "imports": [
+        "Gimle.Asgard.Streams.ColeHopf"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".BurgersFronts.forseti/artifacts/stream-8b34e3466038a5b0fa2217d63fe495c2e49a73faada467fab8efa99ad0ff535b.artifact.json",
+        "goal": ".BurgersFronts.forseti/artifacts/stream-8b34e3466038a5b0fa2217d63fe495c2e49a73faada467fab8efa99ad0ff535b.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .BurgersFronts.forseti/artifacts/stream-8b34e3466038a5b0fa2217d63fe495c2e49a73faada467fab8efa99ad0ff535b.artifact.json --goal .BurgersFronts.forseti/artifacts/stream-8b34e3466038a5b0fa2217d63fe495c2e49a73faada467fab8efa99ad0ff535b.goal.json"
+      },
+      "decided": 1790936661.2889793
+    },
+    {
+      "id": "dc-fast_band-20261002T122430-4886d7",
+      "claim": "fast_band",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/6, 1/6], x in [-1/8, 1/8] : u >= 7/10 and u <= 13/10",
+      "context": "610faa51d93657ef7f7eea2293aeb7a15236c080fe09f06134e400fbe71c8a6b",
+      "started": 1790936670.165641,
+      "ended": 1790936751.6036723,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "intro a unused v rel x hx",
+        "refine ⟨?_, (Gimle.Asgard.Streams.ColeHopf.front_band_of_window (lo := ((mkRat (7) 10) : ℚ)) (hi := ((mkRat (13) 10) : ℚ)) (ε := (mkRat (2134495165562497) 15407021574586368)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) (by decide +kernel) (by decide +kernel) a unused v rel x hx)⟩",
+        "have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]) ≠ 0 := by",
+        "  rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]",
+        "  decide +kernel",
+        "simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel",
+        "rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 1) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 1) : ℚ) _) a unused v rel]",
+        "exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/FieldClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "window",
+          "outcome": "found",
+          "detail": "ρ = 1, inverse radii (r_t, r_x) = (1/2, 1/3), window 16 × 16, certified error 2134495165562497/15407021574586368; the window bounds u within [≈ 0.7146, ≈ 1.2854] on the box",
+          "search_ms": 198,
+          "check": "validated",
+          "check_ms": 81101,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_fast_band\n\ndef forsetiBox : Gimle.Asgard.Streams.Box 2 :=\n  ⟨![(mkRat (1) 6), (mkRat (1) 8)], by decide +kernel⟩\n\ndef forsetiRadii : Fin 2 → ℚ := ![(mkRat (1) 2), (mkRat (1) 3)]\n\ndef forsetiTable : List (List ℚ) := [\n    [(mkRat (1) 2), (mkRat (1) 4), (mkRat (0) 1), (mkRat (-1) 48), (mkRat (0) 1), (mkRat (1) 480), (mkRat (0) 1), (mkRat (-17) 80640), (mkRat (0) 1), (mkRat (31) 1451520), (mkRat (0) 1), (mkRat (-691) 319334400), (mkRat (0) 1), (mkRat (5461) 24908083200), (mkRat (0) 1), (mkRat (-929569) 41845579776000)],\n    [(mkRat (-1) 4), (mkRat (0) 1), (mkRat (1) 16), (mkRat (0) 1), (mkRat (-1) 96), (mkRat (0) 1), (mkRat (17) 11520), (mkRat (0) 1), (mkRat (-31) 161280), (mkRat (0) 1), (mkRat (691) 29030400), (mkRat (0) 1), (mkRat (-5461) 1916006400), (mkRat (0) 1), (mkRat (929569) 2789705318400), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-1) 16), (mkRat (0) 1), (mkRat (1) 48), (mkRat (0) 1), (mkRat (-17) 3840), (mkRat (0) 1), (mkRat (31) 40320), (mkRat (0) 1), (mkRat (-691) 5806080), (mkRat (0) 1), (mkRat (5461) 319334400), (mkRat (0) 1), (mkRat (-929569) 398529331200), (mkRat (0) 1), (mkRat (3202291) 10461394944000)],\n    [(mkRat (1) 48), (mkRat (0) 1), (mkRat (-1) 48), (mkRat (0) 1), (mkRat (17) 2304), (mkRat (0) 1), (mkRat (-31) 17280), (mkRat (0) 1), (mkRat (691) 1935360), (mkRat (0) 1), (mkRat (-5461) 87091200), (mkRat (0) 1), (mkRat (929569) 91968307200), (mkRat (0) 1), (mkRat (-3202291) 2092278988800), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (1) 96), (mkRat (0) 1), (mkRat (-17) 2304), (mkRat (0) 1), (mkRat (31) 11520), (mkRat (0) 1), (mkRat (-691) 967680), (mkRat (0) 1), (mkRat (5461) 34836480), (mkRat (0) 1), (mkRat (-929569) 30656102400), (mkRat (0) 1), (mkRat (3202291) 597793996800), (mkRat (0) 1), (mkRat (-221930581) 251073478656000)],\n    [(mkRat (-1) 480), (mkRat (0) 1), (mkRat (17) 3840), (mkRat (0) 1), (mkRat (-31) 11520), (mkRat (0) 1), (mkRat (691) 691200), (mkRat (0) 1), (mkRat (-5461) 19353600), (mkRat (0) 1), (mkRat (929569) 13934592000), (mkRat (0) 1), (mkRat (-3202291) 229920768000), (mkRat (0) 1), (mkRat (221930581) 83691159552000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-17) 11520), (mkRat (0) 1), (mkRat (31) 17280), (mkRat (0) 1), (mkRat (-691) 691200), (mkRat (0) 1), (mkRat (5461) 14515200), (mkRat (0) 1), (mkRat (-929569) 8360755200), (mkRat (0) 1), (mkRat (3202291) 114960384000), (mkRat (0) 1), (mkRat (-221930581) 35867639808000), (mkRat (0) 1), (mkRat (4722116521) 3766102179840000)],\n    [(mkRat (17) 80640), (mkRat (0) 1), (mkRat (-31) 40320), (mkRat (0) 1), (mkRat (691) 967680), (mkRat (0) 1), (mkRat (-5461) 14515200), (mkRat (0) 1), (mkRat (929569) 6502809600), (mkRat (0) 1), (mkRat (-3202291) 73156608000), (mkRat (0) 1), (mkRat (221930581) 19313344512000), (mkRat (0) 1), (mkRat (-4722116521) 1757514350592000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (31) 161280), (mkRat (0) 1), (mkRat (-691) 1935360), (mkRat (0) 1), (mkRat (5461) 19353600), (mkRat (0) 1), (mkRat (-929569) 6502809600), (mkRat (0) 1), (mkRat (3202291) 58525286400), (mkRat (0) 1), (mkRat (-221930581) 12875563008000), (mkRat (0) 1), (mkRat (4722116521) 1004293914624000), (mkRat (0) 1), (mkRat (-968383680827) 843606888284160000)],\n    [(mkRat (-31) 1451520), (mkRat (0) 1), (mkRat (691) 5806080), (mkRat (0) 1), (mkRat (-5461) 34836480), (mkRat (0) 1), (mkRat (929569) 8360755200), (mkRat (0) 1), (mkRat (-3202291) 58525286400), (mkRat (0) 1), (mkRat (221930581) 10534551552000), (mkRat (0) 1), (mkRat (-4722116521) 695280402432000), (mkRat (0) 1), (mkRat (968383680827) 506164132970496000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-691) 29030400), (mkRat (0) 1), (mkRat (5461) 87091200), (mkRat (0) 1), (mkRat (-929569) 13934592000), (mkRat (0) 1), (mkRat (3202291) 73156608000), (mkRat (0) 1), (mkRat (-221930581) 10534551552000), (mkRat (0) 1), (mkRat (4722116521) 579400335360000), (mkRat (0) 1), (mkRat (-968383680827) 361545809264640000), (mkRat (0) 1), (mkRat (14717667114151) 18981154986393600000)],\n    [(mkRat (691) 319334400), (mkRat (0) 1), (mkRat (-5461) 319334400), (mkRat (0) 1), (mkRat (929569) 30656102400), (mkRat (0) 1), (mkRat (-3202291) 114960384000), (mkRat (0) 1), (mkRat (221930581) 12875563008000), (mkRat (0) 1), (mkRat (-4722116521) 579400335360000), (mkRat (0) 1), (mkRat (968383680827) 305923377070080000), (mkRat (0) 1), (mkRat (-14717667114151) 13919513656688640000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (5461) 1916006400), (mkRat (0) 1), (mkRat (-929569) 91968307200), (mkRat (0) 1), (mkRat (3202291) 229920768000), (mkRat (0) 1), (mkRat (-221930581) 19313344512000), (mkRat (0) 1), (mkRat (4722116521) 695280402432000), (mkRat (0) 1), (mkRat (-968383680827) 305923377070080000), (mkRat (0) 1), (mkRat (14717667114151) 11931011705733120000), (mkRat (0) 1), (mkRat (-2093660879252671) 5011024916407910400000)],\n    [(mkRat (-5461) 24908083200), (mkRat (0) 1), (mkRat (929569) 398529331200), (mkRat (0) 1), (mkRat (-3202291) 597793996800), (mkRat (0) 1), (mkRat (221930581) 35867639808000), (mkRat (0) 1), (mkRat (-4722116521) 1004293914624000), (mkRat (0) 1), (mkRat (968383680827) 361545809264640000), (mkRat (0) 1), (mkRat (-14717667114151) 11931011705733120000), (mkRat (0) 1), (mkRat (2093660879252671) 4342888260886855680000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-929569) 2789705318400), (mkRat (0) 1), (mkRat (3202291) 2092278988800), (mkRat (0) 1), (mkRat (-221930581) 83691159552000), (mkRat (0) 1), (mkRat (4722116521) 1757514350592000), (mkRat (0) 1), (mkRat (-968383680827) 506164132970496000), (mkRat (0) 1), (mkRat (14717667114151) 13919513656688640000), (mkRat (0) 1), (mkRat (-2093660879252671) 4342888260886855680000), (mkRat (0) 1), (mkRat (86125672563201181) 456003267393119846400000)],\n    [(mkRat (929569) 41845579776000), (mkRat (0) 1), (mkRat (-3202291) 10461394944000), (mkRat (0) 1), (mkRat (221930581) 251073478656000), (mkRat (0) 1), (mkRat (-4722116521) 3766102179840000), (mkRat (0) 1), (mkRat (968383680827) 843606888284160000), (mkRat (0) 1), (mkRat (-14717667114151) 18981154986393600000), (mkRat (0) 1), (mkRat (2093660879252671) 5011024916407910400000), (mkRat (0) 1), (mkRat (-86125672563201181) 456003267393119846400000), (mkRat (0) 1)]]\n\ndef forsetiQ (k : Gimle.Asgard.Streams.Lowering.Degrees 2) : ℚ := (forsetiTable.getD (k 0) []).getD (k 1) 0\n\ndef forsetiRoot : Prop :=\n  ∀ a unused v : Gimle.Asgard.Streams.Stream 2,\n      (Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1)).Rel\n        ![a, Gimle.Asgard.Streams.ColeHopf.zeroSlice (Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]), unused] ![v, a] →\n    ∀ x, forsetiBox.Mem x →\n      HasSum (Gimle.Asgard.Streams.seriesTerm .ogf a x)\n        (Gimle.Asgard.Streams.analyticField .ogf a x) ∧\n      (((mkRat (7) 10) : ℚ) : ℝ) ≤ Gimle.Asgard.Streams.analyticField .ogf a x ∧ Gimle.Asgard.Streams.analyticField .ogf a x ≤ (((mkRat (13) 10) : ℚ) : ℝ)\n\n/-- u is the stream the Burgers circuit at viscosity 1 rebuilds from the t = 0 slice of the Cole–Hopf front −2ν φ_x/φ of the potential Σ cᵢ·e^(aᵢx) given by the pairs (cᵢ, aᵢ), u_t its other output; its series converges at every point of the box, and its sum, the analytic field, stays within the band there. The stream decider proved it. Goal (stream): stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/6, 1/6], x in [-1/8, 1/8] : u >= 7/10 and u <= 13/10 -/\ntheorem fast_band :\n    have circuit := Gimle.Asgard.Streams.Burgers.circuit .ogf 1\n    have slice := Gimle.Asgard.Streams.ColeHopf.zeroSlice\n      (Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)])\n    ∀ u unused u_t : Gimle.Asgard.Streams.Stream 2,\n      circuit.Rel ![u, slice, unused] ![u_t, u] →\n      ∀ t x : ℝ, |t| ≤ 1/6 ∧ |x| ≤ 1/8 →\n        HasSum (Gimle.Asgard.Streams.seriesTerm .ogf u ![t, x])\n          (Gimle.Asgard.Streams.analyticField .ogf u ![t, x]) ∧\n        7/10 ≤ Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ∧\n        Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ≤ 13/10 := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    intro a unused v rel x hx\n    refine ⟨?_, (Gimle.Asgard.Streams.ColeHopf.front_band_of_window (lo := ((mkRat (7) 10) : ℚ)) (hi := ((mkRat (13) 10) : ℚ)) (ε := (mkRat (2134495165562497) 15407021574586368)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) (by decide +kernel) (by decide +kernel) a unused v rel x hx)⟩\n    have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]) ≠ 0 := by\n      rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]\n      decide +kernel\n    simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel\n    rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 1) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 1) : ℚ) _) a unused v rel]\n    exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx\n  have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] = Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)] := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1) = Gimle.Asgard.Streams.Burgers.circuit .ogf 1 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/6 ∧ |x| ≤ 1/8 := by\n    intro t x\n    norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (7) 10) : ℚ) : ℝ) = (7/10) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (13) 10) : ℚ) : ℝ) = (13/10) := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot\n    rw [forsetiFront, forsetiCircuit]\n    intro u unused u_t rel z inside\n    have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl\n    have holds := claim u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))\n    rw [point] at holds\n    set_option linter.unusedSimpArgs false in simp only [forsetiCast0, forsetiCast1]\n    exact holds\n  · intro lane\n    unfold forsetiRoot at lane\n    rw [forsetiFront, forsetiCircuit] at lane\n    dsimp only\n    intro u unused u_t rel t x inside\n    have holds := lane u unused u_t rel ![t, x] ((forsetiInside t x).mpr inside)\n    set_option linter.unusedSimpArgs false in simp only [forsetiCast0, forsetiCast1] at holds\n    exact holds\n\nend Decided_fast_band",
+      "shared": "",
+      "imports": [
+        "Gimle.Asgard.Streams.ColeHopf"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".BurgersFronts.forseti/artifacts/stream-85c9cc74d1390e3b403df458e1557c41abdd00d8d5886e9eb713c890ff169f05.artifact.json",
+        "goal": ".BurgersFronts.forseti/artifacts/stream-85c9cc74d1390e3b403df458e1557c41abdd00d8d5886e9eb713c890ff169f05.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .BurgersFronts.forseti/artifacts/stream-85c9cc74d1390e3b403df458e1557c41abdd00d8d5886e9eb713c890ff169f05.artifact.json --goal .BurgersFronts.forseti/artifacts/stream-85c9cc74d1390e3b403df458e1557c41abdd00d8d5886e9eb713c890ff169f05.goal.json"
+      },
+      "decided": 1790936871.9842596
+    },
+    {
+      "id": "dc-fast_crosses_one-20261002T122801-e34d8d",
+      "claim": "fast_crosses_one",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/6, 1/6], x in [-1/8, 1/8] : u <= 1",
+      "context": "107d8d89e50b8c98beb0ffba554f6239b0ecc30770582304b1d1aff4ff3e2eda",
+      "started": 1790936881.8691657,
+      "ended": 1790936938.95247,
+      "state": "accepted",
+      "outcome": "refuted",
+      "reason": "its negation checked as part of the file; the claim is inserted open and its refutation recorded beside it",
+      "script": [
+        "have refuted : ¬ forsetiRoot := by",
+        "  unfold forsetiRoot",
+        "  intro h",
+        "  exact Gimle.Asgard.Streams.ColeHopf.front_above_of_window (hi := ((mkRat (1) 1) : ℚ)) (ε := (mkRat (2134495165562497) 15407021574586368)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) forsetiPoint (by decide +kernel) (by decide +kernel) fun a unused v rel x hx => (h a unused v rel x hx).2",
+        "intro claim",
+        "have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] = Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)] := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1) = Gimle.Asgard.Streams.Burgers.circuit .ogf 1 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/6 ∧ |x| ≤ 1/8 := by",
+        "  intro t x",
+        "  norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]",
+        "have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]",
+        "refine (fun (bridge : _ ↔ forsetiRoot) => refuted (bridge.mp claim)) ?_",
+        "constructor",
+        "· intro claim",
+        "  dsimp only at claim",
+        "  unfold forsetiRoot",
+        "  rw [forsetiFront, forsetiCircuit]",
+        "  intro u unused u_t rel z inside",
+        "  have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl",
+        "  have holds := claim u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))",
+        "  rw [point] at holds",
+        "  set_option linter.unusedSimpArgs false in simp only [forsetiCast0]",
+        "  exact holds",
+        "· intro lane",
+        "  unfold forsetiRoot at lane",
+        "  rw [forsetiFront, forsetiCircuit] at lane",
+        "  dsimp only",
+        "  intro u unused u_t rel t x inside",
+        "  have holds := lane u unused u_t rel ![t, x] ((forsetiInside t x).mpr inside)",
+        "  set_option linter.unusedSimpArgs false in simp only [forsetiCast0] at holds",
+        "  exact holds"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "REFUTED",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/FieldClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "window",
+          "outcome": "found",
+          "detail": "ρ = 1, inverse radii (r_t, r_x) = (1/2, 1/3), window 16 × 16, certified error 2134495165562497/15407021574586368; the window at (1/6, -1/8) is above the band by more than the certified error",
+          "search_ms": 134,
+          "check": "validated",
+          "check_ms": 56944,
+          "stop": ""
+        }
+      ],
+      "statement": ": ¬ forsetiRoot",
+      "block": "namespace Decided_fast_crosses_one\n\ndef forsetiBox : Gimle.Asgard.Streams.Box 2 :=\n  ⟨![(mkRat (1) 6), (mkRat (1) 8)], by decide +kernel⟩\n\ndef forsetiRadii : Fin 2 → ℚ := ![(mkRat (1) 2), (mkRat (1) 3)]\n\ndef forsetiTable : List (List ℚ) := [\n    [(mkRat (1) 2), (mkRat (1) 4), (mkRat (0) 1), (mkRat (-1) 48), (mkRat (0) 1), (mkRat (1) 480), (mkRat (0) 1), (mkRat (-17) 80640), (mkRat (0) 1), (mkRat (31) 1451520), (mkRat (0) 1), (mkRat (-691) 319334400), (mkRat (0) 1), (mkRat (5461) 24908083200), (mkRat (0) 1), (mkRat (-929569) 41845579776000)],\n    [(mkRat (-1) 4), (mkRat (0) 1), (mkRat (1) 16), (mkRat (0) 1), (mkRat (-1) 96), (mkRat (0) 1), (mkRat (17) 11520), (mkRat (0) 1), (mkRat (-31) 161280), (mkRat (0) 1), (mkRat (691) 29030400), (mkRat (0) 1), (mkRat (-5461) 1916006400), (mkRat (0) 1), (mkRat (929569) 2789705318400), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-1) 16), (mkRat (0) 1), (mkRat (1) 48), (mkRat (0) 1), (mkRat (-17) 3840), (mkRat (0) 1), (mkRat (31) 40320), (mkRat (0) 1), (mkRat (-691) 5806080), (mkRat (0) 1), (mkRat (5461) 319334400), (mkRat (0) 1), (mkRat (-929569) 398529331200), (mkRat (0) 1), (mkRat (3202291) 10461394944000)],\n    [(mkRat (1) 48), (mkRat (0) 1), (mkRat (-1) 48), (mkRat (0) 1), (mkRat (17) 2304), (mkRat (0) 1), (mkRat (-31) 17280), (mkRat (0) 1), (mkRat (691) 1935360), (mkRat (0) 1), (mkRat (-5461) 87091200), (mkRat (0) 1), (mkRat (929569) 91968307200), (mkRat (0) 1), (mkRat (-3202291) 2092278988800), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (1) 96), (mkRat (0) 1), (mkRat (-17) 2304), (mkRat (0) 1), (mkRat (31) 11520), (mkRat (0) 1), (mkRat (-691) 967680), (mkRat (0) 1), (mkRat (5461) 34836480), (mkRat (0) 1), (mkRat (-929569) 30656102400), (mkRat (0) 1), (mkRat (3202291) 597793996800), (mkRat (0) 1), (mkRat (-221930581) 251073478656000)],\n    [(mkRat (-1) 480), (mkRat (0) 1), (mkRat (17) 3840), (mkRat (0) 1), (mkRat (-31) 11520), (mkRat (0) 1), (mkRat (691) 691200), (mkRat (0) 1), (mkRat (-5461) 19353600), (mkRat (0) 1), (mkRat (929569) 13934592000), (mkRat (0) 1), (mkRat (-3202291) 229920768000), (mkRat (0) 1), (mkRat (221930581) 83691159552000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-17) 11520), (mkRat (0) 1), (mkRat (31) 17280), (mkRat (0) 1), (mkRat (-691) 691200), (mkRat (0) 1), (mkRat (5461) 14515200), (mkRat (0) 1), (mkRat (-929569) 8360755200), (mkRat (0) 1), (mkRat (3202291) 114960384000), (mkRat (0) 1), (mkRat (-221930581) 35867639808000), (mkRat (0) 1), (mkRat (4722116521) 3766102179840000)],\n    [(mkRat (17) 80640), (mkRat (0) 1), (mkRat (-31) 40320), (mkRat (0) 1), (mkRat (691) 967680), (mkRat (0) 1), (mkRat (-5461) 14515200), (mkRat (0) 1), (mkRat (929569) 6502809600), (mkRat (0) 1), (mkRat (-3202291) 73156608000), (mkRat (0) 1), (mkRat (221930581) 19313344512000), (mkRat (0) 1), (mkRat (-4722116521) 1757514350592000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (31) 161280), (mkRat (0) 1), (mkRat (-691) 1935360), (mkRat (0) 1), (mkRat (5461) 19353600), (mkRat (0) 1), (mkRat (-929569) 6502809600), (mkRat (0) 1), (mkRat (3202291) 58525286400), (mkRat (0) 1), (mkRat (-221930581) 12875563008000), (mkRat (0) 1), (mkRat (4722116521) 1004293914624000), (mkRat (0) 1), (mkRat (-968383680827) 843606888284160000)],\n    [(mkRat (-31) 1451520), (mkRat (0) 1), (mkRat (691) 5806080), (mkRat (0) 1), (mkRat (-5461) 34836480), (mkRat (0) 1), (mkRat (929569) 8360755200), (mkRat (0) 1), (mkRat (-3202291) 58525286400), (mkRat (0) 1), (mkRat (221930581) 10534551552000), (mkRat (0) 1), (mkRat (-4722116521) 695280402432000), (mkRat (0) 1), (mkRat (968383680827) 506164132970496000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-691) 29030400), (mkRat (0) 1), (mkRat (5461) 87091200), (mkRat (0) 1), (mkRat (-929569) 13934592000), (mkRat (0) 1), (mkRat (3202291) 73156608000), (mkRat (0) 1), (mkRat (-221930581) 10534551552000), (mkRat (0) 1), (mkRat (4722116521) 579400335360000), (mkRat (0) 1), (mkRat (-968383680827) 361545809264640000), (mkRat (0) 1), (mkRat (14717667114151) 18981154986393600000)],\n    [(mkRat (691) 319334400), (mkRat (0) 1), (mkRat (-5461) 319334400), (mkRat (0) 1), (mkRat (929569) 30656102400), (mkRat (0) 1), (mkRat (-3202291) 114960384000), (mkRat (0) 1), (mkRat (221930581) 12875563008000), (mkRat (0) 1), (mkRat (-4722116521) 579400335360000), (mkRat (0) 1), (mkRat (968383680827) 305923377070080000), (mkRat (0) 1), (mkRat (-14717667114151) 13919513656688640000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (5461) 1916006400), (mkRat (0) 1), (mkRat (-929569) 91968307200), (mkRat (0) 1), (mkRat (3202291) 229920768000), (mkRat (0) 1), (mkRat (-221930581) 19313344512000), (mkRat (0) 1), (mkRat (4722116521) 695280402432000), (mkRat (0) 1), (mkRat (-968383680827) 305923377070080000), (mkRat (0) 1), (mkRat (14717667114151) 11931011705733120000), (mkRat (0) 1), (mkRat (-2093660879252671) 5011024916407910400000)],\n    [(mkRat (-5461) 24908083200), (mkRat (0) 1), (mkRat (929569) 398529331200), (mkRat (0) 1), (mkRat (-3202291) 597793996800), (mkRat (0) 1), (mkRat (221930581) 35867639808000), (mkRat (0) 1), (mkRat (-4722116521) 1004293914624000), (mkRat (0) 1), (mkRat (968383680827) 361545809264640000), (mkRat (0) 1), (mkRat (-14717667114151) 11931011705733120000), (mkRat (0) 1), (mkRat (2093660879252671) 4342888260886855680000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-929569) 2789705318400), (mkRat (0) 1), (mkRat (3202291) 2092278988800), (mkRat (0) 1), (mkRat (-221930581) 83691159552000), (mkRat (0) 1), (mkRat (4722116521) 1757514350592000), (mkRat (0) 1), (mkRat (-968383680827) 506164132970496000), (mkRat (0) 1), (mkRat (14717667114151) 13919513656688640000), (mkRat (0) 1), (mkRat (-2093660879252671) 4342888260886855680000), (mkRat (0) 1), (mkRat (86125672563201181) 456003267393119846400000)],\n    [(mkRat (929569) 41845579776000), (mkRat (0) 1), (mkRat (-3202291) 10461394944000), (mkRat (0) 1), (mkRat (221930581) 251073478656000), (mkRat (0) 1), (mkRat (-4722116521) 3766102179840000), (mkRat (0) 1), (mkRat (968383680827) 843606888284160000), (mkRat (0) 1), (mkRat (-14717667114151) 18981154986393600000), (mkRat (0) 1), (mkRat (2093660879252671) 5011024916407910400000), (mkRat (0) 1), (mkRat (-86125672563201181) 456003267393119846400000), (mkRat (0) 1)]]\n\ndef forsetiQ (k : Gimle.Asgard.Streams.Lowering.Degrees 2) : ℚ := (forsetiTable.getD (k 0) []).getD (k 1) 0\n\ndef forsetiPoint : Fin 2 → ℚ := ![(mkRat (1) 6), (mkRat (-1) 8)]\n\ndef forsetiRoot : Prop :=\n  ∀ a unused v : Gimle.Asgard.Streams.Stream 2,\n      (Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1)).Rel\n        ![a, Gimle.Asgard.Streams.ColeHopf.zeroSlice (Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]), unused] ![v, a] →\n    ∀ x, forsetiBox.Mem x →\n      HasSum (Gimle.Asgard.Streams.seriesTerm .ogf a x)\n        (Gimle.Asgard.Streams.analyticField .ogf a x) ∧\n      Gimle.Asgard.Streams.analyticField .ogf a x ≤ (((mkRat (1) 1) : ℚ) : ℝ)\n\n/-- u is the stream the Burgers circuit at viscosity 1 rebuilds from the t = 0 slice of the Cole–Hopf front −2ν φ_x/φ of the potential Σ cᵢ·e^(aᵢx) given by the pairs (cᵢ, aᵢ), u_t its other output; its series converges at every point of the box, and its sum, the analytic field, stays within the band there. The stream decider refuted it. Goal (stream): stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/6, 1/6], x in [-1/8, 1/8] : u <= 1 -/\ntheorem fast_crosses_one :\n    have circuit := Gimle.Asgard.Streams.Burgers.circuit .ogf 1\n    have slice := Gimle.Asgard.Streams.ColeHopf.zeroSlice\n      (Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)])\n    ∀ u unused u_t : Gimle.Asgard.Streams.Stream 2,\n      circuit.Rel ![u, slice, unused] ![u_t, u] →\n      ∀ t x : ℝ, |t| ≤ 1/6 ∧ |x| ≤ 1/8 →\n        HasSum (Gimle.Asgard.Streams.seriesTerm .ogf u ![t, x])\n          (Gimle.Asgard.Streams.analyticField .ogf u ![t, x]) ∧\n        Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ≤ 1 := by\n  sorry\n\nend Decided_fast_crosses_one",
+      "shared": "",
+      "imports": [
+        "Gimle.Asgard.Streams.ColeHopf"
+      ],
+      "refutation": [
+        "have refuted : ¬ forsetiRoot := by",
+        "  unfold forsetiRoot",
+        "  intro h",
+        "  exact Gimle.Asgard.Streams.ColeHopf.front_above_of_window (hi := ((mkRat (1) 1) : ℚ)) (ε := (mkRat (2134495165562497) 15407021574586368)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) forsetiPoint (by decide +kernel) (by decide +kernel) fun a unused v rel x hx => (h a unused v rel x hx).2",
+        "intro claim",
+        "have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] = Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)] := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1) = Gimle.Asgard.Streams.Burgers.circuit .ogf 1 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/6 ∧ |x| ≤ 1/8 := by",
+        "  intro t x",
+        "  norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]",
+        "have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]",
+        "refine (fun (bridge : _ ↔ forsetiRoot) => refuted (bridge.mp claim)) ?_",
+        "constructor",
+        "· intro claim",
+        "  dsimp only at claim",
+        "  unfold forsetiRoot",
+        "  rw [forsetiFront, forsetiCircuit]",
+        "  intro u unused u_t rel z inside",
+        "  have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl",
+        "  have holds := claim u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))",
+        "  rw [point] at holds",
+        "  set_option linter.unusedSimpArgs false in simp only [forsetiCast0]",
+        "  exact holds",
+        "· intro lane",
+        "  unfold forsetiRoot at lane",
+        "  rw [forsetiFront, forsetiCircuit] at lane",
+        "  dsimp only",
+        "  intro u unused u_t rel t x inside",
+        "  have holds := lane u unused u_t rel ![t, x] ((forsetiInside t x).mpr inside)",
+        "  set_option linter.unusedSimpArgs false in simp only [forsetiCast0] at holds",
+        "  exact holds"
+      ],
+      "artifact": {
+        "artifact": ".BurgersFronts.forseti/artifacts/stream-cc090c03c976b64d01ae9bf1213f99117adf28fcd0a385defb279a51ee53e27a.artifact.json",
+        "goal": ".BurgersFronts.forseti/artifacts/stream-cc090c03c976b64d01ae9bf1213f99117adf28fcd0a385defb279a51ee53e27a.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .BurgersFronts.forseti/artifacts/stream-cc090c03c976b64d01ae9bf1213f99117adf28fcd0a385defb279a51ee53e27a.artifact.json --goal .BurgersFronts.forseti/artifacts/stream-cc090c03c976b64d01ae9bf1213f99117adf28fcd0a385defb279a51ee53e27a.goal.json"
+      },
+      "decided": 1790937023.3755312
+    },
+    {
+      "id": "dc-fast_true_band_small_box-20261002T123039-1c032c",
+      "claim": "fast_true_band_small_box",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/12, 1/12], x in [-1/16, 1/16] : u >= 4/5 and u <= 6/5",
+      "context": "494c55e1302ea321af5e3dc21560878c13810e793803ef1265bff50e5aede756",
+      "started": 1790937039.414623,
+      "ended": 1790937120.3714461,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "intro a unused v rel x hx",
+        "refine ⟨?_, (Gimle.Asgard.Streams.ColeHopf.front_band_of_window (lo := ((mkRat (4) 5) : ℚ)) (hi := ((mkRat (6) 5) : ℚ)) (ε := (mkRat (2134495165562497) 5048572829560461066240)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) (by decide +kernel) (by decide +kernel) a unused v rel x hx)⟩",
+        "have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]) ≠ 0 := by",
+        "  rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]",
+        "  decide +kernel",
+        "simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel",
+        "rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 1) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 1) : ℚ) _) a unused v rel]",
+        "exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/FieldClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "window",
+          "outcome": "found",
+          "detail": "ρ = 1, inverse radii (r_t, r_x) = (1/2, 1/3), window 16 × 16, certified error 2134495165562497/5048572829560461066240; the window bounds u within [≈ 0.9270, ≈ 1.0730] on the box",
+          "search_ms": 197,
+          "check": "validated",
+          "check_ms": 80620,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_fast_true_band_small_box\n\ndef forsetiBox : Gimle.Asgard.Streams.Box 2 :=\n  ⟨![(mkRat (1) 12), (mkRat (1) 16)], by decide +kernel⟩\n\ndef forsetiRadii : Fin 2 → ℚ := ![(mkRat (1) 2), (mkRat (1) 3)]\n\ndef forsetiTable : List (List ℚ) := [\n    [(mkRat (1) 2), (mkRat (1) 4), (mkRat (0) 1), (mkRat (-1) 48), (mkRat (0) 1), (mkRat (1) 480), (mkRat (0) 1), (mkRat (-17) 80640), (mkRat (0) 1), (mkRat (31) 1451520), (mkRat (0) 1), (mkRat (-691) 319334400), (mkRat (0) 1), (mkRat (5461) 24908083200), (mkRat (0) 1), (mkRat (-929569) 41845579776000)],\n    [(mkRat (-1) 4), (mkRat (0) 1), (mkRat (1) 16), (mkRat (0) 1), (mkRat (-1) 96), (mkRat (0) 1), (mkRat (17) 11520), (mkRat (0) 1), (mkRat (-31) 161280), (mkRat (0) 1), (mkRat (691) 29030400), (mkRat (0) 1), (mkRat (-5461) 1916006400), (mkRat (0) 1), (mkRat (929569) 2789705318400), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-1) 16), (mkRat (0) 1), (mkRat (1) 48), (mkRat (0) 1), (mkRat (-17) 3840), (mkRat (0) 1), (mkRat (31) 40320), (mkRat (0) 1), (mkRat (-691) 5806080), (mkRat (0) 1), (mkRat (5461) 319334400), (mkRat (0) 1), (mkRat (-929569) 398529331200), (mkRat (0) 1), (mkRat (3202291) 10461394944000)],\n    [(mkRat (1) 48), (mkRat (0) 1), (mkRat (-1) 48), (mkRat (0) 1), (mkRat (17) 2304), (mkRat (0) 1), (mkRat (-31) 17280), (mkRat (0) 1), (mkRat (691) 1935360), (mkRat (0) 1), (mkRat (-5461) 87091200), (mkRat (0) 1), (mkRat (929569) 91968307200), (mkRat (0) 1), (mkRat (-3202291) 2092278988800), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (1) 96), (mkRat (0) 1), (mkRat (-17) 2304), (mkRat (0) 1), (mkRat (31) 11520), (mkRat (0) 1), (mkRat (-691) 967680), (mkRat (0) 1), (mkRat (5461) 34836480), (mkRat (0) 1), (mkRat (-929569) 30656102400), (mkRat (0) 1), (mkRat (3202291) 597793996800), (mkRat (0) 1), (mkRat (-221930581) 251073478656000)],\n    [(mkRat (-1) 480), (mkRat (0) 1), (mkRat (17) 3840), (mkRat (0) 1), (mkRat (-31) 11520), (mkRat (0) 1), (mkRat (691) 691200), (mkRat (0) 1), (mkRat (-5461) 19353600), (mkRat (0) 1), (mkRat (929569) 13934592000), (mkRat (0) 1), (mkRat (-3202291) 229920768000), (mkRat (0) 1), (mkRat (221930581) 83691159552000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-17) 11520), (mkRat (0) 1), (mkRat (31) 17280), (mkRat (0) 1), (mkRat (-691) 691200), (mkRat (0) 1), (mkRat (5461) 14515200), (mkRat (0) 1), (mkRat (-929569) 8360755200), (mkRat (0) 1), (mkRat (3202291) 114960384000), (mkRat (0) 1), (mkRat (-221930581) 35867639808000), (mkRat (0) 1), (mkRat (4722116521) 3766102179840000)],\n    [(mkRat (17) 80640), (mkRat (0) 1), (mkRat (-31) 40320), (mkRat (0) 1), (mkRat (691) 967680), (mkRat (0) 1), (mkRat (-5461) 14515200), (mkRat (0) 1), (mkRat (929569) 6502809600), (mkRat (0) 1), (mkRat (-3202291) 73156608000), (mkRat (0) 1), (mkRat (221930581) 19313344512000), (mkRat (0) 1), (mkRat (-4722116521) 1757514350592000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (31) 161280), (mkRat (0) 1), (mkRat (-691) 1935360), (mkRat (0) 1), (mkRat (5461) 19353600), (mkRat (0) 1), (mkRat (-929569) 6502809600), (mkRat (0) 1), (mkRat (3202291) 58525286400), (mkRat (0) 1), (mkRat (-221930581) 12875563008000), (mkRat (0) 1), (mkRat (4722116521) 1004293914624000), (mkRat (0) 1), (mkRat (-968383680827) 843606888284160000)],\n    [(mkRat (-31) 1451520), (mkRat (0) 1), (mkRat (691) 5806080), (mkRat (0) 1), (mkRat (-5461) 34836480), (mkRat (0) 1), (mkRat (929569) 8360755200), (mkRat (0) 1), (mkRat (-3202291) 58525286400), (mkRat (0) 1), (mkRat (221930581) 10534551552000), (mkRat (0) 1), (mkRat (-4722116521) 695280402432000), (mkRat (0) 1), (mkRat (968383680827) 506164132970496000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-691) 29030400), (mkRat (0) 1), (mkRat (5461) 87091200), (mkRat (0) 1), (mkRat (-929569) 13934592000), (mkRat (0) 1), (mkRat (3202291) 73156608000), (mkRat (0) 1), (mkRat (-221930581) 10534551552000), (mkRat (0) 1), (mkRat (4722116521) 579400335360000), (mkRat (0) 1), (mkRat (-968383680827) 361545809264640000), (mkRat (0) 1), (mkRat (14717667114151) 18981154986393600000)],\n    [(mkRat (691) 319334400), (mkRat (0) 1), (mkRat (-5461) 319334400), (mkRat (0) 1), (mkRat (929569) 30656102400), (mkRat (0) 1), (mkRat (-3202291) 114960384000), (mkRat (0) 1), (mkRat (221930581) 12875563008000), (mkRat (0) 1), (mkRat (-4722116521) 579400335360000), (mkRat (0) 1), (mkRat (968383680827) 305923377070080000), (mkRat (0) 1), (mkRat (-14717667114151) 13919513656688640000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (5461) 1916006400), (mkRat (0) 1), (mkRat (-929569) 91968307200), (mkRat (0) 1), (mkRat (3202291) 229920768000), (mkRat (0) 1), (mkRat (-221930581) 19313344512000), (mkRat (0) 1), (mkRat (4722116521) 695280402432000), (mkRat (0) 1), (mkRat (-968383680827) 305923377070080000), (mkRat (0) 1), (mkRat (14717667114151) 11931011705733120000), (mkRat (0) 1), (mkRat (-2093660879252671) 5011024916407910400000)],\n    [(mkRat (-5461) 24908083200), (mkRat (0) 1), (mkRat (929569) 398529331200), (mkRat (0) 1), (mkRat (-3202291) 597793996800), (mkRat (0) 1), (mkRat (221930581) 35867639808000), (mkRat (0) 1), (mkRat (-4722116521) 1004293914624000), (mkRat (0) 1), (mkRat (968383680827) 361545809264640000), (mkRat (0) 1), (mkRat (-14717667114151) 11931011705733120000), (mkRat (0) 1), (mkRat (2093660879252671) 4342888260886855680000), (mkRat (0) 1)],\n    [(mkRat (0) 1), (mkRat (-929569) 2789705318400), (mkRat (0) 1), (mkRat (3202291) 2092278988800), (mkRat (0) 1), (mkRat (-221930581) 83691159552000), (mkRat (0) 1), (mkRat (4722116521) 1757514350592000), (mkRat (0) 1), (mkRat (-968383680827) 506164132970496000), (mkRat (0) 1), (mkRat (14717667114151) 13919513656688640000), (mkRat (0) 1), (mkRat (-2093660879252671) 4342888260886855680000), (mkRat (0) 1), (mkRat (86125672563201181) 456003267393119846400000)],\n    [(mkRat (929569) 41845579776000), (mkRat (0) 1), (mkRat (-3202291) 10461394944000), (mkRat (0) 1), (mkRat (221930581) 251073478656000), (mkRat (0) 1), (mkRat (-4722116521) 3766102179840000), (mkRat (0) 1), (mkRat (968383680827) 843606888284160000), (mkRat (0) 1), (mkRat (-14717667114151) 18981154986393600000), (mkRat (0) 1), (mkRat (2093660879252671) 5011024916407910400000), (mkRat (0) 1), (mkRat (-86125672563201181) 456003267393119846400000), (mkRat (0) 1)]]\n\ndef forsetiQ (k : Gimle.Asgard.Streams.Lowering.Degrees 2) : ℚ := (forsetiTable.getD (k 0) []).getD (k 1) 0\n\ndef forsetiRoot : Prop :=\n  ∀ a unused v : Gimle.Asgard.Streams.Stream 2,\n      (Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1)).Rel\n        ![a, Gimle.Asgard.Streams.ColeHopf.zeroSlice (Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]), unused] ![v, a] →\n    ∀ x, forsetiBox.Mem x →\n      HasSum (Gimle.Asgard.Streams.seriesTerm .ogf a x)\n        (Gimle.Asgard.Streams.analyticField .ogf a x) ∧\n      (((mkRat (4) 5) : ℚ) : ℝ) ≤ Gimle.Asgard.Streams.analyticField .ogf a x ∧ Gimle.Asgard.Streams.analyticField .ogf a x ≤ (((mkRat (6) 5) : ℚ) : ℝ)\n\n/-- u is the stream the Burgers circuit at viscosity 1 rebuilds from the t = 0 slice of the Cole–Hopf front −2ν φ_x/φ of the potential Σ cᵢ·e^(aᵢx) given by the pairs (cᵢ, aᵢ), u_t its other output; its series converges at every point of the box, and its sum, the analytic field, stays within the band there. The stream decider proved it. Goal (stream): stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/12, 1/12], x in [-1/16, 1/16] : u >= 4/5 and u <= 6/5 -/\ntheorem fast_true_band_small_box :\n    have circuit := Gimle.Asgard.Streams.Burgers.circuit .ogf 1\n    have slice := Gimle.Asgard.Streams.ColeHopf.zeroSlice\n      (Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)])\n    ∀ u unused u_t : Gimle.Asgard.Streams.Stream 2,\n      circuit.Rel ![u, slice, unused] ![u_t, u] →\n      ∀ t x : ℝ, |t| ≤ 1/12 ∧ |x| ≤ 1/16 →\n        HasSum (Gimle.Asgard.Streams.seriesTerm .ogf u ![t, x])\n          (Gimle.Asgard.Streams.analyticField .ogf u ![t, x]) ∧\n        4/5 ≤ Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ∧\n        Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ≤ 6/5 := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    intro a unused v rel x hx\n    refine ⟨?_, (Gimle.Asgard.Streams.ColeHopf.front_band_of_window (lo := ((mkRat (4) 5) : ℚ)) (hi := ((mkRat (6) 5) : ℚ)) (ε := (mkRat (2134495165562497) 5048572829560461066240)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) (by decide +kernel) (by decide +kernel) a unused v rel x hx)⟩\n    have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 1) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))]) ≠ 0 := by\n      rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]\n      decide +kernel\n    simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel\n    rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 1) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 1) : ℚ) _) a unused v rel]\n    exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx\n  have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] = Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)] := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1) = Gimle.Asgard.Streams.Burgers.circuit .ogf 1 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/12 ∧ |x| ≤ 1/16 := by\n    intro t x\n    norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (4) 5) : ℚ) : ℝ) = (4/5) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (6) 5) : ℚ) : ℝ) = (6/5) := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot\n    rw [forsetiFront, forsetiCircuit]\n    intro u unused u_t rel z inside\n    have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl\n    have holds := claim u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))\n    rw [point] at holds\n    set_option linter.unusedSimpArgs false in simp only [forsetiCast0, forsetiCast1]\n    exact holds\n  · intro lane\n    unfold forsetiRoot at lane\n    rw [forsetiFront, forsetiCircuit] at lane\n    dsimp only\n    intro u unused u_t rel t x inside\n    have holds := lane u unused u_t rel ![t, x] ((forsetiInside t x).mpr inside)\n    set_option linter.unusedSimpArgs false in simp only [forsetiCast0, forsetiCast1] at holds\n    exact holds\n\nend Decided_fast_true_band_small_box",
+      "shared": "",
+      "imports": [
+        "Gimle.Asgard.Streams.ColeHopf"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".BurgersFronts.forseti/artifacts/stream-57d2457da0a11f0829b752f9fae0400576718245d4455321508691ce53d02d08.artifact.json",
+        "goal": ".BurgersFronts.forseti/artifacts/stream-57d2457da0a11f0829b752f9fae0400576718245d4455321508691ce53d02d08.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .BurgersFronts.forseti/artifacts/stream-57d2457da0a11f0829b752f9fae0400576718245d4455321508691ce53d02d08.artifact.json --goal .BurgersFronts.forseti/artifacts/stream-57d2457da0a11f0829b752f9fae0400576718245d4455321508691ce53d02d08.goal.json"
+      },
+      "decided": 1790937241.9117014
+    },
+    {
+      "id": "dc-two_exponentials_band-20261002T123414-bee65c",
+      "claim": "two_exponentials_band",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1/2 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1], [1, -2] field u over t in [-1/16, 1/16], x in [-1/16, 1/16] : u >= 1/2 and u <= 3/2",
+      "context": "c51dc5e2b5a0d7bf7013bfd790bfba85fb82255f24e8fb204c67aac1ea95b63a",
+      "started": 1790937254.2959673,
+      "ended": 1790937345.907814,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "intro a unused v rel x hx",
+        "refine ⟨?_, (Gimle.Asgard.Streams.ColeHopf.front_band_of_window (lo := ((mkRat (1) 2) : ℚ)) (hi := ((mkRat (3) 2) : ℚ)) (ε := (mkRat (43046721) 134217728)) (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) (by decide +kernel) (by decide +kernel) a unused v rel x hx)⟩",
+        "have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 2) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))]) ≠ 0 := by",
+        "  rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]",
+        "  decide +kernel",
+        "simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel",
+        "rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 2) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 2) : ℚ) _) a unused v rel]",
+        "exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/FieldClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "window",
+          "outcome": "found",
+          "detail": "ρ = 1/2, inverse radii (r_t, r_x) = (1/6, 1/6), window 16 × 16, certified error 43046721/134217728; the window bounds u within [≈ 0.5948, ≈ 1.4052] on the box",
+          "search_ms": 264,
+          "check": "validated",
+          "check_ms": 91167,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_two_exponentials_band\n\ndef forsetiBox : Gimle.Asgard.Streams.Box 2 :=\n  ⟨![(mkRat (1) 16), (mkRat (1) 16)], by decide +kernel⟩\n\ndef forsetiRadii : Fin 2 → ℚ := ![(mkRat (1) 6), (mkRat (1) 6)]\n\ndef forsetiTable : List (List ℚ) := [\n    [(mkRat (1) 3), (mkRat (1) 3), (mkRat (1) 18), (mkRat (-1) 18), (mkRat (-1) 72), (mkRat (13) 1080), (mkRat (7) 2160), (mkRat (-41) 15120), (mkRat (-809) 1088640), (mkRat (671) 1088640), (mkRat (1847) 10886400), (mkRat (-50443) 359251200), (mkRat (-7943) 205286400), (mkRat (597871) 18681062400), (mkRat (6921461) 784604620800), (mkRat (-28621321) 3923023104000)],\n    [(mkRat (-5) 18), (mkRat (-1) 18), (mkRat (17) 108), (mkRat (1) 36), (mkRat (-79) 1296), (mkRat (-7) 720), (mkRat (259) 12960), (mkRat (809) 272160), (mkRat (-39037) 6531840), (mkRat (-1847) 2177280), (mkRat (330937) 195955200), (mkRat (7943) 34214400), (mkRat (-566099) 1231718400), (mkRat (-6921461) 112086374400), (mkRat (573361897) 4707627724800), (mkRat (126235201) 7846046208000)],\n    [(mkRat (-1) 216), (mkRat (-11) 72), (mkRat (-1) 432), (mkRat (53) 432), (mkRat (7) 5184), (mkRat (-59) 960), (mkRat (-163) 466560), (mkRat (26959) 1088640), (mkRat (1061) 26127360), (mkRat (-230051) 26127360), (mkRat (1337) 111974400), (mkRat (27949) 9676800), (mkRat (-1081433) 103464345600), (mkRat (-401633971) 448345497600), (mkRat (90621439) 18830510899200), (mkRat (75319134959) 282457663488000)],\n    [(mkRat (65) 1296), (mkRat (-31) 1296), (mkRat (-949) 7776), (mkRat (217) 7776), (mkRat (3185) 31104), (mkRat (-8893) 466560), (mkRat (-161989) 2799360), (mkRat (194171) 19595520), (mkRat (2489045) 94058496), (mkRat (-292633) 67184640), (mkRat (-7126049) 671846400), (mkRat (88464697) 51732172800), (mkRat (482460893) 124157214720), (mkRat (-4997574431) 8070218956800), (mkRat (-104333480939) 78219045273600), (mkRat (153333509773) 726319706112000)],\n    [(mkRat (389) 31104), (mkRat (1861) 31104), (mkRat (-8057) 186624), (mkRat (-6209) 62208), (mkRat (108511) 2239488), (mkRat (104647) 1244160), (mkRat (-2340937) 67184640), (mkRat (-23984761) 470292480), (mkRat (31454699) 1612431360), (mkRat (13663601) 537477120), (mkRat (-1048823539) 112870195200), (mkRat (-511599961) 45984153600), (mkRat (58906784917) 14898865766400), (mkRat (2578485580703) 581055764889600), (mkRat (-5396628871213) 3486334589337600), (mkRat (-9594041874101) 5810557648896000)],\n    [(mkRat (-2155) 186624), (mkRat (2737) 103680), (mkRat (105953) 1866240), (mkRat (-109493) 1866240), (mkRat (-1760231) 22394880), (mkRat (2345731) 37324800), (mkRat (132777779) 2015539200), (mkRat (-10449299) 223948800), (mkRat (-4711968293) 112870195200), (mkRat (1040620817) 37623398400), (mkRat (24955365611) 1128701952000), (mkRat (-58228511431) 4138573824000), (mkRat (-13854001305493) 1340897918976000), (mkRat (590839526551) 92231073792000), (mkRat (97659962797529) 22185765568512000), (mkRat (-363586522111031) 135579678474240000)],\n    [(mkRat (-67249) 11197440), (mkRat (-194257) 11197440), (mkRat (2655413) 67184640), (mkRat (3143671) 67184640), (mkRat (-18805697) 268738560), (mkRat (-231666691) 4031078400), (mkRat (1747818373) 24186470400), (mkRat (1150123459) 24186470400), (mkRat (-74194079731) 1354442342400), (mkRat (-41846539579) 1354442342400), (mkRat (459140403437) 13544423424000), (mkRat (22845467011013) 1340897918976000), (mkRat (-41759547742853) 2298682146816000), (mkRat (-249314910121733) 29882867908608000), (mkRat (25605825354387493) 2928521055043584000), (mkRat (18222778309534157) 4880868425072640000)],\n    [(mkRat (204319) 94058496), (mkRat (-6731477) 470292480), (mkRat (-47339063) 2821754880), (mkRat (15715531) 313528320), (mkRat (222798797) 6772211712), (mkRat (-206861137) 2687385600), (mkRat (-5311512449) 145118822400), (mkRat (183064443859) 2370274099200), (mkRat (66986517209) 2275463135232), (mkRat (-375239602351) 6320730931200), (mkRat (-98059737739223) 5119792054272000), (mkRat (33938806530359) 893931945984000), (mkRat (207121757113259) 19308930033254400), (mkRat (-62122655800657477) 2928521055043584000), (mkRat (-220281320463897101) 40999294770610176000), (mkRat (18725483104138669) 1752106614128640000)],\n    [(mkRat (49370023) 22574039040), (mkRat (23625229) 7524679680), (mkRat (-340769771) 15049359360), (mkRat (-507212123) 45148078080), (mkRat (1478260859) 25798901760), (mkRat (15361505149) 902961561600), (mkRat (-1295650420433) 16253308108800), (mkRat (-624008973163) 37924385587200), (mkRat (23701151184173) 303395084697600), (mkRat (32738023743469) 2730555762278400), (mkRat (-236408132852893) 3900793946112000), (mkRat (-2152916539335803) 300361133850624000), (mkRat (429842146364522999) 10813000818622464000), (mkRat (5247024878092733) 1419888996384768000), (mkRat (-1674267140186665699) 72887635147751424000), (mkRat (-5559553451179390681) 3279943581648814080000)],\n    [(mkRat (-5500417) 27088846848), (mkRat (799358059) 135444234240), (mkRat (1296945577) 812665405440), (mkRat (-3417421051) 116095057920), (mkRat (-120910411) 51597803520), (mkRat (2958193985617) 48759924326400), (mkRat (5659311131) 10835538739200), (mkRat (-53522101136557) 682638940569600), (mkRat (119114770539763) 49150003721011200), (mkRat (528631445772317) 7021429103001600), (mkRat (-100495064075081) 23404763676672000), (mkRat (-952687832916580471) 16219501227933696000), (mkRat (289577464850388907) 64878004911734784000), (mkRat (334651624925838601) 8519333978308608000), (mkRat (-42009279725078015981) 11807796893935730688000), (mkRat (-28098087241300700831) 1204877234075074560000)],\n    [(mkRat (-5521185401) 8126654054400), (mkRat (1631604647) 8126654054400), (mkRat (69524113211) 6965703475200), (mkRat (-5729723981) 2321901158400), (mkRat (-19745601469339) 585119091916800), (mkRat (2736223336829) 325066162176000), (mkRat (352241626620239) 5851190919168000), (mkRat (-1901397622681603) 122875009302528000), (mkRat (-30913605337360471) 421285746180096000), (mkRat (390750836038141) 20061226008576000), (mkRat (6118569297849271357) 88470006697820160000), (mkRat (-2045720222422980667) 108130008186224640000), (mkRat (-70176382889478881251) 1297560098234695680000), (mkRat (256449860732282794589) 16868281277051043840000), (mkRat (3713276666716143528857) 101209687662306263040000), (mkRat (-1782581697050336844127) 168682812770510438400000)],\n    [(mkRat (-8008258217) 107271833518080), (mkRat (-51470619593) 25540912742400), (mkRat (1896825400091) 1072718335180800), (mkRat (14329658648297) 1072718335180800), (mkRat (-21755185952089) 2574524004433920), (mkRat (-83682221616439) 2383818522624000), (mkRat (22899554267143553) 1158535801995264000), (mkRat (21669322142450173) 386178600665088000), (mkRat (-15613619557101395) 519024039293878272), (mkRat (-4223539199340742751) 64878004911734784000), (mkRat (66564104068457175611) 1946340147352043520000), (mkRat (47757713693803671553) 792953393365647360000), (mkRat (-538536352945951416467) 17127793296697982976000), (mkRat (-356278562971156699733) 7573514042757611520000), (mkRat (383195862702130303378457) 15586291899995164508160000), (mkRat (22590428568986400280415051) 701383135499782402867200000)],\n    [(mkRat (338092725347) 1838945717452800), (mkRat (-84895787447) 167176883404800), (mkRat (-275388600241417) 77235720133017600), (mkRat (354601316679373) 77235720133017600), (mkRat (4713855682482437) 308942880532070400), (mkRat (-71891090842088017) 4634143207981056000), (mkRat (-132697210271365471) 3972122749698048000), (mkRat (121620977354142311) 3972122749698048000), (mkRat (228022896591570109693) 4671216353644904448000), (mkRat (-198899146361907791659) 4671216353644904448000), (mkRat (-2528580265185225666659) 46712163536449044480000), (mkRat (718728734231583452941) 15570721178816348160000), (mkRat (14403604113572605316177) 293619313657679708160000), (mkRat (-158393189379459788752399) 3817051077549836206080000), (mkRat (-29588024735401124474386967) 776916703938220507791360000), (mkRat (1627570164679007756483137879) 50499585755984333006438400000)],\n    [(mkRat (11662766762917) 200812872345845760), (mkRat (577388306538313) 1004064361729228800), (mkRat (-9198986649306221) 6024386170375372800), (mkRat (-9589113369549893) 2008128723458457600), (mkRat (607195761637150267) 72292634044504473600), (mkRat (87377313837234613) 5737510638452736000), (mkRat (-7056266541996574843) 309825574476447744000), (mkRat (-437717370750049215037) 15181453149345939456000), (mkRat (14606082005171235464801) 364354875584302546944000), (mkRat (429079958979017968201) 11041056835887955968000), (mkRat (-63649516708765532662309) 1214516251947675156480000), (mkRat (-95825551969580814721) 2330312013156188160000), (mkRat (1260379551304975984852709) 22902306465299017236480000), (mkRat (680193413113890586157580779) 18756988995079895116677120000), (mkRat (-38454013630558366206389632183) 787793537793355594900439040000), (mkRat (-36408948706106228528481202079) 1312989229655592658167398400000)],\n    [(mkRat (-3566079404486147) 84341406385255219200), (mkRat (2754616292751221) 9371267376139468800), (mkRat (170688929235688133) 168682812770510438400), (mkRat (-535426741176382169) 168682812770510438400), (mkRat (-1492996569356786933) 289170536178017894400), (mkRat (42871563624736424623) 3373656255410208768000), (mkRat (2390309078904316774079) 182177437792151273472000), (mkRat (-1389263167233871909123) 47231187575742922752000), (mkRat (-222104903540532471843113) 10201936516360471314432000), (mkRat (53821511103745914962887) 1133548501817830146048000), (mkRat (14529624897137467560259) 539785000865633402880000), (mkRat (-7378456840336538921829041) 124690335199961316065280000), (mkRat (-3245210687058782647124997433) 121199005814362399215452160000), (mkRat (10612984696565534766907454543) 175065230620745687755653120000), (mkRat (496509644560980183110049211039) 22058219058213956657212293120000), (mkRat (-1957104283251206122245371032169) 36763698430356594428687155200000)],\n    [(mkRat (-197071793465713) 7785360589408174080), (mkRat (-326310427039894117) 2530242191557656576000), (mkRat (941702021213083709) 1167804088411226112000), (mkRat (2686896956354371477) 2168779021335134208000), (mkRat (-64310725840899641) 12133029489986764800), (mkRat (-4019816473627806222751) 910887188960756367360000), (mkRat (92606518891900180385737) 5465323133764538204160000), (mkRat (345728641557728073206857) 38257261936351767429120000), (mkRat (-32707835260230461865587) 941717216894812736716800), (mkRat (-8861953765357516456079) 694009286827242946560000), (mkRat (692978497624232447169383) 13249268203065547161600000), (mkRat (4154267476262986560102417497) 302997514535905998038630400000), (mkRat (-45565463486901024045346934467) 727194034886174395292712960000), (mkRat (-559109398892749095864825351551) 47267612267601335694026342400000), (mkRat (290922828414002823463112298439) 4627598403821109788226355200000), (mkRat (3999603031417317977291355828997) 472676122676013356940263424000000)]]\n\ndef forsetiQ (k : Gimle.Asgard.Streams.Lowering.Degrees 2) : ℚ := (forsetiTable.getD (k 0) []).getD (k 1) 0\n\ndef forsetiRoot : Prop :=\n  ∀ a unused v : Gimle.Asgard.Streams.Stream 2,\n      (Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 2)).Rel\n        ![a, Gimle.Asgard.Streams.ColeHopf.zeroSlice (Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 2) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))]), unused] ![v, a] →\n    ∀ x, forsetiBox.Mem x →\n      HasSum (Gimle.Asgard.Streams.seriesTerm .ogf a x)\n        (Gimle.Asgard.Streams.analyticField .ogf a x) ∧\n      (((mkRat (1) 2) : ℚ) : ℝ) ≤ Gimle.Asgard.Streams.analyticField .ogf a x ∧ Gimle.Asgard.Streams.analyticField .ogf a x ≤ (((mkRat (3) 2) : ℚ) : ℝ)\n\n/-- u is the stream the Burgers circuit at viscosity 1/2 rebuilds from the t = 0 slice of the Cole–Hopf front −2ν φ_x/φ of the potential Σ cᵢ·e^(aᵢx) given by the pairs (cᵢ, aᵢ), u_t its other output; its series converges at every point of the box, and its sum, the analytic field, stays within the band there. The stream decider proved it. Goal (stream): stream burgers viscosity 1/2 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1], [1, -2] field u over t in [-1/16, 1/16], x in [-1/16, 1/16] : u >= 1/2 and u <= 3/2 -/\ntheorem two_exponentials_band :\n    have circuit := Gimle.Asgard.Streams.Burgers.circuit .ogf (1/2)\n    have slice := Gimle.Asgard.Streams.ColeHopf.zeroSlice\n      (Gimle.Asgard.Streams.ColeHopf.front (1/2) [(1, 0), (1, -1), (1, -2)])\n    ∀ u unused u_t : Gimle.Asgard.Streams.Stream 2,\n      circuit.Rel ![u, slice, unused] ![u_t, u] →\n      ∀ t x : ℝ, |t| ≤ 1/16 ∧ |x| ≤ 1/16 →\n        HasSum (Gimle.Asgard.Streams.seriesTerm .ogf u ![t, x])\n          (Gimle.Asgard.Streams.analyticField .ogf u ![t, x]) ∧\n        1/2 ≤ Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ∧\n        Gimle.Asgard.Streams.analyticField .ogf u ![t, x] ≤ 3/2 := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    intro a unused v rel x hx\n    refine ⟨?_, (Gimle.Asgard.Streams.ColeHopf.front_band_of_window (lo := ((mkRat (1) 2) : ℚ)) (hi := ((mkRat (3) 2) : ℚ)) (ε := (mkRat (43046721) 134217728)) (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) (by decide +kernel) (by decide +kernel) a unused v rel x hx)⟩\n    have hc : MvPowerSeries.constantCoeff (Gimle.Asgard.Streams.ColeHopf.expSumHeat ((mkRat (1) 2) : ℚ) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))]) ≠ 0 := by\n      rw [Gimle.Asgard.Streams.ColeHopf.constantCoeff_expSumHeat]\n      decide +kernel\n    simp only [Gimle.Asgard.Streams.ColeHopf.front] at rel\n    rw [Gimle.Asgard.Streams.ColeHopf.candidate_quotient ((mkRat (1) 2) : ℚ) _ hc (Gimle.Asgard.Streams.ColeHopf.heatSeries_pde ((mkRat (1) 2) : ℚ) _) a unused v rel]\n    exact (Gimle.Asgard.Streams.ColeHopf.certificate (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 2) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel)).hasSum hx\n  have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 2) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1)), ((mkRat (1) 1), (mkRat (-2) 1))] = Gimle.Asgard.Streams.ColeHopf.front (1/2) [(1, 0), (1, -1), (1, -2)] := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 2) = Gimle.Asgard.Streams.Burgers.circuit .ogf (1/2) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/16 ∧ |x| ≤ 1/16 := by\n    intro t x\n    norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1) 2) : ℚ) : ℝ) = (1/2) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (3) 2) : ℚ) : ℝ) = (3/2) := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot\n    rw [forsetiFront, forsetiCircuit]\n    intro u unused u_t rel z inside\n    have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl\n    have holds := claim u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))\n    rw [point] at holds\n    set_option linter.unusedSimpArgs false in simp only [forsetiCast0, forsetiCast1]\n    exact holds\n  · intro lane\n    unfold forsetiRoot at lane\n    rw [forsetiFront, forsetiCircuit] at lane\n    dsimp only\n    intro u unused u_t rel t x inside\n    have holds := lane u unused u_t rel ![t, x] ((forsetiInside t x).mpr inside)\n    set_option linter.unusedSimpArgs false in simp only [forsetiCast0, forsetiCast1] at holds\n    exact holds\n\nend Decided_two_exponentials_band",
+      "shared": "",
+      "imports": [
+        "Gimle.Asgard.Streams.ColeHopf"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".BurgersFronts.forseti/artifacts/stream-354c46597deaba4fa15533a0b7d4cb1ddac1b6e768036fd32fcad4509c3fdf5c.artifact.json",
+        "goal": ".BurgersFronts.forseti/artifacts/stream-354c46597deaba4fa15533a0b7d4cb1ddac1b6e768036fd32fcad4509c3fdf5c.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .BurgersFronts.forseti/artifacts/stream-354c46597deaba4fa15533a0b7d4cb1ddac1b6e768036fd32fcad4509c3fdf5c.artifact.json --goal .BurgersFronts.forseti/artifacts/stream-354c46597deaba4fa15533a0b7d4cb1ddac1b6e768036fd32fcad4509c3fdf5c.goal.json"
+      },
+      "decided": 1790937483.000952
+    },
+    {
+      "id": "dc-two_exponentials_large_box-20261002T123817-567f45",
+      "claim": "two_exponentials_large_box",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1/2 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1], [1, -2] field u over t in [-1/6, 1/6], x in [-1/8, 1/8] : u >= 1/2 and u <= 3/2",
+      "context": "1516c684e83f4bcbe178c727d30e20ae1e3344211226d67edebb6165780ec89d",
+      "started": 1790937497.2386296,
+      "ended": 1790937497.242267,
+      "state": "finished",
+      "outcome": "unknown",
+      "reason": "not decided (exhausted); this is not a refutation",
+      "script": [],
+      "axioms": [],
+      "hints": [],
+      "status": "UNKNOWN",
+      "decision_reason": "exhausted",
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/FieldClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "window",
+          "outcome": "none",
+          "detail": "the inverse of the potential is majorized at no radii on the grid below the heat radii (ρ²/ν, ρ) = (1/2, 1/2) that hold the box: its rest weight Σ |cᵢ| over aᵢ ≠ 0 is 2 against the constant term 3",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        }
+      ]
+    },
+    {
+      "id": "dc-fast_band_large_box-20261002T125134-4ee581",
+      "claim": "fast_band_large_box",
+      "mode": "decide",
+      "goal": "stream burgers viscosity 1 interpretation analytic-field basis ogf potential exponentials [1, 0], [1, -1] field u over t in [-1/6, 1/6], x in [-1/8, 1/8] : u >= 4/5 and u <= 6/5",
+      "context": "9d0674a11a65f491451e4a03663bd4acac437f16734fe41bd979cc2fea066c53",
+      "started": 1790938294.0332167,
+      "ended": 1790938294.1706407,
+      "state": "finished",
+      "outcome": "unknown",
+      "reason": "not decided (exhausted); this is not a refutation",
+      "script": [],
+      "axioms": [],
+      "hints": [],
+      "status": "UNKNOWN",
+      "decision_reason": "exhausted",
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "burgers/FieldClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "window",
+          "outcome": "none",
+          "detail": "the window at 16×16 bounds u within [≈ 0.7146, ≈ 1.2854] on the box (spread ≈ 0.1469, ε = 2134495165562497/15407021574586368); the claim asks [4/5, 6/5], and neither the corners nor the centre of the box leave it by more than ε, so no proof and no refutation; a smaller box would tighten the bound",
+          "search_ms": 134,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        }
+      ]
+    }
+  ],
+  "revisions": [
+    {
+      "added": [
+        "fast_truncation"
+      ],
+      "removed": [],
+      "context_changed": [],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 1,
+      "time": 1790936661.288666,
+      "action": "accept",
+      "label": "fast_truncation: decided claim inserted from run dc-fast_truncation-20261002T122353-1786c4",
+      "sha256": "f6b56f528cd33df6285e10990f77680d1b2cb85f9576baa2ccf2427225749bb4"
+    },
+    {
+      "added": [
+        "fast_band"
+      ],
+      "removed": [],
+      "context_changed": [],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 2,
+      "time": 1790936871.9837952,
+      "action": "accept",
+      "label": "fast_band: decided claim inserted from run dc-fast_band-20261002T122430-4886d7",
+      "sha256": "3ab5caab506b105d75b827dcfc4e532e7cef8b1fd31a14c35ebb83ff1a3c0dfb"
+    },
+    {
+      "added": [
+        "fast_crosses_one"
+      ],
+      "removed": [],
+      "context_changed": [],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 3,
+      "time": 1790937023.3747954,
+      "action": "accept",
+      "label": "fast_crosses_one: decided claim inserted from run dc-fast_crosses_one-20261002T122801-e34d8d",
+      "sha256": "ad714765ad3aa1cb9971ede699b402a0540336bd71b1c040b5aa1344c4570e44"
+    },
+    {
+      "added": [
+        "fast_true_band_small_box"
+      ],
+      "removed": [],
+      "context_changed": [],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 4,
+      "time": 1790937241.9108174,
+      "action": "accept",
+      "label": "fast_true_band_small_box: decided claim inserted from run dc-fast_true_band_small_box-20261002T123039-1c032c",
+      "sha256": "33d8722b3002879fde60f8b2925d88331aa8f3f3d96276cd6fb447c73122b219"
+    },
+    {
+      "added": [
+        "two_exponentials_band"
+      ],
+      "removed": [],
+      "context_changed": [],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 5,
+      "time": 1790937482.9998007,
+      "action": "accept",
+      "label": "two_exponentials_band: decided claim inserted from run dc-two_exponentials_band-20261002T123414-bee65c",
+      "sha256": "fd17d98d853e111d9ba28bb689c8e5efda05a2db968773b4feb8f7d64bd36e3d"
+    }
+  ],
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "fast_truncation": {
+      "context": "41b890dba9e33ad012c1e44ab497cce2b965dd79a88bafe5a3a859b62c7721ea",
+      "proof": "6dc3b7ef46211de3321662d71c9235d1cf7a926f856ba86eda58c823563f902e",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "59f2c8987a946e7f27e34a8c0bb74b807825abe14a64d100cb70f2125698ef49",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "fast_band": {
+      "context": "a07f72a1bfb2071aafe94bba47ef675f8734a70983022c1cd6c760fbada422e1",
+      "proof": "0d8a946fb89a3ddf914fa22a2e7c8570d61ea657fece0baf4439402d6b726e3a",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "c43bd6ba536afbfa3a89a3f52afb6a144238b42a19005c3ec03cc1901c232da6",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "fast_true_band_small_box": {
+      "context": "6beb02fa093e774f1635ff9943eb25789991566512f7cd23eafc3b8d4542bf3e",
+      "proof": "26de6ebd959a8eb9f97776f6de5904a3f5ec006d6b1e216f91e992a066503af9",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "bce323c4a1da38c2f0ca1a4a69be17660f0ef52e62c7ea21c8aeff74b21b96b3",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "two_exponentials_band": {
+      "context": "d3e26941c9f8c6d662e92e6d3dba098359ffc79dbe45b2961b0f1683e36c8718",
+      "proof": "9d44dd4aeb01868c2f3952243777c600f607cd16ca9a36f26de3c08b1b0d9b87",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "b730183d83089e560f3880fdbe91e8893431aedd232ca5c5eaceeb512642567e",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "fast_crosses_one": {
+      "context": "1abb515bc11a5b56b5db1b28b40c8504705bcaccc7be47210a4bc74bd87a8c50",
+      "proof": "484aab2f2cd0f77b3c30f91521ba9a76c8c501112a53e100154a098c274f03d3",
+      "verdict": "open",
+      "uses": [],
+      "axioms": [],
+      "reason": "no proof yet",
+      "proposition": "",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "refutations": {
+    "fast_crosses_one": {
+      "script": [
+        "have refuted : ¬ forsetiRoot := by",
+        "  unfold forsetiRoot",
+        "  intro h",
+        "  exact Gimle.Asgard.Streams.ColeHopf.front_above_of_window (hi := ((mkRat (1) 1) : ℚ)) (ε := (mkRat (2134495165562497) 15407021574586368)) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) (show (0 : ℚ) < ((mkRat (1) 1) : ℚ) by decide +kernel) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] (show Gimle.Asgard.Streams.ColeHopf.constantTerm [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] ≠ 0 by decide +kernel) (by decide +kernel) (r := forsetiRadii) (by decide +kernel) (by decide +kernel) (by decide +kernel) forsetiBox (by decide +kernel) ![16, 16] (by decide +kernel) (by decide +kernel) (Q := forsetiQ) (by decide +kernel) forsetiPoint (by decide +kernel) (by decide +kernel) fun a unused v rel x hx => (h a unused v rel x hx).2",
+        "intro claim",
+        "have forsetiFront : Gimle.Asgard.Streams.ColeHopf.front (mkRat (1) 1) [((mkRat (1) 1), (mkRat (0) 1)), ((mkRat (1) 1), (mkRat (-1) 1))] = Gimle.Asgard.Streams.ColeHopf.front 1 [(1, 0), (1, -1)] := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCircuit : Gimle.Asgard.Streams.Burgers.circuit .ogf (mkRat (1) 1) = Gimle.Asgard.Streams.Burgers.circuit .ogf 1 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiInside : ∀ t x : ℝ, forsetiBox.Mem ![t, x] ↔ |t| ≤ 1/6 ∧ |x| ≤ 1/8 := by",
+        "  intro t x",
+        "  norm_num [Gimle.Asgard.Streams.Box.Mem, Fin.forall_fin_two, forsetiBox, Rat.mkRat_eq_div]",
+        "have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]",
+        "refine (fun (bridge : _ ↔ forsetiRoot) => refuted (bridge.mp claim)) ?_",
+        "constructor",
+        "· intro claim",
+        "  dsimp only at claim",
+        "  unfold forsetiRoot",
+        "  rw [forsetiFront, forsetiCircuit]",
+        "  intro u unused u_t rel z inside",
+        "  have point : ![z 0, z 1] = z := by funext i; fin_cases i <;> rfl",
+        "  have holds := claim u unused u_t rel (z 0) (z 1) ((forsetiInside _ _).mp (point ▸ inside))",
+        "  rw [point] at holds",
+        "  set_option linter.unusedSimpArgs false in simp only [forsetiCast0]",
+        "  exact holds",
+        "· intro lane",
+        "  unfold forsetiRoot at lane",
+        "  rw [forsetiFront, forsetiCircuit] at lane",
+        "  dsimp only",
+        "  intro u unused u_t rel t x inside",
+        "  have holds := lane u unused u_t rel ![t, x] ((forsetiInside t x).mpr inside)",
+        "  set_option linter.unusedSimpArgs false in simp only [forsetiCast0] at holds",
+        "  exact holds"
+      ],
+      "context": "1abb515bc11a5b56b5db1b28b40c8504705bcaccc7be47210a4bc74bd87a8c50",
+      "proof": "2b9d468e63c016abe581db1d2debc50b8947bdb54354eeb5104b584b676ac6d3",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "3df47589e600f4d7c01f217d23293f064fe72c897b69b1373f4629f769f3d1b3",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "cells": {
+    "source": "1c3f3f838db31ded03905926940ab1372d3cfba9c952712b28a5afbf335e15b3",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "complete": true,
+    "claims": {
+      "fast_truncation": "59f2c8987a946e7f27e34a8c0bb74b807825abe14a64d100cb70f2125698ef49",
+      "fast_band": "c43bd6ba536afbfa3a89a3f52afb6a144238b42a19005c3ec03cc1901c232da6",
+      "fast_crosses_one": "3df47589e600f4d7c01f217d23293f064fe72c897b69b1373f4629f769f3d1b3",
+      "fast_true_band_small_box": "bce323c4a1da38c2f0ca1a4a69be17660f0ef52e62c7ea21c8aeff74b21b96b3",
+      "two_exponentials_band": "b730183d83089e560f3880fdbe91e8893431aedd232ca5c5eaceeb512642567e"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "77e3f5800b67fd26ed8b48ca0762c29c6985cf5210bb98c5d6444710f997ebc7",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ]
+      ],
+      [
+        [
+          "15d7647a41d3f456400ed987a13c2d048b26af6334693576db24b66b4666e462",
+          "627c0787950453dfd45d4efe852678b2d70e851182e29c91a82e51d745a75a76",
+          []
+        ],
+        [
+          "ba1e62efd4214e14d270a095fc3d735093d8f64bc049fb760ba5e14021d9db4f",
+          "be7463250dba744f55f237f1f24c72e0674819b99988d267bd0139ba1a8878a4",
+          [
+            "Notebook.BurgersFronts.Decided_fast_truncation.forsetiBox",
+            "Notebook.BurgersFronts.Decided_fast_truncation.forsetiBox._proof_1"
+          ]
+        ],
+        [
+          "d0af0ff8d4a70fe560ceb03692905faadaaeb6a0f0e0ea504d5db3abae429d15",
+          "be7463250dba744f55f237f1f24c72e0674819b99988d267bd0139ba1a8878a4",
+          [
+            "Notebook.BurgersFronts.Decided_fast_truncation.forsetiRoot"
+          ]
+        ],
+        [
+          "9c4502526737bc381ec5fc3f3211a1245dca372a6f94e85ad7f25457fb0b719a",
+          "be7463250dba744f55f237f1f24c72e0674819b99988d267bd0139ba1a8878a4",
+          [
+            "Notebook.BurgersFronts.Decided_fast_truncation.forsetiRadii"
+          ]
+        ]
+      ],
+      [
+        [
+          "7f1467d64571dbc54a839c743b86e25fb9fac0831a1ebc8502f244ea5a328e43",
+          "be7463250dba744f55f237f1f24c72e0674819b99988d267bd0139ba1a8878a4",
+          []
+        ]
+      ],
+      [
+        [
+          "6ea9d7f43a568574b2a6a8453f8806085048f40571eff187b11c1db46df67e2c",
+          "627c0787950453dfd45d4efe852678b2d70e851182e29c91a82e51d745a75a76",
+          []
+        ],
+        [
+          "a2a12c2858893263214d7cea37cce1830565fecd874466f38ce564db9f4addaf",
+          "f793e2cb7664b4cbeb549d496bc826becc4c08d6553b201809477a6b81ee28ce",
+          [
+            "Notebook.BurgersFronts.Decided_fast_band.forsetiBox._proof_1",
+            "Notebook.BurgersFronts.Decided_fast_band.forsetiBox"
+          ]
+        ],
+        [
+          "9c4502526737bc381ec5fc3f3211a1245dca372a6f94e85ad7f25457fb0b719a",
+          "f793e2cb7664b4cbeb549d496bc826becc4c08d6553b201809477a6b81ee28ce",
+          [
+            "Notebook.BurgersFronts.Decided_fast_band.forsetiRadii"
+          ]
+        ],
+        [
+          "9889cf130e55a419a55c1a60ec6ee3dec5e9634516a06a8425e25c4c52cfce85",
+          "f793e2cb7664b4cbeb549d496bc826becc4c08d6553b201809477a6b81ee28ce",
+          [
+            "Notebook.BurgersFronts.Decided_fast_band.forsetiTable"
+          ]
+        ],
+        [
+          "c37e2dd2d03ba7bb9804192de7c8552b63932b54836378243c16f386bcddc1ef",
+          "f793e2cb7664b4cbeb549d496bc826becc4c08d6553b201809477a6b81ee28ce",
+          [
+            "Notebook.BurgersFronts.Decided_fast_band.forsetiQ"
+          ]
+        ],
+        [
+          "7b9e8487e85fb76dd306260e3fb0911584d3364a0425782bcf4aa812874496d9",
+          "f793e2cb7664b4cbeb549d496bc826becc4c08d6553b201809477a6b81ee28ce",
+          [
+            "Notebook.BurgersFronts.Decided_fast_band.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "9fdbaf5b5b198d4e80181cf91dba02314e2024769279254fc79689533b794e69",
+          "f793e2cb7664b4cbeb549d496bc826becc4c08d6553b201809477a6b81ee28ce",
+          []
+        ],
+        [
+          "65500527a8f4b77a24a8d65f91204fa70cc41f84f3ced8bfdb7725f9a7e1b7b7",
+          "627c0787950453dfd45d4efe852678b2d70e851182e29c91a82e51d745a75a76",
+          []
+        ],
+        [
+          "a2a12c2858893263214d7cea37cce1830565fecd874466f38ce564db9f4addaf",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          [
+            "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiBox"
+          ]
+        ],
+        [
+          "9c4502526737bc381ec5fc3f3211a1245dca372a6f94e85ad7f25457fb0b719a",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          [
+            "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiRadii"
+          ]
+        ],
+        [
+          "9889cf130e55a419a55c1a60ec6ee3dec5e9634516a06a8425e25c4c52cfce85",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          [
+            "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiTable"
+          ]
+        ],
+        [
+          "c37e2dd2d03ba7bb9804192de7c8552b63932b54836378243c16f386bcddc1ef",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          [
+            "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiQ"
+          ]
+        ],
+        [
+          "b70473f693b2f049ed10b7f2fe1fcaa9e8561ddd8907087581686f5b7d7c1a1e",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          [
+            "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiPoint"
+          ]
+        ],
+        [
+          "aa694bd003590017f0809bf389010d9be5609e1f4e942013436b525e37aeaa64",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          [
+            "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "20ce1773ce1afbfa8b3d7edb989ee8395bb37eae15157d0b2d3326387bddf033",
+          "7e95b1b8fa4852319bc900646f5fef864983b14ae41ab1fda7b6685948c27071",
+          []
+        ]
+      ],
+      [
+        [
+          "842eccab5afdb31d9fe23c096f3f3b7764a37296263cd1d2218e50a39b2ccf60",
+          "627c0787950453dfd45d4efe852678b2d70e851182e29c91a82e51d745a75a76",
+          []
+        ],
+        [
+          "ba1e62efd4214e14d270a095fc3d735093d8f64bc049fb760ba5e14021d9db4f",
+          "1bfd37e5521ead86dea0ab28ca6a3dfc2e82cf599325e15bc095b57ebe847880",
+          [
+            "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiBox"
+          ]
+        ],
+        [
+          "9c4502526737bc381ec5fc3f3211a1245dca372a6f94e85ad7f25457fb0b719a",
+          "1bfd37e5521ead86dea0ab28ca6a3dfc2e82cf599325e15bc095b57ebe847880",
+          [
+            "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiRadii"
+          ]
+        ],
+        [
+          "9889cf130e55a419a55c1a60ec6ee3dec5e9634516a06a8425e25c4c52cfce85",
+          "1bfd37e5521ead86dea0ab28ca6a3dfc2e82cf599325e15bc095b57ebe847880",
+          [
+            "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiTable"
+          ]
+        ],
+        [
+          "c37e2dd2d03ba7bb9804192de7c8552b63932b54836378243c16f386bcddc1ef",
+          "1bfd37e5521ead86dea0ab28ca6a3dfc2e82cf599325e15bc095b57ebe847880",
+          [
+            "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiQ"
+          ]
+        ],
+        [
+          "50400f3aed41b8c82c2dee11e47475f30559e6a51a78f039f945a9f1fc032b95",
+          "1bfd37e5521ead86dea0ab28ca6a3dfc2e82cf599325e15bc095b57ebe847880",
+          [
+            "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "e06245144c17f2255059d49bd7e4c6bc50a987e089db1d5c103c9037edd4a332",
+          "1bfd37e5521ead86dea0ab28ca6a3dfc2e82cf599325e15bc095b57ebe847880",
+          []
+        ]
+      ],
+      [
+        [
+          "c4bd18b143ec7ff419485d0fb8d1b18aa542fef79f21be9b0dbcf85bb9563037",
+          "627c0787950453dfd45d4efe852678b2d70e851182e29c91a82e51d745a75a76",
+          []
+        ],
+        [
+          "aae4216872617d5ee64b61e8f35f24bf7aff99a8ae499bdbe49977e238ccec08",
+          "bf97770640ca053111f9124b206389daf088271c761c85bb77fcfae64a077713",
+          [
+            "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiBox._proof_1",
+            "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiBox"
+          ]
+        ],
+        [
+          "54b36e4cb9b596781d7c590dcd95c52b8801cf1d59e2f13877d7e24a1f763e9f",
+          "bf97770640ca053111f9124b206389daf088271c761c85bb77fcfae64a077713",
+          [
+            "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiRadii"
+          ]
+        ],
+        [
+          "a844f4ab7896132b706a18e2fed497bfa367ff7903cc69491dd3940f47e5b545",
+          "bf97770640ca053111f9124b206389daf088271c761c85bb77fcfae64a077713",
+          [
+            "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiTable"
+          ]
+        ],
+        [
+          "c37e2dd2d03ba7bb9804192de7c8552b63932b54836378243c16f386bcddc1ef",
+          "bf97770640ca053111f9124b206389daf088271c761c85bb77fcfae64a077713",
+          [
+            "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiQ"
+          ]
+        ],
+        [
+          "fdaa028ae51c3e7b8163cc50629dba16e8fc96e11cdb0e1ded63aeb8c7b775bf",
+          "bf97770640ca053111f9124b206389daf088271c761c85bb77fcfae64a077713",
+          [
+            "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "4c791d3988d77eb6e75adff132046e602fe63e4981e596b85b4e97c1cff01a95",
+          "bf97770640ca053111f9124b206389daf088271c761c85bb77fcfae64a077713",
+          []
+        ],
+        [
+          "c44baa251916b6dc2d4211be6141257c79f2c877d126b93ea865cb5fb9800fa8",
+          "627c0787950453dfd45d4efe852678b2d70e851182e29c91a82e51d745a75a76",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiBox": "17abfee88562213456968413babf432f7f1d3b3e3fd341a39e28d1aed01586bf",
+      "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiRoot": "7f9a58a6333b168994c2a53698e624d306844e0486a1da7022aa6d314d681c3b",
+      "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiBox": "6e144851af89725a0cde98d7df2d9bf0a0c069bcc4ec58d9589517400b068490",
+      "Notebook.BurgersFronts.Decided_fast_band.forsetiTable": "33ecb6a7c88fb09ae74dde91ff8de20ad799ac05be92f70701aeb07f85c4d396",
+      "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiRadii": "73663d786d17292b0fc5d5194a867d1bfb3b708cb34f7eed0135b744a4eba880",
+      "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiQ": "bf6926bc3b40ed34c06530638a3cb5178ec48a3b6af669a395d4fd219b4b461a",
+      "Notebook.BurgersFronts.Decided_fast_band.forsetiRoot": "9736f559b292aa8543e251533d37957d86c07b0e5b407e18fec71e0391e1551b",
+      "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiBox": "7378f1f5c71d7e12e266494d33cf6937f35a28fc6b50cb275830944aa0301446",
+      "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiRoot": "925599c0489084e3f190b8d9691dc881ccbc25d04ce58f7ad4f6b8449f27b6ad",
+      "Notebook.BurgersFronts.Decided_fast_truncation.forsetiBox._proof_1": "b3fa20846363c51f89073c93c844fe568e47ab7cd69c8d00848b16c0a5acf5c2",
+      "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiTable": "61cff31a3adb9fe1a8fe53418047acec886e75a843b6a76d20da547217894ec5",
+      "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiRadii": "59148d8f24954fd54b5e77d00eff74d3ee674164e321e955c2964f83b698ae43",
+      "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiQ": "279b27a512311706dd9ea98facf44e1f55860f6c8affcf9a09dee9ce768c6f3d",
+      "Notebook.BurgersFronts.Decided_fast_true_band_small_box.forsetiTable": "4698ba9b82a8b9aef375cc083b522d50650fb30478c03c9217eee043e755557b",
+      "Notebook.BurgersFronts.Decided_fast_truncation.forsetiRadii": "aa9114853935f26ef1eec6f41bd52287ed90ac8d3c27a0353a6ba0100fafb30e",
+      "Notebook.BurgersFronts.Decided_fast_truncation.forsetiRoot": "5680ecab87ab4d66ce6e02d117dfb7424c905c9f7eb76ba2573992a88a161646",
+      "Notebook.BurgersFronts.Decided_fast_band.forsetiBox": "6fa107d0b13c31e8b9685a7ff9e7392ab01012d1845876bc425de68c52083a35",
+      "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiRoot": "89d523dc40f15918914d807078ceef2c11e3504a762724e0d0601b9a2b025d14",
+      "Notebook.BurgersFronts.Decided_fast_truncation.forsetiBox": "489201034efe73452eebab6d5196908a85f5bfa7c734c0e5328757ea44ad7e0a",
+      "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiBox._proof_1": "4447459ce5c6b6ad0567b3a8198e687444a9a1cf169383bbb857eded19a35d7f",
+      "Notebook.BurgersFronts.Decided_fast_band.forsetiBox._proof_1": "029f432f95de8b212be5f60c2acea8360c36426fc842fae855f8b3dc2f6b06d0",
+      "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiRadii": "efa36e2cedeec30a5f9edefe069547d33139cd8e4e38eef6b95728c2a81e029a",
+      "Notebook.BurgersFronts.Decided_two_exponentials_band.forsetiQ": "85ac338e3edbe0897518674a2c7b9f8e44b21878eec4c27fd6e3d2e22a8d3b1f",
+      "Notebook.BurgersFronts.Decided_fast_band.forsetiRadii": "6e9ee6949d1828cfb2248f878d15fbd825822ecb410143b7fa5d136792b9a63e",
+      "Notebook.BurgersFronts.Decided_fast_band.forsetiQ": "3d2d44f2bfeb22160b7e82d22ee3d587ccc21668c989c98fe29abca63d86dd41",
+      "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiTable": "0b8c8df0d118b2714129fd239bb5d5f72a182b57b095281099d9390a364c0ec2",
+      "Notebook.BurgersFronts.Decided_fast_crosses_one.forsetiPoint": "cd8f7f1958635f1d10ba72f804c7df7b275f85fe7118535bd7a0d7b175df288a"
+    }
+  }
+}

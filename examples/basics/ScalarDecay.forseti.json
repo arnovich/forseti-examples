@@ -1,0 +1,108 @@
+{
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "k_pos": {
+      "context": "b7cd25de530ee2cd4d3036d4b1c874e46e27dc06790e71df5cb9f18fb73e153c",
+      "proof": "7bbe84d50401075623f73902ef0decc42a9ae10185b9ebad2402539c105d15ce",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "b9694f4629fc251120e3a8cd4122c7ab6f9736f727860265e9d7f4cbfcc613da",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "energy_rate_nonpositive": {
+      "context": "703a9764969d9611151c2262ca8fc1bd1ff8a4e8ecc1386ec3361287a70b6000",
+      "proof": "1ac7a7d92a141cec2400c244917be113c44d063d45e15217e8129989c47618b5",
+      "verdict": "holds",
+      "uses": [
+        "k_pos"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "6da2cd8d0571f3dad11d0836ef72296620ab52e58f07ca13c57740e0549e7d30",
+      "assumed": {
+        "k_pos": "b9694f4629fc251120e3a8cd4122c7ab6f9736f727860265e9d7f4cbfcc613da"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "energy_nonneg": {
+      "context": "9fa6d0bdae5f8418511b3ff57f4b5b2111eb74c8daaf0868f1472a55fa7d946d",
+      "proof": "bc7eb74ef95575df84befdbd28b9464246ad3bc1b9b2677345721a2d31b425b2",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "3158f6249c0777327cbefb0a91cb8b73526d06bd92e9c7e2fda0765bfd166969",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "energy_above_floor": {
+      "context": "87f186d837754394dc8d5ad11e3193ab57f73819868dbc7410d04d661c110d91",
+      "proof": "484aab2f2cd0f77b3c30f91521ba9a76c8c501112a53e100154a098c274f03d3",
+      "verdict": "open",
+      "uses": [],
+      "axioms": [],
+      "reason": "no proof yet",
+      "proposition": "",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "refutations": {},
+  "cells": {
+    "source": "b77b4f39dba0b25c69775062cea1645095f06bb4a9057f4501a860da2efe6b43",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "complete": true,
+    "claims": {
+      "k_pos": "b9694f4629fc251120e3a8cd4122c7ab6f9736f727860265e9d7f4cbfcc613da",
+      "energy_rate_nonpositive": "6da2cd8d0571f3dad11d0836ef72296620ab52e58f07ca13c57740e0549e7d30",
+      "energy_nonneg": "3158f6249c0777327cbefb0a91cb8b73526d06bd92e9c7e2fda0765bfd166969",
+      "energy_above_floor": "5011d4eed30e8b2cade1a10c5fd50f239062ac61a35b173233f6d1b649d4944a"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "84ad16e31bdd3b3aef0c1213d2a0419a3b85b58824204ed963d4fadbe7f7d027",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ],
+        [
+          "fd9ed1f52b4b9f4bef89b9346b1980f5b4bb639d9acaee3db56134c112a468a0",
+          "01f2e8bd5f8470411c99274a8b9cf33bc47f7e5f0c37ed6e646ba3fce2d25f76",
+          [
+            "Notebook.ScalarDecay.k._proof_1",
+            "Notebook.ScalarDecay.k"
+          ]
+        ]
+      ],
+      [
+        [
+          "d8ac1685c72eb7ee3ddacd3dfc578caf219411002dc1e04bbd49ef601e4adace",
+          "01f2e8bd5f8470411c99274a8b9cf33bc47f7e5f0c37ed6e646ba3fce2d25f76",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Notebook.ScalarDecay.k": "e4c7fca5b4d79b026d1411b8da6702cd94d1980908d93e0c4942aad2fa502d68",
+      "Notebook.ScalarDecay.k._proof_1": "8943f3bdbe05af55743d4c5de2db5bf2302409c4c1fa6d209be5ceb62053edf4"
+    }
+  }
+}

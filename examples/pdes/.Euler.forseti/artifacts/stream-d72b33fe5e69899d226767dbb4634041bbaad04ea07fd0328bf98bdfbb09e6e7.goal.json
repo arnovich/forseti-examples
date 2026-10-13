@@ -1,0 +1,49 @@
+{
+  "schema": "gimle.forseti.stream-goal/v2",
+  "model": "vorticity",
+  "interpretation": "euler-band",
+  "basis": "ogf",
+  "profile": {
+    "modes": [
+      [
+        0,
+        0,
+        [
+          0,
+          1
+        ]
+      ]
+    ]
+  },
+  "claim": {
+    "kind": "trig-band",
+    "port": "u",
+    "radius": [
+      1000000,
+      1
+    ],
+    "post": [
+      "and",
+      [
+        "atom",
+        "ge",
+        [
+          "var",
+          2
+        ]
+      ],
+      [
+        "atom",
+        "le",
+        [
+          "var",
+          2
+        ]
+      ]
+    ]
+  },
+  "viscosity": [
+    0,
+    1
+  ]
+}

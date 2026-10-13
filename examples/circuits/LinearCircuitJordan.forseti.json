@@ -1,0 +1,434 @@
+{
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "prefix_of_rational_prefix": {
+      "context": "22991bbefc96a29bf35ab396733c259c67002d80fafb38cae7be7b9895315eb0",
+      "proof": "ccdf42c5969574203a12fa0ace00145c8ed76bbfe71cb2cd1eefc5c10ade9395",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "b333046867aad1f4fd57732179a6910e0a8be7c05f03eaec6ea4fce57c0ec2da",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan1_prefix": {
+      "context": "3b3ebea4a47fa50e2ae99228bf93105140cf2d6cd0df950262f0ea45bcffe15c",
+      "proof": "c43f8ecef3e884d7fd451f831102efa1eeb09c33b509fac13b512ac290e65ec2",
+      "verdict": "holds",
+      "uses": [
+        "prefix_of_rational_prefix"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "7e8c3e5dd53ce38c18cdbbf88e8f26b3efd00bfcac0f7bb4d99eda87b9804609",
+      "assumed": {
+        "prefix_of_rational_prefix": "b333046867aad1f4fd57732179a6910e0a8be7c05f03eaec6ea4fce57c0ec2da"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan1_equivalent": {
+      "context": "bdb6f7df6bad68f26cae0399a874ee02cf671c3770080b224385a0497b366db4",
+      "proof": "0df9a59187824012ff1ad69617a70809dcf311c5a57c6fb059ace14fcf753bf1",
+      "verdict": "holds",
+      "uses": [
+        "jordan1_prefix"
+      ],
+      "axioms": [
+        "forsetiClaim_1",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "87e5f161216be82dbac41d49f881f3ec8567e3f74b2ff9e0a5b93450f45d16cf",
+      "assumed": {
+        "jordan1_prefix": "7e8c3e5dd53ce38c18cdbbf88e8f26b3efd00bfcac0f7bb4d99eda87b9804609"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan2_prefix": {
+      "context": "2d3e8a242294085e553408d9fd1432ffdc1ecd7c7404875b0f552aadf25bd273",
+      "proof": "c43f8ecef3e884d7fd451f831102efa1eeb09c33b509fac13b512ac290e65ec2",
+      "verdict": "holds",
+      "uses": [
+        "prefix_of_rational_prefix"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "9546a19afd00821d8d8b9bcf21344e3aef3463bc8806d8b5f488f70c32a772e3",
+      "assumed": {
+        "prefix_of_rational_prefix": "b333046867aad1f4fd57732179a6910e0a8be7c05f03eaec6ea4fce57c0ec2da"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan2_equivalent": {
+      "context": "5ad84768c0f94105047a7a1f3158ce57844b7bc592e3bf35ebeeab689531a838",
+      "proof": "cee92316ed4b6c5e24febb51512afe806c29b6f8e5d7ac579740969a6aa4aac1",
+      "verdict": "holds",
+      "uses": [
+        "jordan2_prefix"
+      ],
+      "axioms": [
+        "forsetiClaim_3",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "4101249c7019d6670aa71964efc75c7a13f89898a5777f1a35d5ebc9ad9da184",
+      "assumed": {
+        "jordan2_prefix": "9546a19afd00821d8d8b9bcf21344e3aef3463bc8806d8b5f488f70c32a772e3"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan3_prefix": {
+      "context": "b45cab8b3a6c74044f625cdbb0910227c9c6aa8cfe0e40c83149490abf0682fe",
+      "proof": "c43f8ecef3e884d7fd451f831102efa1eeb09c33b509fac13b512ac290e65ec2",
+      "verdict": "holds",
+      "uses": [
+        "prefix_of_rational_prefix"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "84cb946cc7460876a0ae41fa4d310caa426bcdbd230cdef85aeaf0c3386d5f44",
+      "assumed": {
+        "prefix_of_rational_prefix": "b333046867aad1f4fd57732179a6910e0a8be7c05f03eaec6ea4fce57c0ec2da"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan3_equivalent": {
+      "context": "874af8cf4153abf2a73e198ff2de33328bdb55fee3822140b37008889c4dccb0",
+      "proof": "e9850600cc8015c00e8e0da34f8e877ad19089639631035b721009a7733aa967",
+      "verdict": "holds",
+      "uses": [
+        "jordan3_prefix"
+      ],
+      "axioms": [
+        "forsetiClaim_5",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "ee5e5ef474721afb18ef32de742ffd4b045781fb6525bb6948d03b690045a05f",
+      "assumed": {
+        "jordan3_prefix": "84cb946cc7460876a0ae41fa4d310caa426bcdbd230cdef85aeaf0c3386d5f44"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan2_expected": {
+      "context": "368e888f6de8f7ae9f7cf790b3ce7e3edc66ce3db8751da27458fba4257d9528",
+      "proof": "93671da1061c6eb0b41ad826da19a0e0d0b4e45edab20614318289a4e587fd47",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "f988146e0b1c4e393307b021c2c45106426e808b4dc5f7802f47332fa2a8de69",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan3_expected": {
+      "context": "15b255eb18cea37ff0a9e3ab29a6c824d1fb88a0ddacb52a0559ad7893fffdb8",
+      "proof": "de792cc9e87c4141b947cbc03fb98a443e4eefc672083339cd44e6c7929e380d",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "0e933940a9c30f6f574c921dd2529427bb8c34fd75a213684d74ae4b2a89e79f",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan2_different_updates": {
+      "context": "3487ae840eea793e95ca9fd8831cb99f4ecf5c6ee92310096871f2834379c3a5",
+      "proof": "a19d67be5ba79643a0a146435226d9aabbf874a79fbde209efe343dfe58bdd58",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "af01055d0be7f28bf86aa4748abda7c2803f13022e664265774f925b67a8d9d6",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "jordan3_different_updates": {
+      "context": "d7b63649eef2127b9e30d5a0f2522cf539b0c4b38ec81513f6a72948e644d3ab",
+      "proof": "23ef17477d3768eab9a9a81fd74e56e2fb993f91fb01f74deb3e2ff1355f56bf",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "0a8e91576a3eed1b290b57ffaafdce6fcb99112222aa073a679a09af04967e78",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "refutations": {},
+  "cells": {
+    "source": "8354702f1d25ffb07a9ab596e93dd92ddaaf1f7061a9704f25f0c25280e6c074",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "complete": true,
+    "claims": {
+      "prefix_of_rational_prefix": "b333046867aad1f4fd57732179a6910e0a8be7c05f03eaec6ea4fce57c0ec2da",
+      "jordan1_prefix": "7e8c3e5dd53ce38c18cdbbf88e8f26b3efd00bfcac0f7bb4d99eda87b9804609",
+      "jordan1_equivalent": "87e5f161216be82dbac41d49f881f3ec8567e3f74b2ff9e0a5b93450f45d16cf",
+      "jordan2_prefix": "9546a19afd00821d8d8b9bcf21344e3aef3463bc8806d8b5f488f70c32a772e3",
+      "jordan2_equivalent": "4101249c7019d6670aa71964efc75c7a13f89898a5777f1a35d5ebc9ad9da184",
+      "jordan3_prefix": "84cb946cc7460876a0ae41fa4d310caa426bcdbd230cdef85aeaf0c3386d5f44",
+      "jordan3_equivalent": "ee5e5ef474721afb18ef32de742ffd4b045781fb6525bb6948d03b690045a05f",
+      "jordan2_expected": "f988146e0b1c4e393307b021c2c45106426e808b4dc5f7802f47332fa2a8de69",
+      "jordan3_expected": "0e933940a9c30f6f574c921dd2529427bb8c34fd75a213684d74ae4b2a89e79f",
+      "jordan2_different_updates": "af01055d0be7f28bf86aa4748abda7c2803f13022e664265774f925b67a8d9d6",
+      "jordan3_different_updates": "0a8e91576a3eed1b290b57ffaafdce6fcb99112222aa073a679a09af04967e78"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "2770f0d59c9977a2a144ce7f94b71fd7204f7166a4baa9b2f6620389cb56c272",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ],
+        [
+          "5e3a254a399784835eaf9c549c6b341c69db9506c065c04ae49282fa21b48c19",
+          "258636f8d9664258dff691ab92e0e2b8cb62e24f60b80c005b42d87e0cb99216",
+          []
+        ],
+        [
+          "d9aa1b32c80dc90ac66f60a65b6d6cb8fd0dd075f14d61941373d9deb80975d1",
+          "95bea6ec69a67d601f3ff64dd47d386a3bf4202d92ac0cf8cc4206df0e5dab6b",
+          []
+        ],
+        [
+          "30f0b9635b494a7b4993477e1670c442fc4284af423577fd1b55db31da7d4a83",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "95e6265149b472b81ba628e397052e3cee3cf2f751ff0b6c6a843a64f152b6b5",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_2",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_4",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_1"
+          ]
+        ],
+        [
+          "7de457a586f049cce726b4bcb58064ac83bf697eabd425a82112e93c8c7dfcb3",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight1"
+          ]
+        ],
+        [
+          "ee42b87ca6225de4dc2b24a90f25680502c4299208186e7115e8db4ac678baf4",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_5",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_4",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_1",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_2"
+          ]
+        ],
+        [
+          "c87cee7cc3d014e4f7d7a2221a6b3063499293b0948d04d747304d4e5bc2a605",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_4",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_1",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_2"
+          ]
+        ],
+        [
+          "e57cc58b96aa8a595b1369560f0ca325370161a7b13ecdf499630b23b1feb209",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_2",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_4",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_1",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_6",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_5"
+          ]
+        ],
+        [
+          "c95c4b80e63172bef64979272e845324df9a63b3cd9ecc8c88dd62fad29fabd6",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_4",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_1",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_5",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_3",
+            "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_2"
+          ]
+        ]
+      ],
+      [
+        [
+          "9ff046686f80464a820a24f8819e214ce92e309a5853b664f26208cd0ee1caa7",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.initial1"
+          ]
+        ],
+        [
+          "6c6aa72135e67f759e1dbf037008b7a98df65059251cf78edea6c8d924fdbd72",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.initial2"
+          ]
+        ],
+        [
+          "bb627de8e3e0760e7ce8fe0cac12047b0150e8c08651e73f983414c526557f55",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.initial3"
+          ]
+        ],
+        [
+          "b22c22cd53ecf774651054b51d41f03e49e1a73e5ddb93733c58b5d4bc03a9c6",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          [
+            "Gimle.Forseti.Examples.LinearCircuitJordan.embed"
+          ]
+        ]
+      ],
+      [
+        [
+          "114170a536a676aeb05f5bfed388d36358411cace044c68322f874baf2c7b045",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "dcbc4af029ef63485099a45dbc8c249829ac1ba9960f3a808b97ae4d99f0e70e",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "7e55b7fe330e3ae29bf255f140597af506334011240a2edbd866656c9da29ba9",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "8a742d4399d1c72f877035b5c06a60f4216ec4b8ef974f429847131f5e883ac5",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "ebee50252e725702baad8f1c4f534496ada257330fdf191ef76a208b38a3d065",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "82a9f4d4460b86ec3fee91a0d313b6a71b58b8306b5625c1c4c2e5e3bfd4876e",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "e6cd6ae490da643dfbf979ae0a910b5e811e5cbf2cc5d1d472f34346af683e9f",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "50399235a4c5307d5540c0467b8ec978beff1a18f0ec82f51bde5fae54c2d403",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "a8361bd299c7be8d70aa6d86f8a28ae65a8b9455a1f429b7292d2f5d677d93ad",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "72e2736fb0606efb694c4aad77b15f061e07a725e38cc67580cdd7eaaf14f240",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ],
+        [
+          "392e5de0a117d003a333d3a4ba8bd602d998991e407c820e542f2300a24de4fc",
+          "08b8cf144f8195ea4a6f9a0f62d024f2bd0d1a088e0107dac510a137ae535400",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_2": "d77c8b5e7ab5f7243423c813e629cc275dfc558deac1f737c61706d3f8a657e6",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_3": "8a55ed9aff2d20d98a642c662c5972bed59e7bbb8b52a1bc684c13748ac07774",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_1": "c8d9fd7e7861d80a84ba5da810010ef01a4c082d496efbe766d1037b05495e5f",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_4": "6bd6edc08aff9b5033ff463cd9b84351f935412790750ff738c28596514f7774",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_5": "d953e3bff26f98b8a1739fa0d388fde780070cab46ff6598c436a9360c3d36d8",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight1": "544ef461e6811f64e18815610d12272b64f721d71ba4b6a8d74e33f1966aeb0f",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_2": "a4615faa32e18f5d7c3b8eb690a7e5fad718fc3d2da08e3f74f56d948b1bc0e1",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_3": "c4ab7473c4434c409b06ce17c0d042d0274b9b3861db67da1556f41479a5bae9",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.initial1": "c744dedb460971a90ec0fb34c856713fe91bedb2380b2d37aaf244c17167d74a",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2": "baa8354d53052568de84d62acec6ac8a541ee04a77069795286402101c65b957",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_2": "5e8b29bdbe95465114ae353f451b9185165b5bb3a00692a0cdfa9d763c4fa8db",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_3": "9dbe0cfe9f18c898ec1ff250d3366bdc1d1275a72f4748c8d2a7fcb851daba6f",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_1": "41c8ba56037367e4bc928270eca01e3625f4399d5274b0035c8356d73d55b8ab",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_4": "051db0a9d9ee0b8ce5c114da0baa255847458991d72b7ab8f62619430cc61553",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3": "429c1b33f3676e4898947a58d6ac726de6e832e8f42ea5bd7b99c9f06414e0ee",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_2": "e2f71d8a6715b1e00ef5d88ac4953cd832fad65ee09e0d46ed8d472206fa7f62",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1._proof_3": "ab9470c367f341ffd3104b6acd4480811f01683ec260e864870f00afe4463ca9",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.embed": "1409b6f99f80629d61acdf44d57d85ded56cf757427e61e502bddb05e581285d",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3": "d0ea3ffccc076bbe59f46f0a846cfe6c4400adb58b7164fbc2680b7216717443",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.initial2": "6b0ed406a838ecf85966980deab57c588946552b4420e39dee1733f877be8dfe",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.initial3": "c59b92cfe61392afbfeb3e060eed5b6fed313ae35d7b800b322128c4bd0f60a8",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_6": "da8615bcdb8014ad9c22420f6007ad4488c04b991850c4d7f7e5b80e1bbd40c4",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_1": "d0bd141b5cae6a1d93a66d09746c37aae831b18ca0c21b5719b794bca3e830a7",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft1": "545a5419ae9f4fb30adbd5e2241e5d5bda28f125d86039fdaab5df6f1b6a15d5",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_4": "0aff3fee473996b0f68d8baa24e691c96a5383e377b4969be35224edb111ce5c",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft2._proof_5": "1b6ed0b736f75ab71d3833c58472e5aee4563f4df0906e9f1fbb6c1f98202424",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_5": "2432be718adfec52c904f7b000f464e2cf16338190be3560751e265566c2264f",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_1": "953d3befd39df74d3f26b9fb9f76fd2294809712fdae6a15b9fd73b268fe9783",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight3._proof_4": "e5fdc386cbc22e6487406464eae1d71a9b23d1bc322b00d407a60b3f18b7ec9b",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_1": "97d74ae864b95c84186320fc958b9400716afd7c897ecbb27237e66ce3831fe9",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2._proof_4": "871766c40e2439893633a9b1ef59252d8f9afcafee3d65b396cfa5791f235885",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanRight2": "8b5b038b5242e8f479905b90ee3c6b6944388cdfe2aa81c8e352fd00e4ea1d63",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_2": "7cce04f298f628f1d339a87defffab0ee518ef049408ee890227103a0318319e",
+      "Gimle.Forseti.Examples.LinearCircuitJordan.jordanLeft3._proof_3": "a6307f5837811eb5d9deb175e2852200449be5dd7f882b3a83299fa42dd75dab"
+    }
+  }
+}

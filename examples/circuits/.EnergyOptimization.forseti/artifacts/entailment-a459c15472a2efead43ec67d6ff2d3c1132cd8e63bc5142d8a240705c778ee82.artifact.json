@@ -1,0 +1,434 @@
+{
+  "environment": {
+    "closure_sha256": "3b92e95b80c7e8a3f08d3bfaa26a30bac43c3c2bb1439b329270d3943e7cf909",
+    "dependencies": [
+      {
+        "name": "asgard",
+        "revision": "411dfdffc44c37320f12b977fc60da7a3117a679"
+      },
+      {
+        "name": "mathlib",
+        "revision": "520045ab14e26149ee970e2e617ca04b09bde5d6"
+      },
+      {
+        "name": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "imports": [
+      "Gimle.Forseti.Syntax.Certificate"
+    ],
+    "lockfile_sha256": "0471dc6f5a9e45ac208752571fcbec0b778a7398b1389b1b6df6e83abf990a01",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "support_version": "gimle.forseti.lean-support/v17",
+    "toolchain": "leanprover/lean4:v4.32.1"
+  },
+  "evidence": {
+    "kind": "certificate",
+    "rows": [
+      {
+        "base": [
+          [
+            [
+              2,
+              1
+            ],
+            [
+              "var",
+              0
+            ]
+          ],
+          [
+            [
+              2,
+              1
+            ],
+            [
+              "var",
+              1
+            ]
+          ]
+        ],
+        "multipliers": [
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      {
+        "base": [],
+        "multipliers": [
+          [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                "add",
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                [
+                  "neg",
+                  [
+                    "var",
+                    0
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                "add",
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                [
+                  "var",
+                  0
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                "add",
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                [
+                  "neg",
+                  [
+                    "var",
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                "add",
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                [
+                  "var",
+                  1
+                ]
+              ]
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "goal": {
+    "antecedent": [
+      "and",
+      [
+        "and",
+        [
+          "and",
+          [
+            "atom",
+            "ge",
+            [
+              "add",
+              [
+                "var",
+                0
+              ],
+              [
+                "neg",
+                [
+                  "neg",
+                  [
+                    "const",
+                    [
+                      1,
+                      1
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            "atom",
+            "le",
+            [
+              "add",
+              [
+                "var",
+                0
+              ],
+              [
+                "neg",
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "atom",
+          "ge",
+          [
+            "add",
+            [
+              "var",
+              1
+            ],
+            [
+              "neg",
+              [
+                "neg",
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "atom",
+        "le",
+        [
+          "add",
+          [
+            "var",
+            1
+          ],
+          [
+            "neg",
+            [
+              "const",
+              [
+                1,
+                1
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    "consequent": [
+      "and",
+      [
+        "atom",
+        "ge",
+        [
+          "add",
+          [
+            "mul",
+            [
+              "const",
+              [
+                2,
+                1
+              ]
+            ],
+            [
+              "mul",
+              [
+                "var",
+                0
+              ],
+              [
+                "var",
+                0
+              ]
+            ]
+          ],
+          [
+            "mul",
+            [
+              "const",
+              [
+                2,
+                1
+              ]
+            ],
+            [
+              "mul",
+              [
+                "var",
+                1
+              ],
+              [
+                "var",
+                1
+              ]
+            ]
+          ]
+        ]
+      ],
+      [
+        "atom",
+        "le",
+        [
+          "add",
+          [
+            "add",
+            [
+              "mul",
+              [
+                "const",
+                [
+                  2,
+                  1
+                ]
+              ],
+              [
+                "mul",
+                [
+                  "var",
+                  0
+                ],
+                [
+                  "var",
+                  0
+                ]
+              ]
+            ],
+            [
+              "mul",
+              [
+                "const",
+                [
+                  2,
+                  1
+                ]
+              ],
+              [
+                "mul",
+                [
+                  "var",
+                  1
+                ],
+                [
+                  "var",
+                  1
+                ]
+              ]
+            ]
+          ],
+          [
+            "neg",
+            [
+              "const",
+              [
+                4,
+                1
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    "context": [
+      "x",
+      "y"
+    ],
+    "schema": "gimle.forseti.entailment-goal/v1"
+  },
+  "limits": {
+    "max_artifact_bytes": 1048576,
+    "max_coefficient_bits": 256,
+    "max_degree": 8,
+    "max_depth": 64,
+    "max_dictionary": 16,
+    "max_heartbeats": 2000000,
+    "max_lean_output_bytes": 1048576,
+    "max_monomials": 4096,
+    "max_nodes": 512,
+    "max_variables": 8,
+    "max_weights": 512,
+    "wall_time_ms": 300000
+  },
+  "producer": {
+    "backend": "z3",
+    "lane": "certificate",
+    "search_ms": 252
+  },
+  "schema": "gimle.forseti.entailment-artifact/v2",
+  "source": "import Gimle.Forseti.Syntax.Certificate\n\ndef forsetiContext : Gimle.Forseti.Syntax.Context :=\n  \u27e8[\"x\", \"y\"], by decide, by decide, by decide\u27e9\n\ndef forsetiAntecedent : Gimle.Forseti.Syntax.Formula 2 :=\n  (.and (.and (.and (.atom .ge (.add (.var \u27e80, by decide\u27e9) (.neg (.neg (.constant (mkRat (1) 1)))))) (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (1) 1)))))) (.atom .ge (.add (.var \u27e81, by decide\u27e9) (.neg (.neg (.constant (mkRat (1) 1))))))) (.atom .le (.add (.var \u27e81, by decide\u27e9) (.neg (.constant (mkRat (1) 1))))))\n\ndef forsetiConsequent : Gimle.Forseti.Syntax.Formula 2 :=\n  (.and (.atom .ge (.add (.mul (.constant (mkRat (2) 1)) (.mul (.var \u27e80, by decide\u27e9) (.var \u27e80, by decide\u27e9))) (.mul (.constant (mkRat (2) 1)) (.mul (.var \u27e81, by decide\u27e9) (.var \u27e81, by decide\u27e9))))) (.atom .le (.add (.add (.mul (.constant (mkRat (2) 1)) (.mul (.var \u27e80, by decide\u27e9) (.var \u27e80, by decide\u27e9))) (.mul (.constant (mkRat (2) 1)) (.mul (.var \u27e81, by decide\u27e9) (.var \u27e81, by decide\u27e9)))) (.neg (.constant (mkRat (4) 1))))))\n\ndef forsetiGoal : Gimle.Forseti.Syntax.Goal := \u27e8forsetiContext, forsetiAntecedent, forsetiConsequent\u27e9\ntheorem forsetiSearch : Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent := by\n  exact Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiGoal \u27e8[\u27e8\u27e8[((mkRat (2) 1), (.var \u27e80, by decide\u27e9)), ((mkRat (2) 1), (.var \u27e81, by decide\u27e9))]\u27e9, [\u27e8[]\u27e9, \u27e8[]\u27e9, \u27e8[]\u27e9, \u27e8[]\u27e9]\u27e9, \u27e8\u27e8[]\u27e9, [\u27e8[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.neg (.var \u27e80, by decide\u27e9))))]\u27e9, \u27e8[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.var \u27e80, by decide\u27e9)))]\u27e9, \u27e8[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.neg (.var \u27e81, by decide\u27e9))))]\u27e9, \u27e8[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.var \u27e81, by decide\u27e9)))]\u27e9]\u27e9]\u27e9 (by decide +kernel)\n\n#print axioms forsetiSearch\n",
+  "status": "PROVEN",
+  "theorem": {
+    "name": "forsetiSearch",
+    "statement": "entailment"
+  }
+}

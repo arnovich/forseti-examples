@@ -1,0 +1,209 @@
+{
+  "dependencies": [
+    "Gimle.Forseti.Examples.GalerkinNS.T3S.energy_contract",
+    "Gimle.Forseti.Syntax.EntailmentCertificate.sound",
+    "Gimle.Forseti.Examples.GalerkinNS.T3S.initial_eq"
+  ],
+  "environment": {
+    "closure_sha256": "58f656e6a12af230f69f17eacfc6a37a9f4fb784abde2a14627f84c7f385a7f9",
+    "dependencies": [
+      {
+        "name": "asgard",
+        "revision": "411dfdffc44c37320f12b977fc60da7a3117a679"
+      },
+      {
+        "name": "mathlib",
+        "revision": "520045ab14e26149ee970e2e617ca04b09bde5d6"
+      },
+      {
+        "name": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "imports": [
+      "Gimle.Forseti.Syntax.Certificate",
+      "Gimle.Forseti.Examples.GalerkinNS.T3S"
+    ],
+    "lockfile_sha256": "0471dc6f5a9e45ac208752571fcbec0b778a7398b1389b1b6df6e83abf990a01",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "support_version": "gimle.forseti.lean-support/v17",
+    "toolchain": "leanprover/lean4:v4.32.1"
+  },
+  "evidence": {
+    "certificate": {
+      "kind": "certificate",
+      "rows": [
+        {
+          "base": [],
+          "multipliers": [
+            [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              ]
+            ],
+            []
+          ]
+        },
+        {
+          "base": [],
+          "multipliers": [
+            [],
+            [
+              [
+                [
+                  1,
+                  1
+                ],
+                [
+                  "const",
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    "kind": "leaf-certificate"
+  },
+  "goal": {
+    "initial": [
+      [
+        "initial-a10",
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        "initial-a11",
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        "initial-a21",
+        [
+          1,
+          1
+        ]
+      ]
+    ],
+    "interpretation": "continuous-real",
+    "model": "ns-t3s",
+    "obligation": "contract",
+    "observation": {
+      "name": "E",
+      "port": "obs-e"
+    },
+    "post": [
+      "and",
+      [
+        "atom",
+        "ge",
+        [
+          "var",
+          0
+        ]
+      ],
+      [
+        "atom",
+        "le",
+        [
+          "add",
+          [
+            "var",
+            0
+          ],
+          [
+            "neg",
+            [
+              "const",
+              [
+                17,
+                10
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    "quantifier": "always",
+    "schema": "gimle.forseti.trajectory-goal/v1",
+    "time": {
+      "axis": "time",
+      "start": [
+        0,
+        1
+      ]
+    }
+  },
+  "limits": {
+    "max_artifact_bytes": 1048576,
+    "max_coefficient_bits": 256,
+    "max_degree": 8,
+    "max_depth": 64,
+    "max_dictionary": 16,
+    "max_heartbeats": 2000000,
+    "max_lean_output_bytes": 1048576,
+    "max_monomials": 4096,
+    "max_nodes": 512,
+    "max_variables": 8,
+    "max_weights": 512,
+    "wall_time_ms": 300000
+  },
+  "producer": {
+    "backend": "z3",
+    "search_ms": 126,
+    "stage": "certificate"
+  },
+  "schema": "gimle.forseti.trajectory-artifact/v1",
+  "source": "import Gimle.Forseti.Syntax.Certificate\nimport Gimle.Forseti.Examples.GalerkinNS.T3S\n\ndef forsetiTime : Gimle.Asgard.Dynamics.TimeDomain :=\n  \u27e8\"time\", (((mkRat (0) 1) : \u211a) : \u211d)\u27e9\n\ndef forsetiInitial : Gimle.Asgard.Point 3 :=\n  ![(((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (1) 1) : \u211a) : \u211d)]\n\ndef forsetiObservation : Fin 6 := \u27e83, by decide\u27e9\n\ndef forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=\n  (.and (.atom .ge (.var \u27e80, by decide\u27e9)) (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (17) 10))))))\n\ndef forsetiLeaf : Gimle.Forseti.Syntax.Goal :=\n  \u27e8\u27e8[\"E\"], by decide, by decide, by decide\u27e9,\n    (.and (.atom .le (.neg (.var \u27e80, by decide\u27e9))) (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (17) 10)))))),\n    forsetiPost\u27e9\n\ndef forsetiIdentities : Prop :=\n  Gimle.Forseti.Examples.GalerkinNS.T3S.evolution.states.map (\u00b7.initialId) = [\"initial-a10\", \"initial-a11\", \"initial-a21\"] \u2227\n  (Gimle.Forseti.Examples.GalerkinNS.T3S.body.observations.get forsetiObservation).port.id =\n    \"obs-e\" \u2227\n  Gimle.Forseti.Examples.GalerkinNS.T3S.evolution.axis.id = \"time\"\n\ndef forsetiContract : Prop :=\n  Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.GalerkinNS.T3S.observed forsetiTime\n    (Gimle.Forseti.Trajectory.Initialized forsetiTime (fun _ => True)\n      (\u00b7 = forsetiInitial))\n    (Gimle.Forseti.Trajectory.Always forsetiTime\n      fun o => forsetiPost.holds (fun _ => o forsetiObservation))\n\ndef forsetiRoot : Prop := forsetiIdentities \u2227 forsetiContract\ntheorem forsetiSearch : forsetiRoot := by\n  unfold forsetiRoot forsetiIdentities forsetiContract\n  refine \u27e8\u27e8by decide, by decide, by decide\u27e9, ?_\u27e9\n  have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3S.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3S.evolution] <;> norm_num [Rat.mkRat_eq_div]\n  have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3S.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3S.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]\n  have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3S.energyIndex := rfl\n  rw [time, init, obs]\n  refine Gimle.Forseti.Trajectory.Contract.consequence Gimle.Forseti.Examples.GalerkinNS.T3S.energy_contract (fun _ admitted => admitted) ?_\n  intro o band t within\n  have leaf := Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiLeaf \u27e8[\u27e8\u27e8[]\u27e9, [\u27e8[((mkRat (1) 1), (.constant (mkRat (1) 1)))]\u27e9, \u27e8[]\u27e9]\u27e9, \u27e8\u27e8[]\u27e9, [\u27e8[]\u27e9, \u27e8[((mkRat (1) 1), (.constant (mkRat (1) 1)))]\u27e9]\u27e9]\u27e9 (by decide +kernel)\n  apply leaf\n  simp only [forsetiLeaf, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval]\n  obtain \u27e8low, high\u27e9 := band t within\n  refine \u27e8?_, ?_\u27e9 <;> norm_num [Rat.mkRat_eq_div] <;> linarith\n\n#print axioms forsetiSearch\n",
+  "status": "PROVEN",
+  "theorem": {
+    "name": "forsetiSearch",
+    "statement": "root"
+  }
+}

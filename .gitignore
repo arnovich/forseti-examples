@@ -1,0 +1,9 @@
+.lake/
+**/.*.forseti/hugin/
+**/.*.forseti/runs/
+.venv/
+__pycache__/
+node_modules/
+_site/
+.gallery-cache/
+.gallery-runtime/

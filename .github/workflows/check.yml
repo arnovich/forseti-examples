@@ -1,0 +1,58 @@
+name: Notebook bundles
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  bundles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test bundle validation
+        run: python3 -m unittest discover -s tests -v
+      - name: Check portable pins and retained artifact references
+        run: python3 scripts/check_bundles.py
+  editor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Free space for Lean dependencies and swap
+        run: |
+          # This disposable runner does not need the preinstalled Android SDK.
+          sudo rm -rf /usr/local/lib/android
+          df -h "$RUNNER_TEMP"
+      - name: Install pinned elan
+        run: |
+          curl -fsSL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz -o "$RUNNER_TEMP/elan.tar.gz"
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  $RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP"
+          "$RUNNER_TEMP/elan-init" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned mathlib build cache
+        run: |
+          lake exe cache get
+          lake exe cache clean!
+      - name: Provide memory headroom for certificate compilation
+        run: |
+          # Allow headroom for large K5 certificate proofs.
+          df -h "$RUNNER_TEMP"
+          available_kib=$(df -Pk "$RUNNER_TEMP" | awk 'NR == 2 {print $4}')
+          if [ "$available_kib" -lt 12582912 ]; then
+            echo "Need 12 GiB free for 8 GiB swap and build outputs." >&2
+            exit 1
+          fi
+          sudo fallocate -l 8G "$RUNNER_TEMP/lean.swap"
+          sudo chmod 600 "$RUNNER_TEMP/lean.swap"
+          sudo mkswap "$RUNNER_TEMP/lean.swap"
+          sudo swapon "$RUNNER_TEMP/lean.swap"
+          free -h
+          df -h "$RUNNER_TEMP"
+      - name: Build all notebook modules
+        run: /usr/bin/time -v lake build

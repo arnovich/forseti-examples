@@ -1,0 +1,608 @@
+{
+  "runs": [
+    {
+      "id": "dc-energy_in_band-20260930T121205-c34a29",
+      "claim": "energy_in_band",
+      "mode": "decide",
+      "goal": "entailment x, y : x >= -1 and x <= 1 and y >= -1 and y <= 1 |- 2*(x*x) + 2*(y*y) >= 0 and 2*(x*x) + 2*(y*y) <= 4",
+      "context": "67d3a8e2def7aeaa68421ccf13389167ef6582e2ca5606add24c66d77fbdaeb1",
+      "started": 1790763125.8582382,
+      "ended": 1790763137.8478642,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "exact Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiGoal ⟨[⟨⟨[((mkRat (2) 1), (.var ⟨0, by decide⟩)), ((mkRat (2) 1), (.var ⟨1, by decide⟩))]⟩, [⟨[]⟩, ⟨[]⟩, ⟨[]⟩, ⟨[]⟩]⟩, ⟨⟨[]⟩, [⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.neg (.var ⟨0, by decide⟩))))]⟩, ⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.var ⟨0, by decide⟩)))]⟩, ⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.neg (.var ⟨1, by decide⟩))))]⟩, ⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.var ⟨1, by decide⟩)))]⟩]⟩]⟩ (by decide +kernel)"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "lane": "refutation",
+          "outcome": "none",
+          "detail": "z3 unsat: no counterexample exists to check",
+          "search_ms": 67,
+          "check": "",
+          "check_detail": "",
+          "check_ms": 0
+        },
+        {
+          "lane": "certificate",
+          "outcome": "found",
+          "detail": "z3 sat with its 9-square dsos widening",
+          "search_ms": 252,
+          "check": "validated",
+          "check_detail": "",
+          "check_ms": 11666
+        }
+      ],
+      "statement": ": Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent",
+      "block": "namespace Decided_energy_in_band\n\ndef forsetiContext : Gimle.Forseti.Syntax.Context :=\n  ⟨[\"x\", \"y\"], by decide, by decide, by decide⟩\n\ndef forsetiAntecedent : Gimle.Forseti.Syntax.Formula 2 :=\n  (.and (.and (.and (.atom .ge (.add (.var ⟨0, by decide⟩) (.neg (.neg (.constant (mkRat (1) 1)))))) (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (1) 1)))))) (.atom .ge (.add (.var ⟨1, by decide⟩) (.neg (.neg (.constant (mkRat (1) 1))))))) (.atom .le (.add (.var ⟨1, by decide⟩) (.neg (.constant (mkRat (1) 1))))))\n\ndef forsetiConsequent : Gimle.Forseti.Syntax.Formula 2 :=\n  (.and (.atom .ge (.add (.mul (.constant (mkRat (2) 1)) (.mul (.var ⟨0, by decide⟩) (.var ⟨0, by decide⟩))) (.mul (.constant (mkRat (2) 1)) (.mul (.var ⟨1, by decide⟩) (.var ⟨1, by decide⟩))))) (.atom .le (.add (.add (.mul (.constant (mkRat (2) 1)) (.mul (.var ⟨0, by decide⟩) (.var ⟨0, by decide⟩))) (.mul (.constant (mkRat (2) 1)) (.mul (.var ⟨1, by decide⟩) (.var ⟨1, by decide⟩)))) (.neg (.constant (mkRat (4) 1))))))\n\ndef forsetiGoal : Gimle.Forseti.Syntax.Goal := ⟨forsetiContext, forsetiAntecedent, forsetiConsequent⟩\n\n/-- x, y are real numbers. The entailment decider proved it. Goal (entailment): entailment x, y : x >= -1 and x <= 1 and y >= -1 and y <= 1 |- 2*(x*x) + 2*(y*y) >= 0 and 2*(x*x) + 2*(y*y) <= 4 -/\ntheorem energy_in_band :\n    ∀ x y : ℝ,\n      x ≥ -1 ∧ x ≤ 1 ∧ y ≥ -1 ∧ y ≤ 1 →\n      2 * (x * x) + 2 * (y * y) ≥ 0 ∧ 2 * (x * x) + 2 * (y * y) ≤ 4 := by\n  have root : Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent := by\n    exact Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiGoal ⟨[⟨⟨[((mkRat (2) 1), (.var ⟨0, by decide⟩)), ((mkRat (2) 1), (.var ⟨1, by decide⟩))]⟩, [⟨[]⟩, ⟨[]⟩, ⟨[]⟩, ⟨[]⟩]⟩, ⟨⟨[]⟩, [⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.neg (.var ⟨0, by decide⟩))))]⟩, ⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.var ⟨0, by decide⟩)))]⟩, ⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.neg (.var ⟨1, by decide⟩))))]⟩, ⟨[((mkRat (1) 1), (.add (.constant (mkRat (1) 1)) (.var ⟨1, by decide⟩)))]⟩]⟩]⟩ (by decide +kernel)\n  have forsetiSucc : ∀ {n : Nat} (k : Nat) (h : k + 1 < n + 1), (⟨k + 1, h⟩ : Fin (n + 1)) = Fin.succ ⟨k, Nat.lt_of_succ_lt_succ h⟩ := fun _ _ => rfl\n  have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (2) 1) : ℚ) : ℝ) = 2 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast2 : (((mkRat (4) 1) : ℚ) : ℝ) = 4 := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    revert claim\n    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]\n  · intro lane\n    revert lane\n    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]\n\nend Decided_energy_in_band",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Syntax.Certificate"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".EnergyOptimization.forseti/artifacts/entailment-a459c15472a2efead43ec67d6ff2d3c1132cd8e63bc5142d8a240705c778ee82.artifact.json",
+        "goal": ".EnergyOptimization.forseti/artifacts/entailment-a459c15472a2efead43ec67d6ff2d3c1132cd8e63bc5142d8a240705c778ee82.goal.json",
+        "replay": "python -m gimle.forseti.entailment replay .EnergyOptimization.forseti/artifacts/entailment-a459c15472a2efead43ec67d6ff2d3c1132cd8e63bc5142d8a240705c778ee82.artifact.json --goal .EnergyOptimization.forseti/artifacts/entailment-a459c15472a2efead43ec67d6ff2d3c1132cd8e63bc5142d8a240705c778ee82.goal.json"
+      },
+      "decided": 1790763151.5867949
+    },
+    {
+      "id": "dc-energy_below_three-20260930T121239-7ada00",
+      "claim": "energy_below_three",
+      "mode": "decide",
+      "goal": "entailment x, y : x >= -1 and x <= 1 and y >= -1 and y <= 1 |- 2*(x*x) + 2*(y*y) <= 3",
+      "context": "089e2d8381554a1dcea262a874ec812b996ce175003f8314fbff27a87ab1479d",
+      "started": 1790763159.8584294,
+      "ended": 1790763171.4419665,
+      "state": "accepted",
+      "outcome": "refuted",
+      "reason": "its negation checked as part of the file; the claim is inserted open and its refutation recorded beside it",
+      "script": [
+        "have refuted : ¬ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent := by",
+        "  exact Gimle.Forseti.Syntax.refutes_sound forsetiGoal [(\"x\", (mkRat (-3) 4)), (\"y\", (mkRat (-31) 32))] (by decide +kernel)",
+        "intro claim",
+        "have forsetiSucc : ∀ {n : Nat} (k : Nat) (h : k + 1 < n + 1), (⟨k + 1, h⟩ : Fin (n + 1)) = Fin.succ ⟨k, Nat.lt_of_succ_lt_succ h⟩ := fun _ _ => rfl",
+        "have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCast1 : (((mkRat (2) 1) : ℚ) : ℝ) = 2 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCast2 : (((mkRat (3) 1) : ℚ) : ℝ) = 3 := by norm_num [Rat.mkRat_eq_div]",
+        "refine (fun (bridge : _ ↔ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent) => refuted (bridge.mp claim)) ?_",
+        "constructor",
+        "· intro claim",
+        "  revert claim",
+        "  set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]",
+        "· intro lane",
+        "  revert lane",
+        "  set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "REFUTED",
+      "decision_reason": null,
+      "stages": [
+        {
+          "lane": "refutation",
+          "outcome": "found",
+          "detail": "z3 sat",
+          "search_ms": 59,
+          "check": "validated",
+          "check_detail": "",
+          "check_ms": 11521
+        }
+      ],
+      "statement": ": ¬ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent",
+      "block": "namespace Decided_energy_below_three\n\ndef forsetiContext : Gimle.Forseti.Syntax.Context :=\n  ⟨[\"x\", \"y\"], by decide, by decide, by decide⟩\n\ndef forsetiAntecedent : Gimle.Forseti.Syntax.Formula 2 :=\n  (.and (.and (.and (.atom .ge (.add (.var ⟨0, by decide⟩) (.neg (.neg (.constant (mkRat (1) 1)))))) (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (1) 1)))))) (.atom .ge (.add (.var ⟨1, by decide⟩) (.neg (.neg (.constant (mkRat (1) 1))))))) (.atom .le (.add (.var ⟨1, by decide⟩) (.neg (.constant (mkRat (1) 1))))))\n\ndef forsetiConsequent : Gimle.Forseti.Syntax.Formula 2 :=\n  (.atom .le (.add (.add (.mul (.constant (mkRat (2) 1)) (.mul (.var ⟨0, by decide⟩) (.var ⟨0, by decide⟩))) (.mul (.constant (mkRat (2) 1)) (.mul (.var ⟨1, by decide⟩) (.var ⟨1, by decide⟩)))) (.neg (.constant (mkRat (3) 1)))))\n\ndef forsetiGoal : Gimle.Forseti.Syntax.Goal := ⟨forsetiContext, forsetiAntecedent, forsetiConsequent⟩\n\n/-- x, y are real numbers. The entailment decider refuted it. Goal (entailment): entailment x, y : x >= -1 and x <= 1 and y >= -1 and y <= 1 |- 2*(x*x) + 2*(y*y) <= 3 -/\ntheorem energy_below_three :\n    ∀ x y : ℝ, x ≥ -1 ∧ x ≤ 1 ∧ y ≥ -1 ∧ y ≤ 1 → 2 * (x * x) + 2 * (y * y) ≤ 3 := by\n  sorry\n\nend Decided_energy_below_three",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Syntax.Certificate"
+      ],
+      "refutation": [
+        "have refuted : ¬ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent := by",
+        "  exact Gimle.Forseti.Syntax.refutes_sound forsetiGoal [(\"x\", (mkRat (-3) 4)), (\"y\", (mkRat (-31) 32))] (by decide +kernel)",
+        "intro claim",
+        "have forsetiSucc : ∀ {n : Nat} (k : Nat) (h : k + 1 < n + 1), (⟨k + 1, h⟩ : Fin (n + 1)) = Fin.succ ⟨k, Nat.lt_of_succ_lt_succ h⟩ := fun _ _ => rfl",
+        "have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCast1 : (((mkRat (2) 1) : ℚ) : ℝ) = 2 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCast2 : (((mkRat (3) 1) : ℚ) : ℝ) = 3 := by norm_num [Rat.mkRat_eq_div]",
+        "refine (fun (bridge : _ ↔ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent) => refuted (bridge.mp claim)) ?_",
+        "constructor",
+        "· intro claim",
+        "  revert claim",
+        "  set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]",
+        "· intro lane",
+        "  revert lane",
+        "  set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]"
+      ],
+      "artifact": {
+        "artifact": ".EnergyOptimization.forseti/artifacts/entailment-56941c8672fd8a56914b99f7743f70b000b837f8e36cf9b4f0bc67a1def2a3dd.artifact.json",
+        "goal": ".EnergyOptimization.forseti/artifacts/entailment-56941c8672fd8a56914b99f7743f70b000b837f8e36cf9b4f0bc67a1def2a3dd.goal.json",
+        "replay": "python -m gimle.forseti.entailment replay .EnergyOptimization.forseti/artifacts/entailment-56941c8672fd8a56914b99f7743f70b000b837f8e36cf9b4f0bc67a1def2a3dd.artifact.json --goal .EnergyOptimization.forseti/artifacts/entailment-56941c8672fd8a56914b99f7743f70b000b837f8e36cf9b4f0bc67a1def2a3dd.goal.json"
+      },
+      "decided": 1790763185.5349338
+    }
+  ],
+  "revisions": [
+    {
+      "added": [
+        "energy_in_band"
+      ],
+      "removed": [],
+      "context_changed": [
+        "original_contract",
+        "same_function",
+        "optimised_contract",
+        "wrong_differs",
+        "wrong_not_equivalent",
+        "wrong_breaks_contract",
+        "four_is_sharp"
+      ],
+      "proof_changed": [],
+      "made_stale": [
+        "original_contract",
+        "same_function",
+        "optimised_contract",
+        "wrong_differs",
+        "wrong_not_equivalent",
+        "wrong_breaks_contract",
+        "four_is_sharp"
+      ],
+      "prose_only": false,
+      "rev": 1,
+      "time": 1790763151.586306,
+      "action": "accept",
+      "label": "energy_in_band: decided claim inserted from run dc-energy_in_band-20260930T121205-c34a29",
+      "sha256": "57f93f748b9b9d4028e883be600484547360a9ba1db33d2de8442ae56d5c8265"
+    },
+    {
+      "added": [
+        "energy_below_three"
+      ],
+      "removed": [],
+      "context_changed": [
+        "original_contract",
+        "same_function",
+        "optimised_contract",
+        "wrong_differs",
+        "wrong_not_equivalent",
+        "wrong_breaks_contract",
+        "four_is_sharp"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 2,
+      "time": 1790763185.534328,
+      "action": "accept",
+      "label": "energy_below_three: decided claim inserted from run dc-energy_below_three-20260930T121239-7ada00",
+      "sha256": "46f594842b27096a00f7451ce824c1bee7d54e841dfbef6c57e71b7c67f6d992"
+    }
+  ],
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "energy_formula": {
+      "context": "29291247d4320778c53415012ff48097443229c0a4c17603ad4d6f636723189d",
+      "proof": "e268e7eeba54f6c0fa83c2767b62f5ecf97032a3d1511f4e28ac996504ffd243",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "e5fbcab9e5e174e4652b89d32835b6edf1beb4045085079bc2e795b6b6585bfc",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "original_contract": {
+      "context": "bdbff967e4104a92e07d1448993c1a327fbadb9b110a15be029f23b1d89b101d",
+      "proof": "437d5c7db7a314c55d84449618d528b88d18c7b76575db47d967d86ebf1c34fa",
+      "verdict": "holds",
+      "uses": [
+        "energy_formula",
+        "energy_in_band"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "forsetiClaim_1",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "9f9121bf53263c5e761ce671f415c78b38fab5c6d01f230140ea16d8c2e5761d",
+      "assumed": {
+        "energy_formula": "e5fbcab9e5e174e4652b89d32835b6edf1beb4045085079bc2e795b6b6585bfc",
+        "energy_in_band": "eb66af6c8b94f7d1b9adbdcf63e22426b8a3282123a4c0cf4d22218fc5acb7b1"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "same_function": {
+      "context": "91d9fd98be7b8d57ea25b783dc9fd35678fd235f70597038fa8b014a8f0db0a9",
+      "proof": "20beadc9b67845c87ef95cd6b0a2abb87414ef713f53d3381b2c6d14ff6ed531",
+      "verdict": "holds",
+      "uses": [
+        "energy_formula"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "9f8356ba1db74cf6bd50175203fda584267fee43baed18882fe50f4890c61531",
+      "assumed": {
+        "energy_formula": "e5fbcab9e5e174e4652b89d32835b6edf1beb4045085079bc2e795b6b6585bfc"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "optimised_contract": {
+      "context": "b55264d6f833b9743549c49beefff224cef67d82bf3e5a4496f73519f3da26a8",
+      "proof": "48ef015d0ecc8e2fb6cdff4e6388b93e58274f44f95132ac60b34d474e6e978f",
+      "verdict": "holds",
+      "uses": [
+        "original_contract",
+        "same_function"
+      ],
+      "axioms": [
+        "forsetiClaim_3",
+        "forsetiClaim_4",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "2c097d775a6bd3fe6884edab6ae2d67d445442eb6fe8fe007da5526582aa5566",
+      "assumed": {
+        "original_contract": "9f9121bf53263c5e761ce671f415c78b38fab5c6d01f230140ea16d8c2e5761d",
+        "same_function": "9f8356ba1db74cf6bd50175203fda584267fee43baed18882fe50f4890c61531"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "wrong_differs": {
+      "context": "649eac666fab48fff664889942a4066adf5d2cd3f6e1c22219ccdfe02d3d94f2",
+      "proof": "9be10add74f2d0872d56eef0c6c932273227ecfbac5d17910d8536013bc2d147",
+      "verdict": "holds",
+      "uses": [
+        "energy_formula"
+      ],
+      "axioms": [
+        "forsetiClaim_0",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "cff15c8c692c2b21724b2dcdc052a295d7fe968841d586cbf49cee3f5a1653d3",
+      "assumed": {
+        "energy_formula": "e5fbcab9e5e174e4652b89d32835b6edf1beb4045085079bc2e795b6b6585bfc"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "wrong_not_equivalent": {
+      "context": "3b9a7973f9fa4e1c368f022dfc423e00c414c36f9e89bd91d6b2e16cb08ef62e",
+      "proof": "32c750f2b88c7a1a9e39ccf041565e825002925a6059b23119541a3ce312c913",
+      "verdict": "holds",
+      "uses": [
+        "wrong_differs"
+      ],
+      "axioms": [
+        "forsetiClaim_6",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "b48483b98eee97a2562e4ae2d4d86bcbe2133d4964aa58fd520f56d0b7a73a89",
+      "assumed": {
+        "wrong_differs": "cff15c8c692c2b21724b2dcdc052a295d7fe968841d586cbf49cee3f5a1653d3"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "wrong_breaks_contract": {
+      "context": "a96f0f5e37c16cfa318864437366ad9552e57d892e50017128d1cbe908bbd5fe",
+      "proof": "2e97ca5a80438202ea516977e8851b3fb6e1e5b74c45b4ecaa28624f05c96d1b",
+      "verdict": "holds",
+      "uses": [
+        "wrong_differs"
+      ],
+      "axioms": [
+        "forsetiClaim_6",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "7d01952b87e43c346eebb8268f165096775668a967affd8f5255629854cee412",
+      "assumed": {
+        "wrong_differs": "cff15c8c692c2b21724b2dcdc052a295d7fe968841d586cbf49cee3f5a1653d3"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "four_is_sharp": {
+      "context": "254fef5281f509fc4426de85c7a8b9f0cead9317bf94b746d13ebc1002c38ae1",
+      "proof": "87bf1ede0352fdd44b2f54e97b8d682c70c1eb5209d500097f30c6b19a55aa0b",
+      "verdict": "holds",
+      "uses": [
+        "wrong_differs"
+      ],
+      "axioms": [
+        "forsetiClaim_6",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "9f31c6f3bb7a4de858de0ab58dcd098059edc670a57fae64d4bcfacb1361d7d9",
+      "assumed": {
+        "wrong_differs": "cff15c8c692c2b21724b2dcdc052a295d7fe968841d586cbf49cee3f5a1653d3"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "energy_in_band": {
+      "context": "4ad4a725146f85eae178857b5e1a485e295b77059a4c2dd2753eff9fa650d88a",
+      "proof": "2dcd2ccb59f89868bdb7ec6ff4156af045f7706f14ded13205257736d71ec835",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "eb66af6c8b94f7d1b9adbdcf63e22426b8a3282123a4c0cf4d22218fc5acb7b1",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "energy_below_three": {
+      "context": "87b0173bdf8f5327678130d47fbbe3794b2cf22a5d0443376192e928e1873f68",
+      "proof": "484aab2f2cd0f77b3c30f91521ba9a76c8c501112a53e100154a098c274f03d3",
+      "verdict": "open",
+      "uses": [],
+      "axioms": [],
+      "reason": "no proof yet",
+      "proposition": "",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "refutations": {
+    "energy_below_three": {
+      "script": [
+        "have refuted : ¬ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent := by",
+        "  exact Gimle.Forseti.Syntax.refutes_sound forsetiGoal [(\"x\", (mkRat (-3) 4)), (\"y\", (mkRat (-31) 32))] (by decide +kernel)",
+        "intro claim",
+        "have forsetiSucc : ∀ {n : Nat} (k : Nat) (h : k + 1 < n + 1), (⟨k + 1, h⟩ : Fin (n + 1)) = Fin.succ ⟨k, Nat.lt_of_succ_lt_succ h⟩ := fun _ _ => rfl",
+        "have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCast1 : (((mkRat (2) 1) : ℚ) : ℝ) = 2 := by norm_num [Rat.mkRat_eq_div]",
+        "have forsetiCast2 : (((mkRat (3) 1) : ℚ) : ℝ) = 3 := by norm_num [Rat.mkRat_eq_div]",
+        "refine (fun (bridge : _ ↔ Gimle.Forseti.Syntax.FormulaEntailment forsetiAntecedent forsetiConsequent) => refuted (bridge.mp claim)) ?_",
+        "constructor",
+        "· intro claim",
+        "  revert claim",
+        "  set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]",
+        "· intro lane",
+        "  revert lane",
+        "  set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Syntax.FormulaEntailment, forsetiAntecedent, forsetiConsequent, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, Fin.forall_fin_succ_pi, Fin.forall_fin_zero_pi, forsetiSucc, Fin.cons_succ, Fin.zero_eta, Fin.cons_zero, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc, imp_self]"
+      ],
+      "context": "87b0173bdf8f5327678130d47fbbe3794b2cf22a5d0443376192e928e1873f68",
+      "proof": "828b94ef84254af9fb400ecfbe6d76685684a9c40a0414ef96f500bcf24acf81",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "025de6caf7e9892f06c077d4f3aba95da22e500048ce25ff5aa4092ce31ac8b9",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "cells": {
+    "source": "2fc529e51f09687d2c59305be834872ac679539ada0fa1f9e8f7c1c79262ed2f",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "complete": true,
+    "claims": {
+      "energy_formula": "e5fbcab9e5e174e4652b89d32835b6edf1beb4045085079bc2e795b6b6585bfc",
+      "energy_in_band": "eb66af6c8b94f7d1b9adbdcf63e22426b8a3282123a4c0cf4d22218fc5acb7b1",
+      "energy_below_three": "025de6caf7e9892f06c077d4f3aba95da22e500048ce25ff5aa4092ce31ac8b9",
+      "original_contract": "9f9121bf53263c5e761ce671f415c78b38fab5c6d01f230140ea16d8c2e5761d",
+      "same_function": "9f8356ba1db74cf6bd50175203fda584267fee43baed18882fe50f4890c61531",
+      "optimised_contract": "2c097d775a6bd3fe6884edab6ae2d67d445442eb6fe8fe007da5526582aa5566",
+      "wrong_differs": "cff15c8c692c2b21724b2dcdc052a295d7fe968841d586cbf49cee3f5a1653d3",
+      "wrong_not_equivalent": "b48483b98eee97a2562e4ae2d4d86bcbe2133d4964aa58fd520f56d0b7a73a89",
+      "wrong_breaks_contract": "7d01952b87e43c346eebb8268f165096775668a967affd8f5255629854cee412",
+      "four_is_sharp": "9f31c6f3bb7a4de858de0ab58dcd098059edc670a57fae64d4bcfacb1361d7d9"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "7ca58e72b1b311e8f474c71a0b199c52001c5808f047d19814edb904cdc9fbe3",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ],
+        [
+          "af486d4b304964620ad1b5c5dee9d3bb76c286abdfe0d42511ffbfc06c8cf031",
+          "9f1d6bb29da708548836fa38e196f7e75e3aaa6503c317cb996e01aade67ca6d",
+          []
+        ]
+      ],
+      [
+        [
+          "d0e953e99002289885d307055cd2cb9ce64f6e98e914cf7ba89ec01fec974a07",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "87f1a60d2565e8d094872e06be37559d94944504a6841bf5a05b9d11de32badf",
+          "ef76638a39bee5921ef4ba05b8429ab1a61505f951f648fd52fb358fbb6cca6e",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext._proof_1",
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext._proof_3",
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext._proof_2",
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext"
+          ]
+        ],
+        [
+          "58eda800c164d7c7e3ae646fcc9af7c1e0f2dbdce8186141653684f88c632cb3",
+          "ef76638a39bee5921ef4ba05b8429ab1a61505f951f648fd52fb358fbb6cca6e",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiAntecedent",
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiAntecedent._proof_2",
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiAntecedent._proof_1"
+          ]
+        ],
+        [
+          "6a43720f5f781dc325a0e5ebda38fd11bbe044c6e4c979a0c58d89127aed7a51",
+          "ef76638a39bee5921ef4ba05b8429ab1a61505f951f648fd52fb358fbb6cca6e",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiConsequent"
+          ]
+        ],
+        [
+          "600ad18b70e7abbe5fb9220eed3c58f5f57ffc1e10193295307040d81946c3f2",
+          "ef76638a39bee5921ef4ba05b8429ab1a61505f951f648fd52fb358fbb6cca6e",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiGoal"
+          ]
+        ]
+      ],
+      [
+        [
+          "182afdea75ce99d9cf7149e747653df97afcae43f349a0e0a4c7a69bf3b0be89",
+          "ef76638a39bee5921ef4ba05b8429ab1a61505f951f648fd52fb358fbb6cca6e",
+          []
+        ]
+      ],
+      [
+        [
+          "39edb335faf21e1bc7ba336513cb406baff98491400fd99803c778bed43ce1dd",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "87f1a60d2565e8d094872e06be37559d94944504a6841bf5a05b9d11de32badf",
+          "041657d7a5025b278d5ff6b09e6bc6a6c8287d8efc0203a9815f73f4fc01dc65",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiContext"
+          ]
+        ],
+        [
+          "58eda800c164d7c7e3ae646fcc9af7c1e0f2dbdce8186141653684f88c632cb3",
+          "041657d7a5025b278d5ff6b09e6bc6a6c8287d8efc0203a9815f73f4fc01dc65",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiAntecedent"
+          ]
+        ],
+        [
+          "77fcc767d9b691d706df00d4f4cb63427885c2187f413825d64256a96a629231",
+          "041657d7a5025b278d5ff6b09e6bc6a6c8287d8efc0203a9815f73f4fc01dc65",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiConsequent"
+          ]
+        ],
+        [
+          "600ad18b70e7abbe5fb9220eed3c58f5f57ffc1e10193295307040d81946c3f2",
+          "041657d7a5025b278d5ff6b09e6bc6a6c8287d8efc0203a9815f73f4fc01dc65",
+          [
+            "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiGoal"
+          ]
+        ]
+      ],
+      [
+        [
+          "0a8afba2f232f7ab37e16f410d136f048dfe1e623c4341bce2ff83d6e51fb399",
+          "041657d7a5025b278d5ff6b09e6bc6a6c8287d8efc0203a9815f73f4fc01dc65",
+          []
+        ]
+      ],
+      [],
+      [],
+      [
+        [
+          "1d183b89c5c73ba1b4f697874b6730a7d19644989c01f68646f35f6360700e4d",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "3408063da38e2161aecf3b3fdb9d72cf51749ffa01a9b75912027e70c614104f",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "0a71db5da48fff4fb6828cf06eed5ef44e2a3d30debd22b0ea707b5ead4286e8",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "f08a4783a5c47c252866b347ec6d3d8eab279b14a24c9636370cfc780fa4c779",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "ec68b97660e768974c1ae96be66f4966e3d5bef4067d7b996ff6c826488f2419",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "10b4ae2513c20d746defd51345c2a6ba8bf63160a8b255c545637ddde09a61e1",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "a3863a59284f41740e66ecb14e9ba2dd266fed3f8964e22eb2680b3f90a63c28",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "cb1040b94ecf13b45dd411c0ee6387917177dc3b6aa4e27ccd4825c894e47995",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "9b3e49244e84beac53e79e1451aee8389c010fb3413dc0848b4d1965f8d33d38",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ],
+        [
+          "747cc469241fb07674fdf726a6c00dddcdd10037b8ba2392a380756227c6e67f",
+          "d643f9aea6eef41b0cdee4e547f0893adfbb0be20675a330e939acb92700e962",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext": "56333becb36b8b020a65d08df96a5689bc2e4acbc69c451665cdb7db74213661",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext._proof_2": "b5eb9712db6d43f94f041d858a14854a37f24d8fb55a862cbe65ec214819b364",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext._proof_3": "4d418cb88f6e7ec8412b0394d129fea8152e3041404c08abfbf2dbe056025cc8",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiAntecedent._proof_1": "454c157731c903d07d8f9bb543cad4563e5d3f592466296e0352e11d63065371",
+      "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiAntecedent": "c8e3562b703fb112e18da1bc176679b6a81271f0e044b3309e9867fb24852c57",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiConsequent": "ad4e4b59095d1e413e15bf46044d2a5aa642246d45119c45d542caf8f826ad1f",
+      "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiContext": "4ba25e6c46f7904fbdf769102808652efebed8645bbfa4c54d23d8e3c33007d2",
+      "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiConsequent": "224d7728966e33b4fff402bc582ea9556f9b74ab75461c25dfc6816aabddae43",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiContext._proof_1": "6e5982eb5bba6297774e6b4d637f9bd0c3dad4a396fc7a13e07557301363e657",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiAntecedent._proof_2": "a64218104f0f89061aadb78865f3fe38d51a57085a0cd528b5b8a9ebaa4dc805",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiGoal": "6a9e1c6fa736f96543d0be5cbb1fa897b738290e84b5c3513fdf79a2c19fb95d",
+      "Notebook.EnergyOptimization.Decided_energy_below_three.forsetiGoal": "57294fa04e388850a6295433a597ced11c7f8a427218ad52d742f18cf40c9f5a",
+      "Notebook.EnergyOptimization.Decided_energy_in_band.forsetiAntecedent": "6510d641b6caea60d977eebdedb90cd69c515cc12f18b1e90920627b99687bb1"
+    }
+  }
+}

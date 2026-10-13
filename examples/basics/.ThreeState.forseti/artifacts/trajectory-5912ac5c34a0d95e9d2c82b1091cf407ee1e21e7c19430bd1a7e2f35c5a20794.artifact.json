@@ -1,0 +1,184 @@
+{
+  "dependencies": [
+    "Gimle.Forseti.Examples.ThreeState.compiled_exists",
+    "Gimle.Forseti.Examples.ThreeStateContract.feedback_reads",
+    "Gimle.Forseti.Examples.ThreeStateContract.declared_input_admitted",
+    "Gimle.Asgard.Examples.ThreeState.energy_at_initial",
+    "Gimle.Forseti.Syntax.Formula.holdsQ_iff"
+  ],
+  "environment": {
+    "closure_sha256": "cb92fbf2d63a0bd059f90a598d027919218250003688255c4224e2ec050ca568",
+    "dependencies": [
+      {
+        "name": "asgard",
+        "revision": "411dfdffc44c37320f12b977fc60da7a3117a679"
+      },
+      {
+        "name": "mathlib",
+        "revision": "520045ab14e26149ee970e2e617ca04b09bde5d6"
+      },
+      {
+        "name": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "imports": [
+      "Gimle.Forseti.Syntax.Certificate",
+      "Gimle.Forseti.Examples.ThreeStateContract"
+    ],
+    "lockfile_sha256": "0471dc6f5a9e45ac208752571fcbec0b778a7398b1389b1b6df6e83abf990a01",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "support_version": "gimle.forseti.lean-support/v17",
+    "toolchain": "leanprover/lean4:v4.32.1"
+  },
+  "evidence": {
+    "initial": [
+      [
+        "initial-x",
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        "initial-y",
+        [
+          2,
+          1
+        ]
+      ],
+      [
+        "initial-z",
+        [
+          -1,
+          1
+        ]
+      ]
+    ],
+    "kind": "initial-witness",
+    "time": [
+      2,
+      1
+    ],
+    "value": [
+      6,
+      1
+    ]
+  },
+  "goal": {
+    "initial": [
+      [
+        "initial-x",
+        [
+          1,
+          1
+        ]
+      ],
+      [
+        "initial-y",
+        [
+          2,
+          1
+        ]
+      ],
+      [
+        "initial-z",
+        [
+          -1,
+          1
+        ]
+      ]
+    ],
+    "interpretation": "continuous-real",
+    "model": "three-state",
+    "obligation": "contract",
+    "observation": {
+      "name": "V",
+      "port": "obs-v"
+    },
+    "post": [
+      "atom",
+      "le",
+      [
+        "add",
+        [
+          "var",
+          0
+        ],
+        [
+          "neg",
+          [
+            "const",
+            [
+              5,
+              1
+            ]
+          ]
+        ]
+      ]
+    ],
+    "quantifier": "always",
+    "schema": "gimle.forseti.trajectory-goal/v1",
+    "time": {
+      "axis": "time",
+      "start": [
+        2,
+        1
+      ]
+    }
+  },
+  "limits": {
+    "max_artifact_bytes": 1048576,
+    "max_coefficient_bits": 256,
+    "max_degree": 8,
+    "max_depth": 64,
+    "max_dictionary": 16,
+    "max_heartbeats": 2000000,
+    "max_lean_output_bytes": 1048576,
+    "max_monomials": 4096,
+    "max_nodes": 512,
+    "max_variables": 8,
+    "max_weights": 512,
+    "wall_time_ms": 300000
+  },
+  "producer": {
+    "backend": "z3",
+    "search_ms": 51,
+    "stage": "initial-witness"
+  },
+  "schema": "gimle.forseti.trajectory-artifact/v1",
+  "source": "import Gimle.Forseti.Syntax.Certificate\nimport Gimle.Forseti.Examples.ThreeStateContract\n\ndef forsetiTime : Gimle.Asgard.Dynamics.TimeDomain :=\n  \u27e8\"time\", (((mkRat (2) 1) : \u211a) : \u211d)\u27e9\n\ndef forsetiInitial : Gimle.Asgard.Point 3 :=\n  ![(((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (2) 1) : \u211a) : \u211d), (((mkRat (-1) 1) : \u211a) : \u211d)]\n\ndef forsetiObservation : Fin 4 := \u27e83, by decide\u27e9\n\ndef forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=\n  (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (5) 1)))))\n\ndef forsetiIdentities : Prop :=\n  Gimle.Asgard.Examples.ThreeState.evolution.states.map (\u00b7.initialId) = [\"initial-x\", \"initial-y\", \"initial-z\"] \u2227\n  ((Gimle.Asgard.Examples.ThreeState.body (1 / 3) (1 / 2) 2).observations.get forsetiObservation).port.id =\n    \"obs-v\" \u2227\n  Gimle.Asgard.Examples.ThreeState.evolution.axis.id = \"time\"\n\ndef forsetiContract : Prop :=\n  Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.ThreeStateContract.observed forsetiTime\n    (Gimle.Forseti.Trajectory.Initialized forsetiTime (fun _ => True)\n      (\u00b7 = forsetiInitial))\n    (Gimle.Forseti.Trajectory.Always forsetiTime\n      fun o => forsetiPost.holds (fun _ => o forsetiObservation))\n\ndef forsetiRoot : Prop := forsetiIdentities \u2227 forsetiContract\ntheorem forsetiSearch : forsetiIdentities \u2227 \u00ac forsetiContract := by\n  unfold forsetiIdentities forsetiContract\n  refine \u27e8\u27e8by decide, by decide, by decide\u27e9, ?_\u27e9\n  intro contract\n  have time : forsetiTime = Gimle.Asgard.Examples.ThreeState.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Asgard.Examples.ThreeState.evolution] <;> norm_num [Rat.mkRat_eq_div]\n  have init : forsetiInitial = Gimle.Asgard.Examples.ThreeState.model.initial := by rw [Gimle.Asgard.Examples.ThreeState.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]\n  have obs : forsetiObservation = Gimle.Asgard.Examples.ThreeState.energyIndex := rfl\n  rw [time, init, obs] at contract\n  obtain \u27e8state, realized\u27e9 := Gimle.Forseti.Examples.ThreeState.compiled_exists\n  have start : state Gimle.Asgard.Examples.ThreeState.evolution.time.start = Gimle.Asgard.Examples.ThreeState.model.initial := by unfold Gimle.Asgard.Model.ContinuousModel.Realizes Gimle.Asgard.Model.ContinuousModel.feedback at realized; exact ((Gimle.Forseti.Trajectory.close_rel _ _ _ _ _ _).mp realized).2.1\n  have bounded := contract.holds _ Gimle.Forseti.Examples.ThreeStateContract.declared_input_admitted _ \u27e8state, (Gimle.Forseti.Examples.ThreeStateContract.feedback_reads _ Gimle.Forseti.Examples.ThreeStateContract.declared_input_admitted state).mpr realized, rfl\u27e9 Gimle.Asgard.Examples.ThreeState.evolution.time.start (by simp [Gimle.Asgard.Dynamics.TimeDomain.domain])\n  simp only at bounded\n  rw [start, Gimle.Asgard.Examples.ThreeState.energy_at_initial] at bounded\n  have witness : forsetiPost.holds (fun i => (((fun _ : Fin 1 => (mkRat (6) 1)) i : \u211a) : \u211d)) := by convert bounded using 2; norm_num [Rat.mkRat_eq_div]\n  rw [\u2190 Gimle.Forseti.Syntax.Formula.holdsQ_iff] at witness\n  exact absurd witness (by decide +kernel)\n\n#print axioms forsetiSearch\n",
+  "status": "REFUTED",
+  "theorem": {
+    "name": "forsetiSearch",
+    "statement": "negation"
+  }
+}

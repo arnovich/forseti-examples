@@ -1,0 +1,128 @@
+name: Notebook gallery
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gallery-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.2'
+          cache: npm
+      - name: Install pinned export tools
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r scripts/gallery/requirements.txt
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: Test gallery and bundle guards
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/check_bundles.py
+          npm test
+      - name: Check out the compatible Lean sources for drawing diagrams
+        uses: actions/checkout@v4
+        with:
+          repository: arnovich/forseti-lean
+          ref: 8c6efd72ff7bbacf6a0f78f056390e0d670b3200
+          path: .gallery-runtime
+          persist-credentials: false
+      - name: Install Lean and the Linux sandbox
+        run: |
+          # Disposable runner: these SDKs are unused by Python, Node and Lean.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /usr/local/.ghcup
+          df -h "$RUNNER_TEMP"
+          sudo apt-get update -qq
+          sudo apt-get install --yes bubblewrap apparmor apparmor-profiles
+          sudo apparmor_parser -r /usr/share/apparmor/extra-profiles/bwrap-userns-restrict
+          curl -fsSL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz -o "$RUNNER_TEMP/elan.tar.gz"
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  $RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP"
+          "$RUNNER_TEMP/elan-init" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore the built diagram environment
+        id: lean-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .gallery-runtime/.lake
+          key: gallery-lean-${{ runner.os }}-8c6efd72-v1
+      - name: Prepare Lean modules used by the diagrams
+        working-directory: .gallery-runtime
+        run: |
+          lake exe cache get
+          lake exe cache clean!
+          df -h "$RUNNER_TEMP"
+          available_kib=$(df -Pk "$RUNNER_TEMP" | awk 'NR == 2 {print $4}')
+          if [ "$available_kib" -lt 12582912 ]; then
+            echo "Need 12 GiB free for 8 GiB swap and build outputs." >&2
+            exit 1
+          fi
+          sudo fallocate -l 8G "$RUNNER_TEMP/lean.swap"
+          sudo chmod 600 "$RUNNER_TEMP/lean.swap"
+          sudo mkswap "$RUNNER_TEMP/lean.swap"
+          sudo swapon "$RUNNER_TEMP/lean.swap"
+          lake build Gimle.Forseti Gimle.Forseti.Examples Gimle.Asgard.Examples Gimle.Asgard.Visualization.Model
+      - name: Cache the prepared environment
+        if: steps.lean-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .gallery-runtime/.lake
+          key: gallery-lean-${{ runner.os }}-8c6efd72-v1
+      - name: Restore unchanged diagrams
+        uses: actions/cache@v4
+        with:
+          path: .gallery-cache
+          key: gallery-diagrams-${{ runner.os }}-${{ hashFiles('scripts/gallery/requirements.txt', 'examples/**/*.lean') }}
+          restore-keys: gallery-diagrams-${{ runner.os }}-
+      - name: Export saved notebooks without replaying claims
+        run: python -m scripts.build_gallery --lean-project "$GITHUB_WORKSPACE/.gallery-runtime"
+      - name: Verify every exported page and create preview images
+        run: npm run gallery:check -- _site
+      - name: Ensure no source or metadata was changed
+        run: git diff --exit-code -- examples
+      - name: Upload browsable preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-gallery
+          path: _site
+          retention-days: 14
+      - name: Package the public Pages site
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && !github.event.repository.private
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && !github.event.repository.private
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Publish the gallery
+        id: deployment
+        uses: actions/deploy-pages@v4

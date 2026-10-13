@@ -1,0 +1,1558 @@
+{
+  "runs": [
+    {
+      "id": "dc-truncation_decided-20261004T224213-c83cf5",
+      "claim": "truncation_decided",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation trig-truncation basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [1, 1, 1/2], [-1, -1, 1/2], [2, 1, 1/2], [-2, -1, 1/2] truncation u window 3 radius 1/6480 epsilon 1/100",
+      "context": "b55597be3ee1a16cd6fc38c5a1f9e3fc0366e8d2eadf620930914945bd839014",
+      "started": 1791146533.0664155,
+      "ended": 1791146545.5240893,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 1) : ℚ) : ℝ) (((mkRat (648) 1) : ℚ) : ℝ) := by",
+        "  intro n",
+        "  have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 3) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 1)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n",
+        "  have e : (3 * ((mkRat (3) 1) : ℚ) * (72 * (mkRat (3) 1) * ((3 : ℕ) : ℚ)) ^ n) = (mkRat (9) 1) * (mkRat (648) 1) ^ n := by norm_num [Rat.mkRat_eq_div]",
+        "  rw [e] at h",
+        "  have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 1) * (mkRat (648) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h",
+        "  push_cast at h'",
+        "  exact h'",
+        "refine ⟨fun t x ht => ?_, ?_⟩",
+        "· exact Gimle.Asgard.Streams.TrigStream.hasSum_analyticField geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht",
+        "· refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_",
+        "  exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (9) 1) (mkRat (648) 1) (mkRat (1) 6480) 3 ≤ (mkRat (1) 100) by decide +kernel)"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigTruncationClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "radius",
+          "outcome": "found",
+          "detail": "K = 3, L = 3, M = 3L = 9, ρ = 72LK = 648, certified radius 1/ρ = 1/648, certified bound 1/100 ≤ ε = 1/100",
+          "search_ms": 0,
+          "check": "validated",
+          "check_ms": 12454,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_truncation_decided\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((1, 0), (mkRat (1) 2)), ((-1, 0), (mkRat (1) 2)), ((1, 1), (mkRat (1) 2)), ((-1, -1), (mkRat (1) 2)), ((2, 1), (mkRat (1) 2)), ((-2, -1), (mkRat (1) 2))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  (∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (((mkRat (1) 6480) : ℚ) : ℝ) →\n    HasSum (Gimle.Asgard.Streams.TrigStream.seriesTerm (output 0) t x)\n      (Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x)) ∧\n  Gimle.Asgard.Streams.TrigStream.TruncationBound (output 0) (((mkRat (1) 6480) : ℚ) : ℝ) 3 (((mkRat (1) 100) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\n/-- The Fourier feedback circuit (ν = 0; ν = 0 is the Euler equation) admits every input whose initial vorticity is Σ c·e^(i k·x) over the listed ((k₁, k₂), c); higher boundary coefficients are free. In basis ogf, a unique formal output exists and every output ω satisfies the bound: its series converges for |t| ≤ 1/6480, and the window through t^2 is within 1/100 of the sum there. This claim does not assert classical PDE realization; that theorem additionally needs an even, mean-zero start. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation trig-truncation basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [1, 1, 1/2], [-1, -1, 1/2], [2, 1, 1/2], [-2, -1, 1/2] truncation u window 3 radius 1/6480 epsilon 1/100 -/\ntheorem truncation_decided :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((1, 1), (1/2)), ((-1, -1), (1/2)), ((2, 1), (1/2)), ((-2, -1), (1/2))])\n      (fun output =>\n        have ω := output 0;\n        (∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (1/6480) →\n          HasSum (Gimle.Asgard.Streams.TrigStream.seriesTerm ω t x)\n            (Gimle.Asgard.Streams.TrigStream.analyticField ω t x)) ∧\n        Gimle.Asgard.Streams.TrigStream.TruncationBound ω (1/6480) 3 (1/100)) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 1) : ℚ) : ℝ) (((mkRat (648) 1) : ℚ) : ℝ) := by\n      intro n\n      have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 3) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 1)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n\n      have e : (3 * ((mkRat (3) 1) : ℚ) * (72 * (mkRat (3) 1) * ((3 : ℕ) : ℚ)) ^ n) = (mkRat (9) 1) * (mkRat (648) 1) ^ n := by norm_num [Rat.mkRat_eq_div]\n      rw [e] at h\n      have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 1) * (mkRat (648) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h\n      push_cast at h'\n      exact h'\n    refine ⟨fun t x ht => ?_, ?_⟩\n    · exact Gimle.Asgard.Streams.TrigStream.hasSum_analyticField geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht\n    · refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_\n      exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (9) 1) (mkRat (648) 1) (mkRat (1) 6480) 3 ≤ (mkRat (1) 100) by decide +kernel)\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((1, 1), (1/2)), ((-1, -1), (1/2)), ((2, 1), (1/2)), ((-2, -1), (1/2))] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1) 6480) : ℚ) : ℝ) = (1/6480) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (1) 100) : ℚ) : ℝ) = (1/100) := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1] at lane\n    dsimp only\n    exact lane\n\nend Decided_truncation_decided",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Fourier",
+        "Gimle.Asgard.Streams.EulerRadius",
+        "Gimle.Asgard.Streams.VorticityTable"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-33e6f21adb8982bcf9aab2b480288232b8d7bb04069a66a9fda944e6308e49d3.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-33e6f21adb8982bcf9aab2b480288232b8d7bb04069a66a9fda944e6308e49d3.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-33e6f21adb8982bcf9aab2b480288232b8d7bb04069a66a9fda944e6308e49d3.artifact.json --goal .Euler.forseti/artifacts/stream-33e6f21adb8982bcf9aab2b480288232b8d7bb04069a66a9fda944e6308e49d3.goal.json"
+      },
+      "decided": 1791146563.5471833
+    },
+    {
+      "id": "dc-band_decided-20261004T224255-784ae5",
+      "claim": "band_decided",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation trig-band basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [1, 1, 1/2], [-1, -1, 1/2], [2, 1, 1/2], [-2, -1, 1/2] band u radius 1/6480 : u >= -31/10 and u <= 31/10",
+      "context": "2e210268bb46fb7bbb3bacc1a4fe5b2f96e0375a1e47e68cf2146cce4157b61b",
+      "started": 1791146575.7936852,
+      "ended": 1791146590.7702181,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 1) : ℚ) : ℝ) (((mkRat (648) 1) : ℚ) : ℝ) := by",
+        "  intro n",
+        "  have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 3) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 1)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n",
+        "  have e : (3 * ((mkRat (3) 1) : ℚ) * (72 * (mkRat (3) 1) * ((3 : ℕ) : ℚ)) ^ n) = (mkRat (9) 1) * (mkRat (648) 1) ^ n := by norm_num [Rat.mkRat_eq_div]",
+        "  rw [e] at h",
+        "  have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 1) * (mkRat (648) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h",
+        "  push_cast at h'",
+        "  exact h'",
+        "refine ⟨fun t x ht => ?_, fun t x ht => ?_⟩",
+        "· exact Gimle.Asgard.Streams.TrigStream.hasSum_analyticField geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht",
+        "· have b := Gimle.Asgard.Streams.TrigStream.abs_analyticField_le (x := x) geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht 3",
+        "  simp only [Finset.sum_range_succ, Finset.sum_range_zero] at b",
+        "  have h0 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 0) : ℚ) : ℝ) ≤ (((mkRat (3) 1) : ℚ) : ℝ) := by",
+        "    rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]",
+        "    exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))",
+        "  have h1 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 1) : ℚ) : ℝ) ≤ (((mkRat (8) 5) : ℚ) : ℝ) := by",
+        "    rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]",
+        "    exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))",
+        "  have h2 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 2) : ℚ) : ℝ) ≤ (((mkRat (223) 260) : ℚ) : ℝ) := by",
+        "    rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]",
+        "    exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))",
+        "  have hB : |Gimle.Asgard.Streams.TrigStream.analyticField (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) t x| ≤ ((forsetiBound : ℚ) : ℝ) := by",
+        "    refine b.trans ?_",
+        "    norm_num [forsetiBound, Rat.mkRat_eq_div] at h0 h1 h2 ⊢",
+        "    linarith",
+        "  have hb := abs_le.mp hB",
+        "  norm_num [forsetiBound, Rat.mkRat_eq_div] at hb ⊢",
+        "  exact ⟨by linarith [hb.1], by linarith [hb.2]⟩"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigBandClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "spread",
+          "outcome": "found",
+          "detail": "K = 3, L = 3, M = 3L = 9, ρ = 72LK = 648, window 3, norms 3, 8/5, 223/260; the window bounds u within [≈ -3.0102, ≈ 3.0102] on |t| ≤ 1/6480",
+          "search_ms": 1,
+          "check": "validated",
+          "check_ms": 14968,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_band_decided\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((1, 0), (mkRat (1) 2)), ((-1, 0), (mkRat (1) 2)), ((1, 1), (mkRat (1) 2)), ((-1, -1), (mkRat (1) 2)), ((2, 1), (mkRat (1) 2)), ((-2, -1), (mkRat (1) 2))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  (∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (((mkRat (1) 6480) : ℚ) : ℝ) →\n    HasSum (Gimle.Asgard.Streams.TrigStream.seriesTerm (output 0) t x)\n      (Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x)) ∧\n  ∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (((mkRat (1) 6480) : ℚ) : ℝ) →\n    (((mkRat (-31) 10) : ℚ) : ℝ) ≤ Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x ∧ Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x ≤ (((mkRat (31) 10) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\ndef forsetiBound : ℚ := (mkRat (32864382943) 10917504000)\n\n/-- The Fourier feedback circuit (ν = 0; ν = 0 is the Euler equation) admits every input whose initial vorticity is Σ c·e^(i k·x) over the listed ((k₁, k₂), c); higher boundary coefficients are free. In basis ogf, a unique formal output exists and every output ω satisfies the bound: its series converges for |t| ≤ 1/6480, and its sum stays within the band there. This claim does not assert classical PDE realization; that theorem additionally needs an even, mean-zero start. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation trig-band basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [1, 1, 1/2], [-1, -1, 1/2], [2, 1, 1/2], [-2, -1, 1/2] band u radius 1/6480 : u >= -31/10 and u <= 31/10 -/\ntheorem band_decided :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((1, 1), (1/2)), ((-1, -1), (1/2)), ((2, 1), (1/2)), ((-2, -1), (1/2))])\n      (fun output =>\n        have ω := output 0;\n        (∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (1/6480) →\n          HasSum (Gimle.Asgard.Streams.TrigStream.seriesTerm ω t x)\n            (Gimle.Asgard.Streams.TrigStream.analyticField ω t x)) ∧\n        ∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (1/6480) →\n          (-31/10) ≤ Gimle.Asgard.Streams.TrigStream.analyticField ω t x ∧ Gimle.Asgard.Streams.TrigStream.analyticField ω t x ≤ (31/10)) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 1) : ℚ) : ℝ) (((mkRat (648) 1) : ℚ) : ℝ) := by\n      intro n\n      have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 3) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 1)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n\n      have e : (3 * ((mkRat (3) 1) : ℚ) * (72 * (mkRat (3) 1) * ((3 : ℕ) : ℚ)) ^ n) = (mkRat (9) 1) * (mkRat (648) 1) ^ n := by norm_num [Rat.mkRat_eq_div]\n      rw [e] at h\n      have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 1) * (mkRat (648) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h\n      push_cast at h'\n      exact h'\n    refine ⟨fun t x ht => ?_, fun t x ht => ?_⟩\n    · exact Gimle.Asgard.Streams.TrigStream.hasSum_analyticField geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht\n    · have b := Gimle.Asgard.Streams.TrigStream.abs_analyticField_le (x := x) geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht 3\n      simp only [Finset.sum_range_succ, Finset.sum_range_zero] at b\n      have h0 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 0) : ℚ) : ℝ) ≤ (((mkRat (3) 1) : ℚ) : ℝ) := by\n        rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]\n        exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))\n      have h1 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 1) : ℚ) : ℝ) ≤ (((mkRat (8) 5) : ℚ) : ℝ) := by\n        rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]\n        exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))\n      have h2 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 2) : ℚ) : ℝ) ≤ (((mkRat (223) 260) : ℚ) : ℝ) := by\n        rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]\n        exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))\n      have hB : |Gimle.Asgard.Streams.TrigStream.analyticField (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) t x| ≤ ((forsetiBound : ℚ) : ℝ) := by\n        refine b.trans ?_\n        norm_num [forsetiBound, Rat.mkRat_eq_div] at h0 h1 h2 ⊢\n        linarith\n      have hb := abs_le.mp hB\n      norm_num [forsetiBound, Rat.mkRat_eq_div] at hb ⊢\n      exact ⟨by linarith [hb.1], by linarith [hb.2]⟩\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((1, 1), (1/2)), ((-1, -1), (1/2)), ((2, 1), (1/2)), ((-2, -1), (1/2))] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1) 6480) : ℚ) : ℝ) = (1/6480) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (-31) 10) : ℚ) : ℝ) = (-31/10) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast2 : (((mkRat (31) 10) : ℚ) : ℝ) = (31/10) := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiCast2]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiCast2] at lane\n    dsimp only\n    exact lane\n\nend Decided_band_decided",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Fourier",
+        "Gimle.Asgard.Streams.EulerRadius",
+        "Gimle.Asgard.Streams.VorticityTable"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-1248442f2f9c49b4236f892a50a3d73cf1e357c0d705fee3ddf5d56415db27a7.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-1248442f2f9c49b4236f892a50a3d73cf1e357c0d705fee3ddf5d56415db27a7.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-1248442f2f9c49b4236f892a50a3d73cf1e357c0d705fee3ddf5d56415db27a7.artifact.json --goal .Euler.forseti/artifacts/stream-1248442f2f9c49b4236f892a50a3d73cf1e357c0d705fee3ddf5d56415db27a7.goal.json"
+      },
+      "decided": 1791146608.9617167
+    },
+    {
+      "id": "dc-band_tighter-20261004T224342-c010ec",
+      "claim": "band_tighter",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation trig-band basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [1, 1, 1/2], [-1, -1, 1/2], [2, 1, 1/2], [-2, -1, 1/2] band u radius 1/6480 : u <= 3",
+      "context": "5f32dff6b6f610c38be6fdf6bf8e8d0edd87acf1e3d6dfff3f3da95369ddc543",
+      "started": 1791146622.0034344,
+      "ended": 1791146622.007552,
+      "state": "finished",
+      "outcome": "unknown",
+      "reason": "not decided (exhausted); this is not a refutation",
+      "script": [],
+      "axioms": [],
+      "hints": [],
+      "status": "UNKNOWN",
+      "decision_reason": "exhausted",
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigBandClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "spread",
+          "outcome": "none",
+          "detail": "the window at degree 4 bounds u within [≈ -3.0012, ≈ 3.0012] on |t| ≤ 1/6480; the claim asks [−∞, 3], and this lane evaluates the field at no point, so no proof and no refutation; a smaller radius would tighten the bound",
+          "search_ms": 1,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        }
+      ]
+    },
+    {
+      "id": "dc-classical_multimode_tail-20261006T020447-1ff5bd",
+      "claim": "classical_multimode_tail",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation euler-truncation basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [0, 2, 1/4], [0, -2, 1/4] truncation u window 3 radius 1/2160 epsilon 1/100",
+      "context": "dfbdf8a1a055ccb1f4c0f7050c6ca14931628fda97c0a61abfa7341e30035a51",
+      "started": 1791245087.6914437,
+      "ended": 1791245101.3881662,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 2) : ℚ) : ℝ) (((mkRat (216) 1) : ℚ) : ℝ) := by",
+        "  intro n",
+        "  have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 2) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 2)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n",
+        "  have e : (3 * ((mkRat (3) 2) : ℚ) * (72 * (mkRat (3) 2) * ((2 : ℕ) : ℚ)) ^ n) = (mkRat (9) 2) * (mkRat (216) 1) ^ n := by norm_num [Rat.mkRat_eq_div]",
+        "  rw [e] at h",
+        "  have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 2) * (mkRat (216) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h",
+        "  push_cast at h'",
+        "  exact h'",
+        "refine ⟨?_, ?_⟩",
+        "· exact Gimle.Forseti.Euler.certified forsetiStart",
+        "    (Gimle.Forseti.Euler.Table.meanZero (table := forsetiTable) (by decide +kernel))",
+        "    (Gimle.Forseti.Euler.Table.isEven (table := forsetiTable) (by decide +kernel))",
+        "    (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (K := 2) (by decide)) geo",
+        "    (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])",
+        "· refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_",
+        "  exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (9) 2) (mkRat (216) 1) (mkRat (1) 2160) 3 ≤ (mkRat (1) 100) by decide +kernel)"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigTruncationClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "radius",
+          "outcome": "found",
+          "detail": "K = 2, L = 3/2, M = 3L = 9/2, ρ = 72LK = 216, certified radius 1/ρ = 1/216, certified bound 1/200 ≤ ε = 1/100",
+          "search_ms": 0,
+          "check": "validated",
+          "check_ms": 13691,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_classical_multimode_tail\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((1, 0), (mkRat (1) 2)), ((-1, 0), (mkRat (1) 2)), ((0, 2), (mkRat (1) 4)), ((0, -2), (mkRat (1) 4))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  Gimle.Forseti.Euler.Certified forsetiStart (((mkRat (1) 2160) : ℚ) : ℝ) output ∧\n  Gimle.Asgard.Streams.TrigStream.TruncationBound (output 0) (((mkRat (1) 2160) : ℚ) : ℝ) 3 (((mkRat (1) 100) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\n/-- The Euler Fourier feedback circuit admits the listed initial modes, with higher boundary coefficients free. Its unique formal output has the prescribed initial field, mean-zero and even coefficients, and a convergent classical Euler field on the closed interval |t| ≤ 1/2160, including both endpoints. In addition, its series converges for |t| ≤ 1/2160, and the window through t^2 is within 1/100 of the sum there. Uniqueness concerns the formal stream; no classical uniqueness or maximal lifetime is claimed. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation euler-truncation basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [0, 2, 1/4], [0, -2, 1/4] truncation u window 3 radius 1/2160 epsilon 1/100 -/\ntheorem classical_multimode_tail :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))])\n      (fun output =>\n        have ω := output 0;\n        Gimle.Forseti.Euler.Certified (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))]) (1/2160) output ∧\n        Gimle.Asgard.Streams.TrigStream.TruncationBound ω (1/2160) 3 (1/100)) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 2) : ℚ) : ℝ) (((mkRat (216) 1) : ℚ) : ℝ) := by\n      intro n\n      have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 2) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 2)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n\n      have e : (3 * ((mkRat (3) 2) : ℚ) * (72 * (mkRat (3) 2) * ((2 : ℕ) : ℚ)) ^ n) = (mkRat (9) 2) * (mkRat (216) 1) ^ n := by norm_num [Rat.mkRat_eq_div]\n      rw [e] at h\n      have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 2) * (mkRat (216) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h\n      push_cast at h'\n      exact h'\n    refine ⟨?_, ?_⟩\n    · exact Gimle.Forseti.Euler.certified forsetiStart\n        (Gimle.Forseti.Euler.Table.meanZero (table := forsetiTable) (by decide +kernel))\n        (Gimle.Forseti.Euler.Table.isEven (table := forsetiTable) (by decide +kernel))\n        (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (K := 2) (by decide)) geo\n        (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])\n    · refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_\n      exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (9) 2) (mkRat (216) 1) (mkRat (1) 2160) 3 ≤ (mkRat (1) 100) by decide +kernel)\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1) 2160) : ℚ) : ℝ) = (1/2160) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (1) 100) : ℚ) : ℝ) = (1/100) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiBoundary : forsetiStart = (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))]) := by\n    funext n\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiBoundary, Rat.cast_zero]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiBoundary, Rat.cast_zero] at lane\n    dsimp only\n    exact lane\n\nend Decided_classical_multimode_tail",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Euler"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-ffd630a5a269426fbe47ea0a950007299ba959f390d6c775136a76901c7eb29f.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-ffd630a5a269426fbe47ea0a950007299ba959f390d6c775136a76901c7eb29f.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-ffd630a5a269426fbe47ea0a950007299ba959f390d6c775136a76901c7eb29f.artifact.json --goal .Euler.forseti/artifacts/stream-ffd630a5a269426fbe47ea0a950007299ba959f390d6c775136a76901c7eb29f.goal.json"
+      },
+      "decided": 1791245121.8537042
+    },
+    {
+      "id": "dc-classical_multimode_band-20261006T020521-95fc3d",
+      "claim": "classical_multimode_band",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation euler-band basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [0, 2, 1/4], [0, -2, 1/4] band u radius 1/2160 : u >= -2 and u <= 2",
+      "context": "129a21c55e7c7267100f23ea86704dbb6b4d08c7e03ef545023e48177a695dba",
+      "started": 1791245121.8580425,
+      "ended": 1791245136.2465315,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 2) : ℚ) : ℝ) (((mkRat (216) 1) : ℚ) : ℝ) := by",
+        "  intro n",
+        "  have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 2) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 2)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n",
+        "  have e : (3 * ((mkRat (3) 2) : ℚ) * (72 * (mkRat (3) 2) * ((2 : ℕ) : ℚ)) ^ n) = (mkRat (9) 2) * (mkRat (216) 1) ^ n := by norm_num [Rat.mkRat_eq_div]",
+        "  rw [e] at h",
+        "  have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 2) * (mkRat (216) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h",
+        "  push_cast at h'",
+        "  exact h'",
+        "refine ⟨?_, fun t x ht => ?_⟩",
+        "· exact Gimle.Forseti.Euler.certified forsetiStart",
+        "    (Gimle.Forseti.Euler.Table.meanZero (table := forsetiTable) (by decide +kernel))",
+        "    (Gimle.Forseti.Euler.Table.isEven (table := forsetiTable) (by decide +kernel))",
+        "    (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (K := 2) (by decide)) geo",
+        "    (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])",
+        "· have b := Gimle.Asgard.Streams.TrigStream.abs_analyticField_le (x := x) geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht 1",
+        "  simp only [Finset.sum_range_succ, Finset.sum_range_zero] at b",
+        "  have h0 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 0) : ℚ) : ℝ) ≤ (((mkRat (3) 2) : ℚ) : ℝ) := by",
+        "    rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]",
+        "    exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))",
+        "  have hB : |Gimle.Asgard.Streams.TrigStream.analyticField (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) t x| ≤ ((forsetiBound : ℚ) : ℝ) := by",
+        "    refine b.trans ?_",
+        "    norm_num [forsetiBound, Rat.mkRat_eq_div] at h0 ⊢",
+        "    linarith",
+        "  have hb := abs_le.mp hB",
+        "  norm_num [forsetiBound, Rat.mkRat_eq_div] at hb ⊢",
+        "  exact ⟨by linarith [hb.1], by linarith [hb.2]⟩"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigBandClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "spread",
+          "outcome": "found",
+          "detail": "K = 2, L = 3/2, M = 3L = 9/2, ρ = 72LK = 216, window 1, norms 3/2; the window bounds u within [≈ -2.0000, ≈ 2.0000] on |t| ≤ 1/2160",
+          "search_ms": 0,
+          "check": "validated",
+          "check_ms": 14382,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_classical_multimode_band\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((1, 0), (mkRat (1) 2)), ((-1, 0), (mkRat (1) 2)), ((0, 2), (mkRat (1) 4)), ((0, -2), (mkRat (1) 4))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  Gimle.Forseti.Euler.Certified forsetiStart (((mkRat (1) 2160) : ℚ) : ℝ) output ∧\n  ∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (((mkRat (1) 2160) : ℚ) : ℝ) →\n    (((mkRat (-2) 1) : ℚ) : ℝ) ≤ Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x ∧ Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x ≤ (((mkRat (2) 1) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\ndef forsetiBound : ℚ := (mkRat (2) 1)\n\n/-- The Euler Fourier feedback circuit admits the listed initial modes, with higher boundary coefficients free. Its unique formal output has the prescribed initial field, mean-zero and even coefficients, and a convergent classical Euler field on the closed interval |t| ≤ 1/2160, including both endpoints. In addition, its series converges for |t| ≤ 1/2160, and its sum stays within the band there. Uniqueness concerns the formal stream; no classical uniqueness or maximal lifetime is claimed. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation euler-band basis ogf start modes [1, 0, 1/2], [-1, 0, 1/2], [0, 2, 1/4], [0, -2, 1/4] band u radius 1/2160 : u >= -2 and u <= 2 -/\ntheorem classical_multimode_band :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))])\n      (fun output =>\n        have ω := output 0;\n        Gimle.Forseti.Euler.Certified (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))]) (1/2160) output ∧\n        ∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (1/2160) →\n          -2 ≤ Gimle.Asgard.Streams.TrigStream.analyticField ω t x ∧ Gimle.Asgard.Streams.TrigStream.analyticField ω t x ≤ 2) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (9) 2) : ℚ) : ℝ) (((mkRat (216) 1) : ℚ) : ℝ) := by\n      intro n\n      have h := Gimle.Asgard.Streams.NS.euler_l1_geometric forsetiStart (K := 2) (by decide) (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide)) (L := (mkRat (3) 2)) ((Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))) n\n      have e : (3 * ((mkRat (3) 2) : ℚ) * (72 * (mkRat (3) 2) * ((2 : ℕ) : ℚ)) ^ n) = (mkRat (9) 2) * (mkRat (216) 1) ^ n := by norm_num [Rat.mkRat_eq_div]\n      rw [e] at h\n      have h' : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart n) : ℚ) : ℝ) ≤ (((mkRat (9) 2) * (mkRat (216) 1) ^ n : ℚ) : ℝ) := by exact_mod_cast h\n      push_cast at h'\n      exact h'\n    refine ⟨?_, fun t x ht => ?_⟩\n    · exact Gimle.Forseti.Euler.certified forsetiStart\n        (Gimle.Forseti.Euler.Table.meanZero (table := forsetiTable) (by decide +kernel))\n        (Gimle.Forseti.Euler.Table.isEven (table := forsetiTable) (by decide +kernel))\n        (Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (K := 2) (by decide)) geo\n        (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])\n    · have b := Gimle.Asgard.Streams.TrigStream.abs_analyticField_le (x := x) geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht 1\n      simp only [Finset.sum_range_succ, Finset.sum_range_zero] at b\n      have h0 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 0) : ℚ) : ℝ) ≤ (((mkRat (3) 2) : ℚ) : ℝ) := by\n        rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]\n        exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))\n      have hB : |Gimle.Asgard.Streams.TrigStream.analyticField (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) t x| ≤ ((forsetiBound : ℚ) : ℝ) := by\n        refine b.trans ?_\n        norm_num [forsetiBound, Rat.mkRat_eq_div] at h0 ⊢\n        linarith\n      have hb := abs_le.mp hB\n      norm_num [forsetiBound, Rat.mkRat_eq_div] at hb ⊢\n      exact ⟨by linarith [hb.1], by linarith [hb.2]⟩\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1) 2160) : ℚ) : ℝ) = (1/2160) := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (-2) 1) : ℚ) : ℝ) = -2 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast2 : (((mkRat (2) 1) : ℚ) : ℝ) = 2 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiBoundary : forsetiStart = (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((1, 0), (1/2)), ((-1, 0), (1/2)), ((0, 2), (1/4)), ((0, -2), (1/4))]) := by\n    funext n\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiCast2, forsetiBoundary, Rat.cast_zero]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiCast2, forsetiBoundary, Rat.cast_zero] at lane\n    dsimp only\n    exact lane\n\nend Decided_classical_multimode_band",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Euler"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-29ad11945e0802692d8e1a015ecb2f0ddacdddec35b4659c9f38f45f0f0a4a4f.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-29ad11945e0802692d8e1a015ecb2f0ddacdddec35b4659c9f38f45f0f0a4a4f.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-29ad11945e0802692d8e1a015ecb2f0ddacdddec35b4659c9f38f45f0f0a4a4f.artifact.json --goal .Euler.forseti/artifacts/stream-29ad11945e0802692d8e1a015ecb2f0ddacdddec35b4659c9f38f45f0f0a4a4f.goal.json"
+      },
+      "decided": 1791245154.5592585
+    },
+    {
+      "id": "dc-classical_zero_tail-20261006T020554-2d095c",
+      "claim": "classical_zero_tail",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation euler-truncation basis ogf start modes [0, 0, 0] truncation u window 1 radius 1000000 epsilon 0",
+      "context": "2fe50432d7ddf97da4e765b14358cb86dac6ab7eef8b240b14031c00ca0fdc9d",
+      "started": 1791245154.5644,
+      "ended": 1791245170.400272,
+      "state": "rejected",
+      "outcome": "unknown",
+      "reason": "Type mismatch",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have zeroStart : forsetiStart 0 = 0 := Gimle.Forseti.Euler.Table.toTrig_zero (table := forsetiTable) (by decide +kernel)",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (0) 1) : ℚ) : ℝ) (((mkRat (0) 1) : ℚ) : ℝ) := by",
+        "  simpa [Rat.mkRat_eq_div] using (Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart 0)",
+        "refine ⟨?_, ?_⟩",
+        "· have geoClassical := Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart (((mkRat (1) 1000001) : ℚ) : ℝ)",
+        "  exact Gimle.Forseti.Euler.certified forsetiStart",
+        "    (by simp [zeroStart, Gimle.Asgard.Streams.Torus.MeanZero])",
+        "    (by simp [zeroStart, Gimle.Asgard.Streams.Torus.IsEven])",
+        "    (by rw [zeroStart]; exact Gimle.Asgard.Streams.Torus.sizeLE_zero 1) geoClassical",
+        "    (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])",
+        "· refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_",
+        "  exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (0) 1) (mkRat (0) 1) (mkRat (1000000) 1) 1 ≤ (mkRat (0) 1) by decide +kernel)"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigTruncationClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "radius",
+          "outcome": "found",
+          "detail": "K = 0, L = 0, M = 3L = 0, ρ = 72LK = 0, zero growth; every finite radius is certified, certified bound 0 ≤ ε = 0",
+          "search_ms": 0,
+          "check": "validated",
+          "check_ms": 15830,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_classical_zero_tail\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((0, 0), (mkRat (0) 1))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  Gimle.Forseti.Euler.Certified forsetiStart (((mkRat (1000000) 1) : ℚ) : ℝ) output ∧\n  Gimle.Asgard.Streams.TrigStream.TruncationBound (output 0) (((mkRat (1000000) 1) : ℚ) : ℝ) 1 (((mkRat (0) 1) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\n/-- The Euler Fourier feedback circuit admits the listed initial modes, with higher boundary coefficients free. Its unique formal output has the prescribed initial field, mean-zero and even coefficients, and a convergent classical Euler field on the closed interval |t| ≤ 1000000, including both endpoints. In addition, its series converges for |t| ≤ 1000000, and the window through t^0 is within 0 of the sum there. Uniqueness concerns the formal stream; no classical uniqueness or maximal lifetime is claimed. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation euler-truncation basis ogf start modes [0, 0, 0] truncation u window 1 radius 1000000 epsilon 0 -/\ntheorem classical_zero_tail :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)])\n      (fun output =>\n        have ω := output 0;\n        Gimle.Forseti.Euler.Certified (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)]) 1000000 output ∧\n        Gimle.Asgard.Streams.TrigStream.TruncationBound ω 1000000 1 0) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have zeroStart : forsetiStart 0 = 0 := Gimle.Forseti.Euler.Table.toTrig_zero (table := forsetiTable) (by decide +kernel)\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (0) 1) : ℚ) : ℝ) (((mkRat (0) 1) : ℚ) : ℝ) := by\n      simpa [Rat.mkRat_eq_div] using (Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart 0)\n    refine ⟨?_, ?_⟩\n    · have geoClassical := Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart (((mkRat (1) 1000001) : ℚ) : ℝ)\n      exact Gimle.Forseti.Euler.certified forsetiStart\n        (by simp [zeroStart, Gimle.Asgard.Streams.Torus.MeanZero])\n        (by simp [zeroStart, Gimle.Asgard.Streams.Torus.IsEven])\n        (by rw [zeroStart]; exact Gimle.Asgard.Streams.Torus.sizeLE_zero 1) geoClassical\n        (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])\n    · refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_\n      exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (0) 1) (mkRat (0) 1) (mkRat (1000000) 1) 1 ≤ (mkRat (0) 1) by decide +kernel)\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1000000) 1) : ℚ) : ℝ) = 1000000 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiBoundary : forsetiStart = (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)]) := by\n    funext n\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiBoundary]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiBoundary] at lane\n    dsimp only\n    exact lane\n\nend Decided_classical_zero_tail",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Euler"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-1bfd0e6f4d5df3c4f18b82cceead85cb7d317bec08aef78359a1e37c5c0c1bdc.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-1bfd0e6f4d5df3c4f18b82cceead85cb7d317bec08aef78359a1e37c5c0c1bdc.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-1bfd0e6f4d5df3c4f18b82cceead85cb7d317bec08aef78359a1e37c5c0c1bdc.artifact.json --goal .Euler.forseti/artifacts/stream-1bfd0e6f4d5df3c4f18b82cceead85cb7d317bec08aef78359a1e37c5c0c1bdc.goal.json"
+      },
+      "decided": 1791245173.5554416
+    },
+    {
+      "id": "dc-classical_zero_tail-20261006T020645-c59540",
+      "claim": "classical_zero_tail",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation euler-truncation basis ogf start modes [0, 0, 0] truncation u window 1 radius 1000000 epsilon 0",
+      "context": "2fe50432d7ddf97da4e765b14358cb86dac6ab7eef8b240b14031c00ca0fdc9d",
+      "started": 1791245205.9305456,
+      "ended": 1791245222.2322457,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have zeroStart : forsetiStart 0 = 0 := Gimle.Forseti.Euler.Table.toTrig_zero (table := forsetiTable) (by decide +kernel)",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (0) 1) : ℚ) : ℝ) (((mkRat (0) 1) : ℚ) : ℝ) := by",
+        "  simpa [Rat.mkRat_eq_div] using (Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart 0)",
+        "refine ⟨?_, ?_⟩",
+        "· have geoClassical := Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart (((mkRat (1) 1000001) : ℚ) : ℝ)",
+        "  exact Gimle.Forseti.Euler.certified forsetiStart",
+        "    (by simp [zeroStart, Gimle.Asgard.Streams.Torus.MeanZero])",
+        "    (by simp [zeroStart, Gimle.Asgard.Streams.Torus.IsEven])",
+        "    (by rw [zeroStart]; exact Gimle.Asgard.Streams.Torus.sizeLE_zero 1) geoClassical",
+        "    (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])",
+        "· refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_",
+        "  exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (0) 1) (mkRat (0) 1) (mkRat (1000000) 1) 1 ≤ (mkRat (0) 1) by decide +kernel)"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigTruncationClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "radius",
+          "outcome": "found",
+          "detail": "K = 0, L = 0, M = 3L = 0, ρ = 72LK = 0, zero growth; every finite radius is certified, certified bound 0 ≤ ε = 0",
+          "search_ms": 0,
+          "check": "validated",
+          "check_ms": 16295,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_classical_zero_tail\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((0, 0), (mkRat (0) 1))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  Gimle.Forseti.Euler.Certified forsetiStart (((mkRat (1000000) 1) : ℚ) : ℝ) output ∧\n  Gimle.Asgard.Streams.TrigStream.TruncationBound (output 0) (((mkRat (1000000) 1) : ℚ) : ℝ) 1 (((mkRat (0) 1) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\n/-- The Euler Fourier feedback circuit admits the listed initial modes, with higher boundary coefficients free. Its unique formal output has the prescribed initial field, mean-zero and even coefficients, and a convergent classical Euler field on the closed interval |t| ≤ 1000000, including both endpoints. In addition, its series converges for |t| ≤ 1000000, and the window through t^0 is within 0 of the sum there. Uniqueness concerns the formal stream; no classical uniqueness or maximal lifetime is claimed. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation euler-truncation basis ogf start modes [0, 0, 0] truncation u window 1 radius 1000000 epsilon 0 -/\ntheorem classical_zero_tail :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)])\n      (fun output =>\n        have ω := output 0;\n        Gimle.Forseti.Euler.Certified (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)]) 1000000 output ∧\n        Gimle.Asgard.Streams.TrigStream.TruncationBound ω 1000000 1 0) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have zeroStart : forsetiStart 0 = 0 := Gimle.Forseti.Euler.Table.toTrig_zero (table := forsetiTable) (by decide +kernel)\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (0) 1) : ℚ) : ℝ) (((mkRat (0) 1) : ℚ) : ℝ) := by\n      simpa [Rat.mkRat_eq_div] using (Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart 0)\n    refine ⟨?_, ?_⟩\n    · have geoClassical := Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart (((mkRat (1) 1000001) : ℚ) : ℝ)\n      exact Gimle.Forseti.Euler.certified forsetiStart\n        (by simp [zeroStart, Gimle.Asgard.Streams.Torus.MeanZero])\n        (by simp [zeroStart, Gimle.Asgard.Streams.Torus.IsEven])\n        (by rw [zeroStart]; exact Gimle.Asgard.Streams.Torus.sizeLE_zero 1) geoClassical\n        (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])\n    · refine (Gimle.Asgard.Streams.TrigStream.truncationBound_rat geo (by decide +kernel) (by decide +kernel) _).mono ?_\n      exact_mod_cast (show Gimle.Asgard.Streams.TrigStream.tailBound (mkRat (0) 1) (mkRat (0) 1) (mkRat (1000000) 1) 1 ≤ (mkRat (0) 1) by decide +kernel)\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1000000) 1) : ℚ) : ℝ) = 1000000 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiBoundary : forsetiStart = (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)]) := by\n    funext n\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiBoundary, Rat.cast_zero]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiBoundary, Rat.cast_zero] at lane\n    dsimp only\n    exact lane\n\nend Decided_classical_zero_tail",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Euler"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-f704168f6d3b79b9428cc7d882e171139609631c6df61b511d2212cbadffeac3.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-f704168f6d3b79b9428cc7d882e171139609631c6df61b511d2212cbadffeac3.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-f704168f6d3b79b9428cc7d882e171139609631c6df61b511d2212cbadffeac3.artifact.json --goal .Euler.forseti/artifacts/stream-f704168f6d3b79b9428cc7d882e171139609631c6df61b511d2212cbadffeac3.goal.json"
+      },
+      "decided": 1791245242.425577
+    },
+    {
+      "id": "dc-classical_zero_band-20261006T020722-8d3281",
+      "claim": "classical_zero_band",
+      "mode": "decide",
+      "goal": "stream vorticity viscosity 0 interpretation euler-band basis ogf start modes [0, 0, 0] band u radius 1000000 : u >= 0 and u <= 0",
+      "context": "0de4f0a7d3ee327e08ccd60fc6c89c78694fe824c03643d50d71be40a9d8c779",
+      "started": 1791245242.4300594,
+      "ended": 1791245256.9377363,
+      "state": "accepted",
+      "outcome": "proven",
+      "reason": "checked as part of the file as it was, then inserted",
+      "script": [
+        "unfold forsetiRoot",
+        "apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)",
+        "intro output same",
+        "subst output",
+        "unfold forsetiPost",
+        "simp only [Matrix.cons_val_zero]",
+        "have zeroStart : forsetiStart 0 = 0 := Gimle.Forseti.Euler.Table.toTrig_zero (table := forsetiTable) (by decide +kernel)",
+        "have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (0) 1) : ℚ) : ℝ) (((mkRat (0) 1) : ℚ) : ℝ) := by",
+        "  simpa [Rat.mkRat_eq_div] using (Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart 0)",
+        "refine ⟨?_, fun t x ht => ?_⟩",
+        "· have geoClassical := Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart (((mkRat (1) 1000001) : ℚ) : ℝ)",
+        "  exact Gimle.Forseti.Euler.certified forsetiStart",
+        "    (by simp [zeroStart, Gimle.Asgard.Streams.Torus.MeanZero])",
+        "    (by simp [zeroStart, Gimle.Asgard.Streams.Torus.IsEven])",
+        "    (by rw [zeroStart]; exact Gimle.Asgard.Streams.Torus.sizeLE_zero 1) geoClassical",
+        "    (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])",
+        "· have b := Gimle.Asgard.Streams.TrigStream.abs_analyticField_le (x := x) geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht 1",
+        "  simp only [Finset.sum_range_succ, Finset.sum_range_zero] at b",
+        "  have h0 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 0) : ℚ) : ℝ) ≤ (((mkRat (0) 1) : ℚ) : ℝ) := by",
+        "    rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]",
+        "    exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))",
+        "  have hB : |Gimle.Asgard.Streams.TrigStream.analyticField (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) t x| ≤ ((forsetiBound : ℚ) : ℝ) := by",
+        "    refine b.trans ?_",
+        "    norm_num [forsetiBound, Rat.mkRat_eq_div] at h0 ⊢",
+        "    linarith",
+        "  have hb := abs_le.mp hB",
+        "  norm_num [forsetiBound, Rat.mkRat_eq_div] at hb ⊢",
+        "  exact ⟨by linarith [hb.1], by linarith [hb.2]⟩"
+      ],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "hints": [],
+      "status": "PROVEN",
+      "decision_reason": null,
+      "stages": [
+        {
+          "stage": "binding",
+          "outcome": "supported",
+          "detail": "vorticity/TrigBandClaim",
+          "search_ms": 0,
+          "check": "",
+          "check_ms": 0,
+          "stop": ""
+        },
+        {
+          "stage": "spread",
+          "outcome": "found",
+          "detail": "K = 0, L = 0, M = 3L = 0, ρ = 72LK = 0, window 1, norms 0; the window bounds u within [≈ 0.0000, ≈ 0.0000] on |t| ≤ 1000000",
+          "search_ms": 0,
+          "check": "validated",
+          "check_ms": 14502,
+          "stop": ""
+        }
+      ],
+      "statement": ": forsetiRoot",
+      "block": "namespace Decided_classical_zero_band\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table :=\n  [((0, 0), (mkRat (0) 1))]\n\nnoncomputable def forsetiStart : Gimle.Asgard.Streams.TrigStream :=\n  fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Fourier.Point 1) : Prop :=\n  Gimle.Forseti.Euler.Certified forsetiStart (((mkRat (1000000) 1) : ℚ) : ℝ) output ∧\n  ∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ (((mkRat (1000000) 1) : ℚ) : ℝ) →\n    (((mkRat (0) 1) : ℚ) : ℝ) ≤ Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x ∧ Gimle.Asgard.Streams.TrigStream.analyticField (output 0) t x ≤ (((mkRat (0) 1) : ℚ) : ℝ)\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Fourier.Contract\n    (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf (mkRat (0) 1))\n    (fun input => input 0 0 = forsetiStart 0) forsetiPost\n\ndef forsetiBound : ℚ := (mkRat (0) 1)\n\n/-- The Euler Fourier feedback circuit admits the listed initial modes, with higher boundary coefficients free. Its unique formal output has the prescribed initial field, mean-zero and even coefficients, and a convergent classical Euler field on the closed interval |t| ≤ 1000000, including both endpoints. In addition, its series converges for |t| ≤ 1000000, and its sum stays within the band there. Uniqueness concerns the formal stream; no classical uniqueness or maximal lifetime is claimed. The stream decider proved it. Goal (stream): stream vorticity viscosity 0 interpretation euler-band basis ogf start modes [0, 0, 0] band u radius 1000000 : u >= 0 and u <= 0 -/\ntheorem classical_zero_band :\n    Gimle.Forseti.Fourier.Contract (Gimle.Asgard.Streams.NS.vorticityCircuit .ogf 0)\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)])\n      (fun output =>\n        have ω := output 0;\n        Gimle.Forseti.Euler.Certified (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)]) 1000000 output ∧\n        ∀ (t : ℝ) (x : ℝ × ℝ), |t| ≤ 1000000 →\n          0 ≤ Gimle.Asgard.Streams.TrigStream.analyticField ω t x ∧ Gimle.Asgard.Streams.TrigStream.analyticField ω t x ≤ 0) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot\n    apply (Gimle.Forseti.Fourier.solution_contract .ogf (mkRat (0) 1) forsetiStart).consequence (fun _ h => h)\n    intro output same\n    subst output\n    unfold forsetiPost\n    simp only [Matrix.cons_val_zero]\n    have zeroStart : forsetiStart 0 = 0 := Gimle.Forseti.Euler.Table.toTrig_zero (table := forsetiTable) (by decide +kernel)\n    have geo : Gimle.Asgard.Streams.TrigStream.GeometricBound (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) (((mkRat (0) 1) : ℚ) : ℝ) (((mkRat (0) 1) : ℚ) : ℝ) := by\n      simpa [Rat.mkRat_eq_div] using (Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart 0)\n    refine ⟨?_, fun t x ht => ?_⟩\n    · have geoClassical := Gimle.Forseti.Euler.zero_geometric forsetiStart zeroStart (((mkRat (1) 1000001) : ℚ) : ℝ)\n      exact Gimle.Forseti.Euler.certified forsetiStart\n        (by simp [zeroStart, Gimle.Asgard.Streams.Torus.MeanZero])\n        (by simp [zeroStart, Gimle.Asgard.Streams.Torus.IsEven])\n        (by rw [zeroStart]; exact Gimle.Asgard.Streams.Torus.sizeLE_zero 1) geoClassical\n        (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])\n    · have b := Gimle.Asgard.Streams.TrigStream.abs_analyticField_le (x := x) geo (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) ht 1\n      simp only [Finset.sum_range_succ, Finset.sum_range_zero] at b\n      have h0 : ((Gimle.Asgard.Streams.Torus.l1 (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart 0) : ℚ) : ℝ) ≤ (((mkRat (0) 1) : ℚ) : ℝ) := by\n        rw [Gimle.Asgard.Streams.NS.stream_eq_table (mkRat (0) 1) forsetiTable forsetiStart rfl]\n        exact_mod_cast (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum _).trans (le_of_eq (by decide +kernel))\n      have hB : |Gimle.Asgard.Streams.TrigStream.analyticField (Gimle.Asgard.Streams.NS.stream .ogf (mkRat (0) 1) forsetiStart) t x| ≤ ((forsetiBound : ℚ) : ℝ) := by\n        refine b.trans ?_\n        norm_num [forsetiBound, Rat.mkRat_eq_div] at h0 ⊢\n        linarith\n      have hb := abs_le.mp hB\n      norm_num [forsetiBound, Rat.mkRat_eq_div] at hb ⊢\n      exact ⟨by linarith [hb.1], by linarith [hb.2]⟩\n  have forsetiInitial : forsetiStart 0 = Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)] := by\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  have forsetiViscosity : ((mkRat (0) 1) : ℚ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast0 : (((mkRat (1000000) 1) : ℚ) : ℝ) = 1000000 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast2 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiBoundary : forsetiStart = (fun _ => Gimle.Asgard.Streams.Torus.Table.toTrig [((0, 0), 0)]) := by\n    funext n\n    unfold forsetiStart forsetiTable\n    norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ ↔ forsetiRoot) => bridge.mpr root) ?_\n  constructor\n  · intro claim\n    dsimp only at claim\n    unfold forsetiRoot forsetiPost\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiCast2, forsetiBoundary, Rat.cast_zero]\n    exact claim\n  · intro lane\n    unfold forsetiRoot forsetiPost at lane\n    set_option linter.unusedSimpArgs false in simp only [forsetiInitial, forsetiViscosity, forsetiCast0, forsetiCast1, forsetiCast2, forsetiBoundary, Rat.cast_zero] at lane\n    dsimp only\n    exact lane\n\nend Decided_classical_zero_band",
+      "shared": "",
+      "imports": [
+        "Gimle.Forseti.Euler"
+      ],
+      "refutation": [],
+      "artifact": {
+        "artifact": ".Euler.forseti/artifacts/stream-d72b33fe5e69899d226767dbb4634041bbaad04ea07fd0328bf98bdfbb09e6e7.artifact.json",
+        "goal": ".Euler.forseti/artifacts/stream-d72b33fe5e69899d226767dbb4634041bbaad04ea07fd0328bf98bdfbb09e6e7.goal.json",
+        "replay": "python -m gimle.forseti.streams replay .Euler.forseti/artifacts/stream-d72b33fe5e69899d226767dbb4634041bbaad04ea07fd0328bf98bdfbb09e6e7.artifact.json --goal .Euler.forseti/artifacts/stream-d72b33fe5e69899d226767dbb4634041bbaad04ea07fd0328bf98bdfbb09e6e7.goal.json"
+      },
+      "decided": 1791245276.5368545
+    }
+  ],
+  "revisions": [
+    {
+      "added": [
+        "truncation_decided"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 1,
+      "time": 1791122106.7865763,
+      "action": "accept",
+      "label": "truncation_decided: decided claim inserted from run dc-truncation_decided-20261004T155437-dc59d9",
+      "sha256": "478231023fbeafcd79255aeb9c7a30466be61ca1e671469643ad5dc93576c36b"
+    },
+    {
+      "added": [
+        "band_decided"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 2,
+      "time": 1791122148.7096581,
+      "action": "accept",
+      "label": "band_decided: decided claim inserted from run dc-band_decided-20261004T155516-10ce6f",
+      "sha256": "ed8dc6593bc6f255a847199f1b06387ee40672c2327b9c6a9139dc653ba49a45"
+    },
+    {
+      "added": [
+        "truncation_decided"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 3,
+      "time": 1791146563.546006,
+      "action": "accept",
+      "label": "truncation_decided: decided claim inserted from run dc-truncation_decided-20261004T224213-c83cf5",
+      "sha256": "59810296e74fa0045c57c84cc87ce30f2a46e389015a83a9b3153a4774768e95"
+    },
+    {
+      "added": [
+        "band_decided"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 4,
+      "time": 1791146608.9609165,
+      "action": "accept",
+      "label": "band_decided: decided claim inserted from run dc-band_decided-20261004T224255-784ae5",
+      "sha256": "1933ccd6362f3d66cff4fe32d6e6c88ca0b100b1597b7cb285db5a0412dbc762"
+    },
+    {
+      "added": [
+        "classical_multimode_tail"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 5,
+      "time": 1791245121.8526342,
+      "action": "accept",
+      "label": "classical_multimode_tail: decided claim inserted from run dc-classical_multimode_tail-20261006T020447-1ff5bd",
+      "sha256": "7d07fd08a096f43a4d21c557bb862845259cdcda5f0638b7a9882621cd986a08"
+    },
+    {
+      "added": [
+        "classical_multimode_band"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 6,
+      "time": 1791245154.558014,
+      "action": "accept",
+      "label": "classical_multimode_band: decided claim inserted from run dc-classical_multimode_band-20261006T020521-95fc3d",
+      "sha256": "cb309b2e98d75018369f52ad2705823d697bda260aba3b66b6c3da1fee0aaec8"
+    },
+    {
+      "added": [
+        "classical_zero_tail"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 7,
+      "time": 1791245242.424294,
+      "action": "accept",
+      "label": "classical_zero_tail: decided claim inserted from run dc-classical_zero_tail-20261006T020645-c59540",
+      "sha256": "22224047ef439ab2d3a7d60e6fbfaeb7d91b645b50bf49a7e702ea4ae02f511d"
+    },
+    {
+      "added": [
+        "classical_zero_band"
+      ],
+      "removed": [],
+      "context_changed": [
+        "gevrey_viscous",
+        "viscous_differs",
+        "viscous_created_same"
+      ],
+      "proof_changed": [],
+      "made_stale": [],
+      "prose_only": false,
+      "rev": 8,
+      "time": 1791245276.5347242,
+      "action": "accept",
+      "label": "classical_zero_band: decided claim inserted from run dc-classical_zero_band-20261006T020722-8d3281",
+      "sha256": "775ca2a461108d9dd364cb5c66b472298b0a4367ae774255465d4800227f4dcf"
+    }
+  ],
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "uniqueness": {
+      "context": "f110ab444ae11d0259041af57c3c2c80dd6fd7adefe140e73d33d5e0822a6092",
+      "proof": "17cf1ccc1c3345ac3529dbe231c0636e2c942ecc0fb21653321fcc32e3a4ad91",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "6051ca7d2e8430553c097352fbca311dde6fb5c52a94d98509ab9d5710911008",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "coefficient_t_x": {
+      "context": "614a7c02444335fa42ddb5273ca736e1193f45e22b90f0de8be9816e8f891157",
+      "proof": "66cf71ad154f8edaa4671345c6896fa5cc7f5f4d89c70f3f375283d33b6f8c1a",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "9ac42da1ae4f09b5b813a16cfa6dd94869689a0fdcdef3791a2b9fd1d7039d7e",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "coefficient_t_y": {
+      "context": "3d1e195b198b0ad50327ddff6be6de8015530ff2b6c2f9386344feca4cc06b9e",
+      "proof": "1159039bad408ba8c7d60cfe2a210cc5efc732d4c1435e0b62d3caebbe11d195",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "fa1c9d15c003e7a35b9eead7b85c844bdb3c745e8d0462056fdf7138aa1c40b9",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "coefficients_t2": {
+      "context": "e2739d6b3798b7d3ffeb0e5a91d355120a025cb44ebe46983490997731fc9682",
+      "proof": "0dc3bb53355c0d0394c1a45c3c848615e68ddbcd4782e34aabe2af3ceaffb904",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "2c8821872ccd5e424b53a425c458d8b2af39c8fedcb7a5cf2bbc0d5c9eee84c3",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "coefficient_t3_x": {
+      "context": "846b1fbf51bc1ed0267e215ba4ae22cea3fcf5070f9ce289dad0b58cbd31ef63",
+      "proof": "6fae5b9ad00bb28695bb51a5e9495cab5aba7a547abac02ed5a5e0f4491d5b50",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "e21bbcd793d1d8304974f7e4de74871787391dbc3a3bae47e97ab6a842b300ba",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "discarded_mode": {
+      "context": "f121daaa0fd56a49f8ce1af761e6e54b77ca72ade1178e0d7045c61de5a23c2b",
+      "proof": "e92cc8d3bcfc7a100c5f1968129f4f4e384fa93e82772e088a668599fec74ca6",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "d9be86a6aed86f62a9763d6e54fb1c7ea143174f119f9d951350657853b98b74",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "wrong_coefficient": {
+      "context": "08d462fe7ea5b9d832d26ebd00d0843c7e7bc804c86cbd643f063a35b5089670",
+      "proof": "0c27735b2a4c677139dc6db65b5b1a57acae9e646331fccc7e1c20920781f5bd",
+      "verdict": "holds",
+      "uses": [
+        "coefficient_t_x"
+      ],
+      "axioms": [
+        "forsetiClaim_3",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "c601c0e70e3847f0cf333895cd5f3cc71766d7073f0852de6054dc528773ac89",
+      "assumed": {
+        "coefficient_t_x": "9ac42da1ae4f09b5b813a16cfa6dd94869689a0fdcdef3791a2b9fd1d7039d7e"
+      },
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "mean_zero": {
+      "context": "23940a2d9c0852b5ab55dfd1646a7f1998c86e909ad850c6662b9b9972fe5dbe",
+      "proof": "f6cccebe69e601406993007bd160ccf18743d35cb792547abaf52b93fcc4a4c3",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "34aa0680b423667795445eb9e217b5c5dd0f588e2a944066e766ce595e12d3e9",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "even": {
+      "context": "c6736ee9949bcd8bae24b44b15fbf022bc8061a71769cab3b6567bfb1eaa2834",
+      "proof": "f838faad4c776159b5bca6006ca87963f38946867def92a2689ab5968be14a85",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "89bb464335c0e63d5ba12523d636d2e50a38db7e457704cd99669845f2d85c11",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "geometric_bound": {
+      "context": "447bd6f9d681f0a4bca17a011cd6b7b074a9781313eb42f88d800034248d9834",
+      "proof": "68dc6f041803e3549ec6e2fcc8c16957c90e6f69c75f93320995f521b784ba32",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "c505f87d616749bbf862e746db4699199c43be44524d3904a953b487e1e06454",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "first_norms": {
+      "context": "8c1350f87af14e790a45b149ceb16874938ab20fb7f532b14013e3c8b138217b",
+      "proof": "629745bcc777d7094abaca00e9341d205d8957e5e1ef9086e0099e0977860b38",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "4f539ec5352ae0f8ace626559ae1aecc2d9d67810e5f2ea19674a74eb733ab04",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "converges": {
+      "context": "54622ad0f105907122d1826a9290c3eb702fb0ac6acd301ccd17e801eb3f570f",
+      "proof": "7fbd2605d6f3c55b2fd8297ac59b9cbd78217c7fa91c6e0253e8a18998640ef2",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "20604ef38c39260ecb2e91221bd58c31312906c96cfed2b11d6555cb48f5ff27",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "viscous_differs": {
+      "context": "e8d82b459a18d9f670c8261e5ec128a307bf2e31e60ba03ecc0ce9d6d768ff37",
+      "proof": "cab5b9750e348d7f6198166f56a7bfaafba21d7d205ed476ccae644f5aa63b57",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "a4f259817f744ab1d0b1395ae78294aa5c559ec1a41aa80ea42245d2df2ac50d",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "viscous_created_same": {
+      "context": "c0a1aaa3122b1b8520b15015244035a216100e4b3be3272c2b1eecb2c9086b00",
+      "proof": "2b2a84460d163ec9dcfbf203666ca782217502610ad93bd006d553f6e6b5f31a",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "2c8d055486e7991a5d604c6ab617dbe42cd96b0c3c573c9b0b1e02efac8a5acc",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "existence": {
+      "context": "fb1d00d883486798b9272ef62fca53f8e42a4b25783fb96fc8dd8ae7f93fe6b8",
+      "proof": "78aa2b59533ab053a4dd7a996be93dd4c65d2c73590a03ed654021c42b033ce4",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "7fc5e60b03037cac72c0a2ced4ed0396ad76c6971de730366037123b758ddcca",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "truncation_through_t2": {
+      "context": "477cf60f12d0c02f2824eaf1de7221308db34975fd2465684abb7a474c767d9a",
+      "proof": "b0943badf073d861e6e5050401beb9d7b725fcb9ef9c895f53dc867b709cf732",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "b62b9d41c6d3e5465cb9b4a61480ac2164acc0d8e1fa477fd04fecc9ba16e8fa",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "band_around_start": {
+      "context": "e8daa19702922709dd30039c9ed27c6c9f3a6f179909da84d85ed2e33fbe2e9f",
+      "proof": "4ad5b22839b58107e74bcccc49b3a70b73ca7d9b267ea6513e42b5d40480e7be",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "65a64ea2a8e11fe5d2b25749925ddd59a0835b8bcacab0cb70b9761188336cbe",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "gevrey_viscous": {
+      "context": "32edeae896f67ea0faf29aa797646485300ae0dbcd798471d51c9ad0c0b1b882",
+      "proof": "8e7d16800f40c33e5f78a173d2d62f7f31a30a6301d07dd1eefd8ef780a4a65c",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "70db3de8fb3c11baa73329cda15bacb51d9520f31fbcaed743bd15719aca1c69",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "truncation_decided": {
+      "context": "160597582ed2e51deb3400b378935f374700e55a966d9b0f2a5294646d48ee2c",
+      "proof": "830f97f311579e1199432a4af73ab1a339deda643ad08a6e59bd3ea5188a064a",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "40c832f49356890e80b63df46d4c9de4843cff01e19af6a480b1b35bbfc1cec2",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "band_decided": {
+      "context": "55e2c3cd0294a55b03c14293057a4e9431a273df75b69e070cbad7da87b85c13",
+      "proof": "a276e47be6ec3e73ae1cb2d5db5a4f737dcc53bfa04321175e5122d794cc9804",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "768bf1dd7cf8f0b2b081fa4c504dacfbdd6a226935f9dd9cba4d1a3928406f42",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "classical_solution": {
+      "context": "381f72fcb94d51e6e17de7eb9f762f9e4717e5ef756368affff3747fa23a6a18",
+      "proof": "0926f2c7323f549ee70c2cb7726d6ddd18d6270eceb2f7cb1657036504e486ec",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "4c3e47ec1a5915549c849914e39e67a40d23e9970cbd9cccb895be91a26a771d",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "stream_function": {
+      "context": "d930a4a0f5f15096ff8440470493e694014e5786bf7202c905cbc61526361872",
+      "proof": "455d56226a6744b0fd9a774220a43861cf0a77e7be37c250d323d0a18384f8b4",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "99af494314344aa1ba132a636b4919b3a7c7b67f819fe8ac8c704e74835ec6b4",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "initial_vorticity": {
+      "context": "09645323fd8bca37ac65d2c21f00c60a63905e6c657e659306cb0b30b7bfc0ff",
+      "proof": "4b7cfa81398e374ff2a5f2754357ab7e7f4d86063c9c55698d491b6b0374a0d0",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "3c1d234b609f30e4ca120900702558680f8921b14ad57e201b07457bb8ec7d9d",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "solves_vorticity_equation": {
+      "context": "ddf412d5d911f7493d9afd45c5b91565ffd2c2167c9453f721f88ab80acc8c52",
+      "proof": "57f5b84ab3b3ea3c6fb50ae985c3f8f96cafd6432169085db19899ea41cc742c",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "4174e72d61edf900aa29b2a6de5fdaae320cfd44d5c3c92a8b9d3cea1b0a4f40",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "circuit_contract": {
+      "context": "afc829bc67d64e5d5839e528aafd381b2298f65d2e11ca9e69a815c6dafbc9e9",
+      "proof": "4bd5e898bf58376f5e4c9c867b270cae0bb808aa0f23b451701ab2e25e0361bb",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "2866ed57312ec8fcce29a8922ebd34268a43aac8828751ad9fde787bc5499399",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "classical_multimode_tail": {
+      "context": "daadd290d3507c6abc57ba025a1792707019df73507efeaa959356740df9237f",
+      "proof": "1facd6ae44c485323b5a1a9a2eacffefa633b995068a068ffe13e6a6788c1264",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "59ee12dfb93837f7a221b9057a6485bbb11b73abf9842eaee579b44b83e80eb1",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "classical_multimode_band": {
+      "context": "1f66abafe380bc35c6e1c213878dc6b127e3e05095451425f45c72c24f0355be",
+      "proof": "51eaf1897ade50ee9e7f3a6c1241bab15e30240c0c6c8e75bc7d32584e5737c1",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "1d04e7f158e65e157918934d0aff76ec03be8c4d7be31d4c2d99e3696f470de5",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "classical_zero_tail": {
+      "context": "dbed2b276b59c930f03c2e9d2205bf2bc0139b93abdf2bc10950bde86fd12f4d",
+      "proof": "77cca39d6adcce8ce1efba507fe2cd61832ff6278fd60ca300d374a81e591ba8",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "f995c884db469fc15e14a5697d0f2cd5f7bdde996bed049b16d8d6c2412169b5",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    },
+    "classical_zero_band": {
+      "context": "b5107046c8b59f403d7554e39c956ef5b381548b2b44cf9b65fa90f11a888a8b",
+      "proof": "85456bf4a148bf171e18d8ad9ff93d279f169b88e6bdfa18fa77c5f224a1e52b",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "8e9b2b1a113468e8d5a75d3b927d4f7deff20d858b2dd1e780766bdf64dc864e",
+      "assumed": {},
+      "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004"
+    }
+  },
+  "refutations": {},
+  "cells": {
+    "source": "2eb5d55d2fc2ea4c74a476dcb9df2fcdfd0799d727d96f9261a35ee837b9603b",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "complete": true,
+    "claims": {
+      "circuit_contract": "2866ed57312ec8fcce29a8922ebd34268a43aac8828751ad9fde787bc5499399",
+      "existence": "7fc5e60b03037cac72c0a2ced4ed0396ad76c6971de730366037123b758ddcca",
+      "uniqueness": "6051ca7d2e8430553c097352fbca311dde6fb5c52a94d98509ab9d5710911008",
+      "coefficient_t_x": "9ac42da1ae4f09b5b813a16cfa6dd94869689a0fdcdef3791a2b9fd1d7039d7e",
+      "coefficient_t_y": "fa1c9d15c003e7a35b9eead7b85c844bdb3c745e8d0462056fdf7138aa1c40b9",
+      "coefficients_t2": "2c8821872ccd5e424b53a425c458d8b2af39c8fedcb7a5cf2bbc0d5c9eee84c3",
+      "coefficient_t3_x": "e21bbcd793d1d8304974f7e4de74871787391dbc3a3bae47e97ab6a842b300ba",
+      "discarded_mode": "d9be86a6aed86f62a9763d6e54fb1c7ea143174f119f9d951350657853b98b74",
+      "wrong_coefficient": "c601c0e70e3847f0cf333895cd5f3cc71766d7073f0852de6054dc528773ac89",
+      "mean_zero": "34aa0680b423667795445eb9e217b5c5dd0f588e2a944066e766ce595e12d3e9",
+      "even": "89bb464335c0e63d5ba12523d636d2e50a38db7e457704cd99669845f2d85c11",
+      "geometric_bound": "c505f87d616749bbf862e746db4699199c43be44524d3904a953b487e1e06454",
+      "first_norms": "4f539ec5352ae0f8ace626559ae1aecc2d9d67810e5f2ea19674a74eb733ab04",
+      "converges": "20604ef38c39260ecb2e91221bd58c31312906c96cfed2b11d6555cb48f5ff27",
+      "truncation_through_t2": "b62b9d41c6d3e5465cb9b4a61480ac2164acc0d8e1fa477fd04fecc9ba16e8fa",
+      "band_around_start": "65a64ea2a8e11fe5d2b25749925ddd59a0835b8bcacab0cb70b9761188336cbe",
+      "classical_solution": "4c3e47ec1a5915549c849914e39e67a40d23e9970cbd9cccb895be91a26a771d",
+      "solves_vorticity_equation": "4174e72d61edf900aa29b2a6de5fdaae320cfd44d5c3c92a8b9d3cea1b0a4f40",
+      "stream_function": "99af494314344aa1ba132a636b4919b3a7c7b67f819fe8ac8c704e74835ec6b4",
+      "initial_vorticity": "3c1d234b609f30e4ca120900702558680f8921b14ad57e201b07457bb8ec7d9d",
+      "truncation_decided": "40c832f49356890e80b63df46d4c9de4843cff01e19af6a480b1b35bbfc1cec2",
+      "band_decided": "768bf1dd7cf8f0b2b081fa4c504dacfbdd6a226935f9dd9cba4d1a3928406f42",
+      "classical_multimode_tail": "59ee12dfb93837f7a221b9057a6485bbb11b73abf9842eaee579b44b83e80eb1",
+      "classical_multimode_band": "1d04e7f158e65e157918934d0aff76ec03be8c4d7be31d4c2d99e3696f470de5",
+      "classical_zero_tail": "f995c884db469fc15e14a5697d0f2cd5f7bdde996bed049b16d8d6c2412169b5",
+      "classical_zero_band": "8e9b2b1a113468e8d5a75d3b927d4f7deff20d858b2dd1e780766bdf64dc864e",
+      "gevrey_viscous": "70db3de8fb3c11baa73329cda15bacb51d9520f31fbcaed743bd15719aca1c69",
+      "viscous_differs": "a4f259817f744ab1d0b1395ae78294aa5c559ec1a41aa80ea42245d2df2ac50d",
+      "viscous_created_same": "2c8d055486e7991a5d604c6ab617dbe42cd96b0c3c573c9b0b1e02efac8a5acc"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "b71a97b91f590dd5c406a6b639bdf8aab37e7a2183517cf325aec523d1691f00",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ],
+        [
+          "b79ab363f6607cf18226dfaa7fe2cf4b6ca30ec312f4c0ad56f78e4c7d054d32",
+          "2da7fd724afb68e65b29a319779254f9d6441f1d9f6ced0387c6b0c97451622d",
+          []
+        ],
+        [
+          "ac99fc7f2c6d9d75531fc2e52c547b2aed5f56a2d0a7e07f4dbe2621c371d0f7",
+          "4b07c6cb165663c0dbb6ff32121dce866102ae9644b57943b73d848c189dd1c3",
+          []
+        ]
+      ],
+      [
+        [
+          "06504055830820b19f31225e58deb23ceee7b687ae573694b5ad953981a4323b",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ],
+        [
+          "475bb321b8299b95d688be9c8155373959e9ad9f8eadeb36e9c70816ca4db943",
+          "2abbc1dd30fb2c4e5b73561da98da16d0bf621813b4d3a835c4c4cf7b18c366e",
+          [
+            "Notebook.Euler.Decided_truncation_decided.forsetiTable"
+          ]
+        ],
+        [
+          "c2947f4eb695b3debf42ae61a3032675ba9a86d6102a151371edf18a9fd09e81",
+          "2abbc1dd30fb2c4e5b73561da98da16d0bf621813b4d3a835c4c4cf7b18c366e",
+          [
+            "Notebook.Euler.Decided_truncation_decided.forsetiStart"
+          ]
+        ],
+        [
+          "bf7362cf65f49f3ae1ac25fecab2fc2b30aaf18d64f85502fbf705a4e5f8b039",
+          "2abbc1dd30fb2c4e5b73561da98da16d0bf621813b4d3a835c4c4cf7b18c366e",
+          [
+            "Notebook.Euler.Decided_truncation_decided.forsetiPost"
+          ]
+        ],
+        [
+          "6a9f5b62f877164ace90d6180d2954195e9c1b1ff389d2aea28d59c0571dc173",
+          "2abbc1dd30fb2c4e5b73561da98da16d0bf621813b4d3a835c4c4cf7b18c366e",
+          [
+            "Notebook.Euler.Decided_truncation_decided.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "aa939a05dade0ad4157890e580548c392c95967cae3875b0ebdb3226e08fcd36",
+          "2abbc1dd30fb2c4e5b73561da98da16d0bf621813b4d3a835c4c4cf7b18c366e",
+          []
+        ],
+        [
+          "417e139cff55e7820e4000c7d2c238cbe2f1e006e74f213b3ce2d72a3a9f8ee8",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ],
+        [
+          "475bb321b8299b95d688be9c8155373959e9ad9f8eadeb36e9c70816ca4db943",
+          "d8c585bf6e3c9fb938521d2d3fbd402993cb0442f55297d34eaf09472abbee9f",
+          [
+            "Notebook.Euler.Decided_band_decided.forsetiTable"
+          ]
+        ],
+        [
+          "c2947f4eb695b3debf42ae61a3032675ba9a86d6102a151371edf18a9fd09e81",
+          "d8c585bf6e3c9fb938521d2d3fbd402993cb0442f55297d34eaf09472abbee9f",
+          [
+            "Notebook.Euler.Decided_band_decided.forsetiStart"
+          ]
+        ],
+        [
+          "4c6dad3427994f02eb54a7aac5fd0b2976e6e4f95716814b59ab4e086d054ca9",
+          "d8c585bf6e3c9fb938521d2d3fbd402993cb0442f55297d34eaf09472abbee9f",
+          [
+            "Notebook.Euler.Decided_band_decided.forsetiPost"
+          ]
+        ],
+        [
+          "6a9f5b62f877164ace90d6180d2954195e9c1b1ff389d2aea28d59c0571dc173",
+          "d8c585bf6e3c9fb938521d2d3fbd402993cb0442f55297d34eaf09472abbee9f",
+          [
+            "Notebook.Euler.Decided_band_decided.forsetiRoot"
+          ]
+        ],
+        [
+          "c566a02a17c6016f597566b34477cc7b0185b7fc9ec2ed3ac008bf719ba6d1af",
+          "d8c585bf6e3c9fb938521d2d3fbd402993cb0442f55297d34eaf09472abbee9f",
+          [
+            "Notebook.Euler.Decided_band_decided.forsetiBound"
+          ]
+        ]
+      ],
+      [
+        [
+          "b3d543a6453d5bccc2ed4d54ba99918094d0b3bf6afc28d06612ad3d9cb9a909",
+          "d8c585bf6e3c9fb938521d2d3fbd402993cb0442f55297d34eaf09472abbee9f",
+          []
+        ]
+      ],
+      [
+        [
+          "155ed30a1204a26d2a354607320910bd1e0c7108991248089de7049ad55a34d8",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ],
+        [
+          "2c7a8f74f1954b32b29909cbdbaf6a03629d11815c4f1d7b30c52c4f50bdeeca",
+          "b7f3a43be51b0b2d2e6db0bc1da79f0533eadf68e70fd36e231d9774efe69a48",
+          [
+            "Notebook.Euler.Decided_classical_multimode_tail.forsetiTable"
+          ]
+        ],
+        [
+          "c2947f4eb695b3debf42ae61a3032675ba9a86d6102a151371edf18a9fd09e81",
+          "b7f3a43be51b0b2d2e6db0bc1da79f0533eadf68e70fd36e231d9774efe69a48",
+          [
+            "Notebook.Euler.Decided_classical_multimode_tail.forsetiStart"
+          ]
+        ],
+        [
+          "cb677cd619e9a06d7ad747f053d83b82ab98ee2d7036eb04f2a97058fe93d214",
+          "b7f3a43be51b0b2d2e6db0bc1da79f0533eadf68e70fd36e231d9774efe69a48",
+          [
+            "Notebook.Euler.Decided_classical_multimode_tail.forsetiPost"
+          ]
+        ],
+        [
+          "6a9f5b62f877164ace90d6180d2954195e9c1b1ff389d2aea28d59c0571dc173",
+          "b7f3a43be51b0b2d2e6db0bc1da79f0533eadf68e70fd36e231d9774efe69a48",
+          [
+            "Notebook.Euler.Decided_classical_multimode_tail.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "01ab448ec06584cf10a76d82d63ee279864ca6044b9240e43e359f9d6da8c470",
+          "b7f3a43be51b0b2d2e6db0bc1da79f0533eadf68e70fd36e231d9774efe69a48",
+          []
+        ],
+        [
+          "78446c581a9bd927d8df19e8e3a2a0bc11bdfac58d209c13a7ddeb5b93ed662c",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ],
+        [
+          "2c7a8f74f1954b32b29909cbdbaf6a03629d11815c4f1d7b30c52c4f50bdeeca",
+          "f020d7f1d33ee83410479de2a9ac2be85d0bf1423dc9c9857c1a8d6aeb0ea4b5",
+          [
+            "Notebook.Euler.Decided_classical_multimode_band.forsetiTable"
+          ]
+        ],
+        [
+          "c2947f4eb695b3debf42ae61a3032675ba9a86d6102a151371edf18a9fd09e81",
+          "f020d7f1d33ee83410479de2a9ac2be85d0bf1423dc9c9857c1a8d6aeb0ea4b5",
+          [
+            "Notebook.Euler.Decided_classical_multimode_band.forsetiStart"
+          ]
+        ],
+        [
+          "22a924069aaf55cd0fd2aa95f403919dd8e1b97eff9f9ec805c3d4a6085e145c",
+          "f020d7f1d33ee83410479de2a9ac2be85d0bf1423dc9c9857c1a8d6aeb0ea4b5",
+          [
+            "Notebook.Euler.Decided_classical_multimode_band.forsetiPost"
+          ]
+        ],
+        [
+          "6a9f5b62f877164ace90d6180d2954195e9c1b1ff389d2aea28d59c0571dc173",
+          "f020d7f1d33ee83410479de2a9ac2be85d0bf1423dc9c9857c1a8d6aeb0ea4b5",
+          [
+            "Notebook.Euler.Decided_classical_multimode_band.forsetiRoot"
+          ]
+        ],
+        [
+          "2e28b7ce9078eba06b0c217c727268a9a0e7e81bac1b00e3f974ccd84a7323d3",
+          "f020d7f1d33ee83410479de2a9ac2be85d0bf1423dc9c9857c1a8d6aeb0ea4b5",
+          [
+            "Notebook.Euler.Decided_classical_multimode_band.forsetiBound"
+          ]
+        ]
+      ],
+      [
+        [
+          "7091a190bafc107b4ff5174665b8c1083fcf3ee6ed6092d4ccd5d07bc81d32a0",
+          "f020d7f1d33ee83410479de2a9ac2be85d0bf1423dc9c9857c1a8d6aeb0ea4b5",
+          []
+        ]
+      ],
+      [
+        [
+          "9d50c0f8c5743630b487c8ca980a2e144d54246ac259c590e10ffe87d1475470",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ],
+        [
+          "09b740af2700f94514281e8c916c5774dfc6041100d8946dc8f9666536b6bad0",
+          "1b953d7887c2cab433d7c4f26a28cf423274e37f45bdd766c4b11a4fe5982ab3",
+          [
+            "Notebook.Euler.Decided_classical_zero_tail.forsetiTable"
+          ]
+        ],
+        [
+          "c2947f4eb695b3debf42ae61a3032675ba9a86d6102a151371edf18a9fd09e81",
+          "1b953d7887c2cab433d7c4f26a28cf423274e37f45bdd766c4b11a4fe5982ab3",
+          [
+            "Notebook.Euler.Decided_classical_zero_tail.forsetiStart"
+          ]
+        ],
+        [
+          "3f04146340764618cd095dac2b7091222c891170407e80410e008b31ee83cc1b",
+          "1b953d7887c2cab433d7c4f26a28cf423274e37f45bdd766c4b11a4fe5982ab3",
+          [
+            "Notebook.Euler.Decided_classical_zero_tail.forsetiPost"
+          ]
+        ],
+        [
+          "6a9f5b62f877164ace90d6180d2954195e9c1b1ff389d2aea28d59c0571dc173",
+          "1b953d7887c2cab433d7c4f26a28cf423274e37f45bdd766c4b11a4fe5982ab3",
+          [
+            "Notebook.Euler.Decided_classical_zero_tail.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "c0b0a0a03cf4636d97b56cacba47293c1e4e65ecd92243e7e8f3e52fb73ba282",
+          "1b953d7887c2cab433d7c4f26a28cf423274e37f45bdd766c4b11a4fe5982ab3",
+          []
+        ],
+        [
+          "bf866f47999c95a4caed25dd2cefa104013777e6cbc40adfac245e81d44d42b7",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ],
+        [
+          "09b740af2700f94514281e8c916c5774dfc6041100d8946dc8f9666536b6bad0",
+          "bb791695511e69312d1d0d3de1125d7747d4761873dc538aecc98207df03cbbd",
+          [
+            "Notebook.Euler.Decided_classical_zero_band.forsetiTable"
+          ]
+        ],
+        [
+          "c2947f4eb695b3debf42ae61a3032675ba9a86d6102a151371edf18a9fd09e81",
+          "bb791695511e69312d1d0d3de1125d7747d4761873dc538aecc98207df03cbbd",
+          [
+            "Notebook.Euler.Decided_classical_zero_band.forsetiStart"
+          ]
+        ],
+        [
+          "f6cbfe60332e4644377702607db6f681a8af59234b4deed9943ccdc76781c283",
+          "bb791695511e69312d1d0d3de1125d7747d4761873dc538aecc98207df03cbbd",
+          [
+            "Notebook.Euler.Decided_classical_zero_band.forsetiPost"
+          ]
+        ],
+        [
+          "6a9f5b62f877164ace90d6180d2954195e9c1b1ff389d2aea28d59c0571dc173",
+          "bb791695511e69312d1d0d3de1125d7747d4761873dc538aecc98207df03cbbd",
+          [
+            "Notebook.Euler.Decided_classical_zero_band.forsetiRoot"
+          ]
+        ],
+        [
+          "e0e9972a6e3fa2d8b9e07530a5bc307ac9f6bd4a1f79663a74094c7938746d11",
+          "bb791695511e69312d1d0d3de1125d7747d4761873dc538aecc98207df03cbbd",
+          [
+            "Notebook.Euler.Decided_classical_zero_band.forsetiBound"
+          ]
+        ]
+      ],
+      [
+        [
+          "308215c33caf609048a393632b0bf1d56dc460b4b7637dbc03df6d40808fcd14",
+          "bb791695511e69312d1d0d3de1125d7747d4761873dc538aecc98207df03cbbd",
+          []
+        ]
+      ],
+      [
+        [
+          "9d6b119609413895a3190a234252cc3b374cc3cf91c055a46086be73b1188a5c",
+          "7ec9069bc81e790b91e3bd8333ac3e81f192780fffdc570a9910c68a2cd651c8",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Notebook.Euler.Decided_truncation_decided.forsetiRoot": "a70369bfb1f9bc3a3209c23d0f594ace28850f5c975fa1961fddfd0425a8810b",
+      "Notebook.Euler.Decided_classical_multimode_band.forsetiBound": "805b17135ba08ff0fdf4a70bac159a3513fca482eea6b42f2a0d5bf0b18adeaa",
+      "Notebook.Euler.Decided_classical_zero_tail.forsetiPost": "e6a0b9153bebe337e7bf6ddf179edf99cc4e895a035ec622477f1fa900a8f8c5",
+      "Notebook.Euler.Decided_classical_multimode_band.forsetiStart": "2b201b0c7aec4cb77d51f661f060e46e5275ef561ebde6ebe699d1c2ceefeea7",
+      "Notebook.Euler.Decided_classical_multimode_tail.forsetiPost": "0ca412161f7090a08bccade902bfdf364fac1e97b38313b2124f299d6efd3853",
+      "Notebook.Euler.Decided_truncation_decided.forsetiPost": "83177374879597729b93e18315b8639471357553f0ced7f3949fa86d14bff774",
+      "Notebook.Euler.Decided_classical_zero_tail.forsetiRoot": "b53705b16dc0c652585e900677c339b4196359f46b440c534ac1b678bbfb6a76",
+      "Notebook.Euler.Decided_band_decided.forsetiTable": "c0b3bc072c45fff83481def8b98da5764901a35195c3ab22859c4e839af48f99",
+      "Notebook.Euler.Decided_classical_multimode_tail.forsetiRoot": "0eae77786ed0e8c51a3573e9d6a1ddefdc01bd4a78e1111bef3423734685f8cc",
+      "Notebook.Euler.Decided_classical_zero_band.forsetiPost": "84642ecaf57115b836d9c578aaf56a5fa3e811b9330d05e42e15691f1467ef77",
+      "Notebook.Euler.Decided_classical_zero_band.forsetiStart": "e6c7f5f30f78ebb07bfcffa0df0634f300478be4c5820e308db9b487e249c6f7",
+      "Notebook.Euler.Decided_band_decided.forsetiStart": "ed866f69b2122dfb89bc29853c161b1ac88073bf8d8d52f92b3f032b9ad1cb44",
+      "Notebook.Euler.Decided_band_decided.forsetiRoot": "9acf22056861b76f9d8978250e77c96af25c37403e718add93d7f6bbc88d0535",
+      "Notebook.Euler.Decided_classical_zero_band.forsetiBound": "b628ae71035faf658cb29785526eab41c0af7ce44bbdb74ab857704d1057d7a1",
+      "Notebook.Euler.Decided_band_decided.forsetiBound": "e8ae58c8f141f2c3b85196de682f1f6d1509a981837084fff1f95ee831a4806e",
+      "Notebook.Euler.Decided_classical_zero_band.forsetiRoot": "33f7bf6dd8ceb9f81e39467ac4db12f35a79d5185cc5f9a27da8019272c467d7",
+      "Notebook.Euler.Decided_classical_zero_band.forsetiTable": "76a94a6045f045dff873653c23221fa383a7c4994eab5c0a6a4fca37d9a9a7da",
+      "Notebook.Euler.Decided_classical_multimode_tail.forsetiStart": "3c7ac95e8e40d4e1753f9780ec26692d154cd1ca91b0204fa997a4a674c5457d",
+      "Notebook.Euler.Decided_band_decided.forsetiPost": "2fd44fff3174d41ca8c2df637ca6321a5dc250c081d6e7330af09ff1bd808431",
+      "Notebook.Euler.Decided_classical_zero_tail.forsetiStart": "e7d0abfa507403ae2d8a7b1e3eb6ff190f17895ad5384731f1b2d2a84ca861f5",
+      "Notebook.Euler.Decided_truncation_decided.forsetiTable": "262ed7e8b3556537e64f8c334e1369d38039f660d5d69504c491c84a656a9991",
+      "Notebook.Euler.Decided_classical_multimode_tail.forsetiTable": "ec039d3afe673e501cc0dca9945d8859fa0394e67fe0a5c4b7fde4ca427c3b3a",
+      "Notebook.Euler.Decided_classical_multimode_band.forsetiRoot": "4b389efb18881277e6d5c63e116cd1779b785382f391688390bb8a2e972af855",
+      "Notebook.Euler.Decided_classical_zero_tail.forsetiTable": "76ec8a0600d1e1571f08ab0ac4ef4099df9ce056504a1433b9c948a820a2b64c",
+      "Notebook.Euler.Decided_truncation_decided.forsetiStart": "6862251575e3e0e463bb1ea92baf1765eb164ffe6fc241cb4f85d4f19fb6fb47",
+      "Notebook.Euler.Decided_classical_multimode_band.forsetiPost": "3b32f0aa66fe2087cf1624f460167a83e15c86a524f94ecf73a24d3ac0dc8b4c",
+      "Notebook.Euler.Decided_classical_multimode_band.forsetiTable": "6fc2157ba0b05200ceeb27cd61405db186de76b413f35807993b8d1c2e6bbc3f"
+    }
+  }
+}

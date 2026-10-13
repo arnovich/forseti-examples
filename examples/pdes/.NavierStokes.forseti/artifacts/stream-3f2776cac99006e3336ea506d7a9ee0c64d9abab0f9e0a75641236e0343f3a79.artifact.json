@@ -1,0 +1,168 @@
+{
+  "dependencies": [
+    "Gimle.Forseti.MildVorticity.contract_with",
+    "Gimle.Forseti.MildVorticity.Table.euler_contract",
+    "Gimle.Asgard.Streams.Mild.wild_euler_truncation"
+  ],
+  "environment": {
+    "closure_sha256": "63e0d85046f8061e3e7d1ab411aef6a4ea236180d5149fa50bb1a882101005f9",
+    "dependencies": [
+      {
+        "name": "asgard",
+        "revision": "411dfdffc44c37320f12b977fc60da7a3117a679"
+      },
+      {
+        "name": "mathlib",
+        "revision": "520045ab14e26149ee970e2e617ca04b09bde5d6"
+      },
+      {
+        "name": "plausible",
+        "revision": "e12c1910fe855cbfc38803cd4e55543906d5fa62"
+      },
+      {
+        "name": "LeanSearchClient",
+        "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+      },
+      {
+        "name": "importGraph",
+        "revision": "7e9612bf0b9ee66db3cb5b9988a35afc706f5a12"
+      },
+      {
+        "name": "proofwidgets",
+        "revision": "6e311e2a844da9b2cc3971187df2fe0066947b93"
+      },
+      {
+        "name": "aesop",
+        "revision": "a7dbf0c63b694e47f425f3dcddbc0e178bb432d3"
+      },
+      {
+        "name": "Qq",
+        "revision": "38d591e778f100aec9762bb582f9c7f55f50e9dc"
+      },
+      {
+        "name": "batteries",
+        "revision": "023ce7d62a0531e22a5331e20b587817a80d49ff"
+      },
+      {
+        "name": "Cli",
+        "revision": "88679d088c9720c27ebdf2ba4dafe17341747f94"
+      }
+    ],
+    "imports": [
+      "Gimle.Forseti.MildVorticity"
+    ],
+    "lockfile_sha256": "0471dc6f5a9e45ac208752571fcbec0b778a7398b1389b1b6df6e83abf990a01",
+    "release_sha256": "2bb4b726c42d61bba7c718baa1feca383cf732cd6f0d1d45e67c3420973e9004",
+    "support_version": "gimle.forseti.lean-support/v17",
+    "toolchain": "leanprover/lean4:v4.32.1"
+  },
+  "evidence": {
+    "kind": "mild-scale",
+    "size": 3,
+    "weight": [
+      3,
+      1
+    ],
+    "window": 4
+  },
+  "goal": {
+    "basis": "interaction",
+    "claim": {
+      "epsilon": [
+        21,
+        1024
+      ],
+      "kind": "mild-truncation",
+      "port": "u",
+      "time": [
+        1,
+        5760
+      ],
+      "window": 4
+    },
+    "interpretation": "mild-truncation",
+    "model": "vorticity",
+    "profile": {
+      "modes": [
+        [
+          1,
+          0,
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          -1,
+          0,
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          1,
+          1,
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          -1,
+          -1,
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          2,
+          1,
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          -2,
+          -1,
+          [
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    "schema": "gimle.forseti.stream-goal/v2",
+    "viscosity": [
+      1,
+      10
+    ]
+  },
+  "limits": {
+    "max_artifact_bytes": 1048576,
+    "max_coefficient_bits": 256,
+    "max_degree": 8,
+    "max_depth": 64,
+    "max_dictionary": 16,
+    "max_heartbeats": 2000000,
+    "max_lean_output_bytes": 1048576,
+    "max_monomials": 4096,
+    "max_nodes": 512,
+    "max_variables": 8,
+    "max_weights": 512,
+    "wall_time_ms": 300000
+  },
+  "producer": {
+    "search_ms": 9,
+    "stage": "mild-bound"
+  },
+  "schema": "gimle.forseti.stream-artifact/v2",
+  "source": "import Gimle.Forseti.MildVorticity\n\ndef forsetiTable : Gimle.Asgard.Streams.Torus.Table := [((1, 0), (mkRat (1) 2)), ((-1, 0), (mkRat (1) 2)), ((1, 1), (mkRat (1) 2)), ((-1, -1), (mkRat (1) 2)), ((2, 1), (mkRat (1) 2)), ((-2, -1), (mkRat (1) 2))]\n\nnoncomputable def forsetiP : Gimle.Asgard.Streams.Torus.TrigPoly := Gimle.Asgard.Streams.Torus.Table.toTrig forsetiTable\n\ndef forsetiPost (output : Gimle.Asgard.Streams.Mild.Point 1) : Prop :=\n  Gimle.Forseti.MildVorticity.Certified (1 / 10 : \u211a) forsetiP (((mkRat (1) 5760) : \u211a) : \u211d) output \u2227\n  (Gimle.Asgard.Streams.Mild.MildTruncationBound (1 / 10 : \u211a) (output 0) (((mkRat (1) 5760) : \u211a) : \u211d) 4 (((mkRat (21) 1024) : \u211a) : \u211d))\n\ndef forsetiRoot : Prop :=\n  Gimle.Forseti.Mild.Contract (Gimle.Asgard.Streams.Mild.mildCircuit (1 / 10 : \u211a))\n    (fun input => input 0 0 = Gimle.Asgard.Streams.Mild.embed forsetiP) forsetiPost\ntheorem forsetiSearch : forsetiRoot := by\n  have hs : Gimle.Asgard.Streams.Torus.SizeLE 3 forsetiP := by\n    exact Gimle.Asgard.Streams.Torus.Table.sizeLE_toTrig (by decide +kernel : \u2200 e \u2208 forsetiTable, Gimle.Asgard.Streams.Torus.size e.1 \u2264 3)\n  have hl : Gimle.Asgard.Streams.Torus.l1 forsetiP \u2264 (mkRat (3) 1) := (Gimle.Asgard.Streams.Torus.Table.l1_le_absSum forsetiTable).trans (by decide +kernel : Gimle.Asgard.Streams.Torus.Table.absSum forsetiTable \u2264 (mkRat (3) 1))\n  have hc : Gimle.Forseti.Mild.Contract (Gimle.Asgard.Streams.Mild.mildCircuit (1 / 10 : \u211a))\n      (fun input => input 0 0 = Gimle.Asgard.Streams.Mild.embed forsetiP)\n      (Gimle.Forseti.MildVorticity.Certified (1 / 10 : \u211a) forsetiP (((mkRat (1) 5760) : \u211a) : \u211d)) := by\n    exact Gimle.Forseti.MildVorticity.Table.euler_contract forsetiTable (by decide +kernel) (by decide +kernel) (by norm_num [Rat.mkRat_eq_div]) (K := 3) (by decide +kernel) (by decide +kernel) (L := (mkRat (3) 1)) (by decide +kernel) (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div])\n  unfold forsetiRoot forsetiPost\n  apply Gimle.Forseti.MildVorticity.contract_with forsetiP hc\n  have h := Gimle.Asgard.Streams.Mild.wild_euler_truncation (\u03bd := (1 / 10 : \u211a)) (T := (mkRat (1) 5760)) (by norm_num [Rat.mkRat_eq_div]) (by norm_num [Rat.mkRat_eq_div]) (Gimle.Forseti.MildVorticity.boundary forsetiP) forsetiP rfl (K := 3) (by decide +kernel) hs (L := (mkRat (3) 1)) hl (by norm_num [Rat.mkRat_eq_div]) 4\n  apply h.mono\n  exact_mod_cast (show Gimle.Asgard.Streams.Mild.eulerTail (mkRat (3) 1) 3 (mkRat (1) 5760) 4 \u2264 (mkRat (21) 1024) by decide +kernel)\n\n#print axioms forsetiSearch\n",
+  "status": "PROVEN",
+  "theorem": {
+    "name": "forsetiSearch",
+    "statement": "root"
+  }
+}

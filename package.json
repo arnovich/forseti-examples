@@ -1,0 +1,15 @@
+{
+  "name": "forseti-examples-gallery",
+  "private": true,
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "test": "node --test tests/gallery.test.cjs",
+    "gallery:check": "node scripts/gallery/check.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "30.1.1",
+    "playwright": "1.64.0"
+  }
+}
