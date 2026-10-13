@@ -6,6 +6,7 @@ const path = require('node:path');
 const {JSDOM} = require('jsdom');
 
 const ROOT = path.resolve(__dirname, '../..');
+const NOTEBOOK_NAVIGATION_CSS = readFileSync(path.join(ROOT, 'gallery/notebook-navigation.css'), 'utf8');
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
 const TOPICS = {
   basics: ['Start here', 'Small models introduce claims, saved evidence and refutations.'],
@@ -43,6 +44,19 @@ function validateExport(html, entry) {
     }
     for (const image of doc.images) assert.ok(image.src.startsWith('data:image/'), 'Image is not embedded');
   } finally { dom.window.close(); }
+}
+
+function addNotebookNavigation(doc, entry) {
+  const app = doc.querySelector('.app');
+  assert.ok(app, 'Missing notebook container');
+  const nav = doc.createElement('nav');
+  nav.className = 'gallery-nav';
+  nav.setAttribute('aria-label', 'Notebook navigation');
+  nav.innerHTML = `<a class="gallery-back" href="../index.html" aria-label="Back to notebook gallery"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 5-5 5 5 5M6 10h10"/></svg><span>Gallery</span></a><a class="gallery-source" href="${escape(entry.source_url)}" title="View ${escape(entry.snapshot.file)} on GitHub"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 5-5 5 5 5m6-10 5 5-5 5"/></svg><span>Lean source</span></a>`;
+  app.prepend(nav);
+  const style = doc.createElement('style');
+  style.textContent = NOTEBOOK_NAVIGATION_CSS;
+  doc.head.append(style);
 }
 
 async function renderNotebook(manifest, entry) {
@@ -119,14 +133,7 @@ async function renderNotebook(manifest, entry) {
       }
       const snapshot = doc.querySelector('.snapshot');
       snapshot.textContent = snapshot.textContent.replace(' · exported ', ' · source revision dated ');
-      const nav = doc.createElement('nav');
-      nav.className = 'gallery-nav';
-      nav.setAttribute('aria-label', 'Notebook navigation');
-      nav.innerHTML = `<a href="../index.html">All notebooks</a><a href="${escape(entry.source_url)}">Lean source</a>`;
-      doc.body.prepend(nav);
-      const style = doc.createElement('style');
-      style.textContent = '.gallery-nav{display:flex;justify-content:space-between;gap:1rem;max-width:960px;margin:0 auto;padding:24px;color:#164fa3}.gallery-nav a{color:inherit;font:500 15px system-ui}';
-      doc.head.append(style);
+      addNotebookNavigation(doc, entry);
       return {html: '<!doctype html>\n' + doc.documentElement.outerHTML, title: doc.title};
     } finally { page.window.close(); }
   } finally { window.close(); }
@@ -135,7 +142,7 @@ async function renderNotebook(manifest, entry) {
 function galleryIndex(manifest, entries) {
   const groups = Object.entries(TOPICS).map(([topic, [title, description]]) => {
     const notebooks = entries.filter(entry => entry.html.startsWith(topic + '/'));
-    return `<section id="${topic}" class="topic"><header><h2>${title}</h2><p>${description}</p></header><ul>${notebooks.map(entry => `<li><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a><div class="notebook-links"><a href="${escape(entry.html)}">Read notebook</a><a href="${escape(entry.source_url)}">Lean source</a></div></li>`).join('')}</ul></section>`;
+    return `<section id="${topic}" class="topic"><header><h2>${title}</h2><p>${description}</p></header><ul>${notebooks.map(entry => `<li><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a></li>`).join('')}</ul></section>`;
   }).join('\n');
   return readFileSync(path.join(ROOT, 'gallery/index.html'), 'utf8')
     .replace('{{topics}}', groups)
@@ -164,5 +171,5 @@ async function main(inputs, output) {
   await fs.writeFile(path.join(output, 'manifest.json'), JSON.stringify({repository: manifest.repository, revision: manifest.revision, notebooks: entries}, null, 2) + '\n');
 }
 
-module.exports = {validateExport, galleryIndex, renderNotebook, rewriteReferences};
+module.exports = {addNotebookNavigation, validateExport, galleryIndex, renderNotebook, rewriteReferences};
 if (require.main === module) main(...process.argv.slice(2)).catch(error => { console.error(error); process.exitCode = 1; });

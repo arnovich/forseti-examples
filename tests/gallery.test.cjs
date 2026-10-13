@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const {JSDOM} = require('jsdom');
-const {validateExport, galleryIndex, rewriteReferences} = require('../scripts/gallery/render.cjs');
+const {addNotebookNavigation, validateExport, galleryIndex, rewriteReferences} = require('../scripts/gallery/render.cjs');
 
 test('export validation refuses missing claims, scripts and incomplete diagrams', () => {
   const entry = {snapshot: {sha256: 'abc', claims: [{name: 'first'}], views: []}};
@@ -19,6 +19,13 @@ test('gallery links survive a repository Pages prefix and escape notebook titles
   assert.ok(html.includes('href="basics/Test.html"'));
   assert.ok(html.includes('&lt;img src=x&gt;'));
   assert.ok(!html.includes('src=x>'));
+  const dom = new JSDOM(html);
+  try {
+    const links = dom.window.document.querySelectorAll('.topic li a');
+    assert.equal(links.length, 1);
+    assert.equal(links[0].getAttribute('href'), 'basics/Test.html');
+    assert.equal(links[0].textContent, '<img src=x>');
+  } finally { dom.window.close(); }
 });
 
 test('known notebook cross-links survive export without rewriting external URLs', () => {
@@ -28,5 +35,21 @@ test('known notebook cross-links survive export without rewriting external URLs'
     const links = dom.window.document.querySelectorAll('a');
     assert.equal(links[0].href, 'https://gallery.invalid/basics/ThreeState.html');
     assert.equal(links[1].href, 'https://other.invalid/?reference=ThreeState');
+  } finally { dom.window.close(); }
+});
+
+test('notebook navigation preserves gallery and exact source links without changing content', () => {
+  const dom = new JSDOM('<!doctype html><html><head></head><body><div class="app"><h1>Example</h1><p id="cell-first">Recorded claim</p></div></body></html>');
+  const source = `https://github.com/owner/examples/blob/${'a'.repeat(40)}/examples/basics/A%22B.lean`;
+  try {
+    addNotebookNavigation(dom.window.document, {source_url: source, snapshot: {file: 'A"B.lean'}});
+    const links = dom.window.document.querySelectorAll('.app > .gallery-nav a');
+    assert.equal(links.length, 2);
+    assert.equal(links[0].getAttribute('href'), '../index.html');
+    assert.equal(links[1].getAttribute('href'), source);
+    assert.equal(links[1].getAttribute('title'), 'View A"B.lean on GitHub');
+    assert.equal(dom.window.document.querySelector('h1').textContent, 'Example');
+    assert.equal(dom.window.document.getElementById('cell-first').textContent, 'Recorded claim');
+    assert.equal(dom.window.document.querySelectorAll('script').length, 0);
   } finally { dom.window.close(); }
 });
