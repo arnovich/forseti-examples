@@ -1,0 +1,655 @@
+{
+  "format": "gimle.forseti.notebook-metadata/v4",
+  "checks": {
+    "budget_rate": {
+      "context": "73817a4ed6c91fe65f2ada6e683f655e8a56c29e81e8793b3a038fdc99afca05",
+      "proof": "cdaae3723ae6ad8c7a460d7e800ea7c0d070ce452291e458647391d5b9d1543c",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "92477f4e4e4a810ea3e557a28a4d46da7f69a9e13987b5ad0a651790c9e47de6",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "budget_leaf": {
+      "context": "16670028987e59d3fbad5401e073bdc56fc6495845ffb1095fdb22c4bb87da39",
+      "proof": "2b376e6a72ec06e170a4e4103ca04e0f0fd4fae8f9bc6a65cd42933607df8c9f",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "be204cb70fc831b52910179317198a07fdd0b34e25de56e47dbafd95d271684a",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "budget_band": {
+      "context": "8ace52f8c622c83e4cfe0b0b47cb39f17d5a4ac2346158198b16dda3976e01c1",
+      "proof": "0647dccb55f8f320aaa2ce1098c34c208f7b7674fd1950fbac871573e7d9af05",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "06984a57d9a7507f30b528c1f120380b001dfc5fd38457ea8cbaa013eb105994",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "calmer_market": {
+      "context": "03732891fb99154620f89ecc8b5e8a2cb86e285fd6e3f11a6e7894f9d559312d",
+      "proof": "c0040564aa31eec7c7e4991f1f2aa8d91ef6c2fc914b3b8562054fafffeac341",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "9908438b7d70ec3c1d02ff6f7df8182972e3aca225de57cac686bc64fc51c753",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "budget_quarter_refuted": {
+      "context": "89dc5dff477f607e43f31f497bb0d57d1a312ebf3dedbca1b1a72879f163c67b",
+      "proof": "985eea44807f14ce9e2fdaf6194da778ab6923c2580ec8aa13b89f04a10bcc1b",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "50241661da353633dd3ea2646d0d781a3ce9842edec45e11f926a98f046462ff",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "unit_shock_realized": {
+      "context": "a17fe0147ddc16354062203a80893fc33f9b1a5071c508994a40832ea0a0e343",
+      "proof": "9a471485708e2cee0a5aec9ff6f83827630687b4a8f207412736176e322b32e5",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "817c014a67a1f88b3ea4f9812f93738bb168cab55772db9e7f3542d0dee00859",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "exposure_under_unit_shock": {
+      "context": "3669c726b9b05b5a2b024fb79ceff9c96e23172987834ce6db8fb0ae31ac8f96",
+      "proof": "e359be5fcaacae235e8abadab9f958e6b42434031a840e11f6a3127978578d8a",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "7281a441428da97248bb0eb5f8f88d715ec2d9c6461d326a9228b4f5da773236",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "any_band": {
+      "context": "ab46a22700ffc3109bfbda99827f404eacd814cf0f1719f00d43ee383ef845b0",
+      "proof": "1545a563fe8703a07894fd6e208374c56eb0eba8724519b283e6deb44e4e695f",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "fc84c49105776ca69b5e6d21f38950bea1ef113f54f9a6c8f838d24a3f673ee0",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "no_limit_breach": {
+      "context": "6ffc78171d3b0b8094ec4ecce8305686b033e458e01a755adaaa79602ce6890a",
+      "proof": "fc231194aa713b2df620bb05e0d9506b488acd88e657542b744a569e15c90f59",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "aa97cc35241775c9ef0d4c7b855424ef496546b061399508fd6d6b46144f84d2",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "half_is_not_a_bound": {
+      "context": "85765bf012e48f5d56371fd7ced27bc018157544fbdda8668c3835ec46e8e3fb",
+      "proof": "566c65260ea895182dfd8e1bf811c54bd266b3fb7a71164e63a2d3720bb65b6d",
+      "verdict": "holds",
+      "uses": [
+        "unit_shock_realized",
+        "exposure_under_unit_shock"
+      ],
+      "axioms": [
+        "forsetiClaim_6",
+        "forsetiClaim_7",
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "e41a713742361612bf7b7187cd467d8fc14ad509488dac3a1506db17e27465f4",
+      "assumed": {
+        "unit_shock_realized": "817c014a67a1f88b3ea4f9812f93738bb168cab55772db9e7f3542d0dee00859",
+        "exposure_under_unit_shock": "7281a441428da97248bb0eb5f8f88d715ec2d9c6461d326a9228b4f5da773236"
+      },
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    },
+    "band_needed": {
+      "context": "f2ec19fcf7fc8885f18f29e92095c2fef4561c37dc408408164488530d2cff62",
+      "proof": "5b9133ea6b835effe237a9836ac83d13df95524f29c9d7a1f4bb89d06e764b1a",
+      "verdict": "holds",
+      "uses": [],
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "reason": "",
+      "proposition": "7c2738329545bc247fa1d11b341ad64c7467c6f5eab571f4a4ab1975f895c758",
+      "assumed": {},
+      "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4"
+    }
+  },
+  "refutations": {},
+  "cells": {
+    "source": "b9c0138b252032c11c32afb4393dc43be32f0179329b77a53601f3542233371f",
+    "release_sha256": "d3a14ec01cbb0e963983a4956107deccbdf764bf044b858bca40c41fb8cfe5a4",
+    "complete": true,
+    "claims": {
+      "budget_rate": "92477f4e4e4a810ea3e557a28a4d46da7f69a9e13987b5ad0a651790c9e47de6",
+      "budget_leaf": "be204cb70fc831b52910179317198a07fdd0b34e25de56e47dbafd95d271684a",
+      "no_limit_breach": "aa97cc35241775c9ef0d4c7b855424ef496546b061399508fd6d6b46144f84d2",
+      "budget_band": "06984a57d9a7507f30b528c1f120380b001dfc5fd38457ea8cbaa013eb105994",
+      "calmer_market": "9908438b7d70ec3c1d02ff6f7df8182972e3aca225de57cac686bc64fc51c753",
+      "budget_quarter_refuted": "50241661da353633dd3ea2646d0d781a3ce9842edec45e11f926a98f046462ff",
+      "unit_shock_realized": "817c014a67a1f88b3ea4f9812f93738bb168cab55772db9e7f3542d0dee00859",
+      "exposure_under_unit_shock": "7281a441428da97248bb0eb5f8f88d715ec2d9c6461d326a9228b4f5da773236",
+      "half_is_not_a_bound": "e41a713742361612bf7b7187cd467d8fc14ad509488dac3a1506db17e27465f4",
+      "band_needed": "7c2738329545bc247fa1d11b341ad64c7467c6f5eab571f4a4ab1975f895c758",
+      "any_band": "fc84c49105776ca69b5e6d21f38950bea1ef113f54f9a6c8f838d24a3f673ee0"
+    },
+    "reason": "",
+    "lean": [
+      [],
+      [
+        [
+          "17fc50a0078cfb2e5525f861c8502d3e222095710b728692205a47c572e6b5b0",
+          "a1817c16a0ef6db3204ea79d4c2fdb41e0175b73ba1c269d1d0ea5a445bf94ec",
+          []
+        ],
+        [
+          "3f2437c0e45c0bac428e746f63f103bb6c3e956565aa438c5e06176e8ad9a56d",
+          "92d214514f41a65f151f232ef87f5e22790283b552761afbe242b35a27e85afa",
+          []
+        ],
+        [
+          "93687637fc0d52e2054c3869fa046aaf7b6cb887a038fb77f78e3df225728f15",
+          "9839fd0511086609848dc29eba72276a456f55363f8aa8cc2dbcbd87aa5f0ebb",
+          []
+        ]
+      ],
+      [
+        [
+          "609200336863a6ad1d8de47c5b3070bc4f5c0b46afab99e5ca63b853426877bc",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "0720e31b536167cafcb7104caa9b7bb93130442d1bca0f335a90a4ce32dc90da",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiTime"
+          ]
+        ],
+        [
+          "d076d0e17026f40c64110b931d22c98c60d1be4ebdeef65c5440dfe7b669919d",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiInitial"
+          ]
+        ],
+        [
+          "a872b7bd72b134fd35091ae422a6bba8c0370bd55849d9fda4141f73fa570992",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiObservation",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiObservation._proof_1"
+          ]
+        ],
+        [
+          "80415073e213775894f0bc6696642f3ade9c38a61507540ddccdaeeaeba50bb7",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiPost",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiPost._proof_1"
+          ]
+        ],
+        [
+          "5ef908341db911eae4d61c8820157430b926233d957aeca3226841241523ceed",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_4",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_1",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_3",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_2"
+          ]
+        ],
+        [
+          "fd8e7cf4a02998274ef169c5b09c34e94c1492cebad7dc67eee6334aa56e6cb4",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiDriver0._proof_1",
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiDriver0"
+          ]
+        ],
+        [
+          "96c43caec01f74be5cda731d21508326ca5e00fe950b419539615e39487f1cf8",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiDrivers"
+          ]
+        ],
+        [
+          "97043a6a1b6ad334cd4c88c724f760d3947273a2483a6dd4f32e66ee8aad6ab8",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiIdentities"
+          ]
+        ],
+        [
+          "4003bfa2a0f45ea46dcb8a61b785ee87af237232b73589be3aaf443c676a55ec",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiContract"
+          ]
+        ],
+        [
+          "f8f84310813fbb015c9680fb26f263e1df3a55f6bfb56f31c37808f3b5027c64",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          [
+            "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "e41fde237798d7fe5e3d5f451b5b9a66fd74f841a7ac84f8164e4117dd65b1ba",
+          "f522edf6ca512ccde7df369114ea9a8cb922dc55983bfa93144fe0dd01a4e240",
+          []
+        ]
+      ],
+      [
+        [
+          "d14a1747e6766106bdfcc0f03a58a331a4f199c79d4e4c3371e67751cf532b89",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "0720e31b536167cafcb7104caa9b7bb93130442d1bca0f335a90a4ce32dc90da",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiTime"
+          ]
+        ],
+        [
+          "d076d0e17026f40c64110b931d22c98c60d1be4ebdeef65c5440dfe7b669919d",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiInitial"
+          ]
+        ],
+        [
+          "cce669b232b431102f50d3e0ac412d79ae4f5257326f6276d25a78404fa3a8ff",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiObservation",
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiObservation._proof_1"
+          ]
+        ],
+        [
+          "877efb3f7e4760a29b3f64463fbbf5772891db7940cf71bf1047eeb51d3f9807",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiPost"
+          ]
+        ],
+        [
+          "b8c3ab06e6010bc6ebbf6efbb7fd7d185c9cbb4d4a20be57341d4a4e4c2f037d",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_4",
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_1",
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf",
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_3",
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_2"
+          ]
+        ],
+        [
+          "fd8e7cf4a02998274ef169c5b09c34e94c1492cebad7dc67eee6334aa56e6cb4",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiDriver0"
+          ]
+        ],
+        [
+          "96c43caec01f74be5cda731d21508326ca5e00fe950b419539615e39487f1cf8",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiDrivers"
+          ]
+        ],
+        [
+          "43ba0deac8c93ad0eabb77167f3bbe682b4f71bc298b589edd01166a77cee448",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiIdentities"
+          ]
+        ],
+        [
+          "4003bfa2a0f45ea46dcb8a61b785ee87af237232b73589be3aaf443c676a55ec",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiContract"
+          ]
+        ],
+        [
+          "f8f84310813fbb015c9680fb26f263e1df3a55f6bfb56f31c37808f3b5027c64",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          [
+            "Notebook.HedgedSpread.Decided_budget_band.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "ffbc11e4ce5eec1170772c520c01360a87eecb353b125d540c12c374aa67b8d9",
+          "6e297d1e21fd89cb494e32add5e27bd1d1e34ffc036bc343db850a06f24e8a98",
+          []
+        ]
+      ],
+      [
+        [
+          "fd0abf4438cb59052e57abc20c14008401648ec36def3b5d7e9594de4fe6f660",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "0720e31b536167cafcb7104caa9b7bb93130442d1bca0f335a90a4ce32dc90da",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiTime"
+          ]
+        ],
+        [
+          "d076d0e17026f40c64110b931d22c98c60d1be4ebdeef65c5440dfe7b669919d",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiInitial"
+          ]
+        ],
+        [
+          "a872b7bd72b134fd35091ae422a6bba8c0370bd55849d9fda4141f73fa570992",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiObservation"
+          ]
+        ],
+        [
+          "a14f8ef156485d5565ece0e15e0a7fb09e7dfa7e4f2096fcc19a1ea8ddb9b305",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiPost"
+          ]
+        ],
+        [
+          "5ef908341db911eae4d61c8820157430b926233d957aeca3226841241523ceed",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiLeaf"
+          ]
+        ],
+        [
+          "fd8e7cf4a02998274ef169c5b09c34e94c1492cebad7dc67eee6334aa56e6cb4",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiDriver0"
+          ]
+        ],
+        [
+          "1dcb9a1a96f9abff688c737d57312fd6f4cbc07c73e827bbfb930ef098fe1c82",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiDrivers"
+          ]
+        ],
+        [
+          "97043a6a1b6ad334cd4c88c724f760d3947273a2483a6dd4f32e66ee8aad6ab8",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiIdentities"
+          ]
+        ],
+        [
+          "4003bfa2a0f45ea46dcb8a61b785ee87af237232b73589be3aaf443c676a55ec",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiContract"
+          ]
+        ],
+        [
+          "f8f84310813fbb015c9680fb26f263e1df3a55f6bfb56f31c37808f3b5027c64",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          [
+            "Notebook.HedgedSpread.Decided_calmer_market.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "25dec3079ea424f5cdc5c78de907d5d621575e456bf6af82e6ea239745e53d3e",
+          "d5efdd05e7422c4f98a5d48bafd6fc352d0ce7b552bcc509bf384e9397daef1a",
+          []
+        ]
+      ],
+      [
+        [
+          "03cdeca9a4c1d7942ad735f6207dc961665440243de104e945dc9054a42cc4ab",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "0720e31b536167cafcb7104caa9b7bb93130442d1bca0f335a90a4ce32dc90da",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiTime"
+          ]
+        ],
+        [
+          "d076d0e17026f40c64110b931d22c98c60d1be4ebdeef65c5440dfe7b669919d",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiInitial"
+          ]
+        ],
+        [
+          "cce669b232b431102f50d3e0ac412d79ae4f5257326f6276d25a78404fa3a8ff",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiObservation"
+          ]
+        ],
+        [
+          "08a54ed7549386671728ff1d1caaf621811d65c0ca8883c65fea1c57891a770c",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiPost"
+          ]
+        ],
+        [
+          "fd8e7cf4a02998274ef169c5b09c34e94c1492cebad7dc67eee6334aa56e6cb4",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiDriver0"
+          ]
+        ],
+        [
+          "96c43caec01f74be5cda731d21508326ca5e00fe950b419539615e39487f1cf8",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiDrivers"
+          ]
+        ],
+        [
+          "43ba0deac8c93ad0eabb77167f3bbe682b4f71bc298b589edd01166a77cee448",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiIdentities"
+          ]
+        ],
+        [
+          "4003bfa2a0f45ea46dcb8a61b785ee87af237232b73589be3aaf443c676a55ec",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiContract"
+          ]
+        ],
+        [
+          "f8f84310813fbb015c9680fb26f263e1df3a55f6bfb56f31c37808f3b5027c64",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          [
+            "Notebook.HedgedSpread.Decided_budget_quarter.forsetiRoot"
+          ]
+        ]
+      ],
+      [
+        [
+          "50311fbd780963facd4080cd412089131769ba6917367430c02aea35a60d5fa1",
+          "f529dce3635da2308fe215ed962453fa4c98641a7b8b59b4cd27ae65d0e5a9da",
+          []
+        ]
+      ],
+      [],
+      [
+        [
+          "6edc791935168f5f1add8a747595ba2829d33735e218668380625830245c0a3e",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "063b256878fda21365eece66e072edc863d134ca4d108a2e88731da3e331fd96",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "0265aae5620306fb7b77f5dd7e4b476845c5bdbdbe35c00309ccd5ddd8d10548",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "27b7de8eba2f757a9faca4de46f93b91776235932979b18d76856f3d040133ea",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "b57d1eabc4452c370fa1e75d8d51f465791a518b9c26373c91c4a320bf56cba1",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "aa72bc7419e0050cea21a7e96a05f5187da4f2bc42814bc5ca74c9ee929c97d7",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "b145084c8b8184a5e69a2674d1982beba69f61d53c9ff2b8bdb4cd7c9e97498c",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ],
+        [
+          "321e45ba6685c95d4c38b3de79685944b8b2c5123e1bf5fd9fcfcae32bf05502",
+          "eb2b65d29f1766d819775116163d9e7619f55583a1067d9daa0a0f4e0b83e5d1",
+          []
+        ]
+      ]
+    ],
+    "meanings": {
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiTime": "65ffd3e7739d0947e97dfe2bbc1239d67a7a14ef8b87716b58bdd92c83eea05f",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiRoot": "a3506aefa93e463ed443f7b16fdc72e50d3707b41b82a62eac04a0e76e5e87be",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiObservation._proof_1": "00c5be29836c090e6919101836a45cfa71fe8c616edf72e85b88e12f3c906b2e",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiIdentities": "ab1b318f2c0b7260236533c32057c04212a94ee7389cf4d0ab97e9a571f7e8af",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiObservation._proof_1": "20962569d3d4d3997e8cbcbc75fdc0b137d60e6551e45268ed287aaec70c30fd",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiIdentities": "ce6b4708066a6d7aeaba33835e56772c31504215dff5aa9307e804dae371c969",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiIdentities": "8555d32b55fb216c1ba3087cedde12cc4b0373995ce1eb66c75565449f477b17",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiDriver0": "1516f422f69946db012053716cb3029b851630914a809ed1bcce9bdbd42a0bb6",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_2": "902e15043d732ef39f5d8cab1e01afb4d98ee034f06eb5cc6ffd7cee62f93d09",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiInitial": "bad9e08886285be6266eb306695bbbd8a759a06cb5c0027fd8e2b7e1d4543b15",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_2": "b91c33280da2ca384276d2082e1651f972d6e4cfd9dade87e194e88ed15e3a94",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_3": "edbd750066552c7232cd8b1816c5bd475b9f998e49720a6c26acf60c33967c5b",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_3": "5924c55d145eb66419fe291112d1e9fceb40f4dcc48b89203e0bdc5685887a25",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf": "f5fe5949b66a8d9845ad6376a92d086347742f82393dc1862014f7db94a48366",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_4": "d7fdce68eb2929205aab506e9bb546ec8f7eba0436c1a1b6c76ebd702bedfd70",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf._proof_1": "2c7e470f479354eca4cf6261bfa3a97b6ce3d5e658644553856b85673630d20f",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_1": "a93163712492172cd75401690ebc004f055fe8e4c02961d2f648757a1e0bdd95",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiLeaf._proof_4": "c2ccfc20cf46fd2c57e3b8c966987f923fa04394a2630decb8c1dbe6ca871abb",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiPost": "9242d900c8236bd27f6f453da92a672e75c2cf20298f2af9388a032317b85e58",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiLeaf": "0e19aa98d533b5f86adb0e7161ff592d33826c2091c788a49171d8c689d96f4e",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiContract": "9d4561f03d1f1adddb850672dc2da5a47b2828cb0022c46d2082361341e70e08",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiContract": "47eca0bb5d1ed8d598daa5f8d9d33da10bfb27882ae37136d162d260048683a8",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiContract": "5eecc422b2c5902bea82f5382d7562b657a323fdc328320560ca8001e9494b58",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiObservation": "74243afd92fcfca12d134f663e18f1e7f9b88a6e0abd9d8cbd54d0b0af824ed7",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiDrivers": "aded704874fea094e372b67ccf4e056adad70aaf2b5a97f6af511fb4ffddebf8",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiDrivers": "48d8b172ba0ffdd3de1c06511c99f40e3ea476acd882b4d50bab54549300dda4",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiDrivers": "bba4ef2f16bfbbacd01bcd2f54b2c8dd768653857b52721859314536a1b2a129",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiTime": "34b3c7bcf4c83fad1617a4bd58b0ad9255a15a43ac30c4e2a65886506b28bc2a",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiTime": "70c8aabf3c6027617375592910e7e521be951e8d5c5e6fc45e667b9bf9f6a38b",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiTime": "e2aa512205b97a8e30be58418ef1ec4dd7f409c473ae15e0538d92d49fde5fe7",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiRoot": "3aef200bc24401d24a5e91c55e40a291a21c0a953727df29a6203f22ca1000eb",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiRoot": "bfdfacee3b10677a71913c4600a5dee03c84309605802f39b63adb602261f178",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiRoot": "efeed27ec5d33954fe05b701735c0b8c23a6ea078ae95684979e729911264434",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiDriver0": "520ffc33c3dbabb8480d00dba4f4e3daa92eb51205110505e660043fae860563",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiDriver0": "305f11238accb47bb5d99f2b60a030a8a3af6bba8d0743f858fe1781451f781f",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiDriver0": "e094bf37cdc94c040778fde16ecedbd159ee733aa7eeb1d8dc02a732bad15196",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiIdentities": "dbe87b78888a62df234f343aecd259ef639c3114654965627e0a61400e455600",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiInitial": "2994d87d9148287cbd7c5572d1d0cca860cf94fb6ea2d413396383e2f3cbd36a",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiInitial": "a3ab4910d1b0293037e0915a3f1c0863642f13af1d9f3b522fc7a8c75db30c5c",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiInitial": "2d3c014f9bd8909f2b6be87a085de0b6db5d223ade65d5baaf7368d84ff7e6f5",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiPost": "114a2b76e4e0245faedc68a53edeca5c1d035a363c484a684c1963f93698ff1c",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiLeaf": "e80350c612bac9485b402eb594e24acd4850fd56a9ac3a86d49c4e67545750eb",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiPost._proof_1": "41c773b5d3d4b891833e8f6aaba9dc6608d34a5b51b2c8d27c94f0262b226505",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiPost": "fd508c3c346eccccca836453400753149dd2092e11171f20e9fb20013eb4d9c8",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiPost": "58df237f3aadca8f7ee608081cd3856cf9c595c649180286bb7e99b5a88b0e27",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiContract": "f219f0f6f5e94b6d4e6ef41b45115da6918291e253cb6a405ce9ddd06784e5cd",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiObservation": "6783f28f71c27c33732442a2fd3fea0b07fc032c1d54b4d212d54ecfd2378c99",
+      "Notebook.HedgedSpread.Decided_budget_quarter.forsetiObservation": "6c76f72ecb5ce9f72edc34fe508cfd42f69d0908a083695d11065b9a889f69d4",
+      "Notebook.HedgedSpread.Decided_budget_band.forsetiObservation": "20945f25e7b9b4f06d76de271c342a57568afd24efb2b9e1344d633ffbf4b259",
+      "Notebook.HedgedSpread.Decided_no_limit_breach.forsetiDriver0._proof_1": "3ee81b4bff1b07b7dbc4ea46d89eec74791b38f602e2e6476b302ebf36cdc540",
+      "Notebook.HedgedSpread.Decided_calmer_market.forsetiDrivers": "377e7d7beed978476d39276346cc2928a5c3b83ac1f8180fa0ad78f1ae425f6e"
+    }
+  }
+}

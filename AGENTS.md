@@ -28,7 +28,10 @@ gallery/image URLs if the repository name or owner changes.
 
 Use Python 3.12+, Node 22.22.2 and a built Forseti Lean v0.1.0 checking
 environment (Lean 4.32.1, with its pinned Asgard Lean v0.1.0 and Mathlib
-dependencies). In that Forseti Lean checkout, run:
+dependencies). That checkout, the `gallery.yml` runtime ref and its cache keys
+follow the Lean release the pinned renderer in `scripts/gallery/requirements.txt`
+verifies against, not the notebooks' Lake pin; move them together when the
+renderer is upgraded. In that Forseti Lean checkout, run:
 
 ```sh
 lake build Gimle.Forseti Gimle.Forseti.Examples Gimle.Asgard.Examples Gimle.Asgard.Visualization.Model

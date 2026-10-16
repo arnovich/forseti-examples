@@ -12,6 +12,7 @@ const TOPICS = {
   basics: ['Start here', 'Small models introduce claims, saved evidence and refutations.'],
   circuits: ['Circuits', 'Composition, contracts, rewrites and discrete dynamics.'],
   dynamics: ['Dynamical systems', 'Continuous trajectories and their bounds.'],
+  finance: ['Finance', 'A hedged book bounded under every shock in a band, as a theorem.'],
   galerkin: ['Galerkin models', 'Finite-dimensional fluid models, energy and enstrophy.'],
   pdes: ['Partial differential equations', 'Stream contracts, formal expansions and analytic certificates.'],
 };
