@@ -5,28 +5,90 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from conftest import make_corpus
+from conftest import make_corpus, results_for
 
 from scripts.check_bundles import check_bundles
 
 
 class BundleTests(unittest.TestCase):
-    """Validate complete nested bundles and reject missing or escaping inputs."""
+    """Validate the inventory and each notebook's saved Glitnir results."""
 
-    def test_nested_bundle(self) -> None:
-        """Resolve retained paths relative to the notebook, not the repo root."""
+    def test_complete_corpus(self) -> None:
+        """A configured notebook with results for its source passes."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             make_corpus(root)
             self.assertEqual(check_bundles(root), (1, 1))
 
-    def test_missing_metadata(self) -> None:
-        """Every configured source needs its metadata."""
+    def test_missing_results_are_named(self) -> None:
+        """Every configured notebook needs its committed results file."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            make_corpus(root).with_suffix(".forseti.json").unlink()
+            make_corpus(root).with_suffix(".glitnir.json").unlink()
+            with self.assertRaisesRegex(
+                ValueError, r"missing Glitnir results .*Example\.glitnir\.json"
+            ):
+                check_bundles(root)
+
+    def test_results_for_other_source(self) -> None:
+        """Results recorded before the notebook changed are refused."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            notebook = make_corpus(root)
+            notebook.write_text(notebook.read_text() + "-- edited\n")
+            with self.assertRaisesRegex(ValueError, "other source"):
+                check_bundles(root)
+
+    def test_crlf_source_matches_like_glitnir(self) -> None:
+        """Glitnir hashes saved source with CRLF read as LF."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            notebook = make_corpus(root)
+            notebook.write_bytes(notebook.read_bytes().replace(b"\n", b"\r\n"))
+            self.assertEqual(check_bundles(root), (1, 1))
+
+    def test_malformed_results(self) -> None:
+        """Other formats, broken JSON and malformed claims are refused."""
+        for change in ("format", "json", "claim", "environment"):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as d:
+                root = Path(d)
+                notebook = make_corpus(root)
+                results = results_for(notebook.read_text())
+                if change == "format":
+                    results["format"] = "gimle.forseti.notebook/v1"
+                elif change == "claim":
+                    del results["claims"][0]["prefix_sha256"]
+                elif change == "environment":
+                    results["environment"] = {}
+                text = "{" if change == "json" else json.dumps(results)
+                notebook.with_suffix(".glitnir.json").write_text(text)
+                with self.assertRaisesRegex(ValueError, "invalid Glitnir results"):
+                    check_bundles(root)
+
+    def test_linked_results_are_refused(self) -> None:
+        """A results file linked from elsewhere is not a committed result."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "repo"
+            notebook = make_corpus(root)
+            results = notebook.with_suffix(".glitnir.json")
+            outside = Path(directory) / "outside.json"
+            results.rename(outside)
+            results.symlink_to(outside)
             with self.assertRaises(ValueError):
                 check_bundles(root)
+
+    def test_only_limits_results_not_inventory(self) -> None:
+        """A local preview may skip results, never the inventory."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            notebook = make_corpus(root)
+            notebook.with_suffix(".glitnir.json").unlink()
+            self.assertEqual(check_bundles(root, only=[]), (0, 0))
+            with self.assertRaises(ValueError):
+                check_bundles(root, only=["Missing"])
+            notebook.with_name("Omitted.lean").write_text("-- omitted\n")
+            with self.assertRaises(ValueError):
+                check_bundles(root, only=[])
 
     def test_unconfigured_source(self) -> None:
         """An omitted Lake target cannot silently reduce coverage."""
@@ -45,35 +107,6 @@ class BundleTests(unittest.TestCase):
             (root / notebook.name).write_bytes(notebook.read_bytes())
             with self.assertRaises(ValueError):
                 check_bundles(root)
-
-    def test_missing_artifact(self) -> None:
-        """A broken retained artifact reference is an error."""
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            notebook = make_corpus(root)
-            next(notebook.parent.glob(".Example.forseti/artifacts/*")).unlink()
-            with self.assertRaises(ValueError):
-                check_bundles(root)
-
-    def test_artifact_cannot_escape(self) -> None:
-        """Reject absolute paths, traversal and symlinks outside the corpus."""
-        for mode in ("absolute", "traversal", "symlink"):
-            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
-                outside = Path(directory) / "secret.json"
-                outside.write_text("{}")
-                root = Path(directory) / "repo"
-                notebook = make_corpus(root)
-                relative = "../../../secret.json"
-                if mode == "absolute":
-                    relative = str(outside)
-                elif mode == "symlink":
-                    (notebook.parent / "escape.json").symlink_to(outside)
-                    relative = "escape.json"
-                notebook.with_suffix(".forseti.json").write_text(
-                    json.dumps({"runs": [{"artifact": {"artifact": relative}}]})
-                )
-                with self.assertRaises(ValueError):
-                    check_bundles(root)
 
     def test_build_dependencies_are_not_examples(self) -> None:
         """Do not discover dependency sources in .lake."""
