@@ -7,10 +7,10 @@
    "type": "git",
    "subDir": null,
    "scope": "",
-   "rev": "46d3a0c99698febef2bce34f774325682ea19a29",
+   "rev": "8854512a9bad50204252065954f6f263232039e6",
    "name": "forseti",
    "manifestFile": "lake-manifest.json",
-   "inputRev": "46d3a0c99698febef2bce34f774325682ea19a29",
+   "inputRev": "8854512a9bad50204252065954f6f263232039e6",
    "inherited": false,
    "configFile": "lakefile.toml"
   },
