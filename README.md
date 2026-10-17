@@ -12,27 +12,56 @@ In the [notebook gallery](https://arnovich.github.io/forseti-examples/) you can 
 
 ## Getting started
 
-The best experience is to use Glitnir combined with VS Code and Lean for VS Code:
+The best experience is to use [Glitnir](https://github.com/arnovich/glitnir) with VS Code
+and Lean for VS Code, on local macOS or Linux. These steps use
+[Glitnir v0.1.0](https://github.com/arnovich/glitnir/releases/tag/v0.1.0); take every
+Glitnir file from that one release.
 
-1. [Install VS Code](https://code.visualstudio.com/docs/getstarted/overview#install-vs-code).
+1. [Install VS Code](https://code.visualstudio.com/docs/getstarted/overview#install-vs-code),
+   Python 3.12 or newer and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 2. [Install the Lean 4 extension](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4)
    and complete its setup guide, which installs elan and the Lean toolchain.
-3. [Install Glitnir](https://github.com/arnovich/glitnir#install).
+3. Download `glitnir-0.1.0.vsix` from the [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.0)
+   and run **Extensions: Install from VSIX…** in VS Code.
+4. Clone this repository and build its Lean project once, from the repository root:
 
-4. Clone this repository and open the folder in VS Code.
-5. Open a Lean file in a trusted workspace. Run **Glitnir: Set Up Environment →
-   Install Backend with uv → Download matching backend** and confirm the location.
-   Use the VSIX and backend from the same release.
-6. Open [ScalarDecay.lean](examples/basics/ScalarDecay.lean), run
+   ```sh
+   lake exe cache get && lake build
+   ```
+
+   The first command downloads the prebuilt Mathlib files; the second builds
+   Forseti, Asgard and the notebooks.
+5. Open the folder in VS Code and a Lean file in a trusted workspace. Run
+   **Glitnir: Set Up Environment → Install Backend with uv → Download matching backend**
+   and confirm the location.
+6. Install the Forseti plugin, which draws the diagrams and provides the
+   evidence and decision cards. Download `glitnir_forseti-0.1.0-py3-none-any.whl`
+   and `SHA256SUMS` from the same [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.0),
+   and verify the wheel in the download folder:
+
+   ```sh
+   shasum -a 256 -c --ignore-missing SHA256SUMS   # Linux: sha256sum -c --ignore-missing SHA256SUMS
+   ```
+
+   Then run **Glitnir: Install Extension Package…**, select the wheel, and
+   choose the `z3` extra if you want to run decisions.
+7. Open [ScalarDecay.lean](examples/basics/ScalarDecay.lean), run
    **Glitnir: Open in Glitnir**, then try [ThreeState](examples/basics/ThreeState.lean).
+   Each notebook's saved check results are in `<Notebook>.glitnir.json` beside it;
+   **Check saved file** checks it again.
 
 For coding-agent assistance, run **Glitnir: Set Up Coding Agent**, select this
 workspace and your agent, and install the bundled `glitnir-notebooks` skill.
 Start a new agent session and ask it to use that skill. See
 [Glitnir's agent setup](https://github.com/arnovich/glitnir#coding-agents) for details.
 
-**Note:** Full Lean builds need substantial disk space and
-memory; a measured K5 build used about 10 GB of RAM in one process.
+**Note:** Plan for several GB of free disk space: the Mathlib files and the
+project build take several GB, and Glitnir keeps copies of the toolchain and
+compiled imports it checks against in its own artifact store in your user cache
+(`glitnir/artifacts`; delete it at any time to free the space). Full builds and
+checks also need substantial memory; a measured K5 build used about 10 GB of RAM
+in one process. The first check of a notebook replays Mathlib and Forseti once,
+which takes about 18 minutes on a laptop; later checks take a few minutes.
 
 ## Examples
 

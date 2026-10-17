@@ -13,6 +13,13 @@ python3 -m unittest discover -s tests -v
 python3 scripts/check_bundles.py
 ```
 
+Every notebook needs a committed `<Notebook>.glitnir.json` whose recorded
+source SHA-256 matches the saved notebook. The bundle check validates it with
+Glitnir's record loader when the Glitnir backend is importable, otherwise
+structurally. After rechecking notebooks in another checkout, copy their results
+here with `python3 -m scripts.collect_results /path/to/that/checkout` (add
+`--dry-run` to validate only), then commit each results file by its path.
+
 For Lean source or Lake configuration changes, also run `lake build`. Bundle
 checks and editor builds do not replay notebook claims. Use Glitnir's installed
 skill for checking and metadata handling; preserve pinned dependencies unless
@@ -26,33 +33,31 @@ To activate publication, set **Settings → Pages → Source → GitHub Actions*
 run the workflow. Restrict the `github-pages` environment to `main`. Update README
 gallery/image URLs if the repository name or owner changes.
 
-Use Python 3.12+, Node 22.22.2 and a built Forseti Lean v0.1.0 checking
-environment (Lean 4.32.1, with its pinned Asgard Lean v0.1.0 and Mathlib
-dependencies). That checkout, the `gallery.yml` runtime ref and its cache keys
-follow the Lean release the pinned renderer in `scripts/gallery/requirements.txt`
-verifies against, not the notebooks' Lake pin; move them together when the
-renderer is upgraded. In that Forseti Lean checkout, run:
-
-```sh
-lake build Gimle.Forseti Gimle.Forseti.Examples Gimle.Asgard.Examples Gimle.Asgard.Visualization.Model
-```
-
-Then, from this examples checkout:
+The gallery uses the Glitnir v0.1.0 backend and renderer and the Forseti view
+provider, pinned by hash in `scripts/gallery/requirements.txt`. Use Python 3.12+,
+Node 22.22.2, Lean 4.32.1 and a working sandbox (bubblewrap on Linux). Diagrams are
+drawn in this project's own Lake environment, so first build the modules they
+import, from this checkout:
 
 ```sh
 python3.12 -m venv .venv
 .venv/bin/python -m pip install --require-hashes --only-binary=:all: -r scripts/gallery/requirements.txt
+lake exe cache get
+lake build $(.venv/bin/python -m scripts.build_gallery --list-diagram-imports)
 npm ci --ignore-scripts
 npx playwright install chromium
 npm test
-.venv/bin/python -m scripts.build_gallery --lean-project /absolute/path/to/forseti-lean
+.venv/bin/python -m scripts.build_gallery
 npm run gallery:check -- _site
 ```
 
 Use a new output directory; for another build, pass `--output /path/to/new-site`
 and check that same directory. Keep generated HTML and previews uncommitted.
-Exports must preserve source/metadata hashes and include every claim, diagram
-and retained figure. They read saved observations and draw diagrams without
-replaying claims or running simulations. Verify pages offline and at desktop
-and mobile widths. Upgrade the pinned Python, Node and Lean export dependencies
+Exports go through Glitnir's own preview snapshot and Export HTML, from the
+committed sources and saved results; they check no claim, run no evidence or
+decision, and write nothing beside the notebooks. Saved results are shown as
+recorded for that exact source. A diagram that cannot be drawn fails the build;
+`--allow-diagram-errors` shows a note in its place instead, and `--only NAME`
+exports a subset for local previews. Verify pages offline and at desktop and
+mobile widths. Upgrade the pinned Python, Node and Lean export dependencies
 together and verify all exports when changing the renderer.
