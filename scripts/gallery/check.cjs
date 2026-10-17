@@ -19,6 +19,8 @@ async function main() {
       await page.goto(pathToFileURL(path.join(root, entry.html)).href);
       assert.equal(await page.locator('h1').first().textContent(), entry.title);
       assert.equal(await page.locator('.view-cell').count(), entry.diagrams);
+      const drawn = await page.locator('.view-cell').evaluateAll(views => views.filter(view => view.querySelector('svg.circuit-scene, .view-body img')).length);
+      assert.equal(drawn, entry.diagrams - (entry.unavailable_diagrams || 0), `Undrawn diagrams: ${entry.html}`);
       assert.equal(await page.locator('.claim').count(), entry.claims);
       assert.equal(await page.locator('.katex-error,.view-wait,script').count(), 0);
       assert.ok(await page.locator('body').innerText().then(text => text.includes(entry.source_sha256)));
