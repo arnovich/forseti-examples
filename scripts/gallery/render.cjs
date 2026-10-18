@@ -8,6 +8,8 @@ const {JSDOM} = require('jsdom');
 
 const ROOT = path.resolve(__dirname, '../..');
 const NOTEBOOK_NAVIGATION_CSS = readFileSync(path.join(ROOT, 'gallery/notebook-navigation.css'), 'utf8');
+// Glitnir's own words for saved results that were not compared with any environment.
+const RECORDED = 'Saved results, shown as recorded';
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
 const TOPICS = {
   basics: ['Start here', 'Small models introduce claims, saved evidence and refutations.'],
@@ -37,6 +39,7 @@ function validateExport(html, entry) {
     const doc = dom.window.document;
     assert.equal(doc.querySelectorAll('script,iframe,object,embed,form,.view-wait,.katex-error').length, 0, 'Unsafe or incomplete export');
     assert.ok(doc.body.textContent.includes(entry.snapshot.sha256), 'Missing source fingerprint');
+    assert.ok(doc.body.textContent.includes(RECORDED), 'Saved results must be shown as recorded');
     for (const claim of entry.snapshot.project_claims) {
       assert.ok(doc.getElementById(`cell-${claim.name}`), `Missing claim ${claim.name}`);
     }

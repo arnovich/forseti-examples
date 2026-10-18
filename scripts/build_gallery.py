@@ -1,11 +1,11 @@
 """Export every notebook through Glitnir from its saved results, checking nothing.
 
-Each page is the snapshot Glitnir's own preview service builds from the saved
-notebook and its committed ``<Notebook>.glitnir.json``, rendered and exported
-by Glitnir's renderer (``scripts/gallery/render.cjs``). No claim is checked and
-no results file is written. Saved results are shown as recorded: they are
-compared with the environment fingerprint their own check recorded, which the
-bundle check has bound to this exact notebook source.
+Each page is the snapshot Glitnir's static export (``SavedNotebook``) builds
+from the saved notebook and its committed ``<Notebook>.glitnir.json``, rendered
+and exported by Glitnir's renderer (``scripts/gallery/render.cjs``). No claim is
+checked and no results file is written. Glitnir shows saved results as
+recorded, compared only with the saved source; the bundle check also requires
+each results file to be for this exact source.
 
 Diagrams are drawn by the Forseti view provider in the notebook's own Lake
 project, so its imports must be built first (see ``--list-diagram-imports``).
@@ -98,60 +98,46 @@ def diagram_note(error: str, root: Path) -> str:
     return f"This diagram could not be drawn for the gallery build: {first[:300]}"
 
 
-def _service(path: Path) -> Any:
-    from glitnir.notebook.source_preview import SourcePreviewService
+def _saved_notebook(path: Path) -> Any:
+    """Open a notebook through Glitnir's public static export."""
+    from glitnir.notebook.static_export import SavedNotebook
 
-    return SourcePreviewService(path)
+    return SavedNotebook(path)
 
 
-def saved_snapshot(service: Any, path: Path) -> dict[str, Any]:
-    """Build Glitnir's snapshot of the saved notebook and its saved results.
+def saved_snapshot(notebook: Any, path: Path) -> dict[str, Any]:
+    """Return Glitnir's snapshot of the saved notebook and its saved results.
 
-    The bundle check binds the results to this source; they are compared with
-    the environment their own check recorded, never with this machine's.
+    Glitnir shows each saved result as recorded, compared only with the saved
+    source. Publishing also requires the whole results file to be for this
+    exact source, which the bundle check and this comparison enforce.
     """
     records = check_results(path)
-    recorded = records["environment"]["fingerprint"]
-    snapshot: dict[str, Any] = service._snapshot(saved_text(path), lambda: recorded)
+    snapshot: dict[str, Any] = notebook.snapshot()
     if snapshot["sha256"] != records["source_sha256"]:
         raise ValueError(f"{path.name}: saved results are for other source")
     if snapshot.get("error") or snapshot.get("metadata_error"):
         raise ValueError(f"{path.name}: {snapshot}")
-    # A static page runs nothing, so what a run would need does not apply.
-    for card in [*snapshot["evidence"], *snapshot["decisions"]]:
-        card["unavailable"] = None
+    if snapshot["preview"].get("recorded") is not True:
+        raise ValueError(f"{path.name}: snapshot is not shown as recorded")
     return snapshot
 
 
 def diagram_imports(root: Path, paths: list[Path]) -> list[str]:
     """List the modules Lean must find built to draw every gallery diagram."""
-    from glitnir.lean.fingerprint import direct_imports
-
-    modules = set()
+    modules: set[str] = set()
     for path in paths:
-        service = _service(path)
-        try:
-            # Directives only; no saved result is read or compared.
-            snapshot = service._snapshot(saved_text(path), lambda: "")
-            if snapshot["views"]:
-                modules.update(direct_imports(saved_text(path)))
-                providers = service._providers()
-                for view in snapshot["views"]:
-                    provider = providers.views.get(view["kind"])
-                    if provider is not None:
-                        modules.update(provider.imports)
-        finally:
-            service.close()
+        with _saved_notebook(path) as notebook:
+            modules.update(notebook.view_imports())
     return sorted(m for m in modules if m.split(".")[0] not in TOOLCHAIN_LIBRARIES)
 
 
 def prepare_notebook(
     path: Path, root: Path, cache: Path, allow_diagram_errors: bool = False
 ) -> dict[str, Any]:
-    """Read saved results and draw diagrams through Glitnir's preview service."""
-    service = _service(path)
-    try:
-        snapshot = saved_snapshot(service, path)
+    """Read saved results and draw diagrams through Glitnir's static export."""
+    with _saved_notebook(path) as notebook:
+        snapshot = saved_snapshot(notebook, path)
         text = saved_text(path)
         drawings: dict[str, Any] = {}
         diagram_errors: list[str] = []
@@ -165,7 +151,7 @@ def prepare_notebook(
                     drawing = json.loads(cached.read_text())
                 else:
                     print(f"Drawing {path.stem}: {view['kind']} {view['name']}", flush=True)
-                    drawing = service.view(view["cell"], view["line"])
+                    drawing = notebook.draw_view(view["cell"], view["line"])
                     if not drawing.get("error") and drawing.get("svg"):
                         cached.write_text(json.dumps(drawing, sort_keys=True) + "\n")
             if drawing.get("error") or not drawing.get("svg"):
@@ -180,7 +166,7 @@ def prepare_notebook(
         for asset in snapshot["assets"]:
             if asset["status"] != "ok":
                 raise ValueError(f"{path.name}: figure unavailable: {asset}")
-            body, media_type = service.asset(asset["path"], asset["sha256"])
+            body, media_type = notebook.asset(asset["path"], asset["sha256"])
             figures[asset["path"]] = {
                 "sha256": asset["sha256"],
                 "url": f"data:{media_type};base64,{base64.b64encode(body).decode()}",
@@ -193,8 +179,6 @@ def prepare_notebook(
             "diagram_errors": diagram_errors,
             "figures": figures,
         }
-    finally:
-        service.close()
 
 
 def main() -> None:
