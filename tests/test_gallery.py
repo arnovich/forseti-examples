@@ -1,8 +1,10 @@
 """Guard complete, portable gallery inventories and unchanged notebook inputs."""
 
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from conftest import make_corpus
 
@@ -12,8 +14,36 @@ from scripts.build_gallery import (
     drawing_key,
     inventory,
     notebook_hashes,
+    prepare_notebook,
     source_url,
 )
+
+
+class FakeNotebook:
+    """Stand in for Glitnir's SavedNotebook with one view and a fixed drawing."""
+
+    def __init__(self, path: Path, drawing: dict) -> None:
+        self.path, self.drawing, self.draws = path, drawing, 0
+
+    def __enter__(self) -> "FakeNotebook":
+        return self
+
+    def __exit__(self, *_: object) -> None:
+        pass
+
+    def snapshot(self) -> dict:
+        text = self.path.read_text()
+        view = {"cell": 0, "line": 1, "kind": "circuit", "name": "c", "using": []}
+        return {
+            "sha256": hashlib.sha256(text.encode()).hexdigest(),
+            "preview": {"recorded": True},
+            "views": [{**view, "error": ""}],
+            "assets": [],
+        }
+
+    def draw_view(self, cell: int, line: int) -> dict:
+        self.draws += 1
+        return dict(self.drawing)
 
 
 class GalleryTests(unittest.TestCase):
@@ -74,6 +104,46 @@ class GalleryTests(unittest.TestCase):
         self.assertIn("./examples/A.lean", note)
         self.assertNotIn("/work", note)
         self.assertNotIn("long log", note)
+
+    def _prepare(self, drawing: dict, allow: bool) -> tuple[dict, Path, FakeNotebook]:
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        root = Path(directory.name)
+        notebook = make_corpus(root)
+        for name in DRAWING_INPUTS:
+            (root / name).parent.mkdir(parents=True, exist_ok=True)
+            if not (root / name).exists():
+                (root / name).write_text(name)
+        cache = root / "cache"
+        cache.mkdir()
+        fake = FakeNotebook(notebook, drawing)
+        with mock.patch("scripts.build_gallery._saved_notebook", return_value=fake):
+            return prepare_notebook(notebook, root, cache, allow), cache, fake
+
+    def test_certain_drawing_is_cached(self) -> None:
+        """A drawing made in a known environment is reused by later builds."""
+        entry, cache, _ = self._prepare({"svg": "<svg/>"}, allow=False)
+        self.assertEqual(entry["drawings"]["0:1"], {"svg": "<svg/>"})
+        self.assertEqual(len(list(cache.iterdir())), 1)
+
+    def test_uncertain_drawing_fails_unless_allowed_and_is_never_cached(self) -> None:
+        """Glitnir's uncertain drawings are not published silently."""
+        drawing = {"svg": "<svg/>", "uncertain": True}
+        with self.assertRaisesRegex(ValueError, "state could not be read"):
+            self._prepare(drawing, allow=False)
+        entry, cache, _ = self._prepare(drawing, allow=True)
+        self.assertEqual(entry["drawings"]["0:1"], drawing)
+        self.assertEqual(entry["diagram_errors"], [])
+        self.assertEqual(list(cache.iterdir()), [])
+
+    def test_failed_drawing_becomes_a_note_only_when_allowed(self) -> None:
+        """A failure stops the build, or shows a stable note when allowed."""
+        with self.assertRaisesRegex(ValueError, "unavailable: boom"):
+            self._prepare({"error": "boom"}, allow=False)
+        entry, cache, _ = self._prepare({"error": "boom"}, allow=True)
+        self.assertEqual(entry["diagram_errors"], ["0:1"])
+        self.assertIn("boom", entry["drawings"]["0:1"]["error"])
+        self.assertEqual(list(cache.iterdir()), [])
 
     def test_source_link_is_revision_bound(self) -> None:
         """Published pages point to the exact source that produced them."""

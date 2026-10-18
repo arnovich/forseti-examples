@@ -9,8 +9,10 @@ each results file to be for this exact source.
 
 Diagrams are drawn by the Forseti view provider in the notebook's own Lake
 project, so its imports must be built first (see ``--list-diagram-imports``).
-A diagram that cannot be drawn fails the build, unless
-``--allow-diagram-errors`` is given: the page then shows a note in its place.
+A diagram that cannot be drawn, or that Glitnir marks uncertain because a
+dependency's state could not be read, fails the build and is never cached.
+With ``--allow-diagram-errors`` the page shows a note in place of a missing
+diagram, and an uncertain one with Glitnir's "May be out of date" note.
 """
 
 import argparse
@@ -98,6 +100,11 @@ def diagram_note(error: str, root: Path) -> str:
     return f"This diagram could not be drawn for the gallery build: {first[:300]}"
 
 
+def drawable(drawing: dict[str, Any]) -> bool:
+    """Whether Glitnir returned a drawing rather than a failure."""
+    return not drawing.get("error") and bool(drawing.get("svg"))
+
+
 def _saved_notebook(path: Path) -> Any:
     """Open a notebook through Glitnir's public static export."""
     from glitnir.notebook.static_export import SavedNotebook
@@ -152,9 +159,16 @@ def prepare_notebook(
                 else:
                     print(f"Drawing {path.stem}: {view['kind']} {view['name']}", flush=True)
                     drawing = notebook.draw_view(view["cell"], view["line"])
-                    if not drawing.get("error") and drawing.get("svg"):
+                    # One drawn while a dependency's state was unknown is redrawn.
+                    if drawable(drawing) and not drawing.get("uncertain"):
                         cached.write_text(json.dumps(drawing, sort_keys=True) + "\n")
-            if drawing.get("error") or not drawing.get("svg"):
+            if drawable(drawing) and drawing.get("uncertain"):
+                problem = "a dependency's state could not be read while drawing it"
+                if not allow_diagram_errors:
+                    raise ValueError(f"{path.name}: diagram {view['name']}: {problem}")
+                # Kept: Glitnir's renderer marks it "May be out of date".
+                print(f"Diagram uncertain: {path.stem}: {view['name']}: {problem}", flush=True)
+            elif not drawable(drawing):
                 error = str(drawing.get("error") or "no drawing returned")
                 if not allow_diagram_errors:
                     raise ValueError(f"{path.name}: diagram {view['name']} unavailable: {error}")

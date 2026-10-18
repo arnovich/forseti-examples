@@ -57,8 +57,9 @@ Exports go through Glitnir's static export (`SavedNotebook`) and its renderer's
 Export HTML, from the committed sources and saved results; they check no claim,
 run no evidence or decision, and write nothing beside the notebooks. Pages show
 Glitnir's "Saved results, shown as recorded" state, and each results file must
-be for that exact source. A diagram that cannot be drawn fails the build;
-`--allow-diagram-errors` shows a note in its place instead, and `--only NAME`
+be for that exact source. A diagram that cannot be drawn, or that Glitnir drew
+while a dependency's state could not be read ("uncertain"), fails the build
+and is not cached; `--allow-diagram-errors` shows a note instead, and `--only NAME`
 exports a subset for local previews. Verify pages offline and at desktop and
 mobile widths. Upgrade the pinned Python, Node and Lean export dependencies
 together and verify all exports when changing the renderer.
