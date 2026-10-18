@@ -14,14 +14,14 @@ In the [notebook gallery](https://arnovich.github.io/forseti-examples/) you can 
 
 The best experience is to use [Glitnir](https://github.com/arnovich/glitnir) with VS Code
 and Lean for VS Code, on local macOS or Linux. These steps use
-[Glitnir v0.1.0](https://github.com/arnovich/glitnir/releases/tag/v0.1.0); take every
+[Glitnir v0.1.1](https://github.com/arnovich/glitnir/releases/tag/v0.1.1); take every
 Glitnir file from that one release.
 
 1. [Install VS Code](https://code.visualstudio.com/docs/getstarted/overview#install-vs-code),
    Python 3.12 or newer and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 2. [Install the Lean 4 extension](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4)
    and complete its setup guide, which installs elan and the Lean toolchain.
-3. Download `glitnir-0.1.0.vsix` from the [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.0)
+3. Download `glitnir-0.1.1.vsix` from the [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.1)
    and run **Extensions: Install from VSIX…** in VS Code.
 4. Clone this repository and build its Lean project once, from the repository root:
 
@@ -35,8 +35,8 @@ Glitnir file from that one release.
    **Glitnir: Set Up Environment → Install Backend with uv → Download matching backend**
    and confirm the location.
 6. Install the Forseti plugin, which draws the diagrams and provides the
-   evidence and decision cards. Download `glitnir_forseti-0.1.0-py3-none-any.whl`
-   and `SHA256SUMS` from the same [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.0),
+   evidence and decision cards. Download `glitnir_forseti-0.1.1-py3-none-any.whl`
+   and `SHA256SUMS` from the same [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.1),
    and verify the wheel in the download folder:
 
    ```sh

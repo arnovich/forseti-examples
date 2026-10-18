@@ -33,7 +33,7 @@ To activate publication, set **Settings → Pages → Source → GitHub Actions*
 run the workflow. Restrict the `github-pages` environment to `main`. Update README
 gallery/image URLs if the repository name or owner changes.
 
-The gallery uses the Glitnir v0.1.0 backend and renderer and the Forseti view
+The gallery uses the Glitnir v0.1.1 backend and renderer and the Forseti view
 provider, pinned by hash in `scripts/gallery/requirements.txt`. Use Python 3.12+,
 Node 22.22.2, Lean 4.32.1 and a working sandbox (bubblewrap on Linux). Diagrams are
 drawn in this project's own Lake environment, so first build the modules they
@@ -53,10 +53,11 @@ npm run gallery:check -- _site
 
 Use a new output directory; for another build, pass `--output /path/to/new-site`
 and check that same directory. Keep generated HTML and previews uncommitted.
-Exports go through Glitnir's own preview snapshot and Export HTML, from the
-committed sources and saved results; they check no claim, run no evidence or
-decision, and write nothing beside the notebooks. Saved results are shown as
-recorded for that exact source. A diagram that cannot be drawn fails the build;
+Exports go through Glitnir's static export (`SavedNotebook`) and its renderer's
+Export HTML, from the committed sources and saved results; they check no claim,
+run no evidence or decision, and write nothing beside the notebooks. Pages show
+Glitnir's "Saved results, shown as recorded" state, and each results file must
+be for that exact source. A diagram that cannot be drawn fails the build;
 `--allow-diagram-errors` shows a note in its place instead, and `--only NAME`
 exports a subset for local previews. Verify pages offline and at desktop and
 mobile widths. Upgrade the pinned Python, Node and Lean export dependencies
