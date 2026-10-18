@@ -1,0 +1,994 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "20c8d222c5d55b486aaf8aa2fc00be3e76ceafd5a8d5f3eabdd24a71ed8ecc11",
+      "end_line": 127,
+      "name": "Notebook.NST3.triad_lossless",
+      "prefix_sha256": "adae45d4799ee03bae124c1607f5ebe318871a17e880059ef576b13b35e7ff69",
+      "proposition_sha256": "2d56607444533e79b27e34aec58177894b459a9554eca879622499b2a0d05aec",
+      "start_line": 122,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "dbbb1113f0deb62f22485df1ebcfcbca41c9e44cf249eeb696a981044bb58b13",
+      "end_line": 143,
+      "name": "Notebook.NST3.energy_rate",
+      "prefix_sha256": "85c5f6399513f45664137bbccff449a216abee1b78d61359f40cb1eaf3c347ac",
+      "proposition_sha256": "f7e4b28c2efa173238df35ca33284023a510d146a031b00fcecb5ec3a0a96767",
+      "start_line": 138,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "80186de3c95ea872b142db4f40ce130decb294598466a22bd1853a7cbdb64d8c",
+      "end_line": 170,
+      "name": "Notebook.NST3.laminar_energy",
+      "prefix_sha256": "3040ba7101d0722c59dfc1abab7b9b6ad521067cbd60006a1baf541356bda263",
+      "proposition_sha256": "37e4e40d9a30dfcf432f972da72b64bea31069ae98e9dd3a7b9b83ef34e29076",
+      "start_line": 168,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "61c03d1c4d0b16a335f5fcb4169d631187a75b8229e5ba9fe0d1655c12ce9890",
+      "end_line": 176,
+      "name": "Notebook.NST3.certificate_here",
+      "prefix_sha256": "8cb740688f1bda1d9ade2cfd97320e9e232d740a9078e395e81d0f0f3c1ef945",
+      "proposition_sha256": "f8fa80e87669f63d403f36c447c18d75263f08a5935c92faab2227cc51aae547",
+      "start_line": 172,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "0cad1a8b911f992ff66ab190e580e98d6f46f1e08d85354e64b40c58ac6c3c07",
+      "end_line": 203,
+      "name": "Notebook.NST3.is_family_member",
+      "prefix_sha256": "bf2d74eeb5cbff20df9e30762def6e1f58aeed89ee58ab17e91d7811baae9bff",
+      "proposition_sha256": "e49785cc0aee1bfa7c9d885e2fa03f51df2708b2f3c0d041a4a04f498b59f3d9",
+      "start_line": 199,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "54abe91357b9ceffb44030ff3ccc80a619563641d078f0f1da93f589e96421e0",
+      "end_line": 218,
+      "name": "Notebook.NST3.every_member",
+      "prefix_sha256": "2e8383f7e9fe61575da0b3a7b673d9c3672605d162a6aabdfc21026be153dbaa",
+      "proposition_sha256": "84acdf06b2bd4184d520a0e8bd8c128e6dbb1365dbf463910c4ff8062f5acfe5",
+      "start_line": 205,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "dedabd6275acf02158c74d883c1e80ffdd8152a886ac44e0dcd7f3117860e110",
+      "end_line": 253,
+      "name": "Notebook.NST3.enstrophy_rate",
+      "prefix_sha256": "5daf87a5b04682bd3894d04feeb4b4a996b3a0e60e153497223b47307ebbbc1a",
+      "proposition_sha256": "3ab62c23a690199d8794baaae098875b8ae5626816d3580b4c7a2c5fb4024504",
+      "start_line": 248,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "11561e6c487b34d155923a8f3d8eb13de57076b4ee21cb42ffe9a7424c1205d7",
+      "end_line": 257,
+      "name": "Notebook.NST3.laminar_enstrophy",
+      "prefix_sha256": "253a7104735ab55d7ceeeb0abfc578ec736897f398663508b1150e0616f014b5",
+      "proposition_sha256": "2562b13bba16036d2ee1789844221bed7403243d5ede8b10be7024cde0365193",
+      "start_line": 255,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "4c2e6a889eca5610e6f6f5788e3f7d9f5a8a0e3eb6a3bdbd0d530739b88dcff4",
+      "end_line": 263,
+      "name": "Notebook.NST3.enstrophy_certificate_here",
+      "prefix_sha256": "d7fb3e0fa43972e63219bc9e9bb8e57a378baa6b24ab81dba32d2f887db42721",
+      "proposition_sha256": "e1652c08f2ea01158cabc5fab07442b90f3565804b359fd1175c67e8617df8d3",
+      "start_line": 259,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "6f9c910b788b1e198bd372195cfbdeb41b65e97e3e5d131fb1b8afe50259ec60",
+      "end_line": 271,
+      "name": "Notebook.NST3.amplitude_bound",
+      "prefix_sha256": "b110d9cfbc0322bdede488bfbd0d279e5faef90f15a583835ab536483bc97b1e",
+      "proposition_sha256": "07456790900d9a5c06066e2e03960ea6a13a09e36766c52cd8cb60865529c65d",
+      "start_line": 265,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "16d06f3a2d8f20252c85504ce1e84effb4efda85dcbc2de605816cc6124310f2",
+      "end_line": 297,
+      "name": "Notebook.NST3.only_two",
+      "prefix_sha256": "5eccb228832ad94688e7684ac81237541922ede133236287dcc17dbe95a4b942",
+      "proposition_sha256": "19a0a1b28db662d0d2b0406c08c46d4d14270e220f6a5d2b2578af69fe1238ea",
+      "start_line": 290,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "78b77c25932082a0903f6e06dbbf19230808a69fbd99076685cd095f67ae57bf",
+      "end_line": 338,
+      "name": "Notebook.NST3.laminar_is_equilibrium",
+      "prefix_sha256": "9164ac8d5d5892241a69fe1c0f526bd3abac02be83d81cb6550912095f8d53d3",
+      "proposition_sha256": "76e01ed24febdee916d4553f2ad42f459bfd2a5cd76010ecf515b2360cd42cac",
+      "start_line": 336,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "e9cb6125cb42beec88dfa4605f40bbb675e837fc99dca98e3856a4ab88a5304c",
+      "end_line": 343,
+      "name": "Notebook.NST3.ellipsoid_excludes_laminar",
+      "prefix_sha256": "2dcaafc0dcf9cbba43ff2c2ce772a9ff8ebf8dcb7da6da967734409294a99bed",
+      "proposition_sha256": "93b6b821d08b69300506416ac49905871606c47373f28c6dec62356e3571893f",
+      "start_line": 340,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "1633d9b9f467ad940d821dcb3e047c29cace0a68fd8ad43d0c1c06806eb6cfe2",
+      "end_line": 348,
+      "name": "Notebook.NST3.ellipsoid_below_twelve",
+      "prefix_sha256": "3ef19b3f888e968ed16eac9ec82092e81d16e13408bbc9dc1dd07ff6a03e661b",
+      "proposition_sha256": "ada9ea457faaaad13db34a701e37b5e1fc2754ffd34d9b691e2fdd4ed1f7dc90",
+      "start_line": 345,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c1236a3e226fdb783312ae8b5026ae42a82447d8e8688885a2380173e0d4d4f3",
+      "end_line": 368,
+      "name": "Notebook.NST3.tube_excludes_laminar",
+      "prefix_sha256": "086eff7055ac1b0cb8ea8cd95c27ab50da84bb5002630833c1fb9dbff33e0897",
+      "proposition_sha256": "09484d4aa3a2b847066b0013f5b4cdcd85187102bbd7392f569eb4f1a15270c5",
+      "start_line": 365,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "d1b8508e8aad30dff8f6850e604afabf10001c68249554ef3c8a5bed69878311",
+      "end_line": 373,
+      "name": "Notebook.NST3.tube_below_nine",
+      "prefix_sha256": "5e66b86cd05d5dcf1d20e7f7e6bd34996d78e6c50a3309cdb00acbb57339b068",
+      "proposition_sha256": "5e1b6a63bf6470878a1d942eed9e8712fc2fe167cf5543d460ee23ac5fb66a96",
+      "start_line": 370,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
+      "end_line": 423,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21492",
+      "prefix_sha256": "01055f93e976196feab7087c4b4a84778a234d3a62d6c1f3816fa0e06fe94cd7",
+      "proposition_sha256": "275f402442f624a993853f7c71ffae62756f94a26ceb92df86007eed19324d5e",
+      "start_line": 423,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
+      "end_line": 424,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21564",
+      "prefix_sha256": "fbfc40ccfb9fa627dbf3db0d20cd3aee334b5616da08bfa893fef94ad6e2f6fd",
+      "proposition_sha256": "ca1bb7fc8f4d9b5dbc211c6c393c00b8d57fef7120ef1acb89fe3fcdbafa22f6",
+      "start_line": 424,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
+      "end_line": 425,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21642",
+      "prefix_sha256": "e8f101cc7900446b17a5fc705f75d651971245c6b331b6d0c258ddeeea51967b",
+      "proposition_sha256": "a9ffb9dd266e8d5a8460fc9c545f50e98241763f9200d95667c266d51d62aeba",
+      "start_line": 425,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
+      "end_line": 426,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21728",
+      "prefix_sha256": "a6120abcf05445179e6c51c0ae1c9d3fa33ab29bc67a8e23ef5466ce840badbf",
+      "proposition_sha256": "06be5ac165b8322cdac05bf34f50ecc241453c7bedb87066f77cfadcce57d609",
+      "start_line": 426,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "00556d15155699a3db253b4051399e406b1043644e37567e22ba9b52b76541e8",
+      "end_line": 486,
+      "name": "Notebook.NST3.Decided_in_ball.in_ball",
+      "prefix_sha256": "94b9dee623ee673e2dbdf35e2d23f8f1b37d6dc5fd1a67619a67b48e09956009",
+      "proposition_sha256": "ffed9a3bcd9ab1ed0cddf4d7049c3b3790d931fbf3a81163049ef731cc6d1c26",
+      "start_line": 445,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
+      "end_line": 504,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28261",
+      "prefix_sha256": "4424024a683e09f3a6ff2ceac8cb6adb195a4bc8c92074b3152c50309a2e70a5",
+      "proposition_sha256": "275f402442f624a993853f7c71ffae62756f94a26ceb92df86007eed19324d5e",
+      "start_line": 504,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
+      "end_line": 505,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28333",
+      "prefix_sha256": "75e9bfd8654b010255e62ea0e82e4fc9f61d14285fdef0fc61c811c5c4a35115",
+      "proposition_sha256": "ca1bb7fc8f4d9b5dbc211c6c393c00b8d57fef7120ef1acb89fe3fcdbafa22f6",
+      "start_line": 505,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
+      "end_line": 506,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28411",
+      "prefix_sha256": "421635150d7c2d54efec48f9f7f405a18b9b791db7664d9f93364bd2ed0a39b6",
+      "proposition_sha256": "a9ffb9dd266e8d5a8460fc9c545f50e98241763f9200d95667c266d51d62aeba",
+      "start_line": 506,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
+      "end_line": 507,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28497",
+      "prefix_sha256": "a8fc977d24a747c9e7ce7d73d9f8814b5ccf98b28ec3e4cdbf45d769679c6e45",
+      "proposition_sha256": "06be5ac165b8322cdac05bf34f50ecc241453c7bedb87066f77cfadcce57d609",
+      "start_line": 507,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "sorryAx"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "b8487a3de847d77b3e46a961415c074da45167c166841652dfb34f420d661bde",
+      "end_line": 532,
+      "name": "Notebook.NST3.Decided_below_one.below_one",
+      "prefix_sha256": "26052e6f329deab68b18441be5b3a0c8a1d9269d4fa423397d7ab7fe4b286655",
+      "proposition_sha256": "dc23c0896f9699cd0e535465734b44d9c176c35f8e903c5a835da50edd41fe91",
+      "start_line": 521,
+      "status": "admitted",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
+      "end_line": 550,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30468",
+      "prefix_sha256": "eed0fd2c3099799364c4b7c49ce36ae410c259296dcf5d375e18a05e9805c891",
+      "proposition_sha256": "275f402442f624a993853f7c71ffae62756f94a26ceb92df86007eed19324d5e",
+      "start_line": 550,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
+      "end_line": 551,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30540",
+      "prefix_sha256": "9aeeda9353b8195b2ef9d5b7bc93e60e9378b9c6baaa62743ba9fe2686831f13",
+      "proposition_sha256": "ca1bb7fc8f4d9b5dbc211c6c393c00b8d57fef7120ef1acb89fe3fcdbafa22f6",
+      "start_line": 551,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
+      "end_line": 552,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30618",
+      "prefix_sha256": "96888bb07dbef4ac2203081b8aa59753842471ad4f75031922334a7ecb4ed26c",
+      "proposition_sha256": "a9ffb9dd266e8d5a8460fc9c545f50e98241763f9200d95667c266d51d62aeba",
+      "start_line": 552,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
+      "end_line": 553,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30704",
+      "prefix_sha256": "0ee419f8e53880a13bae6ba8a7060a58fcee4b91d79d90904ddca7cf1c497f73",
+      "proposition_sha256": "06be5ac165b8322cdac05bf34f50ecc241453c7bedb87066f77cfadcce57d609",
+      "start_line": 553,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "9b8485185a0edbd2d7abece5038da5552db6164e97bfec73be01a7ab32ef27f9",
+      "end_line": 613,
+      "name": "Notebook.NST3.Decided_below_10.below_10",
+      "prefix_sha256": "cfb03c6793a420ca7a40ffef690a4800feb9a5e9efeb2bc6c49e68f1d770a734",
+      "proposition_sha256": "c66c04707f83a067f8f413a7cd39830bc65ca9bbfa33429a7ad480751a84ed05",
+      "start_line": 572,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
+      "end_line": 634,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37241",
+      "prefix_sha256": "0f5b0d52e17e53e04d730e02e28769458671a8db1063f3def6d11c8a1db6df12",
+      "proposition_sha256": "275f402442f624a993853f7c71ffae62756f94a26ceb92df86007eed19324d5e",
+      "start_line": 634,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
+      "end_line": 635,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37313",
+      "prefix_sha256": "21a6cdeecb9ed8086231027d81e9e05a2b0d9a81b1f17da31f18c343b9011530",
+      "proposition_sha256": "ca1bb7fc8f4d9b5dbc211c6c393c00b8d57fef7120ef1acb89fe3fcdbafa22f6",
+      "start_line": 635,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
+      "end_line": 636,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37391",
+      "prefix_sha256": "516f0561bee1bbf22eedef13d93429b445c7398c5ddd06875f5120a0bf39cade",
+      "proposition_sha256": "a9ffb9dd266e8d5a8460fc9c545f50e98241763f9200d95667c266d51d62aeba",
+      "start_line": 636,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
+      "end_line": 637,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37477",
+      "prefix_sha256": "c149637fc2f5445581ddf5d503924069db9ae7854ed45e9e1dd3f99921e38b3e",
+      "proposition_sha256": "06be5ac165b8322cdac05bf34f50ecc241453c7bedb87066f77cfadcce57d609",
+      "start_line": 637,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "6b1f481ddf9e1a006cc70ad498bf41ed8043e7fce8e5bb567d8ef2bfbd2d27df",
+      "end_line": 697,
+      "name": "Notebook.NST3.Decided_below_12.below_12",
+      "prefix_sha256": "886b423dfdf86d1fe265e73b23e1cd088e3312609a72148ca98ce4e0321c2dc2",
+      "proposition_sha256": "73a2f389c614aed918bd29acf80d0f877730bf2f988aef3bcebfbe7cffa8e599",
+      "start_line": 656,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "3fa66b261b2055fee825b1241f508f89dc1fb3737618d8334c00ff4d482ca198",
+      "end_line": 734,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiTime Notebook.NST3.DecidedShared_05178f0d2091.forsetiTime",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44649",
+      "prefix_sha256": "6f824737d79607a58d1affdef6eca5f0cc55f6f83156cb7ad82e40c66615f104",
+      "proposition_sha256": "661080651c2c81f3a664c2037da69aad265e41eefe77baddfd399ccc602ae057",
+      "start_line": 734,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "b9bb4ec8bcfddac7bf4fc00555cb68abb1c88256a7a9cc74d7cef4cb25a0fd98",
+      "end_line": 735,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiInitial Notebook.NST3.DecidedShared_05178f0d2091.forsetiInitial",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44721",
+      "prefix_sha256": "919429d860aa0d91ef242f5bd346b074bd5eff6baf8348ac4591bfad5d510041",
+      "proposition_sha256": "24271defe4532eeeea848e5e81cfc081a1ae7e97bbe324ef3b8ed4e9db92a500",
+      "start_line": 735,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "d43036180dd9a601ca8b2ddb27e4c4ec726dd8dca01c600299d8ceca2e81d8ef",
+      "end_line": 736,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiObservation\n  Notebook.NST3.DecidedShared_05178f0d2091.forsetiObservation",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44799",
+      "prefix_sha256": "609864d10e530b62fc7d1aafbccc61a8b4989dcb00e3148745d0c68e552b2948",
+      "proposition_sha256": "07e934361e2b251456c4e70636ef2e78f36f35a0e58803410d53f85e98e6a45c",
+      "start_line": 736,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "a75c2161b8c48cf1c8263d0721dcb35c2c4cfa3bfd9add5b841f7cb59b5bb46f",
+      "end_line": 737,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiIdentities Notebook.NST3.DecidedShared_05178f0d2091.forsetiIdentities",
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44885",
+      "prefix_sha256": "7b867f85a699bad600a0df70e0739bab6681c3ae5b28989c6d54305df9ed2a5c",
+      "proposition_sha256": "0941f23d8d016a4aa712ffb1834218185338b21f922daeafc475f8a21d011f91",
+      "start_line": 737,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c0e8828e6c70bc150b291defe47b15e2c406f64fabb908e0da567f0ec6a36d85",
+      "end_line": 797,
+      "name": "Notebook.NST3.Decided_in_enstrophy_ball.in_enstrophy_ball",
+      "prefix_sha256": "4fead12c8a9684dba0e1ab3436241c2e1ec1170362740021fb515c03f08a3c95",
+      "proposition_sha256": "fc3b47d314c56c2dd5c34b8b9d7ddfb1e86387da62054928816755f290cfd62d",
+      "start_line": 756,
+      "status": "checked",
+      "uses": []
+    }
+  ],
+  "environment": {
+    "check": "522a8a9f52d4f6bf566bcd946119d48d1c7ac0e543e7a1490ee5c868675938ac",
+    "fingerprint": "ea204c03321c17b5b0e0b782a07b6f8c42eaf848d2da3c71fb3a2c02ba071e9e"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "88257467331df5438daba1159fd563af3bc71c10e473fa83463d691ac702746c",
+  "withheld": null
+}

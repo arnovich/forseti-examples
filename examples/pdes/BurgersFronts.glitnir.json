@@ -1,0 +1,135 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "2c119d69fae3f217487af7ad1b2a7141e9197a167ab7fc784e0cd02c19e89844",
+      "end_line": 153,
+      "name": "Notebook.BurgersFronts.Decided_fast_truncation.fast_truncation",
+      "prefix_sha256": "c71660d95c7e0ea8edf2b8ae19bfa9b01f9da40109d9a279f3d3e9325787690f",
+      "proposition_sha256": "a6bdbaac3747dab22e3fcf395eb36af7e46c31fd4a26c79c4c4b4596909f2d7f",
+      "start_line": 98,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c1075607734da0cc28ef082098dee07cf2a12d48f48058527cd733202e385ef0",
+      "end_line": 260,
+      "name": "Notebook.BurgersFronts.Decided_fast_band.fast_band",
+      "prefix_sha256": "c0c4bcaef28fffab4e3da14ed4d05b9a5bc3d527cf739e906b3f4f81e7c80ab6",
+      "proposition_sha256": "38872221d1e74feaf09404fdba306c3b0c84ad633c4c28613ac250acf0dbe068",
+      "start_line": 212,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "sorryAx"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "f638b44a1c0e090760de6402bc7eae5e52336dc93075a4c3906d875b175e0593",
+      "end_line": 326,
+      "name": "Notebook.BurgersFronts.Decided_fast_crosses_one.fast_crosses_one",
+      "prefix_sha256": "84ff8dfb2f9de2f4cee85f09f5918e3e5b078ae9a711ce3d27e3b2aeaf86803a",
+      "proposition_sha256": "55cc3e4b13b5b30ea699b93c2054f530663b7e1d565a5d6ec3b81366d7eb6e24",
+      "start_line": 315,
+      "status": "admitted",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "486e0537cd54c3e51e16ffac54a9aba58543bcf3e6b32e2f3aa486d2caab5a3c",
+      "end_line": 446,
+      "name": "Notebook.BurgersFronts.Decided_fast_true_band_small_box.fast_true_band_small_box",
+      "prefix_sha256": "ef120104863cecd437af0c7f4e937f9d74422de848c5d53c83777b465a7e3e67",
+      "proposition_sha256": "11cd3635c857557aade17c8f289e0ecef81751b96e706c8fc000f29732da9634",
+      "start_line": 398,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "0159763bebdc93fd80769fed9409637d728cd69b6124384b3613b580ef43a493",
+      "end_line": 564,
+      "name": "Notebook.BurgersFronts.Decided_two_exponentials_band.two_exponentials_band",
+      "prefix_sha256": "ebfad8cc710e72018bcfc12b82968b0cca79e1c58a8ba8f3a941fbf7ed5cf2c6",
+      "proposition_sha256": "bcf3a2daf627ec34fbce3bb917db552f31efdc244a68c08283cee25f6c0ab215",
+      "start_line": 516,
+      "status": "checked",
+      "uses": []
+    }
+  ],
+  "environment": {
+    "check": "4fedbd396293f20c3558d006992c11ae59e13a29a859a56f1e838506b0123bb3",
+    "fingerprint": "6441f083c0132ca7c011e03bff88e67823f9673b940ab8b421b4f662b3437ce4"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "65f2bdffdd6b118130a0b5f9243ce9567167d4a44c7d9916bb1c1cb481bc4a83",
+  "withheld": null
+}

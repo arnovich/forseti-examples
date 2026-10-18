@@ -1,0 +1,277 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "588ba77fcc48f647bd2c80a16c91b12ccf93e2f709f0e55f08196ea259288245",
+      "end_line": 124,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiTime Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiTime",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_band._glitnir_example_5365",
+      "prefix_sha256": "b8b585097c019486e54caf1c728584c15bc6e2641087bf5bc3064f7589518b2a",
+      "proposition_sha256": "3e50e008d41ea12a6c73b960b8bd94f7f8761af3231d5336b89b5e755830880f",
+      "start_line": 124,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "a2c4b796562255007a75aa1b2476064b076f8dcc9ed6a5a547e6847a15565796",
+      "end_line": 125,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiInitial\n  Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiInitial",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_band._glitnir_example_5437",
+      "prefix_sha256": "03a6b3941ea4fdcefdf12ce683883aefe3b15c067476b97e084a8733ae99b94c",
+      "proposition_sha256": "6ae853597938fd25c8f4d961c989dc8da6e448c631d09d2c4730b9ef07e62850",
+      "start_line": 125,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "37c336cfaeacd8327e46144b04daa5f575f8c978ef178334d7e315cc924ecc36",
+      "end_line": 126,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiObservation\n  Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiObservation",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_band._glitnir_example_5515",
+      "prefix_sha256": "aca9a586d877e6287170b95244bc1db46210b0a876daab3e93d25c876fa59a17",
+      "proposition_sha256": "6bba17ad3a44023ce863cd30da9a45ac55a2515d2fbe6aae5c0bfd3ef7dcba7c",
+      "start_line": 126,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c5ab6751ca5b64d420ad251cc7316fbe41c18bdae8517c2f635b040359d0516f",
+      "end_line": 127,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiIdentities\n  Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiIdentities",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_band._glitnir_example_5601",
+      "prefix_sha256": "cff6b3c973ff2472878040a4563ac56dc61baec6c285580f12606c3d711b0fac",
+      "proposition_sha256": "418e59a6179a6e8238e009c28398cb4153bb9a3bae6a5fc83ecfde631634a860",
+      "start_line": 127,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "df4ac9de36b200170e9a2daa7cc361b3088976156eebb801d829c542b9e27ed9",
+      "end_line": 188,
+      "name": "Notebook.ThreeState.Decided_energy_band.energy_band",
+      "prefix_sha256": "ed0a575248acd9b05ab760a6adb909cf2c929e31c56d3963db875c464378728c",
+      "proposition_sha256": "76f72ab26bb25cbef70de1424f0a9eae4c4b2ad0da828d3aaf1e3f9aa20bf031",
+      "start_line": 146,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "588ba77fcc48f647bd2c80a16c91b12ccf93e2f709f0e55f08196ea259288245",
+      "end_line": 217,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiTime Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiTime",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_below_five._glitnir_example_12808",
+      "prefix_sha256": "6c984596e4172bdc00fdd0f9708b7785fa7e876fd894af0877a220518cbfde39",
+      "proposition_sha256": "3e50e008d41ea12a6c73b960b8bd94f7f8761af3231d5336b89b5e755830880f",
+      "start_line": 217,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "a2c4b796562255007a75aa1b2476064b076f8dcc9ed6a5a547e6847a15565796",
+      "end_line": 218,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiInitial\n  Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiInitial",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_below_five._glitnir_example_12880",
+      "prefix_sha256": "067583f884b96bbdb232f83447a4ac58877d0065eb01993bacd74aaa683daf34",
+      "proposition_sha256": "6ae853597938fd25c8f4d961c989dc8da6e448c631d09d2c4730b9ef07e62850",
+      "start_line": 218,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "37c336cfaeacd8327e46144b04daa5f575f8c978ef178334d7e315cc924ecc36",
+      "end_line": 219,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiObservation\n  Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiObservation",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_below_five._glitnir_example_12958",
+      "prefix_sha256": "0b39a3ec2e6504289efb6f1b80acd4e0d35e336c04d209848861f558bf8e4d5d",
+      "proposition_sha256": "6bba17ad3a44023ce863cd30da9a45ac55a2515d2fbe6aae5c0bfd3ef7dcba7c",
+      "start_line": 219,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c5ab6751ca5b64d420ad251cc7316fbe41c18bdae8517c2f635b040359d0516f",
+      "end_line": 220,
+      "example": true,
+      "kernel_statement": "Eq Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiIdentities\n  Notebook.ThreeState.DecidedShared_e390e59d2288.forsetiIdentities",
+      "name": "_private.ThreeState.0.Notebook.ThreeState.Decided_energy_below_five._glitnir_example_13044",
+      "prefix_sha256": "5e059be83f70522f35a1f1df9c518ad6b2d7fb68904b49038bf77a16e821f177",
+      "proposition_sha256": "418e59a6179a6e8238e009c28398cb4153bb9a3bae6a5fc83ecfde631634a860",
+      "start_line": 220,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "sorryAx"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "896c5a6c93eafd2da2d671f5446e56366ae17167f74d2890b7c310697a41a0f7",
+      "end_line": 245,
+      "name": "Notebook.ThreeState.Decided_energy_below_five.energy_below_five",
+      "prefix_sha256": "a5b81feee993ba5b1de575ce5a44a16fbc6fa67cd2771bbb5a0b92f46291a7d9",
+      "proposition_sha256": "ca9407d2e816d219c72ec377bd8f8461cdc3074a791b07cf5e7f0af692ac0881",
+      "start_line": 234,
+      "status": "admitted",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "63a5feb961b79ba9c23e21caaaa5f30355ecf825f2e01696ddec4755bde124f7",
+      "end_line": 291,
+      "name": "Notebook.ThreeState.energy_rate_nonpositive",
+      "prefix_sha256": "8a67695bfb0d2890ac0b28c7cae2f5d1520778d48f49d29e9c8c6d27d738adf5",
+      "proposition_sha256": "697eae18d73b0d5c28aa7c582c3bf7bd1f2fec306252cb06d4a4bb01d3628640",
+      "start_line": 286,
+      "status": "checked",
+      "uses": []
+    }
+  ],
+  "environment": {
+    "check": "7d538b7cbddaf54826a2be35994ce5962f60933208614fd2e63266c8e5cce176",
+    "fingerprint": "8580925d98c11417524325e844135fbecd70cc98287115c9379cdb3ecb82e424"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "db1be4a181e76e3be25f0f8bdc36391571d0399b2f2879993a3712484eded499",
+  "withheld": null
+}

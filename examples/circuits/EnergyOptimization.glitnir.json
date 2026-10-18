@@ -1,0 +1,307 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "eee02dfcd570233d9c22df4ca7c0a8d36901c16b5b9cef86faf01f7ffe0d2721",
+      "end_line": 80,
+      "name": "Notebook.EnergyOptimization.energy_formula",
+      "prefix_sha256": "01102687e1ea346bcba11867ab0bbe53ea861c191e56c711e1f70f175a8c88ff",
+      "proposition_sha256": "26bfd938cb94cdfeb55de70d1276a6c9aaa873122949b93c32c32cd9e0450d0f",
+      "start_line": 76,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "421c4b2500f5dedcbbbe75fb459cb0fccfae83a25c79d530cab862764b5c40f2",
+      "end_line": 130,
+      "name": "Notebook.EnergyOptimization.Decided_energy_in_band.energy_in_band",
+      "prefix_sha256": "a6ceb7e8154f99d52ecb0bc02b030c1cb34b5bc2eda82fd25136404884440c69",
+      "proposition_sha256": "16f7dd85dcedaa891c6011df1c4d84bb7124a7f3a4ec5388f96b9e37f78464ec",
+      "start_line": 112,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "sorryAx"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "0dc8052c1303f908ee13e147d17c44e681c0bfd1e421858a0b403f162e558a76",
+      "end_line": 167,
+      "name": "Notebook.EnergyOptimization.Decided_energy_below_three.energy_below_three",
+      "prefix_sha256": "9e610f799b853f9543cfc4c21c20dfd82f0db81629a4aa52a04e2346310be1a4",
+      "proposition_sha256": "9efbd3439c4c55a256f5bc37e116f066ac9266153851305ace98c13b23c31c0c",
+      "start_line": 164,
+      "status": "admitted",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "242934c9b90d542f271a4cf431aa9e8ca44459c0b100b57b25073feb30d2e5cf",
+      "end_line": 192,
+      "name": "Notebook.EnergyOptimization.original_contract",
+      "prefix_sha256": "cf8a9304d7aee2fbff0563d9933b2160e2cde48ddacf2d927e943fa755913663",
+      "proposition_sha256": "391c5060d45edb61284ca72c0b0b431826825ff61e0c197e91fa368403408942",
+      "start_line": 184,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.energy_formula"
+        },
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.Decided_energy_in_band.energy_in_band"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "ba0f0d832bdc05fb6d44765bd8998f6c3bc8b845335c4193e5789c229db92ee9",
+      "end_line": 217,
+      "name": "Notebook.EnergyOptimization.same_function",
+      "prefix_sha256": "1bd3b14a35e618948c49719e268e981e8f39174c70489c31406c2225713c9b7c",
+      "proposition_sha256": "666fd6d23e37e613b0690a35d9c2b5b4200ff7af0bad1bcf13568800588c078f",
+      "start_line": 210,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.energy_formula"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c2e9fd5538621708a01e1614f27d9b65d32bd9871002c2f6a79bd9480132ed05",
+      "end_line": 231,
+      "name": "Notebook.EnergyOptimization.optimised_contract",
+      "prefix_sha256": "4ef8e9114609c015d660e4e85d051af99e34f28764b99cc5671d964399e62496",
+      "proposition_sha256": "01790f04129c30bda8d911b12ae540a4d4589ee14e8610c09e6dd2a555507006",
+      "start_line": 228,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.same_function"
+        },
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.original_contract"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "e6ee1e6dc938ae53a58bcdca1b982bd1baa366c10377ea51aa19b40d0f26b841",
+      "end_line": 254,
+      "name": "Notebook.EnergyOptimization.wrong_differs",
+      "prefix_sha256": "4518595b8c07d9c025f0e4f351f074f3e11494742c249ccfdbd694567ec44a61",
+      "proposition_sha256": "8f73e278b2eb3a7352cc7e1117048ed32d6773cf2860be7b3b0fa3d740fbfa72",
+      "start_line": 251,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.energy_formula"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "05e10e63e243423d32530f1ce90a4c07233dd70c05f0e89af3f73bde3961f7b5",
+      "end_line": 261,
+      "name": "Notebook.EnergyOptimization.wrong_not_equivalent",
+      "prefix_sha256": "15083ec92d82550d1d287c5419a1763530d3d4a56e3a7b74cc1d242e156830d4",
+      "proposition_sha256": "f7d6912e1219b5da4b6323e8c290de777083bfa2013008f33da12d9d064999fb",
+      "start_line": 256,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.wrong_differs"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "40c8b46b522e261aed6d70e4cc8b7ee11999ddeda5cb80b3943c68f38823a992",
+      "end_line": 270,
+      "name": "Notebook.EnergyOptimization.wrong_breaks_contract",
+      "prefix_sha256": "48ad6cc7646a7a98cb7714712028cefdb47aa067157bec9c53a5a52d3d521fc7",
+      "proposition_sha256": "d04a486aaa3162511b06e5280747562f013f40c3de181d40e13775ce98bb736a",
+      "start_line": 263,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.wrong_differs"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "12b1d865670ad4fc370345e918a111cb4bf63c3d65a0ff7a412b0de53203bb79",
+      "end_line": 287,
+      "name": "Notebook.EnergyOptimization.four_is_sharp",
+      "prefix_sha256": "84f88c06ec75893d2c61754c20ba3eeb087b72fa9ff9433287c23098e090e605",
+      "proposition_sha256": "c8e6ed3ff97a9e5b3a775f8f8e367e5b3a9f6f3bf909058cea7c72f513c74f1a",
+      "start_line": 279,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "EnergyOptimization",
+          "name": "Notebook.EnergyOptimization.wrong_differs"
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "check": "ea434a6d5f6c8a4095e6f3c477a89a0a38e8af902b35c7f5d181fb874410f96e",
+    "fingerprint": "6066cd7314b9b34afa51eb7c32087ff8063e888d25b1e8ecf6d59fe07132f5ba"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "b1a9fdc202dd8ad7269f84c6cb6a7bd8ebfc7a241cea035ee0325f9b584a8538",
+  "withheld": null
+}
