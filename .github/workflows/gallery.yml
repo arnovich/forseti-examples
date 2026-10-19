@@ -87,9 +87,7 @@ jobs:
           key: gallery-diagrams-${{ runner.os }}-${{ hashFiles('scripts/gallery/requirements.txt', 'lake-manifest.json', 'examples/**/*.lean') }}
           restore-keys: gallery-diagrams-${{ runner.os }}-
       - name: Export saved notebooks and results without checking claims
-        # Glitnir 0.1.1 cannot draw the Galerkin model views (fixed in 0.1.2); pages
-        # show Glitnir's note for a diagram that fails until the pin moves on.
-        run: python -m scripts.build_gallery --allow-diagram-errors
+        run: python -m scripts.build_gallery
       - name: Verify every exported page and create preview images
         run: npm run gallery:check -- _site
       - name: Ensure no source or metadata was changed

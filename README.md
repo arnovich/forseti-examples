@@ -14,15 +14,15 @@ In the [notebook gallery](https://arnovich.github.io/forseti-examples/) you can 
 
 The best experience is to use [Glitnir](https://github.com/arnovich/glitnir) with VS Code
 and Lean for VS Code, on local macOS or Linux. These steps use
-[Glitnir v0.1.1](https://github.com/arnovich/glitnir/releases/tag/v0.1.1); take every
-Glitnir file from that one release.
+[Glitnir 0.1.2](https://github.com/arnovich/glitnir/releases/tag/v0.1.2) or newer.
 
 1. [Install VS Code](https://code.visualstudio.com/docs/getstarted/overview#install-vs-code),
    Python 3.12 or newer and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 2. [Install the Lean 4 extension](https://marketplace.visualstudio.com/items?itemName=leanprover.lean4)
    and complete its setup guide, which installs elan and the Lean toolchain.
-3. Download `glitnir-0.1.1.vsix` from the [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.1)
-   and run **Extensions: Install from VSIX…** in VS Code.
+3. Install **Glitnir — Lean Notebooks** from the
+   [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=gimle.glitnir):
+   search for it in the Extensions view, or run `code --install-extension gimle.glitnir`.
 4. Clone this repository and build its Lean project once, from the repository root:
 
    ```sh
@@ -32,19 +32,12 @@ Glitnir file from that one release.
    The first command downloads the prebuilt Mathlib files; the second builds
    Forseti, Asgard and the notebooks.
 5. Open the folder in VS Code and a Lean file in a trusted workspace. Run
-   **Glitnir: Set Up Environment → Install Backend with uv → Download matching backend**
-   and confirm the location.
+   **Glitnir: Set Up Environment → Set Up**, which downloads, verifies and installs
+   Glitnir's backend in one step.
 6. Install the Forseti plugin, which draws the diagrams and provides the
-   evidence and decision cards. Download `glitnir_forseti-0.1.1-py3-none-any.whl`
-   and `SHA256SUMS` from the same [release](https://github.com/arnovich/glitnir/releases/tag/v0.1.1),
-   and verify the wheel in the download folder:
-
-   ```sh
-   shasum -a 256 -c --ignore-missing SHA256SUMS   # Linux: sha256sum -c --ignore-missing SHA256SUMS
-   ```
-
-   Then run **Glitnir: Install Extension Package…**, select the wheel, and
-   choose the `z3` extra if you want to run decisions.
+   evidence and decision cards: run **Glitnir: Install Extension Package… →
+   Forseti → Download from this release**, and answer yes to `z3` if you want to
+   run decisions.
 7. Open [ScalarDecay.lean](examples/basics/ScalarDecay.lean), run
    **Glitnir: Open in Glitnir**, then try [ThreeState](examples/basics/ThreeState.lean).
    Each notebook's saved check results are in `<Notebook>.glitnir.json` beside it;
