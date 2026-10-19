@@ -38,13 +38,6 @@ jobs:
           python -m unittest discover -s tests -v
           python scripts/check_bundles.py
           npm test
-      - name: Check out the compatible Lean sources for drawing diagrams
-        uses: actions/checkout@v4
-        with:
-          repository: arnovich/forseti-lean
-          ref: c65dada148ecd4148259cb4bb6d6268ea04d8174
-          path: .gallery-runtime
-          persist-credentials: false
       - name: Install Lean and the Linux sandbox
         run: |
           # Disposable runner: these SDKs are unused by Python, Node and Lean.
@@ -62,11 +55,11 @@ jobs:
         id: lean-cache
         uses: actions/cache/restore@v4
         with:
-          path: .gallery-runtime/.lake
-          key: gallery-lean-${{ runner.os }}-c65dada1-v1
-      - name: Prepare Lean modules used by the diagrams
-        working-directory: .gallery-runtime
+          path: .lake
+          key: gallery-lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.toml') }}-v2
+      - name: Build the modules the diagrams import
         run: |
+          # Views are drawn in the notebooks' own Lake project, at its pins.
           lake exe cache get
           lake exe cache clean!
           df -h "$RUNNER_TEMP"
@@ -79,21 +72,24 @@ jobs:
           sudo chmod 600 "$RUNNER_TEMP/lean.swap"
           sudo mkswap "$RUNNER_TEMP/lean.swap"
           sudo swapon "$RUNNER_TEMP/lean.swap"
-          lake build Gimle.Forseti Gimle.Forseti.Examples Gimle.Asgard.Examples Gimle.Asgard.Visualization.Model
+          read -r -a modules <<< "$(python -m scripts.build_gallery --list-diagram-imports)"
+          lake build "${modules[@]}"
       - name: Cache the prepared environment
         if: steps.lean-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
-          path: .gallery-runtime/.lake
-          key: gallery-lean-${{ runner.os }}-c65dada1-v1
+          path: .lake
+          key: gallery-lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.toml') }}-v2
       - name: Restore unchanged diagrams
         uses: actions/cache@v4
         with:
           path: .gallery-cache
-          key: gallery-diagrams-${{ runner.os }}-${{ hashFiles('scripts/gallery/requirements.txt', 'examples/**/*.lean') }}
+          key: gallery-diagrams-${{ runner.os }}-${{ hashFiles('scripts/gallery/requirements.txt', 'lake-manifest.json', 'examples/**/*.lean') }}
           restore-keys: gallery-diagrams-${{ runner.os }}-
-      - name: Export saved notebooks without replaying claims
-        run: python -m scripts.build_gallery --lean-project "$GITHUB_WORKSPACE/.gallery-runtime"
+      - name: Export saved notebooks and results without checking claims
+        # Glitnir 0.1.1 cannot draw the Galerkin model views (fixed in 0.1.2); pages
+        # show Glitnir's note for a diagram that fails until the pin moves on.
+        run: python -m scripts.build_gallery --allow-diagram-errors
       - name: Verify every exported page and create preview images
         run: npm run gallery:check -- _site
       - name: Ensure no source or metadata was changed

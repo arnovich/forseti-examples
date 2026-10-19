@@ -1,10 +1,39 @@
-"""Validate the Lake notebook inventory, dependency pins and retained artifacts."""
+"""Validate the Lake notebook inventory, dependency pins and saved Glitnir results.
+
+Every notebook needs a committed ``<Notebook>.glitnir.json`` whose recorded
+source SHA-256 is that of the notebook's saved source. The results are read
+with Glitnir's own record loader when the Glitnir backend is importable, and
+otherwise checked structurally against the same format.
+"""
 
 import argparse
+import hashlib
 import json
 import re
+import tempfile
 import tomllib
+from collections.abc import Iterable
 from pathlib import Path
+from typing import Any
+
+RESULTS_SUFFIX = ".glitnir.json"
+FORMATS = ("glitnir.project-checks/v1", "glitnir.project-checks/v2")
+MAX_RESULTS_BYTES = 16 * 1024 * 1024
+_SHA256 = re.compile(r"[0-9a-f]{64}")
+_CLAIM_KEYS: dict[str, type] = {
+    "name": str,
+    "status": str,
+    "axioms": list,
+    "start_line": int,
+    "end_line": int,
+    "declaration_sha256": str,
+    "prefix_sha256": str,
+    "proposition_sha256": str,
+}
+
+
+class ResultsError(ValueError):
+    """A notebook's saved results are missing, malformed or for other source."""
 
 
 def _file(root: Path, relative: Path) -> Path:
@@ -26,8 +55,120 @@ def _file(root: Path, relative: Path) -> Path:
     return target
 
 
-def check_bundles(directory: Path) -> tuple[int, int]:
-    """Return notebook/reference counts only if the whole corpus is valid."""
+def results_path(notebook: Path) -> Path:
+    """Return where Glitnir saves a notebook's check results."""
+    return notebook.with_suffix(RESULTS_SUFFIX)
+
+
+def source_sha256(notebook: Path) -> str:
+    """Hash the saved source as Glitnir does: UTF-8 with CRLF read as LF."""
+    text = notebook.read_bytes().decode("utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def _glitnir_loader() -> Any:
+    """Return Glitnir's record loader, or None when the backend is not installed."""
+    try:
+        from glitnir.notebook.check_records import load_records
+    except ImportError:
+        return None
+    return load_records
+
+
+def validator() -> str:
+    """Name how results are validated in this Python environment."""
+    return "Glitnir's record loader" if _glitnir_loader() else "structural checks"
+
+
+def _structural(records: Any) -> str | None:
+    """Return why ``records`` is not a Glitnir results file, or None."""
+    if not isinstance(records, dict) or records.get("format") not in FORMATS:
+        return f"not a Glitnir results file (expected format {FORMATS[-1]})"
+    if not isinstance(records.get("source_sha256"), str):
+        return "no recorded source SHA-256"
+    environment = records.get("environment")
+    if not isinstance(environment, dict) or not isinstance(
+        environment.get("fingerprint"), str
+    ):
+        return "no recorded environment fingerprint"
+    withheld = records.get("withheld")
+    if withheld is not None and not (
+        isinstance(withheld, dict)
+        and type(withheld.get("from_line")) is int
+        and isinstance(withheld.get("message"), str)
+    ):
+        return "malformed withheld section"
+    claims = records.get("claims")
+    if not isinstance(claims, list):
+        return "no saved claims list"
+    for claim in claims:
+        if not isinstance(claim, dict) or not all(
+            type(claim.get(key)) is kind for key, kind in _CLAIM_KEYS.items()
+        ):
+            return "malformed saved claim"
+    for section in ("evidence", "decisions"):
+        if not isinstance(records.get(section, {}), dict):
+            return f"malformed {section} section"
+    return None
+
+
+def load_results(path: Path) -> dict[str, Any]:
+    """Read one results file, refusing anything Glitnir would not load.
+
+    Raises:
+        ResultsError: the file is unreadable, too large or malformed.
+    """
+    try:
+        data = path.read_bytes()
+    except OSError as error:
+        raise ResultsError(f"cannot be read: {error.strerror}") from None
+    if len(data) > MAX_RESULTS_BYTES:
+        raise ResultsError("larger than 16 MiB")
+    try:
+        records = json.loads(data)
+    except (ValueError, RecursionError):
+        raise ResultsError("not valid JSON") from None
+    why = _structural(records)
+    if why is not None:
+        raise ResultsError(why)
+    load_records = _glitnir_loader()
+    if load_records is not None:
+        # The loader reads only the sidecar of the notebook path it is given.
+        with tempfile.TemporaryDirectory(prefix="forseti-results-") as directory:
+            copy = Path(directory) / f"Notebook{RESULTS_SUFFIX}"
+            copy.write_bytes(data)
+            if load_records(Path(directory) / "Notebook.lean") is None:
+                raise ResultsError(
+                    f"the installed Glitnir backend cannot load these "
+                    f"{records['format']} results"
+                )
+    return records
+
+
+def check_results(notebook: Path, path: Path | None = None) -> dict[str, Any]:
+    """Validate saved results for ``notebook`` and return them.
+
+    Args:
+        notebook: The notebook whose saved source the results must match.
+        path: The results file; the notebook's own sidecar when None.
+
+    Raises:
+        ResultsError: the results are missing, malformed or for other source.
+    """
+    path = results_path(notebook) if path is None else path
+    if path.is_symlink() or not path.is_file():
+        raise ResultsError("missing")
+    records = load_results(path)
+    if records["source_sha256"] != source_sha256(notebook):
+        raise ResultsError(
+            f"recorded for other source than {notebook.name}; "
+            "check the saved notebook again"
+        )
+    return records
+
+
+def notebook_paths(directory: Path) -> list[Path]:
+    """Validate the Lake inventory and pins; return the configured notebooks."""
     root = directory.resolve()
     config = tomllib.loads((root / "lakefile.toml").read_text())
     configured = {}
@@ -52,16 +193,57 @@ def check_bundles(directory: Path) -> tuple[int, int]:
         for package in manifest["packages"]
     ):
         raise ValueError("Dependencies must use portable Git pins")
-    references = 0
-    for path in configured.values():
-        metadata = _file(root, path.with_suffix(".forseti.json").relative_to(root))
-        for run in json.loads(metadata.read_text()).get("runs", []):
-            for kind in ("artifact", "goal"):
-                relative = run.get("artifact", {}).get(kind)
-                if relative:
-                    _file(root, path.parent.relative_to(root) / relative)
-                    references += 1
-    return len(notebooks), references
+    return sorted(configured.values())
+
+
+def check_bundles(
+    directory: Path, only: Iterable[str] | None = None
+) -> tuple[int, int]:
+    """Return notebook and saved-claim counts only if the whole corpus is valid.
+
+    Args:
+        directory: The corpus root.
+        only: Notebook names whose results are checked; every notebook when None.
+            The Lake inventory and pins are always checked in full.
+
+    Raises:
+        ValueError: the inventory or pins are invalid, or results are missing
+            or invalid; every notebook's problem is named in one message.
+    """
+    root = directory.resolve()
+    paths = notebook_paths(root)
+    if only is not None:
+        names = set(only)
+        unknown = names - {path.stem for path in paths}
+        if unknown:
+            raise ValueError(f"Unknown notebooks: {', '.join(sorted(unknown))}")
+        paths = [path for path in paths if path.stem in names]
+    claims = 0
+    missing: list[str] = []
+    invalid: list[str] = []
+    for path in paths:
+        relative = results_path(path).relative_to(root).as_posix()
+        try:
+            _file(root, results_path(path).relative_to(root))
+        except ValueError:
+            missing.append(relative)
+            continue
+        try:
+            claims += len(check_results(path)["claims"])
+        except ResultsError as error:
+            invalid.append(f"{relative}: {error}")
+    problems = []
+    if missing:
+        problems.append(
+            f"missing Glitnir results for {len(missing)} of {len(paths)} notebooks "
+            f"({', '.join(missing)}); check each saved notebook with Glitnir and "
+            "commit its <Notebook>.glitnir.json"
+        )
+    if invalid:
+        problems.append("invalid Glitnir results: " + "; ".join(invalid))
+    if problems:
+        raise ValueError(". ".join(problems))
+    return len(paths), claims
 
 
 def main() -> None:
@@ -72,11 +254,12 @@ def main() -> None:
     )
     args = parser.parse_args()
     try:
-        notebooks, references = check_bundles(args.directory)
+        notebooks, claims = check_bundles(args.directory)
     except (ValueError, KeyError, OSError) as error:
         parser.exit(1, f"Bundle check failed: {error}\n")
     print(
-        f"{notebooks} complete notebook bundles; {references} retained references; "
+        f"{notebooks} notebooks with Glitnir results for their saved source "
+        f"({claims} saved claims, validated with {validator()}); "
         "all dependency revisions pinned"
     )
 

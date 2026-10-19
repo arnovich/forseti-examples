@@ -14,7 +14,7 @@ jobs:
           python-version: '3.12'
       - name: Test bundle validation
         run: python3 -m unittest discover -s tests -v
-      - name: Check portable pins and retained artifact references
+      - name: Check portable pins and saved Glitnir results
         run: python3 scripts/check_bundles.py
   editor:
     runs-on: ubuntu-latest

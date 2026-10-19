@@ -4,12 +4,22 @@ const {JSDOM} = require('jsdom');
 const {addNotebookNavigation, validateExport, galleryIndex, rewriteReferences} = require('../scripts/gallery/render.cjs');
 
 test('export validation refuses missing claims, scripts and incomplete diagrams', () => {
-  const entry = {snapshot: {sha256: 'abc', claims: [{name: 'first'}], views: []}};
-  const valid = '<p>abc</p><section id="cell-first">Open goal</section>';
+  const entry = {snapshot: {sha256: 'abc', project_claims: [{name: 'first'}], views: []}};
+  const valid = '<p>abc · Saved results, shown as recorded.</p><section id="cell-first">Open goal</section>';
   assert.doesNotThrow(() => validateExport(valid, entry));
-  for (const html of [valid.replace('cell-first', 'lost'), valid + '<script>x()</script>', valid + '<p class="view-wait">Drawing</p>']) {
+  for (const html of [valid.replace('cell-first', 'lost'), valid.replace('shown as recorded', 'current'), valid + '<script>x()</script>', valid + '<p class="view-wait">Drawing</p>']) {
     assert.throws(() => validateExport(html, entry));
   }
+});
+
+test('an undrawn diagram is accepted only when declared unavailable and noted', () => {
+  const drawn = '<section class="view-cell"><div class="view-body"><img src="data:image/svg+xml,x"></div></section>';
+  const noted = '<section class="view-cell"><div class="note-line" data-tone="red">No drawing: failed</div></section>';
+  const html = `<p>abc · Saved results, shown as recorded.</p>${drawn}${noted}`;
+  const entry = errors => ({snapshot: {sha256: 'abc', project_claims: [], views: [{}, {}]}, diagram_errors: errors});
+  assert.doesNotThrow(() => validateExport(html, entry(['1:9'])));
+  assert.throws(() => validateExport(html, entry([])), /Diagram has no drawing/);
+  assert.throws(() => validateExport(`<p>abc · Saved results, shown as recorded.</p>${drawn}<section class="view-cell"></section>`, entry(['1:9'])), /no note/);
 });
 
 test('gallery links survive a repository Pages prefix and escape notebook titles', () => {

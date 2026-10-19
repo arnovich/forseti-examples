@@ -1,0 +1,635 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "5a17eeb286b23a8b0cc7c94c93f73d7d8a4d80feee79e1a489ca865675b3531c",
+      "end_line": 96,
+      "name": "Notebook.NSLaminar.rest_rate",
+      "prefix_sha256": "0fe36b3eea4c8f77758af24ed8c1f3bee96fa1913a2d5880def8ebd1c5d77525",
+      "proposition_sha256": "ae9ed878d6a6010769b22ea41067a2ec9b49b04494af909ab1b1f0210de46bfa",
+      "start_line": 89,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "f6e89e7a7eb7c6e3875db7239bb19f5ecab9293e966a1149ca8aebbb286a5165",
+      "end_line": 102,
+      "name": "Notebook.NSLaminar.coupling_sum",
+      "prefix_sha256": "3112835f2f5ee98a95605944dde1a59de7b81409c71be939647d580618a4e4fa",
+      "proposition_sha256": "f311ff9ba3735f16698c863c71150cc1918afc9947df2e625915428847db6df4",
+      "start_line": 98,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "22b7522c8046e7b3a6b67fbcf75b72c685de7e25afb9e4aa0cc271b22afd6eff",
+      "end_line": 106,
+      "name": "Notebook.NSLaminar.below_threshold",
+      "prefix_sha256": "010d205124be098a06e5fa2ad7fe4c934ba438c44365b489e10b43c03294423f",
+      "proposition_sha256": "18dc7f3e78d320bf7b5b499678625020bc77dfaacd71703a184def4bbd46421a",
+      "start_line": 104,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "8a0b554301be8d58d09fc61f1e2fddf82bf57fd24389d5792d13922053c7cf1f",
+      "end_line": 111,
+      "name": "Notebook.NSLaminar.above_threshold_at_small_viscosity",
+      "prefix_sha256": "5a12512d682984a9106b778be73d6b80aa1345a480d14d9db12021d15d9bf934",
+      "proposition_sha256": "5bf7627747f3d6d162e5b77ffc0753593cd1367282d8ac69ee033b1f64dadd4e",
+      "start_line": 108,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "685201a9983c07c16a0098055c8895235b23d24b369345cd6b5c153091102316",
+      "end_line": 132,
+      "name": "Notebook.NSLaminar.rest_decays",
+      "prefix_sha256": "d4f070d6d80b25a2f7ce210be2d86b9fa378b438ad3a60e1d5b5f9304476f1c6",
+      "proposition_sha256": "3c11762a09bee23804b5001959268f9771e895b8d979e188de1a27e574eb68b9",
+      "start_line": 113,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "71054a8cb2fd2f42354ebee486653561854bf1cdb14d3fd753aeb39388d0b70d",
+      "end_line": 158,
+      "name": "Notebook.NSLaminar.every_member",
+      "prefix_sha256": "02a90966098e65c2eb59e6b96b2fd654c18d7b67425b494dfa803ddb30bd3326",
+      "proposition_sha256": "6a6ebe6d8e3609e45dcbba4670169d7fe00e6af7433ed8c71b00d9563dd29d94",
+      "start_line": 145,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "00db1dc9d72dc80b89839819bba6ead0e27a877c2e7b816ab3f3b5bff0e87a73",
+      "end_line": 193,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiTime Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiTime",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9507",
+      "prefix_sha256": "727e9085f0d6e39d86b8fbcee382f448e3bf0b42aa75c369a16a1f62522bf59a",
+      "proposition_sha256": "9b4755fed6bf64427c75e12e19ccb72834239f6679af1a34f582fdaf866dff0d",
+      "start_line": 193,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "af96548b2c122844e7ca10d70ab43f5d55b6d10ff76d16513ec650c039a7d3d7",
+      "end_line": 194,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiInitial",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9579",
+      "prefix_sha256": "fb380ee122cc73c7dca2856ad4610df3a17e4316a2a9a0e108720efc9f4fef5e",
+      "proposition_sha256": "634fe8ee2afbffd701ae2eb3cd058d25cdeb9082502f1aff89c5c4fa08d412b1",
+      "start_line": 194,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "1f0655123a88f93b248e1698e1bd83f93b786f2f00a80847c8bd60569db2a98f",
+      "end_line": 195,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiObservation",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9657",
+      "prefix_sha256": "1f7ac6ad247cb5d4787c7000d4c461947c70a782f167432d60d77357b474c4c8",
+      "proposition_sha256": "d64d526c086647cf34d661e2fbb912acd248b2c05f0b2ecb8915448b9823f825",
+      "start_line": 195,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "24ee89c182e20f267da29f080c78bcad419f60ba2b85be6787216f5e4211ab65",
+      "end_line": 196,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiIdentities",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9743",
+      "prefix_sha256": "b30263928ed330f2ffe655de061ed509744b35817faa5808ff297643d458b212",
+      "proposition_sha256": "d9d766e87f46883cf1a7c2e1c1be333daac19bce40616562e2016de4a9a2a992",
+      "start_line": 196,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "5f2bb6eb499631a6198377d25812a54cd7d71333c87d67a2cfa63a2b076d54e7",
+      "end_line": 256,
+      "name": "Notebook.NSLaminar.Decided_in_enstrophy_ball.in_enstrophy_ball",
+      "prefix_sha256": "8b4f59208be83f1dcfd4256d0c4d4a0524fdb3da91643cbcb017416d9cc2fabc",
+      "proposition_sha256": "d08018646955c301c44d396b0ebdecaaccee30b3b00db460143836de1cf3f3b1",
+      "start_line": 215,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "b8abb347ee05bf0409c5b07e584d77f54ea11da23be705e9dc1e47e04fca4164",
+      "end_line": 285,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiTime Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiTime",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16788",
+      "prefix_sha256": "e11a3a1766c498c26783174d6fe039e41b1898b854fcfc48337d7779189b16dd",
+      "proposition_sha256": "c1c7ba2be4cdf87708a880d9c753fb816dc99728168aae61d272b7e67999f9fc",
+      "start_line": 285,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "54ac3e07cd6243f4ee897ed9faf48caf7be6d22d352975310e849fdc06889efd",
+      "end_line": 286,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiInitial",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16860",
+      "prefix_sha256": "75ebc552d566ed53c63d7769f7942302bee1f7a17657b09ac353726970e5d367",
+      "proposition_sha256": "37464d098c11fb9cb0e90689b2b21ed0a9ba3d78f930f58ea8a3526c558cb55e",
+      "start_line": 286,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "36ea0d86ef93c7676ce5623f796be89697321e8a7212200bae2fc9f92eea959e",
+      "end_line": 287,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiObservation",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16938",
+      "prefix_sha256": "41f3416f95cf7c711026faca1c89f76e352af9f7cbc033cfad14e089895f7690",
+      "proposition_sha256": "118e18d1041d703c5721c5b101a770c14c16e50a6214aaa391fab8021db5907e",
+      "start_line": 287,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "5e9ab8e38f52d080f77ef34e2870469636d66c5fcc66f53e716ddaaf5058c653",
+      "end_line": 288,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiIdentities",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_17024",
+      "prefix_sha256": "ac3b0eaccf1c1ec554f1af909534ad9d9ac5a3e809534110fba01a9391c17bdf",
+      "proposition_sha256": "b52bc900f140f76b0fc7e6349c8290701d44eab7870e5820aec3262e45e12a7b",
+      "start_line": 288,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "95ea8fd515acf7a319ce2052e159cc215f248bdbd1ec84b6cf91c29df6777587",
+      "end_line": 348,
+      "name": "Notebook.NSLaminar.Decided_in_energy_ball.in_energy_ball",
+      "prefix_sha256": "6083e9157c11e2ebc2468df5d9e9554cf33e84d60a419146d7b3e1371a4f20a6",
+      "proposition_sha256": "2476f08974f744ed5aea7a38b4087e52b84c5813d758c97d5ae2d10c0f263c8d",
+      "start_line": 307,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "1b9c1ebe93197cab7a34eafe0314e47ae60d3d300e7086cb25362da0dd992440",
+      "end_line": 377,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24079",
+      "prefix_sha256": "772972275383ccfa2d50caf3f07bea5a39fe6e6b7417ecb0401db851e0119a05",
+      "proposition_sha256": "e7bc5e0660bc931f82c670f4a3ef7927e8ab25344d3a93c6caa57bf654e72340",
+      "start_line": 377,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "32e019efddf0688379e001cf07e6134bc47aac80cb95cd5effd41480663279a7",
+      "end_line": 378,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24151",
+      "prefix_sha256": "a0e130a101740186ca6cd1907672356314c34191a32abab3d40af9d02a5287be",
+      "proposition_sha256": "ada2a9461766cdaebd65680121f3c78d812c2e99f21fe0b023f385b30dfcdc7d",
+      "start_line": 378,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "30948af2af4d42656bbdf1665557460a581543581c858c7af605de6b40c16772",
+      "end_line": 379,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24229",
+      "prefix_sha256": "c516e66333bd810f366082a1056745f190413a8a7b2e4cf3f09b99b6e9ba9f87",
+      "proposition_sha256": "8e238829c88fa7ceb6c8cf4884a44004abe2f228b729b59b93c9097e1fbaf057",
+      "start_line": 379,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "019995b40ea97bf530a15227322e6178bb14e5f14fc916cc39b4f9b6a1eb0848",
+      "end_line": 380,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24315",
+      "prefix_sha256": "4c12a87d3d801aed30b8230c7ccb2ad7dbd6b6e043deab65dea882cf88130a7c",
+      "proposition_sha256": "c10daa5d21e90216f0034be4aea5ffc53be712bced09d7fe0743ccf9a398efca",
+      "start_line": 380,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "e74579b7145b34779cf8b962bf2c7df8b0e031dff286b42015ac5d17c4a6e46a",
+      "end_line": 440,
+      "name": "Notebook.NSLaminar.Decided_rest_never_grows.rest_never_grows",
+      "prefix_sha256": "73ae282a4448d01e92c192f7d9d02325f4188934b94d912eff869a40f2a489c5",
+      "proposition_sha256": "4fbb9295fd85d9f9827f807a24df2fa5a7dc4cf095b70af1838bf492a46f6a2c",
+      "start_line": 399,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "1b9c1ebe93197cab7a34eafe0314e47ae60d3d300e7086cb25362da0dd992440",
+      "end_line": 451,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30636",
+      "prefix_sha256": "a2267752e30682b92b0711939ee947d22b0ba89fddf2b1b2685b647c097ef2f7",
+      "proposition_sha256": "e7bc5e0660bc931f82c670f4a3ef7927e8ab25344d3a93c6caa57bf654e72340",
+      "start_line": 451,
+      "statement": "forsetiTime = forsetiTime",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "32e019efddf0688379e001cf07e6134bc47aac80cb95cd5effd41480663279a7",
+      "end_line": 452,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30708",
+      "prefix_sha256": "0fa9e8610028ec377abf65827f8abc93624bd95689de11a6cdb433347196f3d6",
+      "proposition_sha256": "ada2a9461766cdaebd65680121f3c78d812c2e99f21fe0b023f385b30dfcdc7d",
+      "start_line": 452,
+      "statement": "forsetiInitial = forsetiInitial",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [],
+      "declaration_sha256": "30948af2af4d42656bbdf1665557460a581543581c858c7af605de6b40c16772",
+      "end_line": 453,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30786",
+      "prefix_sha256": "c16d608932832132cec0ee3ba0d139e14b995cea1d6bd87a22a58a2f48a58f51",
+      "proposition_sha256": "8e238829c88fa7ceb6c8cf4884a44004abe2f228b729b59b93c9097e1fbaf057",
+      "start_line": 453,
+      "statement": "forsetiObservation = forsetiObservation",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "019995b40ea97bf530a15227322e6178bb14e5f14fc916cc39b4f9b6a1eb0848",
+      "end_line": 454,
+      "example": true,
+      "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30872",
+      "prefix_sha256": "dd9517a04e5eb15c84960ef58f6afa44a288178d16ea43375070e6aa8dbe43b5",
+      "proposition_sha256": "c10daa5d21e90216f0034be4aea5ffc53be712bced09d7fe0743ccf9a398efca",
+      "start_line": 454,
+      "statement": "forsetiIdentities = forsetiIdentities",
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "sorryAx"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "76e13f5a874477789667271363b878e5de89cf2a8c6b4b174f2e00d6bccc4a83",
+      "end_line": 479,
+      "name": "Notebook.NSLaminar.Decided_rest_below_one.rest_below_one",
+      "prefix_sha256": "bee85d2310535eeb77c2d4b3caa101fd9064785be97495bd302c91cdc7300f3b",
+      "proposition_sha256": "e642d5edff21ff24209f718c99e867cdcc96c6683d5d29f227f992c843e182ab",
+      "start_line": 468,
+      "status": "admitted",
+      "uses": []
+    }
+  ],
+  "environment": {
+    "check": "f629f57041d6c4df22302feed16b222ad6ece3cec2b3f774871fc13a052dd7d7",
+    "fingerprint": "49763733740b33b9c60fb882b0203a115d1ebef2406da5fa7fdc9049b6d720fd"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "331b7f219b71d40f47640ce1da5de6b7fe9b611ccfa8b35e079b41b40d439e28",
+  "withheld": null
+}

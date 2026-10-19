@@ -1,4 +1,5 @@
-// Use the pinned Glitnir renderer and exporter over read-only, prepared snapshots.
+// Drive the pinned Glitnir renderer and its Export HTML over prepared snapshots.
+// The renderer only reads: every request it makes is answered from the inputs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs/promises');
 const {readFileSync} = require('node:fs');
@@ -7,6 +8,8 @@ const {JSDOM} = require('jsdom');
 
 const ROOT = path.resolve(__dirname, '../..');
 const NOTEBOOK_NAVIGATION_CSS = readFileSync(path.join(ROOT, 'gallery/notebook-navigation.css'), 'utf8');
+// Glitnir's own words for saved results that were not compared with any environment.
+const RECORDED = 'Saved results, shown as recorded';
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
 const TOPICS = {
   basics: ['Start here', 'Small models introduce claims, saved evidence and refutations.'],
@@ -27,19 +30,24 @@ function rewriteReferences(content, notebooks) {
   }
 }
 
+const drawn = view => Boolean(view.querySelector('svg.circuit-scene, .view-body img'));
+const unavailableNote = view => Boolean(view.querySelector('.note-line[data-tone="red"]'));
+
 function validateExport(html, entry) {
   const dom = new JSDOM(html);
   try {
     const doc = dom.window.document;
     assert.equal(doc.querySelectorAll('script,iframe,object,embed,form,.view-wait,.katex-error').length, 0, 'Unsafe or incomplete export');
     assert.ok(doc.body.textContent.includes(entry.snapshot.sha256), 'Missing source fingerprint');
-    for (const claim of entry.snapshot.claims) {
+    assert.ok(doc.body.textContent.includes(RECORDED), 'Saved results must be shown as recorded');
+    for (const claim of entry.snapshot.project_claims) {
       assert.ok(doc.getElementById(`cell-${claim.name}`), `Missing claim ${claim.name}`);
     }
-    assert.equal(doc.querySelectorAll('.view-cell').length, entry.snapshot.views.length, 'Missing diagram');
-    for (const view of doc.querySelectorAll('.view-cell')) {
-      assert.ok(view.querySelector('svg.circuit-scene, .view-body img'), 'Diagram has no drawing');
-    }
+    const views = [...doc.querySelectorAll('.view-cell')];
+    assert.equal(views.length, entry.snapshot.views.length, 'Missing diagram');
+    const failed = (entry.diagram_errors || []).length;
+    assert.equal(views.filter(drawn).length, views.length - failed, 'Diagram has no drawing');
+    assert.equal(views.filter(view => !drawn(view) && unavailableNote(view)).length, failed, 'Unavailable diagram has no note');
     for (const element of doc.querySelectorAll('*')) {
       for (const attribute of element.attributes) assert.ok(!/^on/i.test(attribute.name), 'Event handler in export');
     }
@@ -82,8 +90,9 @@ async function renderNotebook(manifest, entry) {
     assert.ok(asset && asset.sha256 === parsed.searchParams.get('sha256'), 'Missing or changed figure');
     return asset.url;
   };
-  window.forsetiHost = {
-    assetURL, exportAsset: async url => assetURL(url),
+  // The renderer's shared host interface, as the editor provides it.
+  window.glitnirHost = {
+    asset: async url => assetURL(url),
     saveHTML: async html => { exported = html; },
     fetch: async (url, options = {}) => {
       try {
@@ -104,8 +113,8 @@ async function renderNotebook(manifest, entry) {
     for (const script of ['katex/katex.min.js', 'export.js', 'circuits.js', 'cards.js', 'app.js']) {
       window.eval(await fs.readFile(path.join(manifest.media, script), 'utf8'));
     }
-    const originalExport = window.forsetiExport;
-    window.forsetiExport = async options => {
+    const originalExport = window.glitnirExport;
+    window.glitnirExport = async options => {
       // Glitnir drops live-editor URLs. Translate only known corpus references
       // through an inert HTTPS marker, then make them relative after export.
       rewriteReferences(options.content, manifest.notebooks);
@@ -162,7 +171,8 @@ async function main(inputs, output) {
     await fs.mkdir(path.dirname(destination), {recursive: true});
     await fs.writeFile(destination, rendered.html);
     entries.push({html: entry.html, title: rendered.title, source_url: entry.source_url,
-      source_sha256: entry.snapshot.sha256, claims: entry.snapshot.claims.length, diagrams: entry.snapshot.views.length});
+      source_sha256: entry.snapshot.sha256, claims: entry.snapshot.project_claims.length,
+      diagrams: entry.snapshot.views.length, unavailable_diagrams: (entry.diagram_errors || []).length});
     console.log(`Exported ${entry.html}`);
   }
   await fs.writeFile(path.join(output, 'index.html'), galleryIndex(manifest, entries));

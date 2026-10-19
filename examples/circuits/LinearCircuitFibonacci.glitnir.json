@@ -1,0 +1,203 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "869ea69dda6ffb332bb3a54a0caec76418b21e47b5fef783b2f0f0d0d1cab812",
+      "end_line": 68,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_scaled_prefix",
+      "prefix_sha256": "94aa792048b2c03eb73279055a880dca4cae32d27b5f5d6a517bfd34f07367ca",
+      "proposition_sha256": "312a68ca9b44ebdebbd68f0c387d8fdfeab052f0729c78a38f8e1c2672c95a0f",
+      "start_line": 58,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "de63536d09a5d7e4f0e2b2604bc3960cc994e3de4aa002250e2854dabfbc1686",
+      "end_line": 92,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_scaled_equivalent",
+      "prefix_sha256": "4ba3cbaf54024269c7f7ee6363e3418d11b9cfefdcc366ea6a87765e2dc32887",
+      "proposition_sha256": "5bbab6daa37fa750247f8b4aedd5445be510301df6ae5a0c71ab5376afe8e2af",
+      "start_line": 89,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "LinearCircuitFibonacci",
+          "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_scaled_prefix"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "8e1489de761c6c74416fb941d9fdc9039899aacd893765726492c1d6c03720ba",
+      "end_line": 97,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_prefix",
+      "prefix_sha256": "8f7746fb915a9313d2f8b56976e3a9714a8d3de8095002ce7d10a31ec91f1a52",
+      "proposition_sha256": "f098325f2a90d6dc4891df32a63372f3b5ee2981370d030bd1fe92b4a7179be9",
+      "start_line": 94,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "LinearCircuitFibonacci",
+          "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_scaled_prefix"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "8e836df148193d1e359a866354c84538addcb39b301c92ca303fde2ea060b4ca",
+      "end_line": 106,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_equivalent",
+      "prefix_sha256": "a8aeb278c83db194f5f23c654cf4ccc109b07ee62ab387a927fbe814fdcc49f6",
+      "proposition_sha256": "77ba3c14ebc637ebfe8c0b06710e79bb8e944590aeff445b8c21162758125e1d",
+      "start_line": 99,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "LinearCircuitFibonacci",
+          "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_prefix"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "7c1178cf271223aabeae1e83ef98986efc45bb0e52b70bf7bd0cdef3ff1ab4e0",
+      "end_line": 125,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.fibonacci_hoare",
+      "prefix_sha256": "931270b74342e10d8284458d8b015c140576e712f0d23d4445e1796798f4b5f8",
+      "proposition_sha256": "683698e589e293b36ce8d183494a7a323db1504dda526dad340f25074afbccc2",
+      "start_line": 121,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "7d514920a7faa774ba1b68b974f6a9938596aa0c16d579f9af4b23b087c0adbf",
+      "end_line": 149,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.permutation_prefix",
+      "prefix_sha256": "4cb33a3da687e6459d2950b4a34d7e7f230cfc699a14d8afa7bdefa79026a598",
+      "proposition_sha256": "3db6064b7c72bb018c8f16d37a8a1f6b783bb157453ce9c8dd8b8a6ed1b19cdb",
+      "start_line": 141,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "d9d6049fce4da6c24161f472154fd40e919e11c339d3a365312f12fca7b7be9e",
+      "end_line": 153,
+      "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.permutation_equivalent",
+      "prefix_sha256": "e7a3c5c5c41d586c39dcf55a35a4802a02f84a1742c59fd3b24199312cd6047d",
+      "proposition_sha256": "729e290e703ad227b9ef96693fa112cc52d360e5e719b4a1502c8711770c5f48",
+      "start_line": 151,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "LinearCircuitFibonacci",
+          "name": "Gimle.Forseti.Examples.LinearCircuitFibonacci.permutation_prefix"
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "check": "cd516733ab9493731eef896c8d88d705e5624bab4d6c6834602cb7358eeb7fad",
+    "fingerprint": "b1e87e6e0580f5bd94348084414858f6b1effc0c100de4b7455998f22b26273e"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "0b16d785e83e8a595e2c40c7b778bc29fcba50c722cf271acb15cf126d33c202",
+  "withheld": null
+}

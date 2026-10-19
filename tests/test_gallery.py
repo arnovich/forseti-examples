@@ -1,12 +1,49 @@
 """Guard complete, portable gallery inventories and unchanged notebook inputs."""
 
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from conftest import make_corpus
 
-from scripts.build_gallery import inventory, notebook_hashes, source_url
+from scripts.build_gallery import (
+    DRAWING_INPUTS,
+    diagram_note,
+    drawing_key,
+    inventory,
+    notebook_hashes,
+    prepare_notebook,
+    source_url,
+)
+
+
+class FakeNotebook:
+    """Stand in for Glitnir's SavedNotebook with one view and a fixed drawing."""
+
+    def __init__(self, path: Path, drawing: dict) -> None:
+        self.path, self.drawing, self.draws = path, drawing, 0
+
+    def __enter__(self) -> "FakeNotebook":
+        return self
+
+    def __exit__(self, *_: object) -> None:
+        pass
+
+    def snapshot(self) -> dict:
+        text = self.path.read_text()
+        view = {"cell": 0, "line": 1, "kind": "circuit", "name": "c", "using": []}
+        return {
+            "sha256": hashlib.sha256(text.encode()).hexdigest(),
+            "preview": {"recorded": True},
+            "views": [{**view, "error": ""}],
+            "assets": [],
+        }
+
+    def draw_view(self, cell: int, line: int) -> dict:
+        self.draws += 1
+        return dict(self.drawing)
 
 
 class GalleryTests(unittest.TestCase):
@@ -18,20 +55,95 @@ class GalleryTests(unittest.TestCase):
             root = Path(directory)
             notebook = make_corpus(root)
             self.assertEqual(inventory(root), [notebook])
+            self.assertEqual(inventory(root, only=["Example"]), [notebook])
             notebook.with_name("Missing.lean").write_text("-- missing\n")
             with self.assertRaises(ValueError):
                 inventory(root)
 
-    def test_hashes_cover_metadata_and_hidden_artifacts(self) -> None:
+    def test_inventory_requires_saved_results(self) -> None:
+        """A notebook without saved results cannot be published."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            make_corpus(root).with_suffix(".glitnir.json").unlink()
+            with self.assertRaisesRegex(ValueError, "missing Glitnir results"):
+                inventory(root)
+
+    def test_hashes_cover_saved_results(self) -> None:
         """The no-write guard covers more than Lean source alone."""
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             notebook = make_corpus(root)
             before = notebook_hashes(root)
-            artifact = next(notebook.parent.glob(".Example.forseti/artifacts/*"))
-            artifact.write_text('{"changed": true}')
+            results = notebook.with_suffix(".glitnir.json")
+            self.assertIn(results.relative_to(root).as_posix(), before)
+            results.write_text('{"changed": true}')
             self.assertNotEqual(before, notebook_hashes(root))
-            self.assertIn(notebook.with_suffix(".forseti.json").relative_to(root).as_posix(), before)
+
+    def test_drawing_key_follows_what_lean_reads(self) -> None:
+        """Edits above a view or to pins redraw it; edits below it do not."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            make_corpus(root)
+            for name in DRAWING_INPUTS:
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                if not (root / name).exists():
+                    (root / name).write_text(name)
+            view = {"line": 2, "kind": "circuit", "name": "c", "using": []}
+            text = "def c := 1\n-- @view circuit c\n"
+            key = drawing_key(root, text, view)
+            self.assertEqual(key, drawing_key(root, text + "-- below\n", view))
+            self.assertNotEqual(key, drawing_key(root, "def c := 2\n" + text[11:], view))
+            self.assertNotEqual(key, drawing_key(root, text, {**view, "using": ["d"]}))
+            (root / "lake-manifest.json").write_text("{}")
+            self.assertNotEqual(key, drawing_key(root, text, view))
+
+    def test_diagram_note_is_machine_independent(self) -> None:
+        """Unavailable-diagram notes do not leak local paths or long logs."""
+        root = Path("/work/examples")
+        note = diagram_note(f"Lean failed in {root}/examples/A.lean\nlong log", root)
+        self.assertIn("./examples/A.lean", note)
+        self.assertNotIn("/work", note)
+        self.assertNotIn("long log", note)
+
+    def _prepare(self, drawing: dict, allow: bool) -> tuple[dict, Path, FakeNotebook]:
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        root = Path(directory.name)
+        notebook = make_corpus(root)
+        for name in DRAWING_INPUTS:
+            (root / name).parent.mkdir(parents=True, exist_ok=True)
+            if not (root / name).exists():
+                (root / name).write_text(name)
+        cache = root / "cache"
+        cache.mkdir()
+        fake = FakeNotebook(notebook, drawing)
+        with mock.patch("scripts.build_gallery._saved_notebook", return_value=fake):
+            return prepare_notebook(notebook, root, cache, allow), cache, fake
+
+    def test_certain_drawing_is_cached(self) -> None:
+        """A drawing made in a known environment is reused by later builds."""
+        entry, cache, _ = self._prepare({"svg": "<svg/>"}, allow=False)
+        self.assertEqual(entry["drawings"]["0:1"], {"svg": "<svg/>"})
+        self.assertEqual(len(list(cache.iterdir())), 1)
+
+    def test_uncertain_drawing_fails_unless_allowed_and_is_never_cached(self) -> None:
+        """Glitnir's uncertain drawings are not published silently."""
+        drawing = {"svg": "<svg/>", "uncertain": True}
+        with self.assertRaisesRegex(ValueError, "state could not be read"):
+            self._prepare(drawing, allow=False)
+        entry, cache, _ = self._prepare(drawing, allow=True)
+        self.assertEqual(entry["drawings"]["0:1"], drawing)
+        self.assertEqual(entry["diagram_errors"], [])
+        self.assertEqual(list(cache.iterdir()), [])
+
+    def test_failed_drawing_becomes_a_note_only_when_allowed(self) -> None:
+        """A failure stops the build, or shows a stable note when allowed."""
+        with self.assertRaisesRegex(ValueError, "unavailable: boom"):
+            self._prepare({"error": "boom"}, allow=False)
+        entry, cache, _ = self._prepare({"error": "boom"}, allow=True)
+        self.assertEqual(entry["diagram_errors"], ["0:1"])
+        self.assertIn("boom", entry["drawings"]["0:1"]["error"])
+        self.assertEqual(list(cache.iterdir()), [])
 
     def test_source_link_is_revision_bound(self) -> None:
         """Published pages point to the exact source that produced them."""

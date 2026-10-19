@@ -1,0 +1,118 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "db73061f3c6dabf3fca370140e3d1dc318a3a1cd887e86a2611b1c40720a7036",
+      "end_line": 28,
+      "name": "Notebook.CircuitProofs.first",
+      "prefix_sha256": "e26518e985b2c297a31cd664a765378cb4fb831756bec6a6ba6d45a5f6e8597a",
+      "proposition_sha256": "3cde1a1016727645c7c96f388d9973d3640354cf293254a0c48bd2df84eafd83",
+      "start_line": 23,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "d3557d02fe9ffa29a357722b729ec4a1a06f5414a50cbe7a8d526fd74cc342e6",
+      "end_line": 35,
+      "name": "Notebook.CircuitProofs.second",
+      "prefix_sha256": "0fc409e139ee4cf6186b51fe353eedb708f961a3c83ff4164a433e58201b96af",
+      "proposition_sha256": "c4501df5c814409922491e26a0584f74a8103246cfbf7230e7e57b5b3f9b341d",
+      "start_line": 30,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "03102d63cd91fdbd6af980f5be3121b55c56bea2a082641b47808a995c40216e",
+      "end_line": 39,
+      "name": "Notebook.CircuitProofs.whole",
+      "prefix_sha256": "40d0613d68cb193c5e5b1d4cfe65d1780ba13637da0ec87ca6ad0a6c24250548",
+      "proposition_sha256": "e10803ce14303714460338a38bbd71aaddd8283fd8e8f015913161a3c95f6b6d",
+      "start_line": 37,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": true,
+          "module": "CircuitProofs",
+          "name": "Notebook.CircuitProofs.first"
+        },
+        {
+          "in_notebook": true,
+          "module": "CircuitProofs",
+          "name": "Notebook.CircuitProofs.second"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "892f1e333691e1c366d4590fe96d9e41eb12110814629b0d50460f8bd198576f",
+      "end_line": 59,
+      "name": "Notebook.CircuitProofs.exchange_preserves",
+      "prefix_sha256": "86af53fb61718ece0c896962187bbbe596ef3bc78dd5a46fb31c3f5f7dab5ba6",
+      "proposition_sha256": "68b3e747ebe484470b0fab6e63e2525289bcd36dab096d088938c5359a5197b3",
+      "start_line": 54,
+      "status": "checked",
+      "uses": []
+    }
+  ],
+  "environment": {
+    "check": "4812bc7cc7eec52a1b6bf86c89ddb17303616d94c76660feec177c75dfa8a5fb",
+    "fingerprint": "0f89eca643bf02a39717e273dbb1dc3f61a9dd5c03cc4c9c8ab29838c5d68ca9"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "b63362090205432edb452733fc4b5471a4123ef60723d8e6c5a96674472c5675",
+  "withheld": null
+}
