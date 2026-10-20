@@ -48,26 +48,31 @@ chosen in advance, with probability at most $1/100$: the shape of a
 value-at-risk statement, date by date, and not a statement about the year. The
 mathematics is the library's (`HedgedSpreadStepped` in Forseti Lean:
 `breach_within_year`, `expected_energy_le`, `exceeds_at_each_mark_year`).
-This notebook's own theorems are the pieces a reader can check by eye: the
-one-step identity for $V$ read off the compiled rows, the stationary constant
-$32/255$, which laws belong to which class, and a lower bound on the breach
-probability of the rare-jump law below.
+Below, Forseti's decider decides the year's bound and the date-by-date bound
+again, as this notebook's theorems `breach_within_year` and
+`mark_on_any_date`, and with them `expected_gauge`: the expected gauge at the
+year's end is at most $33/256$. The theorems written by hand are the pieces a
+reader can check by eye: the one-step identity for $V$ read off the compiled
+rows, the stationary constant $32/255$, which laws belong to which class, and
+a lower bound on the breach probability of the rare-jump law below.
 
 **Refuted.** Variance alone cannot bring the year's breach bound below about
 $0.2198$. A law with mass $64/(2 \cdot 257^2)$ at each of $\pm 257$ and the rest
 at $0$ is centred with variance $64$, and under it the stop is hit within the
 year with probability at least $1 - (1 - 64/257^2)^{256} \approx 0.2198$; the
 library turns that into the refutation of the bound $1/5$
-(`breach_within_year_fifth_refuted`). So the worst case over the class lies
-between about $0.2198$ and $1/4$, and the distribution-free $1/4$ is at most
-$1.14$ times the worst case it covers.
+(`breach_within_year_fifth_refuted`), and the decider below refutes $1/10$
+with the same law (`tight_limit_refuted`). So the worst case over the class
+lies between about $0.2198$ and $1/4$, and the distribution-free $1/4$ is at
+most $1.14$ times the worst case it covers.
 
 **Unknown.** Two things. Where between $1 - (1 - 64/257^2)^{256}$ and $1/4$ the
 worst case over the variance-$64$ class lies: neither end is shown to be the
 worst case. And the year as a whole under the sub-Gaussian hypothesis: the
 date-by-date $1/100$ does not give a bound for the year (summed over the $256$
 dates it is $2.56$, which bounds nothing), and no horizon bound under that
-hypothesis is proved.
+hypothesis is proved: the decision `breach_within_year_subgaussian` below, at
+$1/50$, stays unknown.
 Whether a horizon bound under thin tails exists, and whether it beats $1/4$,
 is neither proved nor refuted here.
 
@@ -78,9 +83,10 @@ how close the chain comes to either. Markets: which class real shocks belong
 to is not addressed; the law is an assumption of each bound. Dependence:
 shocks that cluster, trend, or change law during the year are outside the
 model. The probability under any one law: the bounds hold over each class, the
-Gaussian's own breach probability is not computed, and the rare-jump law's is
-bounded only from below. Nothing about profit and loss, other starting books or
-other step sizes.
+Gaussian's own breach probability is not computed in Lean (below it is
+sampled, and at one date read off by hand), and the rare-jump law's is bounded
+only from below. Nothing about profit and loss, other starting books or other
+step sizes.
 
 ## The book, as Lean steps it
 
@@ -222,6 +228,305 @@ theorem three_point_breaches_often :
         {ω | ∃ n ≤ 256, ¬ exposureWithin 1 (run step compiled.initial ω n)} := by
   exact breach_ge_threePoint (by norm_num) (by norm_num) step_zero_fixed
     (step_big_breaches 257 (by norm_num [Δ])) (step_big_breaches (-257) (by norm_num [Δ]))
+
+/-!
+## The claims, decided
+
+Each claim below is a goal about the stepped book from the flat book, for every
+shock law of the class it names, decided by Forseti's stepped decider. The
+block that follows each directive is the decider's output, inserted as
+proposed and checked by Lean as part of this file: the decider picks which of
+the library's theorems to apply and with which constants, and a block whose
+constants were wrong would fail to check. Two sampled cards sit among the
+claims, each evidence about a single law, never a proof.
+
+First, the year. For every centred shock law of variance $64$, the stop is hit
+at some mark $n \le 256$ with probability at most $1/4$: the library's horizon
+bound $N \Delta^2 v / B^2$ (`breach_within`) at $N = 256$, $v = 64$ and $B = 1$
+is exactly $1/4$.
+-/
+
+-- @decide breach_within_year : stepped hedged-spread from (0, 0) at 0 step 1/256 shocks variance 64 within 256 observe s breach 1 probability <= 1/4
+namespace Decided_breach_within_year
+
+open MeasureTheory
+open Gimle.Forseti.Stepped
+open Gimle.Forseti.Examples.HedgedSpread
+open Gimle.Forseti.Examples.HedgedSpreadContract
+open Gimle.Forseti.Examples.HedgedSpreadStepped
+
+def forsetiClaim : Prop :=
+  ∀ law : Measure ℝ, TwoMomentLaw law 64 →
+    BreachWithin step compiled.initial law 256 (exposureWithin 1) (1/4)
+
+/-- For independent, identically distributed shocks drawn from any centred law with variance 64, the probability that the exposure s breaches 1 within 256 marks is at most 1/4. `step` is the model's step of size 1/256 with the shock in its driver slot, from `compiled.initial` = (0, 0); `exposureWithin 1` is the band |s| ≤ 1. The stepped decider proved it. Goal (stepped): stepped hedged-spread from (0, 0) at 0 step 1/256 shocks variance 64 within 256 observe s breach 1 probability <= 1/4 -/
+theorem breach_within_year :
+    ∀ law : Measure ℝ, TwoMomentLaw law 64 →
+      BreachWithin step compiled.initial law 256 (exposureWithin 1) (1/4) := by
+  have root : forsetiClaim := by
+    unfold forsetiClaim
+    exact fun law h => (breach_within h (by norm_num) 256).mono (by norm_num [Δ])
+  refine (fun (bridge : _ ↔ forsetiClaim) => bridge.mpr root) ?_
+  constructor
+  · intro claim
+    exact claim
+  · intro lane
+    exact lane
+
+end Decided_breach_within_year
+
+/-!
+How far is that from one well-behaved law of the class? The card below samples
+the book under Gaussian shocks of variance $64$: $4000$ shock paths of $256$
+steps from seed $7$, run in float64, with eight paths of the exposure drawn
+and, at each mark, the fraction of all paths that have hit the stop by then.
+By the year's end that fraction is $0.007$, that is $0.7\,\%$, with a $95\,\%$
+sampling interval of $0.004848$ to $0.0101$: far below the proved $1/4$, or
+$25\,\%$. The gap is not slack in the argument. The bound is a statement about
+every centred law of variance $64$, and the rare-jump law of the previous
+section is one of them, with a breach probability of at least about $0.2198$;
+a bound that covers both cannot sit near the Gaussian's fraction. That is the
+price of knowing only the variance. The card is evidence about one law,
+computed in floating point with sampling error; no claim's status depends on
+it.
+-/
+
+-- @evidence sample Gimle.Forseti.Examples.HedgedSpread.compiled (law := gaussian) (variance := 64) (paths := 4000) (steps := 256) (seed := 7) (observe := s) (barrier := 1) (show := 8)
+
+/-!
+## Date by date, under thin tails
+
+A value-at-risk statement fixes a date in advance and bounds the chance of a
+breach on that date. Under shocks sub-Gaussian with proxy $64$, the exposure
+at mark $n$ is sub-Gaussian too, with the proxy
+$\Delta^2 \cdot 64 \sum_{k<n} w_k^2$, computed exactly over the rationals from
+the weights $w_k$ with which the shocks reach it (the library's `proxy` and
+`exceeds_at_proxy`); for Gaussian shocks of variance $64$ that proxy is the
+variance of the exposure. It grows with the mark and is about $0.0913$ at the
+year's end, and the tail bound it gives there is about $0.0084$, below the
+claimed $1/100$. The theorem states $1/100$ at every mark $n \le 256$, each
+mark taken separately.
+
+For comparison, and as our reading rather than a theorem: under Gaussian
+shocks of variance $64$ the exposure at the year's end is Gaussian with
+variance about $0.0913$, so it lies outside the limit with probability about
+$0.09\,\%$. The proved $1/100$ is roughly ten times that.
+-/
+
+-- @decide mark_on_any_date : stepped hedged-spread from (0, 0) at 0 step 1/256 shocks subgaussian 64 at every mark within 256 observe s breach 1 probability <= 1/100
+namespace Decided_mark_on_any_date
+
+open MeasureTheory
+open Gimle.Forseti.Stepped
+open Gimle.Forseti.Examples.HedgedSpread
+open Gimle.Forseti.Examples.HedgedSpreadContract
+open Gimle.Forseti.Examples.HedgedSpreadStepped
+
+def forsetiClaim : Prop :=
+  ∀ law : Measure ℝ, SubGaussianLaw law 64 →
+    AtEveryMark step compiled.initial law 256 (exposureWithin 1) (1/100)
+
+/-- For independent, identically distributed shocks drawn from any sub-Gaussian law with proxy 64, at each mark up to 256, taken separately, the probability that the exposure s breaches 1 is at most 1/100. `step` is the model's step of size 1/256 with the shock in its driver slot, from `compiled.initial` = (0, 0); `exposureWithin 1` is the band |s| ≤ 1. The stepped decider proved it. Goal (stepped): stepped hedged-spread from (0, 0) at 0 step 1/256 shocks subgaussian 64 at every mark within 256 observe s breach 1 probability <= 1/100 -/
+theorem mark_on_any_date :
+    ∀ law : Measure ℝ, SubGaussianLaw law 64 →
+      AtEveryMark step compiled.initial law 256 (exposureWithin 1) (1/100) := by
+  have root : forsetiClaim := by
+    unfold forsetiClaim
+    intro law h
+    have numeric : ∀ c : ℝ, 0 < c → c ≤ 18251/200000 → 2 * Real.exp (-1 ^ 2 / (2 * c)) ≤ 1/100 := by
+      intro c h0 h1
+      have hr : (100000/18251 : ℝ) ≤ 1 ^ 2 / (2 * c) := by
+        rw [le_div_iff₀ (by positivity)]
+        linarith
+      have hexp : Real.exp (-1 ^ 2 / (2 * c)) ≤ Real.exp (-(100000/18251)) := by
+        rw [Real.exp_le_exp, neg_div]
+        exact neg_le_neg hr
+      have hE := exp_ge_floor_cubic 5 (r := 100000/18251) (by norm_num)
+      norm_num at hE
+      have hq : 2 * Real.exp (-(100000/18251)) ≤ 1/100 := by
+        rw [Real.exp_neg, ← div_eq_mul_inv, div_le_iff₀ (Real.exp_pos _)]
+        linarith
+      linarith
+    intro n hn
+    rcases Nat.eq_zero_or_pos n with rfl | hn0
+    · have hempty : {ω : ℕ → ℝ | ¬ exposureWithin 1 (run step compiled.initial ω 0)} = ∅ := by
+        ext ω
+        norm_num [exposureWithin, initial_eq]
+      refine ⟨h.prob, by norm_num, ?_⟩
+      rw [hempty, measure_empty]
+      exact zero_le
+    · refine exceeds_at_proxy h (by norm_num) n ?_
+      have hc : proxy 64 256 ≤ 18251/200000 := by
+        rw [← proxyRec_eq]
+        decide +kernel
+      have hle : (proxy 64 n : ℝ) ≤ 18251/200000 := by
+        have := Rat.cast_le (K := ℝ) |>.mpr ((proxy_mono 64 (by norm_num) hn).trans hc)
+        push_cast at this
+        exact this
+      have hpos : (0 : ℝ) < proxy 64 n := by
+        have h1 : (0 : ℚ) < proxy 64 1 := by
+          rw [← proxyRec_eq]
+          decide +kernel
+        exact_mod_cast h1.trans_le (proxy_mono 64 (by norm_num) hn0)
+      exact numeric _ hpos hle
+  refine (fun (bridge : _ ↔ forsetiClaim) => bridge.mpr root) ?_
+  constructor
+  · intro claim
+    exact claim
+  · intro lane
+    exact lane
+
+end Decided_mark_on_any_date
+
+/-!
+## The gauge at the year's end
+
+From the flat book the expected gauge is known exactly at every mark,
+$\mathbb{E} V_n = 64\,\Delta^2 \sum_{k<n} \rho^k$ (`expected_energy_eq`), so a
+claim about its value at the year's end is decided by exact arithmetic: about
+$0.1085$ at $n = 256$, below the claimed $33/256 \approx 0.1289$. The claim
+could not have failed: $33/256$ is above the stationary $32/255$ that bounds
+every mark, and at the year's end the gauge is still short of that stationary
+value. The stationary value is in turn just above $\sigma^2/2 = 32/256$, the
+value it tends to as the steps shrink, on our reading above.
+-/
+
+-- @decide expected_gauge : stepped hedged-spread from (0, 0) at 0 step 1/256 shocks variance 64 observe V expected <= 33/256 at 256
+namespace Decided_expected_gauge
+
+open MeasureTheory
+open Gimle.Forseti.Stepped
+open Gimle.Forseti.Examples.HedgedSpread
+open Gimle.Forseti.Examples.HedgedSpreadContract
+open Gimle.Forseti.Examples.HedgedSpreadStepped
+
+def forsetiClaim : Prop :=
+  ∀ law : Measure ℝ, TwoMomentLaw law 64 →
+    ExpectedLe step compiled.initial law energy 256 (33/256)
+
+/-- For independent, identically distributed shocks drawn from any centred law with variance 64, the expected energy V at mark 256 is at most 33/256. `step` is the model's step of size 1/256 with the shock in its driver slot, from `compiled.initial` = (0, 0). The stepped decider proved it. Goal (stepped): stepped hedged-spread from (0, 0) at 0 step 1/256 shocks variance 64 observe V expected <= 33/256 at 256 -/
+theorem expected_gauge :
+    ∀ law : Measure ℝ, TwoMomentLaw law 64 →
+      ExpectedLe step compiled.initial law energy 256 (33/256) := by
+  have root : forsetiClaim := by
+    unfold forsetiClaim
+    intro law h
+    have hq : Δ ^ 2 * 64 * geomSum 256 ≤ 33/256 := by decide +kernel
+    have hr := Rat.cast_le (K := ℝ) |>.mpr hq
+    push_cast at hr
+    refine ⟨h.prob, by norm_num, ?_⟩
+    rw [expected_energy_eq h, ← geomSum_eq]
+    exact ENNReal.ofReal_le_ofReal hr
+  refine (fun (bridge : _ ↔ forsetiClaim) => bridge.mpr root) ?_
+  constructor
+  · intro claim
+    exact claim
+  · intro lane
+    exact lane
+
+end Decided_expected_gauge
+
+/-!
+## A tighter limit, refuted
+
+Could a desk that knows only the volatility of its shocks promise $1/10$ for
+the year? No. The decider refutes the claim with the rare-jump law: it is in
+the class, and under it the stop is hit within the year with probability at
+least $1 - (1 - 2\varepsilon)^{256} \approx 0.2198$, above $1/10$. The
+theorem is the claim's negation: no bound of $1/10$ holds for every law of
+variance $64$.
+-/
+
+-- @decide tight_limit : stepped hedged-spread from (0, 0) at 0 step 1/256 shocks variance 64 within 256 observe s breach 1 probability <= 1/10
+namespace Decided_tight_limit
+
+open MeasureTheory
+open Gimle.Forseti.Stepped
+open Gimle.Forseti.Examples.HedgedSpread
+open Gimle.Forseti.Examples.HedgedSpreadContract
+open Gimle.Forseti.Examples.HedgedSpreadStepped
+
+def forsetiClaim : Prop :=
+  ∀ law : Measure ℝ, TwoMomentLaw law 64 →
+    BreachWithin step compiled.initial law 256 (exposureWithin 1) (1/10)
+
+/-- For independent, identically distributed shocks drawn from any centred law with variance 64, the probability that the exposure s breaches 1 within 256 marks is at most 1/10. `step` is the model's step of size 1/256 with the shock in its driver slot, from `compiled.initial` = (0, 0); `exposureWithin 1` is the band |s| ≤ 1. The stepped decider refuted it. Goal (stepped): stepped hedged-spread from (0, 0) at 0 step 1/256 shocks variance 64 within 256 observe s breach 1 probability <= 1/10 -/
+theorem tight_limit_refuted : ¬ (∀ law : Measure ℝ, TwoMomentLaw law 64 →
+      BreachWithin step compiled.initial law 256 (exposureWithin 1) (1/10)) := by
+  have refuted : ¬ forsetiClaim := by
+    unfold forsetiClaim
+    intro h
+    have hlaw := threePoint_twoMoment (ε := 64 / (2 * 257 ^ 2)) (L := 257) (by norm_num) (by norm_num)
+    rw [show 2 * (64 / (2 * 257 ^ 2) : ℝ) * 257 ^ 2 = 64 by norm_num] at hlaw
+    exact not_breachWithin_threePoint (by norm_num) (by norm_num) step_zero_fixed (step_big_breaches 257 (by norm_num [Δ])) (step_big_breaches (-257) (by norm_num [Δ])) (by norm_num) (h _ hlaw)
+  intro claim
+  refine (fun (bridge : _ ↔ forsetiClaim) => refuted (bridge.mp claim)) ?_
+  constructor
+  · intro claim
+    exact claim
+  · intro lane
+    exact lane
+
+end Decided_tight_limit
+
+/-!
+The rare-jump law is a law of the class like any other, so it can be sampled
+too. The card below runs the same plan, $4000$ paths of $256$ steps from seed
+$7$, under the three-point law of variance $64$ (`threepoint`: jumps of
+$\pm 257$, each with probability $64/(2 \cdot 257^2)$). By the year's end a
+fraction $0.21875$ of the paths, about $22\,\%$, has hit the stop, with a
+$95\,\%$ sampling interval of $0.2062$ to $0.2318$, against $0.007$ under the
+Gaussian of the same variance. That is the fat-tail lesson: the same
+volatility, a far likelier stop. The sampled fraction lies a little below the
+lower bound $1 - (1 - 2\varepsilon)^{256} \approx 0.2198$ proved above, as a
+sample may: the interval contains it. (That the bound is also the exact value
+is our reading.) Set beside the proved $1/4$, the card shows in sampled paths
+what that lower bound proves: the distribution-free bound is nearly tight over
+its class.
+-/
+
+-- @evidence sample Gimle.Forseti.Examples.HedgedSpread.compiled (law := threepoint) (variance := 64) (paths := 4000) (steps := 256) (seed := 7) (observe := s) (barrier := 1) (show := 8)
+
+/-!
+## The year under thin tails
+
+The last claim asks whether thin tails buy the year a much sharper bound: at
+most $1/50$ for every shock law sub-Gaussian with proxy $64$. Neither side is
+proved here. The horizon bound of the first claim is stated for laws of
+variance $64$, which a law sub-Gaussian with proxy $64$ need not have, and
+where it applies it gives $1/4$, not $1/50$; the date-by-date bound does not
+add up over the year; and the rare-jump law that refutes $1/10$ is not in this
+class (`threePoint_not_subGaussian`), so its refutation does not carry over.
+The decider has no horizon theorem for the sub-Gaussian class, so it leaves
+the claim unknown and no block follows. The Gaussian card above, one law of
+the class, saw a fraction $0.007$ of its paths hit the stop within the year:
+below $1/50$, and evidence about that one law, not a bound over the class.
+-/
+
+-- @decide breach_within_year_subgaussian : stepped hedged-spread from (0, 0) at 0 step 1/256 shocks subgaussian 64 within 256 observe s breach 1 probability <= 1/50
+
+/-!
+## What is and is not in the picture
+
+The horizon bound has the right shape, and a constant within a small factor of
+the worst case in its class. The shape: it reads the shocks only through their
+variance, as a bound over the class must, and it is, to first order, the
+chance that the rare-jump law jumps at all within the year:
+$2\varepsilon N = N v / L^2$ is the bound $N \Delta^2 v / B^2$ with the jump
+$L$ in place of $B/\Delta$, $L$ being the smallest whole jump that clears the
+limit in one step (that comparison is our reading). The constant: over the
+variance-$64$ class the worst breach probability within the year lies between
+about $0.2198$ and $1/4$, so $1/4$ is at most $1.14$ times it. The two cards
+show both sides of that: one well-behaved law far below the bound, a sampled
+$0.007$, and the rare-jump law near it, a sampled $0.21875$.
+
+Not claimed: continuous time, since every statement is about the marks of the
+stepped chain; markets, since the shock law is an assumption of each bound and
+not a fit to prices; the Gaussian truth, since the Gaussian's own breach
+probability, within the year or on one date, is sampled or read off by hand
+here and never proved; and any horizon statement for sub-Gaussian shocks,
+where the last decision stays unknown.
+-/
 
 #print axioms energy_step_identity
 #print axioms stationary_energy
