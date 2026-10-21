@@ -22,6 +22,11 @@ prints names relative to the open namespaces, so `#print axioms` alone does not
 rule out a declared axiom that shares a standard axiom's short name; the
 library declares no axioms.
 
+`AIFSafety/NotebookStatements.lean` imports the
+[AntitheticFeedback notebook](../examples/biochemistry/AntitheticFeedback.lean)
+and proves its two cited definitions, `ForwardSafety` and `LaterOutput`, from
+`forward_safety` and `later_output`.
+
 ## How the proof is built
 
 The first thirty time units are covered by a moving tube around a numerically
@@ -45,11 +50,12 @@ A wrong mesh makes a cell fail to build; it cannot make the theorem false.
 | `CompleteFamilyBin{b}Slabs{lo}To{hi}`, `CompleteFamilyBin{b}`, `CompleteFamily` | Every cell, collected by slab range and bin |
 | `Startup*`, `CircuitSolution`, `UniformPrefix*`, `TerminalEnergy`, `TerminalEntryBin*` | The start of the tube, the circuit's solution, and the hand-off at $t = 30$ |
 | `SafetyComposition`, `TrajectoryContract`, `CompleteSafety` | The composition into the final theorems |
+| `NotebookStatements` | The notebook's cited statements, proved from the final theorems |
 | `*Regressions` | Statements that changed inputs are rejected |
 
 These sources were generated, and are committed so the proof can be checked
-without the generator. `Cell` and the root `AIFSafety` are
-written by hand.
+without the generator. `Cell`, `NotebookStatements` and the root `AIFSafety`
+are written by hand.
 
 ## Building it
 
