@@ -1,0 +1,287 @@
+{
+  "claims": [
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "a370b45a3eedc346383ccde0d2c115ec62978b70e499afe775ca4440ad4658fc",
+      "end_line": 89,
+      "name": "Notebook.AntitheticFeedback.field_equations",
+      "prefix_sha256": "bf30ea80ab155db22bb9d0cb151a597a2f6aa78ab6b4042353d1505376e36743",
+      "proposition_sha256": "ce42f73c84fb0e48266992044cde1057735eade6e83050faede17be1d928a01c",
+      "start_line": 85,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "4eb39b7271eddaaa010b8b680f7c48cc0cfbd181a07eb9418d4ffe1119fb619f",
+      "end_line": 100,
+      "name": "Notebook.AntitheticFeedback.realizes_iff",
+      "prefix_sha256": "77e6fb03f34e0098d0bca1eb7b624b09011b04256d387fe26455f409321c695b",
+      "proposition_sha256": "d3915c03dc054193751d04f3b7611f3d355d55c02cddf64fb17f2f4a09529243",
+      "start_line": 91,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c80c0c40c1f5b90538945819bfefb21e6aa824f05acde6ed6648d45958ccdb7c",
+      "end_line": 104,
+      "name": "Notebook.AntitheticFeedback.output_is_x2",
+      "prefix_sha256": "143a0ada3a87bd8516fa17047556e557e81996a0634371a658ae7914a6ee232c",
+      "proposition_sha256": "c573d3a90587efe75bba60938a9865903df32ab47a7170622e17341a52bbbd90",
+      "start_line": 102,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "02731c663603c1b59282fcbf18e0baf1d48182c427fc3fd2d0ce3e6b31ccceba",
+      "end_line": 120,
+      "name": "Notebook.AntitheticFeedback.exists_behaviour",
+      "prefix_sha256": "7b2377165574a6b0bd0e14f7d590a650256ae1fb38dde27679ac0d34a2237428",
+      "proposition_sha256": "358213d9571e3f980df167bd677ad5ab526a4530704c7bf7db17702f10be8cfb",
+      "start_line": 117,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "17a67c2a2f334559a7d5f17b94cfabef84afc11bf0037bc5aec8c4cef4930a2c",
+      "end_line": 126,
+      "name": "Notebook.AntitheticFeedback.behaviour_unique",
+      "prefix_sha256": "ca5bf6300e2643999f80abef2f2656e13e5fe70c88efc97766abb13ecf560173",
+      "proposition_sha256": "52a7c4e4cd5da5f1e90e9621c9a0a019c506bcf32288144550d0bff45fc4a7af",
+      "start_line": 122,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "770e1269be92eba242c76e4505aa815ca5c8cb58815febbc1b435ae57a2dcf1c",
+      "end_line": 132,
+      "name": "Notebook.AntitheticFeedback.species_nonnegative",
+      "prefix_sha256": "468cbafaf482d0550c15d36c827c29a4eec97f23ec2e3f0c487c700fabc1cce6",
+      "proposition_sha256": "e542f31eee13d83e2bf3de0edf9fcbcea3afdbc2b8e774bf18ddf7e27198cab4",
+      "start_line": 128,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "8995bb617b0530b4e3701f97cdd0cca9f6c51d560b95c361eecb30d63de662bd",
+      "end_line": 181,
+      "name": "Notebook.AntitheticFeedback.tube_from_certificates",
+      "prefix_sha256": "161a419a7f742f814829592cb98d483f92e2e5ff21d5bc8774ad219eeb5dc864",
+      "proposition_sha256": "b54e6e17bdb84f95a29b0051eed2f08eeebd38c6fc394b1855ceda4f890a69e0",
+      "start_line": 165,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "ebf556a1db6fd657c1a14edd350d73182e9b3209882fdde09ce625a1acb307bf",
+      "end_line": 204,
+      "name": "Notebook.AntitheticFeedback.first_cell",
+      "prefix_sha256": "0be360764cafd20537a3db1216c73df6327f0623746a66a9c85b867f08066e12",
+      "proposition_sha256": "90cdc6e54e1132b83a93e1d9622b9279e043fabed6ae22c65304d57cb59a8802",
+      "start_line": 195,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "c03fc890e5743ef705a5be4c452c4b75f9f4807331a4ff4d302e92863610d02c",
+      "end_line": 209,
+      "name": "Notebook.AntitheticFeedback.first_cell_in_mesh",
+      "prefix_sha256": "e5db236509269cd121b0cb29a5a2cafb40c03da78cba737302b6744bb15713b3",
+      "proposition_sha256": "7ca9387663aa05241fa3bd79c6ca7f49b0d2e0de12005a201d915c8a33b4e0a5",
+      "start_line": 206,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "dcb6c202d58430ed065e5214d547701fb0c8a041888d1d2f08229d8a396602ac",
+      "end_line": 227,
+      "name": "Notebook.AntitheticFeedback.cell_drift",
+      "prefix_sha256": "f407c2085fe11d7d5e296a176a9a714d13eb7f96ee7c8935633fd2e5123d82f5",
+      "proposition_sha256": "f790058a575f35cd59a5f21c4ac9e5b0a3047c4ec8336872bffa3a561feb003b",
+      "start_line": 224,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": false,
+          "module": "AIFSafety.Cells.Bin3.Slab100",
+          "name": "AIFSafety.Cells.Bin3.Slab100.drift_in_mesh"
+        }
+      ]
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Core",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "8064512e1a61e19688cb0f3ae2fbe4a3ba3c01ae3716090c46d4033ee67ac514",
+      "end_line": 232,
+      "name": "Notebook.AntitheticFeedback.cell_output",
+      "prefix_sha256": "dd61fe4b9854dd190cce863c366eaff35cda954df2a21e7e7d3c00eda569c89e",
+      "proposition_sha256": "2e46f2397a22bc8d00c31a0b196f1ea5cf343d47192f64335d3499de0f0f948a",
+      "start_line": 229,
+      "status": "checked",
+      "uses": [
+        {
+          "in_notebook": false,
+          "module": "AIFSafety.Cells.Bin3.Slab100",
+          "name": "AIFSafety.Cells.Bin3.Slab100.shifted_output_in_mesh"
+        }
+      ]
+    }
+  ],
+  "environment": {
+    "check": "d2726ccc42ec2b2f7edf60785ea680bb01c276d9c4dbc51489cab627810816d9",
+    "fingerprint": "61ea42f8c28c6ecd7039b6524ed609136148f9840ca3f426daf94828549a230e"
+  },
+  "format": "glitnir.project-checks/v2",
+  "source_sha256": "c54dc82e47b87722a938cfba0c17b2c6b9ae3ffead542c1428308adb468fe05d",
+  "withheld": null
+}

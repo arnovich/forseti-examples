@@ -25,6 +25,15 @@ checks and editor builds do not replay notebook claims. Use Glitnir's installed
 skill for checking and metadata handling; preserve pinned dependencies unless
 an upgrade is intentional.
 
+## Certificate libraries
+
+A notebook may cite a proof too large for a notebook check. Put it in an opt-in
+library under `certificates/` (`srcDir = "certificates"`), never in
+`defaultTargets`; it has no Glitnir results. When a notebook imports one of its
+modules, prebuild that module's heavy imports one at a time in
+`.github/workflows/check.yml` and the README's getting-started step;
+`tests/test_certificates.py` checks the CI list against the notebook's imports.
+
 ## Gallery maintenance
 
 The `Notebook gallery` workflow builds on main pushes, pull requests and manual
