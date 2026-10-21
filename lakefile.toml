@@ -77,3 +77,12 @@ srcDir = "examples/basics"
 [[lean_lib]]
 name = "ThreeState"
 srcDir = "examples/basics"
+
+# The AIF safety certificates: every cell of the moving tube and the assembled
+# theorem. Opt-in, and not a default target: a full build takes about 30 hours
+# of processor time and over 7 GB of memory per cell. Build it with
+# `lake build AIFSafety`, or one module at a time (see certificates/README.md).
+[[lean_lib]]
+name = "AIFSafety"
+srcDir = "certificates"
+globs = ["AIFSafety.*"]
