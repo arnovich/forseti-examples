@@ -1,11 +1,11 @@
 name = "forseti_examples"
 version = "0.1.0"
-defaultTargets = ["Burgers", "BurgersFronts", "CircuitProofs", "EnergyOptimization", "Euler", "HedgedSpread", "LinearCircuitFibonacci", "LinearCircuitJordan", "Lorenz", "NS_B2", "NS_K5", "NS_Laminar", "NS_T3", "NavierStokes", "ScalarDecay", "ThreeState"]
+defaultTargets = ["Burgers", "BurgersFronts", "CircuitProofs", "EnergyOptimization", "Euler", "HedgedSpread", "HedgedSpreadRisk", "LinearCircuitFibonacci", "LinearCircuitJordan", "Lorenz", "NS_B2", "NS_K5", "NS_Laminar", "NS_T3", "NavierStokes", "ScalarDecay", "ThreeState"]
 
 [[require]]
 name = "forseti"
 git = "https://github.com/arnovich/forseti-lean.git"
-rev = "8854512a9bad50204252065954f6f263232039e6"
+rev = "7314ef55643ce50095b4255a27511dfb1cfaf70c"
 
 [[lean_lib]]
 name = "Burgers"
@@ -32,6 +32,10 @@ srcDir = "examples/pdes"
 
 [[lean_lib]]
 name = "HedgedSpread"
+srcDir = "examples/finance"
+
+[[lean_lib]]
+name = "HedgedSpreadRisk"
 srcDir = "examples/finance"
 
 [[lean_lib]]
