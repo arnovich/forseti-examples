@@ -19,7 +19,7 @@
       "end_line": 80,
       "name": "Notebook.EnergyOptimization.energy_formula",
       "prefix_sha256": "01102687e1ea346bcba11867ab0bbe53ea861c191e56c711e1f70f175a8c88ff",
-      "proposition_sha256": "14cc4a816e0d565bac30ccadcd01fa79580528f732e4282cb3be950e3c6c7c75",
+      "proposition_sha256": "24fb9708aa4a138cc004bea7adcb9c374a6f1cf29e2579bdadb637e7bde56c24",
       "start_line": 76,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 130,
       "name": "Notebook.EnergyOptimization.Decided_energy_in_band.energy_in_band",
       "prefix_sha256": "a6ceb7e8154f99d52ecb0bc02b030c1cb34b5bc2eda82fd25136404884440c69",
-      "proposition_sha256": "365de0ffeda5a5afb5340725369855d0c00607b2168d438362abfd99a9c4babb",
+      "proposition_sha256": "556b7c9766390b59e886a705384df1a09c697d361818dec07c4f97df1d6d28b9",
       "start_line": 112,
       "status": "checked",
       "uses": []
@@ -71,7 +71,7 @@
       "end_line": 167,
       "name": "Notebook.EnergyOptimization.Decided_energy_below_three.energy_below_three",
       "prefix_sha256": "9e610f799b853f9543cfc4c21c20dfd82f0db81629a4aa52a04e2346310be1a4",
-      "proposition_sha256": "70c6bac4a2a27176f4ba88dc05828cdf4b5f833d260c0fec003c25c1f230f154",
+      "proposition_sha256": "76264004abbbbd8ee352b7690b431820ba5d43442dd74e9dd865751a3955b89c",
       "start_line": 164,
       "status": "admitted",
       "uses": []
@@ -95,7 +95,7 @@
       "end_line": 192,
       "name": "Notebook.EnergyOptimization.original_contract",
       "prefix_sha256": "cf8a9304d7aee2fbff0563d9933b2160e2cde48ddacf2d927e943fa755913663",
-      "proposition_sha256": "0f78e682b7395393be6748c1fcf640f0d1f45b16d72c946dde9011678b09e831",
+      "proposition_sha256": "6503d42f35981325e3b67186bf4ccbe5b1c366ba8c7ac9a85906aea24dfb6972",
       "start_line": 184,
       "status": "checked",
       "uses": [
@@ -130,7 +130,7 @@
       "end_line": 217,
       "name": "Notebook.EnergyOptimization.same_function",
       "prefix_sha256": "1bd3b14a35e618948c49719e268e981e8f39174c70489c31406c2225713c9b7c",
-      "proposition_sha256": "7fe4f6f3ec892ff3423490a61dbd500f58be5711debf26968b739ff01337f346",
+      "proposition_sha256": "815c214ea4b34577749c3e3a481afb391825179bbfa88df090f788eaf3486707",
       "start_line": 210,
       "status": "checked",
       "uses": [
@@ -160,7 +160,7 @@
       "end_line": 231,
       "name": "Notebook.EnergyOptimization.optimised_contract",
       "prefix_sha256": "4ef8e9114609c015d660e4e85d051af99e34f28764b99cc5671d964399e62496",
-      "proposition_sha256": "a1858f307915b80e30548a7ef0155a94e2286e7211b9d4002d9817b9a0a0eda2",
+      "proposition_sha256": "c289ace6f3f865d470295cc9b7f2c6f48569a170419504b50bd36c0c4c1c8e95",
       "start_line": 228,
       "status": "checked",
       "uses": [
@@ -195,7 +195,7 @@
       "end_line": 254,
       "name": "Notebook.EnergyOptimization.wrong_differs",
       "prefix_sha256": "4518595b8c07d9c025f0e4f351f074f3e11494742c249ccfdbd694567ec44a61",
-      "proposition_sha256": "b74d9633c417b485ebad1b96ae6dbf07b367b654f1872f9e37fb3a093467ad56",
+      "proposition_sha256": "8c641c4405e6406317587c4d271dedf3f724e9115e1f8f4d9df4cdef680c3ae8",
       "start_line": 251,
       "status": "checked",
       "uses": [
@@ -225,7 +225,7 @@
       "end_line": 261,
       "name": "Notebook.EnergyOptimization.wrong_not_equivalent",
       "prefix_sha256": "15083ec92d82550d1d287c5419a1763530d3d4a56e3a7b74cc1d242e156830d4",
-      "proposition_sha256": "608ae502396e7a090e6eda837622f57da23daf988ff2ca3022a9254365eadb0b",
+      "proposition_sha256": "e520f05c947bfa67231db2532bba0eae0bfa349f65592e0beebd2d3867633fb1",
       "start_line": 256,
       "status": "checked",
       "uses": [
@@ -255,7 +255,7 @@
       "end_line": 270,
       "name": "Notebook.EnergyOptimization.wrong_breaks_contract",
       "prefix_sha256": "48ad6cc7646a7a98cb7714712028cefdb47aa067157bec9c53a5a52d3d521fc7",
-      "proposition_sha256": "cdee6cd42c0c76ee05e26072132cddca51678831ee6a66e2a88846aab68b028e",
+      "proposition_sha256": "bd39e2cdb8ef5255fbaf66649ce2005768067fe394efc71451156e66cdf2cfa0",
       "start_line": 263,
       "status": "checked",
       "uses": [
@@ -285,7 +285,7 @@
       "end_line": 287,
       "name": "Notebook.EnergyOptimization.four_is_sharp",
       "prefix_sha256": "84f88c06ec75893d2c61754c20ba3eeb087b72fa9ff9433287c23098e090e605",
-      "proposition_sha256": "e732f60d0faa3c4f2ef042a1f09d34c0599bfe4a8f571ca46aadabc96768ad48",
+      "proposition_sha256": "b8206fa71a5d56e4481a52aaac4579b462f7a1606bcf3447293d330a2eeb2ec6",
       "start_line": 279,
       "status": "checked",
       "uses": [
@@ -298,8 +298,8 @@
     }
   ],
   "environment": {
-    "check": "89a9d4807e0a08118043d0bbce8212c769ac24e9506b39bdbb2980a90da0f1e3",
-    "fingerprint": "eaee86b2c1c1479ed857f9f684d608a5091090f89a52df28be75c2e82c51ba5a"
+    "check": "27d106f7a425fcf028e90626ec35289714d89fbeff663ad10c86974ad3446d83",
+    "fingerprint": "f7af093ccac0292755e24708585c538217e5c243b7c32b0ec2b7d3ee6ba9f552"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "b1a9fdc202dd8ad7269f84c6cb6a7bd8ebfc7a241cea035ee0325f9b584a8538",

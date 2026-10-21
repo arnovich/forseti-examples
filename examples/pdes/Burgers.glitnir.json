@@ -19,7 +19,7 @@
       "end_line": 101,
       "name": "Notebook.Burgers.uniqueness",
       "prefix_sha256": "ea406c898452080c150d5b291b75de0c2521ed3d0ef98b8241fe9e050c588951",
-      "proposition_sha256": "6b52c49112203844f269388bbafd5b9275af3f4703f46fa420cfdfa3fbdf3144",
+      "proposition_sha256": "4e6f19a22bdbf393c10ef816933fff07e57e0b9b077fe1ed7c9f42a744aa7a59",
       "start_line": 96,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 110,
       "name": "Notebook.Burgers.circuit_reconstructs",
       "prefix_sha256": "4d585aee4b31d9b46eb9439ff9e6dc92323544152a9ba462fb16d5743ca8b7a7",
-      "proposition_sha256": "5c51726a5509591b9ba497eea61521f9ccc1269c21b3738e3dcf8dfb98891ee2",
+      "proposition_sha256": "22b988b56964eb797a805e52b290685c97f7817f1bd47ab6568299dd33cc9965",
       "start_line": 103,
       "status": "checked",
       "uses": []
@@ -67,7 +67,7 @@
       "end_line": 116,
       "name": "Notebook.Burgers.from_circuit",
       "prefix_sha256": "e2bf6e1b6c1f685305e4761a67b8eb52df23ee9a48bcdbc30c6d40f52631195e",
-      "proposition_sha256": "8887da69e7de289d8bf090c8e2e29e57f7af2c31737b8f71a70c308ca73ce03c",
+      "proposition_sha256": "a6ed5b647fae172cba6178f04521a082e3e5ffb9e0979028e4894060ba5c2542",
       "start_line": 112,
       "status": "checked",
       "uses": []
@@ -91,7 +91,7 @@
       "end_line": 147,
       "name": "Notebook.Burgers.coefficient_t",
       "prefix_sha256": "7beef3eb3794866c455c0ea7c76c982ed2c2e0f54332d7afb544fda5229610cd",
-      "proposition_sha256": "89704a319e08fff15c9905bd6243e3494dc137bc0c18d755a58a67bae379d2ce",
+      "proposition_sha256": "640d957441b3d03246205fd8470abd6a01514afb3429f996b3accc6f4b0eb37f",
       "start_line": 142,
       "status": "checked",
       "uses": []
@@ -115,7 +115,7 @@
       "end_line": 153,
       "name": "Notebook.Burgers.coefficient_t_x3",
       "prefix_sha256": "1102c2c7632e7f2ffe0907fdffa69bd19ea68b72797a498da813f8cb76e34418",
-      "proposition_sha256": "2d389f3ffe00fddb0fac43818d67bb298c1cb12cd203e490606a51a1b2296af6",
+      "proposition_sha256": "4226ce90ad76041854621307a36a0b5ed8b96100b151ec5446f5edf2bcbf8c5f",
       "start_line": 149,
       "status": "checked",
       "uses": []
@@ -139,7 +139,7 @@
       "end_line": 161,
       "name": "Notebook.Burgers.coefficients_t2",
       "prefix_sha256": "e4179c9cc0b4845d7b6e7256df42f1503958fed45de109d5b240440aedba679a",
-      "proposition_sha256": "4840d48be9bf523fcf4eea0c82fa385292b3eed02bce47efcc15b37e73b39e86",
+      "proposition_sha256": "53c747cb2cdf0792e0d0b1dded42220405a9e3df8ec3537317dac8facf073339",
       "start_line": 155,
       "status": "checked",
       "uses": []
@@ -163,7 +163,7 @@
       "end_line": 170,
       "name": "Notebook.Burgers.coefficients_t3",
       "prefix_sha256": "13b1735c550e858b348a38b8f8f211ec09e2b55f07328d72be91f039df2d13e5",
-      "proposition_sha256": "6dbdb7221bda4c4042127f104cabf85d157a21d0396986da7d33533662ff5105",
+      "proposition_sha256": "74d24a740946570ea12a8a273dd431d9d6a54a52798d733ad5c2827cafb76eeb",
       "start_line": 163,
       "status": "checked",
       "uses": []
@@ -187,7 +187,7 @@
       "end_line": 196,
       "name": "Notebook.Burgers.not_heat",
       "prefix_sha256": "0c15a9184bb476579a7a4c4f012f90ba3020fcff85497d10a515ac4f9f6d360d",
-      "proposition_sha256": "786bb15cd9de582543609ab2fc018c29c988934e2ca8fc51fe740461cb67ff85",
+      "proposition_sha256": "c46f3d8321754a49626e6e5df63e5b1d660d7f9d594ede8e92804d1996231a4c",
       "start_line": 186,
       "status": "checked",
       "uses": [
@@ -217,7 +217,7 @@
       "end_line": 251,
       "name": "Notebook.Burgers.affine_coefficient",
       "prefix_sha256": "201c40380de3355139f9ee7a2f5a7762f801a40ecc789c328eebb90f53e0eb12",
-      "proposition_sha256": "a5d46cb9b90f91b3a7bb01f7afebd49cd50513f7a1be8f40b50ecf67cfdc26b8",
+      "proposition_sha256": "0d93f0f6653fbd21c7227904ccde97d27172126bb8c525d66c724d8d9639ccb0",
       "start_line": 244,
       "status": "checked",
       "uses": []
@@ -241,7 +241,7 @@
       "end_line": 306,
       "name": "Notebook.Burgers.front_at_origin",
       "prefix_sha256": "3f90dc7da6ccfd065a83c1c65bd659eb4a1a49bcc0809430ebe283626d323fe9",
-      "proposition_sha256": "1b68803623f36535990d74c70e035ab5aabde8235195b811aeaff6ec52f15e9b",
+      "proposition_sha256": "c8b7b11869937f90cd6b7aeb9510075699649d1c8734b06aa7888c9e687694ae",
       "start_line": 302,
       "status": "checked",
       "uses": []
@@ -265,7 +265,7 @@
       "end_line": 313,
       "name": "Notebook.Burgers.front_error",
       "prefix_sha256": "8dc4158fa66d27af3de3aebb045df9efc47b30ffeef7d3a39e3241c1632418b8",
-      "proposition_sha256": "6751d23c9f57c6cc6874c3d0c2be03df7b6136674f773a6d19d6c2e3e6d14988",
+      "proposition_sha256": "f51812a4da4b1487fd26534a5ea221cfc17db43884c7c6f7101499e4bee9774f",
       "start_line": 308,
       "status": "checked",
       "uses": []
@@ -289,7 +289,7 @@
       "end_line": 324,
       "name": "Notebook.Burgers.front_converges",
       "prefix_sha256": "7589f16615689ff7a71cb3e83778dd5be67f2fcc49ed1618cfc1ac50e154198b",
-      "proposition_sha256": "01f0e0d1deecb5e9eb4bbbb17f607d72e4523ce5a0cf666f866f5acb0915377a",
+      "proposition_sha256": "363022bffbff5c20b90ef32aa5177048b596104b98f9aee4f1b0dcc14b6b997d",
       "start_line": 315,
       "status": "checked",
       "uses": []
@@ -313,7 +313,7 @@
       "end_line": 334,
       "name": "Notebook.Burgers.front_certified",
       "prefix_sha256": "507c4993bbfcf0b4c5ecbc131aa42a9ef9fbb238b896f185631f4c2306459a30",
-      "proposition_sha256": "d60a8b13593dd6ac0008f8e45b7a8d3f9061c3d2d190d9cca015467729f6718a",
+      "proposition_sha256": "71fc92034a758b3ff38b5bb3ca5530d1659a3315e66883230fd6e97c47649efb",
       "start_line": 326,
       "status": "checked",
       "uses": []
@@ -337,7 +337,7 @@
       "end_line": 371,
       "name": "Notebook.Burgers.front_field",
       "prefix_sha256": "a9fffbd662b96abe5718b487f9a140383467550fdb81bdcc931988630540c85c",
-      "proposition_sha256": "53113d810511056118eecea2732597d71a795d1a39d10c97773470461c39d71a",
+      "proposition_sha256": "85c079a464455e82dbc0e76a75e1079228109fe163a3fd6082639694b1898d57",
       "start_line": 366,
       "status": "checked",
       "uses": []
@@ -361,7 +361,7 @@
       "end_line": 381,
       "name": "Notebook.Burgers.front_band",
       "prefix_sha256": "88bdfcab7852d207cc9636625a06b6e044902a8b02e28a8f5207c205cd06a02d",
-      "proposition_sha256": "fb7b3c7050d1b4bd2ea01281419db6e079add8ff1418c976cf6deb8e63f47858",
+      "proposition_sha256": "af467fd35995603ff22ca505a9fc89fa2a7f67b95a8f7fbeb876f869164799ce",
       "start_line": 373,
       "status": "checked",
       "uses": []
@@ -385,7 +385,7 @@
       "end_line": 391,
       "name": "Notebook.Burgers.front_not_below",
       "prefix_sha256": "d1f70575d375ba88fecfd99c09f812c1809bbd2718f50d7e2be201f0debf9176",
-      "proposition_sha256": "e7e6c79aefedf2a62d18f41b495359801cc668679026373fe08379eef9e756b2",
+      "proposition_sha256": "d8a03b41ff8c4cf7382d56a5826bc3b25b02fb6b17e8977d0805e451004eb1d5",
       "start_line": 383,
       "status": "checked",
       "uses": []
@@ -409,7 +409,7 @@
       "end_line": 504,
       "name": "Notebook.Burgers.Decided_front_decided.front_decided",
       "prefix_sha256": "5c792903394401e957b527fa854ab6497be10883e787e33722e42405dedda809",
-      "proposition_sha256": "8bc066855091a59d9275f7886060b1412ba1c1dc20b9c96dcb63024e85fd918e",
+      "proposition_sha256": "ed0f8f469dc5cbf8771bc9722e88ab8b95ea6f29fbd54f66a8e5703ed1f134a7",
       "start_line": 449,
       "status": "checked",
       "uses": []
@@ -433,7 +433,7 @@
       "end_line": 635,
       "name": "Notebook.Burgers.Decided_front_band_decided.front_band_decided",
       "prefix_sha256": "79c5de30773d1e52cbbe22f9db119dcf0ff325bc3ba01eff255f4691e363775e",
-      "proposition_sha256": "7ad1dc9e0a8f400ac51f694b5f00e2d8f8bb082cd4f20e5a7720702d0cdf562d",
+      "proposition_sha256": "533c2d9192d6f0be96d8b2559c3f3271488d57daca9706183d951b91c72f2be8",
       "start_line": 587,
       "status": "checked",
       "uses": []
@@ -461,15 +461,15 @@
       "end_line": 701,
       "name": "Notebook.Burgers.Decided_front_band_refuted.front_band_refuted",
       "prefix_sha256": "a1fdc674c1259fd596574695f08df782a665adfb5d13d33db5ec50e265ee9d6e",
-      "proposition_sha256": "c73185263663812f26ff768752228562e4ff46424777f498acf9105b4d081d53",
+      "proposition_sha256": "9bf70dad93bbbc54e49cfce2c74cc3214066faabd5d1f7de46b04c91cb8c2cb0",
       "start_line": 690,
       "status": "admitted",
       "uses": []
     }
   ],
   "environment": {
-    "check": "8411740080b66fc3048213300956ba1424b03c8fd0724841f1f2be47e03d5120",
-    "fingerprint": "3713135f41a10c1e1621dcdca510d9f92025fdd8f349984ade40b186433e3305"
+    "check": "47adbf53bf7e4b047538bc808237a277e4bcbef7a7bd13c750478e4795b5b805",
+    "fingerprint": "74af3363bb2171410d08bfd0f615b9bf0a8c5fc2a3ed3b894be8a18bed04ee31"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "059b449bc88c37e728db4f0a050282016ce0e9fce6d79d4d2787a0d34cb9706d",

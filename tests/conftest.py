@@ -53,3 +53,20 @@ def make_corpus(root: Path) -> Path:
     )
     notebook.with_suffix(".glitnir.json").write_text(json.dumps(results_for(SOURCE)))
     return notebook
+
+
+def add_certificate_library(root: Path, default: bool = False) -> Path:
+    """Add an opt-in certificate library with a root and one submodule."""
+    library = root / "certificates"
+    (library / "Certified").mkdir(parents=True)
+    (library / "Certified.lean").write_text("import Certified.Main\n")
+    (library / "Certified/Main.lean").write_text(SOURCE)
+    config = root / "lakefile.toml"
+    text = config.read_text()
+    if default:
+        text = text.replace('defaultTargets = ["Example"]', 'defaultTargets = ["Example", "Certified"]')
+    config.write_text(
+        text + '[[lean_lib]]\nname = "Certified"\nsrcDir = "certificates"\n'
+        'globs = ["Certified.*"]\n'
+    )
+    return library
