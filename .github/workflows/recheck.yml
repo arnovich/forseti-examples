@@ -1,0 +1,129 @@
+name: Notebook recheck
+
+# Rechecks every notebook with the pinned Glitnir release and uploads what it
+# records: each <Notebook>.glitnir.json (claims, refreshed decisions and
+# evidence, saved drawings), any decision block it accepted again, a patch of
+# all of it and a per-notebook report. It never pushes; commit the uploaded
+# results after review (`git apply recheck.patch`).
+
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: Notebook names to recheck, space-separated (default all)
+        required: false
+        default: ''
+  pull_request:
+    paths:
+      - lean-toolchain
+      - lake-manifest.json
+      - lakefile.toml
+      - 'examples/**'
+      - scripts/recheck.py
+      - scripts/recheck-requirements.txt
+      - scripts/gallery/requirements.txt
+      - .github/workflows/recheck.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: recheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  recheck:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the pinned Glitnir release and Z3
+        run: |
+          python -m pip install --require-hashes --only-binary=:all: -r scripts/gallery/requirements.txt
+          python -m pip install --require-hashes --only-binary=:all: -r scripts/recheck-requirements.txt
+      - name: Install Lean and the Linux sandbox
+        run: |
+          # Disposable runner: these SDKs are unused by Python and Lean.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /usr/local/.ghcup
+          df -h "$RUNNER_TEMP"
+          sudo apt-get update -qq
+          sudo apt-get install --yes bubblewrap apparmor apparmor-profiles
+          sudo apparmor_parser -r /usr/share/apparmor/extra-profiles/bwrap-userns-restrict
+          python -c 'from glitnir.lean.sandbox import sandbox_available; assert sandbox_available(), "the recheck needs a working bubblewrap sandbox"'
+          curl -fsSL https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz -o "$RUNNER_TEMP/elan.tar.gz"
+          echo "42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  $RUNNER_TEMP/elan.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP"
+          "$RUNNER_TEMP/elan-init" -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Restore the Lake build
+        id: lean-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .lake
+          # Shared with the gallery, which builds a subset of the same modules.
+          key: gallery-lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.toml') }}-v2
+      - name: Build every notebook and the modules Glitnir's providers import
+        run: |
+          lake exe cache get
+          lake exe cache clean!
+          df -h "$RUNNER_TEMP"
+          available_kib=$(df -Pk "$RUNNER_TEMP" | awk 'NR == 2 {print $4}')
+          if [ "$available_kib" -lt 12582912 ]; then
+            echo "Need 12 GiB free for 8 GiB swap and build outputs." >&2
+            exit 1
+          fi
+          sudo fallocate -l 8G "$RUNNER_TEMP/lean.swap"
+          sudo chmod 600 "$RUNNER_TEMP/lean.swap"
+          sudo mkswap "$RUNNER_TEMP/lean.swap"
+          sudo swapon "$RUNNER_TEMP/lean.swap"
+          lake build
+          read -r -a views <<< "$(python -m scripts.build_gallery --list-diagram-imports)"
+          read -r -a evidence <<< "$(python -c 'from glitnir_forseti.evidence_provider import IMPORTS; print(" ".join(IMPORTS))')"
+          lake build "${views[@]}" "${evidence[@]}"
+          df -h "$RUNNER_TEMP"
+      - name: Cache the Lake build
+        if: steps.lean-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .lake
+          key: gallery-lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json', 'lakefile.toml') }}-v2
+      - name: Recheck the notebooks
+        env:
+          # Burgers and BurgersFronts' kernel replays need the 16 GB limit;
+          # the runner has 16 GB and the swap above.
+          GLITNIR_MEMORY_LIMIT_MB: '16384'
+          # Glitnir caps one check at 30 minutes; the first check also replays
+          # Mathlib's kernel closure once, on a separate one-hour bound.
+          GLITNIR_ELABORATION_TIMEOUT_MS: '1800000'
+          ONLY: ${{ github.event.inputs.only }}
+        run: |
+          if [ -n "$ONLY" ]; then
+            read -r -a only <<< "$ONLY"
+            python -m scripts.recheck --report recheck-report --only "${only[@]}"
+          else
+            python -m scripts.recheck --report recheck-report
+          fi
+      - name: Summarize the recheck
+        if: always()
+        run: |
+          if [ -f recheck-report/report.md ]; then
+            cat recheck-report/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          mkdir -p recheck-report
+          git diff --binary -- examples > recheck-report/recheck.patch
+          git status --short -- examples
+      - name: Upload the recorded results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-recheck
+          path: |
+            recheck-report
+            examples/**/*.glitnir.json
+            examples/**/*.lean
+          retention-days: 14
