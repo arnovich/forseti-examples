@@ -456,7 +456,7 @@ theorem in_ball :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl
     rw [time, init, obs]
@@ -583,7 +583,7 @@ theorem below_10 :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl
     rw [time, init, obs]
@@ -667,7 +667,7 @@ theorem below_12 :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl
     rw [time, init, obs]
@@ -767,7 +767,7 @@ theorem in_enstrophy_ball :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.enstrophyIndex := rfl
     rw [time, init, obs]

@@ -11,15 +11,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "28e3f26bd49b8565fcb886ac85485237acd9845fb54cf93a19165b335e5b4050",
+      "declaration_sha256": "f29b904ac291993042da484bbe351a4e093ddaba6c3f7930f8a347ed1b7eef5e",
       "end_line": 120,
       "name": "Notebook.HedgedSpread.budget_rate",
-      "prefix_sha256": "db3182b2f5d935607ca1b7961bfe31a79361aba48c2abe521f46713b5ede80b9",
-      "proposition_sha256": "fb947f43c692b43c183143a1cbd360c5317c6c7b16f47cd38a0ce22d62305d45",
+      "prefix_sha256": "c677b7c4573b6fe466c870fde4dffb2e85416d44a9b34908c12c9bd66e78e535",
+      "proposition_sha256": "ef64eda0bb00242e2710d0a149da3ad90188d7b0f6b47ebf8ef7190e035b3bf5",
       "start_line": 112,
       "status": "checked",
       "uses": []
@@ -35,15 +35,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "801b850ad2b46f8aa29e7fd1d4ce63a1b1c5cddf9b30fd8f229b7bf2527db8af",
       "end_line": 138,
       "name": "Notebook.HedgedSpread.budget_leaf",
-      "prefix_sha256": "2f42a6cad0f2269318d8bd6fd1e4131b528bb6439ce646ac24925bee87b30083",
-      "proposition_sha256": "bf6cb504446ff956976e18c8b7a07c2c931654d916c5381fceaba61e1caeb516",
+      "prefix_sha256": "96f0431db6da0803f0bc603b95583dadb6a2ca8f1d7372997bf7e8cb512363e1",
+      "proposition_sha256": "8af97c4bc0e530c3af0867166e323a5fe01e764e310091e0d1c299945019a0be",
       "start_line": 135,
       "status": "checked",
       "uses": []
@@ -59,15 +59,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "621a7a66f85f79b29425343acb862c3807396ec59f8419dc73df9f9cd6357ed1",
+      "declaration_sha256": "36a9fa58b318cfcc06045e2c0d688bc4397c54ba2646a8e086b13f420430a6d9",
       "end_line": 248,
       "name": "Notebook.HedgedSpread.Decided_no_limit_breach.no_limit_breach",
-      "prefix_sha256": "ff2a2093709be2e62398f1ba604d2fd6d750293b9cb5cb6f3b8546ee8b712f11",
-      "proposition_sha256": "f81993e4c223ccc3219b7e6782cfdd7b0057e40f35f8961c919ced782bbb9dbb",
+      "prefix_sha256": "6a5b437affe1c43de8ef2bf25f612ddb72e2bad7a32f59415f403517ea646f21",
+      "proposition_sha256": "f6c56c81fe42b8b22395b067fb2381bc0e6ce05c1f42663398be17ad5673d88f",
       "start_line": 204,
       "status": "checked",
       "uses": []
@@ -83,15 +83,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "037eede23b236be231e137ada20da51b823fc938788c383be743aef94a090faa",
+      "declaration_sha256": "1006cf6d9814856356813c1b230f9b7b3d53dc5b7decb7769eac068f8a8cd1d3",
       "end_line": 344,
       "name": "Notebook.HedgedSpread.Decided_budget_band.budget_band",
-      "prefix_sha256": "cca782dd2b34990b719de60dce928e415f6d6c1326d86b56d5780f92443be989",
-      "proposition_sha256": "87c503bc3a9e76e6825d3a12dac726eb6886b6c98ec7ecda4ac2c2055eb765ab",
+      "prefix_sha256": "cd859e59076394b5a8f212003e30b4cc96d0bf0843b9503a27996fc44cf04939",
+      "proposition_sha256": "9a20fc0de1167e14c96eec70e961c8d5947a095c808c7d363a7d925fdd9b8ccd",
       "start_line": 300,
       "status": "checked",
       "uses": []
@@ -107,15 +107,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "973efb8cff7e2339e3787d5680c363a327e2b89ed1c33b9bd4bbe75a3a5308af",
+      "declaration_sha256": "1c42d008caa8d1f939063282db06f7e2a562f6e709ceeaff63a03e3cf655ee82",
       "end_line": 442,
       "name": "Notebook.HedgedSpread.Decided_calmer_market.calmer_market",
-      "prefix_sha256": "78addb7a3c09947abbd1b30d7b3450ef1f322840a6137743710f79088dea4edc",
-      "proposition_sha256": "fea81e57d43fec4476882f3c6f73cf7ef6b485886696d9d1246eec9f2020d814",
+      "prefix_sha256": "8167dd65c58f4a86acc23b2620bd4e3c8987814e9e8e16f2d9dd58f6834ad344",
+      "proposition_sha256": "73d431291070b785f80df5bda090f47f4fdd7ceca5caf369ed4c682ed359a339",
       "start_line": 397,
       "status": "checked",
       "uses": []
@@ -131,15 +131,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "a5085688acef559e0fc5d7027bc6b56423d9878f1a0b673c40d226064d0417d4",
+      "declaration_sha256": "6c1bdcb50097722ff219bbc803763a8029531b491acce5b1b8a0b42c29ffbcc5",
       "end_line": 538,
       "name": "Notebook.HedgedSpread.Decided_budget_quarter.budget_quarter_refuted",
-      "prefix_sha256": "18573debd9109f3e266f8f7b72684ff4d3cea7b0405e25be19925aab3e2277a2",
-      "proposition_sha256": "8cf2f7612e354f00d3a92f1d23aa3f78d3d5c5b6bfcbdbdfae14130fe4f189c7",
+      "prefix_sha256": "a7ff8c6c7d508c1aa48dbe71f818c94083c6cbcb5fd3e599472a722bd049ebde",
+      "proposition_sha256": "0b79f2b5047dfbdce50ac6f084a0f587bbf569ca31a01887a1b6b2641432204c",
       "start_line": 490,
       "status": "checked",
       "uses": []
@@ -155,15 +155,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "24485c42778a1811abd09f5bcf4fd6b83fa5a6a5be2a231c032b98d09524751f",
       "end_line": 573,
       "name": "Notebook.HedgedSpread.unit_shock_realized",
-      "prefix_sha256": "5935befc5c7a124b54061fd8f326318371c1ccc86753db89a217c955159022f2",
-      "proposition_sha256": "1eefa96234f5374ba33e48d8e00ad744f99b34be2fcfbc7b5a1101649afcf1e0",
+      "prefix_sha256": "8ce9a53d1241dc847412fde5722bdf65a1629df391f0fe00af995da2c6831e82",
+      "proposition_sha256": "61bb28d3e6b35a1166046a8019d69e0467bcd2d8a4818f24160480717591d583",
       "start_line": 569,
       "status": "checked",
       "uses": []
@@ -179,15 +179,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "290905336519076f239d2fa759f5c6bb04727ce01847ae5a6b0066c3ae12df70",
       "end_line": 582,
       "name": "Notebook.HedgedSpread.exposure_under_unit_shock",
-      "prefix_sha256": "a87c7e1f001c156940bb4c15ca54538f3cde07b1442caab4a78d53e297e96d21",
-      "proposition_sha256": "af5599ed97c3bac264b4f4cf9f2f698f556664a1d388fc1d1f6066577277b023",
+      "prefix_sha256": "6839b4e5c5aef876bde2eeb6e550dd0b1ed7e111e084bbdf45a44954fcdbf575",
+      "proposition_sha256": "3c88040aaa7c927bc45cde872527aadffaa1a98d3dcfec6ec6a18d998a32a4db",
       "start_line": 575,
       "status": "checked",
       "uses": []
@@ -203,15 +203,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "fa57200c08c6b3e9ca7666f400d4d7192d74da701767f33c50a3d64479e2dafb",
       "end_line": 601,
       "name": "Notebook.HedgedSpread.half_is_not_a_bound",
-      "prefix_sha256": "690d16198f4f21aa1c6218288bae01acd7756842e63c6d625ed90d2d8dc37df4",
-      "proposition_sha256": "266b6f5e049aef16d9140093fc306a2469dbe84f9617f7f73ef98b29fb4415d3",
+      "prefix_sha256": "c89039cf06992911da3949a3fe767d89790f196749ba387f9cd8d9c14450f035",
+      "proposition_sha256": "3b6253cb7013232a5f6aff9501b80381ebc9f57fb47e1764aa8c3b44c0e9eb6a",
       "start_line": 584,
       "status": "checked",
       "uses": [
@@ -238,15 +238,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "44422f087dc3c6e18b15aadc7f7b5bc2c87a1253b764817690c2012a2a278363",
       "end_line": 608,
       "name": "Notebook.HedgedSpread.band_needed",
-      "prefix_sha256": "b696d46189a05dbb6a2f90a2c284ed7573e9304e0acf1e3a01e392d81dee186c",
-      "proposition_sha256": "62acc04b5e4e198a4d1b8fd4f8cd62b42d09c79f5070133c249354de8543904d",
+      "prefix_sha256": "4b85412da04ebb4644e3c139fc2682971e06a8deb71c3be819f86f743ffa2b05",
+      "proposition_sha256": "ffe8ecb0d1e0490df9bcf830f28edc690f3c5df32a2da9741c59b1b9fd7b4536",
       "start_line": 603,
       "status": "checked",
       "uses": []
@@ -262,25 +262,25 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "a5b32e3ca6c41bcf62f5586c988fdd562db0ec5e0415d416e7a9a05399a59250",
       "end_line": 626,
       "name": "Notebook.HedgedSpread.any_band",
-      "prefix_sha256": "9037cf10b15b193d49ae29dae199d4fc75e0a809cec83d5e44290809ceb77dfa",
-      "proposition_sha256": "6e424d73d8493c89fa7496a37c678559339fbd9704fcf1d40438bd97e1d16c87",
+      "prefix_sha256": "d060bb117ec4604c40e86c977fb050d43e2ea447abe1b849ce3e11067fa6a7f8",
+      "proposition_sha256": "4405eeec0664896f7f606d3be11afdc9da3b8cc0ba3ee1bd09023fe055ad6066",
       "start_line": 622,
       "status": "checked",
       "uses": []
     }
   ],
   "environment": {
-    "check": "b84340bd9712ad15e8ec4896c066a18ace246d705a3e1ad2527fa83b277ee6d5",
-    "fingerprint": "626b9d4b136fdb1a8e79bc2458eb27c18aed3748760bde9f41414e61d6494ca3"
+    "check": "5be79e1a0f7c6df286daf77cfd62818eb45bf3e89139b64d99018380566bd045",
+    "fingerprint": "2e76b0db557614fb6346c9e84e14bc90a42c3a9302085c8e684792b52acb5afd"
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "dded332572e77f6d26f99f78659db6536ef8b93fa45999cfe7c4cbbb8db6945e",
+  "source_sha256": "f244d270b0fa031d208db37c95f7299733d59d6b67f836816f821a7699b6ab58",
   "withheld": null
 }

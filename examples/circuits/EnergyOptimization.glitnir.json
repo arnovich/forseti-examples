@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 80,
       "name": "Notebook.EnergyOptimization.energy_formula",
       "prefix_sha256": "01102687e1ea346bcba11867ab0bbe53ea861c191e56c711e1f70f175a8c88ff",
-      "proposition_sha256": "14cc4a816e0d565bac30ccadcd01fa79580528f732e4282cb3be950e3c6c7c75",
+      "proposition_sha256": "04e2ea7258c5fd5ec93e37681aa46f39ab2571bd1268f1ad1e6162afebcb4a05",
       "start_line": 76,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 130,
       "name": "Notebook.EnergyOptimization.Decided_energy_in_band.energy_in_band",
       "prefix_sha256": "a6ceb7e8154f99d52ecb0bc02b030c1cb34b5bc2eda82fd25136404884440c69",
-      "proposition_sha256": "365de0ffeda5a5afb5340725369855d0c00607b2168d438362abfd99a9c4babb",
+      "proposition_sha256": "a16c5ae4be8ecc773d21a5467b602c41a4a38545a5cdd6835b9c828f5acaabbd",
       "start_line": 112,
       "status": "checked",
       "uses": []
@@ -63,7 +63,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -71,7 +71,7 @@
       "end_line": 167,
       "name": "Notebook.EnergyOptimization.Decided_energy_below_three.energy_below_three",
       "prefix_sha256": "9e610f799b853f9543cfc4c21c20dfd82f0db81629a4aa52a04e2346310be1a4",
-      "proposition_sha256": "70c6bac4a2a27176f4ba88dc05828cdf4b5f833d260c0fec003c25c1f230f154",
+      "proposition_sha256": "a2696f4f55a8bb197e0ba6f2cde9cf95e5dca6802583497c4784832e9f5cd73f",
       "start_line": 164,
       "status": "admitted",
       "uses": []
@@ -87,7 +87,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -95,7 +95,7 @@
       "end_line": 192,
       "name": "Notebook.EnergyOptimization.original_contract",
       "prefix_sha256": "cf8a9304d7aee2fbff0563d9933b2160e2cde48ddacf2d927e943fa755913663",
-      "proposition_sha256": "0f78e682b7395393be6748c1fcf640f0d1f45b16d72c946dde9011678b09e831",
+      "proposition_sha256": "769cbb1d7573cc87db21b78227ef32918125fe865b94800fd6c251a16f90bd1f",
       "start_line": 184,
       "status": "checked",
       "uses": [
@@ -122,7 +122,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -130,7 +130,7 @@
       "end_line": 217,
       "name": "Notebook.EnergyOptimization.same_function",
       "prefix_sha256": "1bd3b14a35e618948c49719e268e981e8f39174c70489c31406c2225713c9b7c",
-      "proposition_sha256": "7fe4f6f3ec892ff3423490a61dbd500f58be5711debf26968b739ff01337f346",
+      "proposition_sha256": "0c6ce7efd1f3ac2921b408a5f3d246e9db5f5471fac77e5f27c0fc1d4c9421be",
       "start_line": 210,
       "status": "checked",
       "uses": [
@@ -152,7 +152,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -160,7 +160,7 @@
       "end_line": 231,
       "name": "Notebook.EnergyOptimization.optimised_contract",
       "prefix_sha256": "4ef8e9114609c015d660e4e85d051af99e34f28764b99cc5671d964399e62496",
-      "proposition_sha256": "a1858f307915b80e30548a7ef0155a94e2286e7211b9d4002d9817b9a0a0eda2",
+      "proposition_sha256": "3a1b5d5b1eb30a13bb6035eea89535566b6d6a2eb785d3ebf4951caa0f5ff736",
       "start_line": 228,
       "status": "checked",
       "uses": [
@@ -187,7 +187,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -195,7 +195,7 @@
       "end_line": 254,
       "name": "Notebook.EnergyOptimization.wrong_differs",
       "prefix_sha256": "4518595b8c07d9c025f0e4f351f074f3e11494742c249ccfdbd694567ec44a61",
-      "proposition_sha256": "b74d9633c417b485ebad1b96ae6dbf07b367b654f1872f9e37fb3a093467ad56",
+      "proposition_sha256": "2da36ec894f4ed5fc20e784d3098ab2fafeeae11831f0b35c15fb2445b585b36",
       "start_line": 251,
       "status": "checked",
       "uses": [
@@ -217,7 +217,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -225,7 +225,7 @@
       "end_line": 261,
       "name": "Notebook.EnergyOptimization.wrong_not_equivalent",
       "prefix_sha256": "15083ec92d82550d1d287c5419a1763530d3d4a56e3a7b74cc1d242e156830d4",
-      "proposition_sha256": "608ae502396e7a090e6eda837622f57da23daf988ff2ca3022a9254365eadb0b",
+      "proposition_sha256": "ba1d67f1731bd0652bebf9057782b187502c21647a7ce55598fea36aa7d8db06",
       "start_line": 256,
       "status": "checked",
       "uses": [
@@ -247,7 +247,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -255,7 +255,7 @@
       "end_line": 270,
       "name": "Notebook.EnergyOptimization.wrong_breaks_contract",
       "prefix_sha256": "48ad6cc7646a7a98cb7714712028cefdb47aa067157bec9c53a5a52d3d521fc7",
-      "proposition_sha256": "cdee6cd42c0c76ee05e26072132cddca51678831ee6a66e2a88846aab68b028e",
+      "proposition_sha256": "02fd90ea5f95b23975e40f5c4a7d5ce444070f7ac842b352ec0af505be6710c0",
       "start_line": 263,
       "status": "checked",
       "uses": [
@@ -277,7 +277,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -285,7 +285,7 @@
       "end_line": 287,
       "name": "Notebook.EnergyOptimization.four_is_sharp",
       "prefix_sha256": "84f88c06ec75893d2c61754c20ba3eeb087b72fa9ff9433287c23098e090e605",
-      "proposition_sha256": "e732f60d0faa3c4f2ef042a1f09d34c0599bfe4a8f571ca46aadabc96768ad48",
+      "proposition_sha256": "fbfe6f1367ed19b94c4bcd991cb63f949219b5af395dd5880b64728a6bed46cd",
       "start_line": 279,
       "status": "checked",
       "uses": [
@@ -298,10 +298,703 @@
     }
   ],
   "environment": {
-    "check": "89a9d4807e0a08118043d0bbce8212c769ac24e9506b39bdbb2980a90da0f1e3",
-    "fingerprint": "eaee86b2c1c1479ed857f9f684d608a5091090f89a52df28be75c2e82c51ba5a"
+    "check": "557110abbcd129bdd36bf5cdb3d16afcdc5ce867dd4df2186cd66b8ee71c02bb",
+    "fingerprint": "07f9c75ae606d893e173226ac8636925df489148642c5d81a0d83221ade3453a"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "b1a9fdc202dd8ad7269f84c6cb6a7bd8ebfc7a241cea035ee0325f9b584a8538",
+  "views": {
+    "223de730b9d126f4589cae4d8588bc3e8f62655f8b857f60f993ca490193a0a8": {
+      "created": "2026-10-22T16:35:54+00:00",
+      "drawing": {
+        "contracts": [],
+        "graph": {
+          "edges": [
+            {
+              "feedback": false,
+              "lane": 185,
+              "source": [
+                0,
+                0
+              ],
+              "target": [
+                1,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 197,
+              "source": [
+                0,
+                1
+              ],
+              "target": [
+                1,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 185,
+              "source": [
+                2,
+                0
+              ],
+              "target": [
+                3,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 197,
+              "source": [
+                2,
+                1
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 429,
+              "source": [
+                1,
+                0
+              ],
+              "target": [
+                4,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 441,
+              "source": [
+                3,
+                0
+              ],
+              "target": [
+                4,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 673,
+              "source": [
+                4,
+                0
+              ],
+              "target": [
+                5,
+                0
+              ]
+            }
+          ],
+          "inputs": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "nodes": [
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "inputs": 2,
+              "kind": "multiply",
+              "label": "\u00d7",
+              "outputs": 1,
+              "x": 244,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 0,
+              "y": 160
+            },
+            {
+              "inputs": 2,
+              "kind": "multiply",
+              "label": "\u00d7",
+              "outputs": 1,
+              "x": 244,
+              "y": 160
+            },
+            {
+              "inputs": 2,
+              "kind": "add",
+              "label": "+",
+              "outputs": 1,
+              "x": 488,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "scalar",
+              "label": "\u00d7 (2)",
+              "outputs": 1,
+              "x": 720,
+              "y": 0
+            }
+          ],
+          "outputs": [
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1050 420\" width=\"1050\" height=\"420\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><path d=\"M 240 90 C 265 90 265 90 324 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,90 317,86 317,94\" fill=\"#476579\"></polygon><path d=\"M 240 130 C 277 130 277 130 324 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,130 317,126 317,134\" fill=\"#476579\"></polygon><path d=\"M 240 250 C 265 250 265 250 324 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,250 317,246 317,254\" fill=\"#476579\"></polygon><path d=\"M 240 290 C 277 290 277 290 324 290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,290 317,286 317,294\" fill=\"#476579\"></polygon><path d=\"M 484 90 C 509 90 509 90 568 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"568,90 561,86 561,94\" fill=\"#476579\"></polygon><path d=\"M 484 250 C 521 250 521 130 568 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"568,130 561,126 561,134\" fill=\"#476579\"></polygon><path d=\"M 728 90 C 753 90 753 90 800 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"800,90 793,86 793,94\" fill=\"#476579\"></polygon><polyline points=\"20,90 80,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"80,90 73,86 73,94\" fill=\"#476579\"></polygon><text x=\"20\" y=\"82\" font-size=\"11\" fill=\"#172f43\" textLength=\"26\" lengthAdjust=\"spacingAndGlyphs\">in 0</text><polyline points=\"20,250 80,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"80,250 73,246 73,254\" fill=\"#476579\"></polygon><text x=\"20\" y=\"242\" font-size=\"11\" fill=\"#172f43\" textLength=\"26\" lengthAdjust=\"spacingAndGlyphs\">in 1</text><polyline points=\"960,90 1020,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1020,90 1013,86 1013,94\" fill=\"#476579\"></polygon><text x=\"985\" y=\"82\" font-size=\"11\" fill=\"#172f43\" textLength=\"33\" lengthAdjust=\"spacingAndGlyphs\">out 0</text><rect x=\"80\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"115\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"85\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"105,90 155,90 210,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"155,90 155,130 210,130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"324\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"359\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">\u00d7</text><text x=\"329\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"329\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"464\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"80\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"115\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"85\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"105,250 155,250 210,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"155,250 155,290 210,290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"324\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"359\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">\u00d7</text><text x=\"329\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"329\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"464\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"568\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"603\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">+</text><text x=\"573\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"573\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"708\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"800\" y=\"60\" width=\"160\" height=\"60\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"835\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">\u00d7 (2)</text><text x=\"805\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"940\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"20\" y=\"370\" font-size=\"12\" fill=\"#172f43\" textLength=\"331\" lengthAdjust=\"spacingAndGlyphs\">Ports start at 0. Crossings are not junctions.</text><text x=\"20\" y=\"392\" font-size=\"12\" fill=\"#172f43\" textLength=\"453\" lengthAdjust=\"spacingAndGlyphs\">Diagram of syntax; mathematical claims require separate proofs.</text></svg>"
+      },
+      "fingerprint": "9ab96e8bc720e337eaa440edb14473004ff592eeb0bbc55bbfbca390baeb41d2",
+      "prefix_sha256": "940372f90c9e9ca552d9d2b629d50f557bbadba7e1b0e23876dce2d7fb0d7886",
+      "provider": "forseti",
+      "provider_sha256": "969c3b267c6e22f3558858a667f002b02a8d1d39982ab3f7ea51069b106070de"
+    },
+    "c4dd12e29e00b2b5ff0d1471f623481425fb6529b6091d6796f551f5c18c26a6": {
+      "created": "2026-10-22T16:35:54+00:00",
+      "drawing": {
+        "contracts": [],
+        "graph": {
+          "edges": [
+            {
+              "feedback": false,
+              "lane": 185,
+              "source": [
+                0,
+                0
+              ],
+              "target": [
+                1,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 197,
+              "source": [
+                0,
+                1
+              ],
+              "target": [
+                1,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 185,
+              "source": [
+                2,
+                0
+              ],
+              "target": [
+                3,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 197,
+              "source": [
+                2,
+                1
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 429,
+              "source": [
+                1,
+                0
+              ],
+              "target": [
+                4,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 441,
+              "source": [
+                3,
+                0
+              ],
+              "target": [
+                4,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 673,
+              "source": [
+                4,
+                0
+              ],
+              "target": [
+                5,
+                0
+              ]
+            }
+          ],
+          "inputs": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "nodes": [
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "inputs": 2,
+              "kind": "multiply",
+              "label": "\u00d7",
+              "outputs": 1,
+              "x": 244,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 0,
+              "y": 160
+            },
+            {
+              "inputs": 2,
+              "kind": "multiply",
+              "label": "\u00d7",
+              "outputs": 1,
+              "x": 244,
+              "y": 160
+            },
+            {
+              "inputs": 2,
+              "kind": "add",
+              "label": "+",
+              "outputs": 1,
+              "x": 488,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "scalar",
+              "label": "\u00d7 (3)",
+              "outputs": 1,
+              "x": 720,
+              "y": 0
+            }
+          ],
+          "outputs": [
+            [
+              5,
+              0
+            ]
+          ]
+        },
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1050 420\" width=\"1050\" height=\"420\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><path d=\"M 240 90 C 265 90 265 90 324 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,90 317,86 317,94\" fill=\"#476579\"></polygon><path d=\"M 240 130 C 277 130 277 130 324 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,130 317,126 317,134\" fill=\"#476579\"></polygon><path d=\"M 240 250 C 265 250 265 250 324 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,250 317,246 317,254\" fill=\"#476579\"></polygon><path d=\"M 240 290 C 277 290 277 290 324 290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"324,290 317,286 317,294\" fill=\"#476579\"></polygon><path d=\"M 484 90 C 509 90 509 90 568 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"568,90 561,86 561,94\" fill=\"#476579\"></polygon><path d=\"M 484 250 C 521 250 521 130 568 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"568,130 561,126 561,134\" fill=\"#476579\"></polygon><path d=\"M 728 90 C 753 90 753 90 800 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"800,90 793,86 793,94\" fill=\"#476579\"></polygon><polyline points=\"20,90 80,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"80,90 73,86 73,94\" fill=\"#476579\"></polygon><text x=\"20\" y=\"82\" font-size=\"11\" fill=\"#172f43\" textLength=\"26\" lengthAdjust=\"spacingAndGlyphs\">in 0</text><polyline points=\"20,250 80,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"80,250 73,246 73,254\" fill=\"#476579\"></polygon><text x=\"20\" y=\"242\" font-size=\"11\" fill=\"#172f43\" textLength=\"26\" lengthAdjust=\"spacingAndGlyphs\">in 1</text><polyline points=\"960,90 1020,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1020,90 1013,86 1013,94\" fill=\"#476579\"></polygon><text x=\"985\" y=\"82\" font-size=\"11\" fill=\"#172f43\" textLength=\"33\" lengthAdjust=\"spacingAndGlyphs\">out 0</text><rect x=\"80\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"115\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"85\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"105,90 155,90 210,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"155,90 155,130 210,130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"324\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"359\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">\u00d7</text><text x=\"329\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"329\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"464\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"80\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"115\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"85\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"105,250 155,250 210,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"155,250 155,290 210,290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"324\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"359\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">\u00d7</text><text x=\"329\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"329\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"464\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"568\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"603\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">+</text><text x=\"573\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"573\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"708\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"800\" y=\"60\" width=\"160\" height=\"60\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"835\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">\u00d7 (3)</text><text x=\"805\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"940\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"20\" y=\"370\" font-size=\"12\" fill=\"#172f43\" textLength=\"331\" lengthAdjust=\"spacingAndGlyphs\">Ports start at 0. Crossings are not junctions.</text><text x=\"20\" y=\"392\" font-size=\"12\" fill=\"#172f43\" textLength=\"453\" lengthAdjust=\"spacingAndGlyphs\">Diagram of syntax; mathematical claims require separate proofs.</text></svg>"
+      },
+      "fingerprint": "9ab96e8bc720e337eaa440edb14473004ff592eeb0bbc55bbfbca390baeb41d2",
+      "prefix_sha256": "f39803e1bd12712e66e4a7f8dcc0f34db04868588c5ac5d76869ce293b7b6865",
+      "provider": "forseti",
+      "provider_sha256": "6bbe5f42fb468028b3b4d0533d98a979d45c144b9798884ced8cd87e5930ba6b"
+    },
+    "df0459f4c52a9608cf92d5252e53dd717bb4a81a7bfa9e3fe5570cd76e4f841c": {
+      "created": "2026-10-22T16:35:54+00:00",
+      "drawing": {
+        "contracts": [],
+        "graph": {
+          "edges": [
+            {
+              "feedback": false,
+              "lane": 185,
+              "source": [
+                0,
+                0
+              ],
+              "target": [
+                2,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 197,
+              "source": [
+                0,
+                1
+              ],
+              "target": [
+                3,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 209,
+              "source": [
+                1,
+                0
+              ],
+              "target": [
+                3,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 221,
+              "source": [
+                1,
+                1
+              ],
+              "target": [
+                4,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 721,
+              "source": [
+                6,
+                0
+              ],
+              "target": [
+                8,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 733,
+              "source": [
+                7,
+                0
+              ],
+              "target": [
+                8,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 453,
+              "source": [
+                2,
+                0
+              ],
+              "target": [
+                5,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 465,
+              "source": [
+                3,
+                0
+              ],
+              "target": [
+                5,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 477,
+              "source": [
+                3,
+                1
+              ],
+              "target": [
+                6,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 489,
+              "source": [
+                4,
+                0
+              ],
+              "target": [
+                7,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 1209,
+              "source": [
+                9,
+                0
+              ],
+              "target": [
+                10,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 1221,
+              "source": [
+                9,
+                1
+              ],
+              "target": [
+                10,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 1209,
+              "source": [
+                11,
+                0
+              ],
+              "target": [
+                12,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 1221,
+              "source": [
+                11,
+                1
+              ],
+              "target": [
+                12,
+                1
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 965,
+              "source": [
+                5,
+                0
+              ],
+              "target": [
+                9,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 977,
+              "source": [
+                8,
+                0
+              ],
+              "target": [
+                11,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 1453,
+              "source": [
+                10,
+                0
+              ],
+              "target": [
+                13,
+                0
+              ]
+            },
+            {
+              "feedback": false,
+              "lane": 1465,
+              "source": [
+                12,
+                0
+              ],
+              "target": [
+                13,
+                1
+              ]
+            }
+          ],
+          "inputs": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "nodes": [
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 0,
+              "y": 160
+            },
+            {
+              "inputs": 1,
+              "kind": "identity",
+              "label": "id",
+              "outputs": 1,
+              "x": 268,
+              "y": 0
+            },
+            {
+              "inputs": 2,
+              "kind": "swap",
+              "label": "swap",
+              "outputs": 2,
+              "x": 268,
+              "y": 120
+            },
+            {
+              "inputs": 1,
+              "kind": "identity",
+              "label": "id",
+              "outputs": 1,
+              "x": 268,
+              "y": 280
+            },
+            {
+              "inputs": 2,
+              "kind": "add",
+              "label": "+",
+              "outputs": 1,
+              "x": 536,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "identity",
+              "label": "id",
+              "outputs": 1,
+              "x": 536,
+              "y": 160
+            },
+            {
+              "inputs": 1,
+              "kind": "scalar",
+              "label": "\u00d7 (-1)",
+              "outputs": 1,
+              "x": 536,
+              "y": 280
+            },
+            {
+              "inputs": 2,
+              "kind": "add",
+              "label": "+",
+              "outputs": 1,
+              "x": 780,
+              "y": 160
+            },
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 1024,
+              "y": 0
+            },
+            {
+              "inputs": 2,
+              "kind": "multiply",
+              "label": "\u00d7",
+              "outputs": 1,
+              "x": 1268,
+              "y": 0
+            },
+            {
+              "inputs": 1,
+              "kind": "split",
+              "label": "split",
+              "outputs": 2,
+              "x": 1024,
+              "y": 160
+            },
+            {
+              "inputs": 2,
+              "kind": "multiply",
+              "label": "\u00d7",
+              "outputs": 1,
+              "x": 1268,
+              "y": 160
+            },
+            {
+              "inputs": 2,
+              "kind": "add",
+              "label": "+",
+              "outputs": 1,
+              "x": 1512,
+              "y": 0
+            }
+          ],
+          "outputs": [
+            [
+              13,
+              0
+            ]
+          ]
+        },
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1842 500\" width=\"1842\" height=\"500\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><path d=\"M 240 90 C 265 90 265 90 348 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"348,90 341,86 341,94\" fill=\"#476579\"></polygon><path d=\"M 240 130 C 277 130 277 210 348 210\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"348,210 341,206 341,214\" fill=\"#476579\"></polygon><path d=\"M 240 250 C 289 250 289 250 348 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"348,250 341,246 341,254\" fill=\"#476579\"></polygon><path d=\"M 240 290 C 301 290 301 370 348 370\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"348,370 341,366 341,374\" fill=\"#476579\"></polygon><path d=\"M 776 250 C 801 250 801 250 860 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"860,250 853,246 853,254\" fill=\"#476579\"></polygon><path d=\"M 776 370 C 813 370 813 290 860 290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"860,290 853,286 853,294\" fill=\"#476579\"></polygon><path d=\"M 508 90 C 533 90 533 90 616 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"616,90 609,86 609,94\" fill=\"#476579\"></polygon><path d=\"M 508 210 C 545 210 545 130 616 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"616,130 609,126 609,134\" fill=\"#476579\"></polygon><path d=\"M 508 250 C 557 250 557 250 616 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"616,250 609,246 609,254\" fill=\"#476579\"></polygon><path d=\"M 508 370 C 569 370 569 370 616 370\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"616,370 609,366 609,374\" fill=\"#476579\"></polygon><path d=\"M 1264 90 C 1289 90 1289 90 1348 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1348,90 1341,86 1341,94\" fill=\"#476579\"></polygon><path d=\"M 1264 130 C 1301 130 1301 130 1348 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1348,130 1341,126 1341,134\" fill=\"#476579\"></polygon><path d=\"M 1264 250 C 1289 250 1289 250 1348 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1348,250 1341,246 1341,254\" fill=\"#476579\"></polygon><path d=\"M 1264 290 C 1301 290 1301 290 1348 290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1348,290 1341,286 1341,294\" fill=\"#476579\"></polygon><path d=\"M 776 90 C 1045 90 1045 90 1104 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1104,90 1097,86 1097,94\" fill=\"#476579\"></polygon><path d=\"M 1020 250 C 1057 250 1057 250 1104 250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1104,250 1097,246 1097,254\" fill=\"#476579\"></polygon><path d=\"M 1508 90 C 1533 90 1533 90 1592 90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1592,90 1585,86 1585,94\" fill=\"#476579\"></polygon><path d=\"M 1508 250 C 1545 250 1545 130 1592 130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\" data-role=\"wire\"></path><polygon points=\"1592,130 1585,126 1585,134\" fill=\"#476579\"></polygon><polyline points=\"20,90 80,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"80,90 73,86 73,94\" fill=\"#476579\"></polygon><text x=\"20\" y=\"82\" font-size=\"11\" fill=\"#172f43\" textLength=\"26\" lengthAdjust=\"spacingAndGlyphs\">in 0</text><polyline points=\"20,250 80,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"80,250 73,246 73,254\" fill=\"#476579\"></polygon><text x=\"20\" y=\"242\" font-size=\"11\" fill=\"#172f43\" textLength=\"26\" lengthAdjust=\"spacingAndGlyphs\">in 1</text><polyline points=\"1752,90 1812,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1812,90 1805,86 1805,94\" fill=\"#476579\"></polygon><text x=\"1777\" y=\"82\" font-size=\"11\" fill=\"#172f43\" textLength=\"33\" lengthAdjust=\"spacingAndGlyphs\">out 0</text><rect x=\"80\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"115\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"85\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"105,90 155,90 210,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"155,90 155,130 210,130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"80\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"115\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"85\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"220\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"105,250 155,250 210,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"155,250 155,290 210,290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"348\" y=\"60\" width=\"160\" height=\"60\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"383\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"15\" lengthAdjust=\"spacingAndGlyphs\">id</text><text x=\"353\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"488\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><polyline points=\"373,90 478,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"348\" y=\"180\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"383\" y=\"195\" font-size=\"13\" fill=\"#172f43\" textLength=\"31\" lengthAdjust=\"spacingAndGlyphs\">swap</text><text x=\"353\" y=\"215\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"353\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"488\" y=\"215\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"488\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"373,210 478,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><path d=\"M 373 250 L 478 210\" stroke=\"#edf5f8\" stroke-width=\"7\"></path><polyline points=\"373,250 478,210\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"348\" y=\"340\" width=\"160\" height=\"60\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"383\" y=\"355\" font-size=\"13\" fill=\"#172f43\" textLength=\"15\" lengthAdjust=\"spacingAndGlyphs\">id</text><text x=\"353\" y=\"375\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"488\" y=\"375\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><polyline points=\"373,370 478,370\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"616\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"651\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">+</text><text x=\"621\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"621\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"756\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"616\" y=\"220\" width=\"160\" height=\"60\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"651\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"15\" lengthAdjust=\"spacingAndGlyphs\">id</text><text x=\"621\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"756\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><polyline points=\"641,250 746,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"616\" y=\"340\" width=\"160\" height=\"60\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"651\" y=\"355\" font-size=\"13\" fill=\"#172f43\" textLength=\"46\" lengthAdjust=\"spacingAndGlyphs\">\u00d7 (-1)</text><text x=\"621\" y=\"375\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"756\" y=\"375\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"860\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"895\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">+</text><text x=\"865\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"865\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"1000\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"1104\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"1139\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"1109\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1244\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1244\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"1129,90 1179,90 1234,90\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"1179,90 1179,130 1234,130\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"1348\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"1383\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">\u00d7</text><text x=\"1353\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1353\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"1488\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"1104\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"1139\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"39\" lengthAdjust=\"spacingAndGlyphs\">split</text><text x=\"1109\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1244\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1244\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><polyline points=\"1129,250 1179,250 1234,250\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polyline points=\"1179,250 1179,290 1234,290\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><rect x=\"1348\" y=\"220\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"1383\" y=\"235\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">\u00d7</text><text x=\"1353\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1353\" y=\"295\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"1488\" y=\"255\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><rect x=\"1592\" y=\"60\" width=\"160\" height=\"100\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"1627\" y=\"75\" font-size=\"13\" fill=\"#172f43\" textLength=\"7\" lengthAdjust=\"spacingAndGlyphs\">+</text><text x=\"1597\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"1597\" y=\"135\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">1</text><text x=\"1732\" y=\"95\" font-size=\"11\" fill=\"#172f43\" textLength=\"6\" lengthAdjust=\"spacingAndGlyphs\">0</text><text x=\"20\" y=\"450\" font-size=\"12\" fill=\"#172f43\" textLength=\"331\" lengthAdjust=\"spacingAndGlyphs\">Ports start at 0. Crossings are not junctions.</text><text x=\"20\" y=\"472\" font-size=\"12\" fill=\"#172f43\" textLength=\"453\" lengthAdjust=\"spacingAndGlyphs\">Diagram of syntax; mathematical claims require separate proofs.</text></svg>"
+      },
+      "fingerprint": "9ab96e8bc720e337eaa440edb14473004ff592eeb0bbc55bbfbca390baeb41d2",
+      "prefix_sha256": "97e3e475d390ac0a73bed8d37222a4c7a920aebfca88b7c678b56ef787f6a891",
+      "provider": "forseti",
+      "provider_sha256": "e00d6328bf77bacedd566c94166754229586c3bdf187f95910540680b7560053"
+    }
+  },
   "withheld": null
 }

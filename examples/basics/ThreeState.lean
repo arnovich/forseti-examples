@@ -157,7 +157,7 @@ theorem energy_band :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Asgard.Examples.ThreeState.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Asgard.Examples.ThreeState.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Asgard.Examples.ThreeState.evolution.time := by (simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Asgard.Examples.ThreeState.evolution]; norm_num [Rat.mkRat_eq_div])
     have init : forsetiInitial = Gimle.Asgard.Examples.ThreeState.model.initial := by rw [Gimle.Asgard.Examples.ThreeState.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Asgard.Examples.ThreeState.energyIndex := rfl
     rw [time, init, obs]

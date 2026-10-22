@@ -115,7 +115,7 @@ theorem budget_rate (d : Point width) (x : Point states) :
     2 * x (0 : Fin 2) * (compiled.rates.expressions (0 : Fin 2)).eval (pointAppend d x) +
       2 * x (1 : Fin 2) * (compiled.rates.expressions (1 : Fin 2)).eval (pointAppend d x) =
       -2 * energy x + 2 * x (0 : Fin 2) * d dIndex := by
-  rw [field_forced, field_forced, rate_zero, rate_one]
+  rw [field_forced, field_forced, rate_zero (x := x), rate_one (x := x)]
   simp only [energy]
   ring
 
@@ -218,7 +218,7 @@ theorem no_limit_breach :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract forsetiDrivers
     refine ⟨⟨by decide, by decide, by decide, by decide +kernel, by decide +kernel⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.HedgedSpread.compiled.initial := by rw [Gimle.Forseti.Examples.HedgedSpread.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.HedgedSpread.sIndex := rfl
     have drv : forsetiDriver0 = Gimle.Forseti.Examples.HedgedSpread.dIndex := rfl
@@ -314,7 +314,7 @@ theorem budget_band :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract forsetiDrivers
     refine ⟨⟨by decide, by decide, by decide, by decide +kernel, by decide +kernel⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.HedgedSpread.compiled.initial := by rw [Gimle.Forseti.Examples.HedgedSpread.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.HedgedSpread.vIndex := rfl
     have drv : forsetiDriver0 = Gimle.Forseti.Examples.HedgedSpread.dIndex := rfl
@@ -411,7 +411,7 @@ theorem calmer_market :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract forsetiDrivers
     refine ⟨⟨by decide, by decide, by decide, by decide +kernel, by decide +kernel⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.HedgedSpread.compiled.initial := by rw [Gimle.Forseti.Examples.HedgedSpread.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.HedgedSpread.sIndex := rfl
     have drv : forsetiDriver0 = Gimle.Forseti.Examples.HedgedSpread.dIndex := rfl
@@ -504,12 +504,12 @@ theorem budget_quarter_refuted : ¬ (have circuit := Gimle.Forseti.Examples.Hedg
     unfold forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide, by decide +kernel, by decide +kernel⟩, ?_⟩
     intro contract
-    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.HedgedSpread.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.HedgedSpread.compiled.initial := by rw [Gimle.Forseti.Examples.HedgedSpread.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.HedgedSpread.vIndex := rfl
     rw [time, init, obs] at contract
     have zero : Gimle.Forseti.Examples.HedgedSpread.evolution.Admitted Gimle.Forseti.Examples.HedgedSpread.drivers (fun _ _ => 0) := Gimle.Forseti.Examples.HedgedSpreadContract.zero_admitted
-    have admit : Gimle.Forseti.Trajectory.Initialized Gimle.Forseti.Examples.HedgedSpread.evolution.time forsetiDrivers (· = Gimle.Forseti.Examples.HedgedSpread.compiled.initial) (Gimle.Forseti.Examples.HedgedSpreadContract.withInitial fun _ _ => 0) := ⟨⟨by simpa [Gimle.Forseti.Examples.HedgedSpreadContract.withInitial] using zero, fun t _ => by simp [Gimle.Forseti.Examples.HedgedSpreadContract.withInitial] <;> norm_num [Rat.mkRat_eq_div]⟩, Gimle.Forseti.Examples.HedgedSpreadContract.constant_start _⟩
+    have admit : Gimle.Forseti.Trajectory.Initialized Gimle.Forseti.Examples.HedgedSpread.evolution.time forsetiDrivers (· = Gimle.Forseti.Examples.HedgedSpread.compiled.initial) (Gimle.Forseti.Examples.HedgedSpreadContract.withInitial fun _ _ => 0) := ⟨⟨by simpa [Gimle.Forseti.Examples.HedgedSpreadContract.withInitial] using zero, fun t _ => by simp [Gimle.Forseti.Examples.HedgedSpreadContract.withInitial]⟩, Gimle.Forseti.Examples.HedgedSpreadContract.constant_start _⟩
     obtain ⟨output, related⟩ := contract.realizable _ admit
     have origin : Gimle.Forseti.Examples.HedgedSpread.evolution.time.start = 0 := by simp [Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.HedgedSpread.evolution]
     have bounded := contract.holds _ admit output related Gimle.Forseti.Examples.HedgedSpread.evolution.time.start (by simp [Gimle.Asgard.Dynamics.TimeDomain.domain])

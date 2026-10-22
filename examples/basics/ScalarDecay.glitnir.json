@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 39,
       "name": "Notebook.ScalarDecay.k_pos",
       "prefix_sha256": "1e04ee64eb7fd27e65ee0536f5122e5df773646c3401b247b16c673991f62f64",
-      "proposition_sha256": "d2b1c0268b74c724734b719df45d3e688e302519bc15e18ab6aa244bf4e5b721",
+      "proposition_sha256": "630f43f65ceb8d8af06eb0fde632bfba4e1dbada631cb1e78b22715fc154d544",
       "start_line": 36,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 53,
       "name": "Notebook.ScalarDecay.energy_rate_nonpositive",
       "prefix_sha256": "d57ba79ef2c77c26deb1ed0fcba46699f542e3dcf3d00a86600b46078640bfae",
-      "proposition_sha256": "64247613677b6a6e255af4dbe5a11ad0381848622923602176a256bb1d181a3b",
+      "proposition_sha256": "b908e67afce688e7bad76cf2b5a7f1aee838da36ed2c5fba160ea351a443181b",
       "start_line": 50,
       "status": "checked",
       "uses": [
@@ -65,7 +65,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -73,7 +73,7 @@
       "end_line": 71,
       "name": "Notebook.ScalarDecay.energy_nonneg",
       "prefix_sha256": "883c19c3831a8f0c3e987b1d1984c4d56236c1469791eeb6a9b5c79bbca8e165",
-      "proposition_sha256": "3c70f0b19a61fe5fb03673887f9fd9ed5f0cdcc67facabd4ed0bef6a7fe3e4ac",
+      "proposition_sha256": "45b801fea53a1a352bc1cbe1a97f5a577b80d7725890a1d47fccb8cde3685dfd",
       "start_line": 69,
       "status": "checked",
       "uses": []
@@ -93,7 +93,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -101,15 +101,15 @@
       "end_line": 89,
       "name": "Notebook.ScalarDecay.energy_above_floor",
       "prefix_sha256": "4ad24e07a478ee2000db7a559b7342303f6900cad3818549390b341b0d70aa39",
-      "proposition_sha256": "9827dd1907c1025c8f64af9ee839a3f0b088be02250a2e13ef4a652b6ff2f8e5",
+      "proposition_sha256": "75fed6bb23eb0f772582368b8773f272de21aceb1ad83751a4e2244e462d1653",
       "start_line": 87,
       "status": "admitted",
       "uses": []
     }
   ],
   "environment": {
-    "check": "2746652503d77be842355b9478d2a6688c82c1a7ca28b0e8b96796edf67becee",
-    "fingerprint": "50be873c292d7c447a4ffc65e9fa1cc43c11d7774ac63bfefd4f986c862e097b"
+    "check": "656cacbcc6d555899f63cf486d7d864099b83dffded33eacdb76ad5169910c02",
+    "fingerprint": "7b407f5e086c29c6b55e92ccc9ee88efccafb3b10596c534459ab023d2561ef2"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "cf86781b0596d24df074f03c1b8f54bb1e2de33e048bef973eb5b77f9190843c",

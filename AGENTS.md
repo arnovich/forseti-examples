@@ -20,6 +20,21 @@ structurally. After rechecking notebooks in another checkout, copy their results
 here with `python3 -m scripts.collect_results /path/to/that/checkout` (add
 `--dry-run` to validate only), then commit each results file by its path.
 
+To recheck every notebook at once, use the `Notebook recheck` workflow: it runs
+on pull requests that change the notebooks, the Lake pins or the Glitnir pin,
+and on manual dispatch (optionally for named notebooks), on Linux with the
+gallery's pinned Glitnir. `python -m scripts.recheck` checks each notebook
+through Glitnir's preview service, decides out-of-date decisions again
+(replacing an earlier decision's block the way **Accept** inserts it), runs
+out-of-date evidence again and draws every view so its drawing is saved. The
+workflow never pushes: it uploads the results, `recheck.patch` and a
+per-notebook report (`report.md`, also the job summary) that lists every claim
+whose status changed. Review the report, apply the patch and commit each file
+by its path. Results saved on one machine read as out of date in another
+checkout: Glitnir's environment fingerprint includes Lake traces that name
+each locally built module's absolute source path. The gallery and the bundle
+check compare the saved source only, so they are unaffected.
+
 For Lean source or Lake configuration changes, also run `lake build`. Bundle
 checks and editor builds do not replay notebook claims. Use Glitnir's installed
 skill for checking and metadata handling; preserve pinned dependencies unless
@@ -33,9 +48,9 @@ To activate publication, set **Settings → Pages → Source → GitHub Actions*
 run the workflow. Restrict the `github-pages` environment to `main`. Update README
 gallery/image URLs if the repository name or owner changes.
 
-The gallery uses the Glitnir v0.1.2 backend and renderer and the Forseti view
+The gallery uses the Glitnir v0.1.5 backend and renderer and the Forseti view
 provider, pinned by hash in `scripts/gallery/requirements.txt`. Use Python 3.12+,
-Node 22.22.2, Lean 4.32.1 and a working sandbox (bubblewrap on Linux). Diagrams are
+Node 22.22.2, Lean 4.35.0 and a working sandbox (bubblewrap on Linux). Diagrams are
 drawn in this project's own Lake environment, so first build the modules they
 import, from this checkout:
 

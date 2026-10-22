@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 131,
       "name": "_private.LinearCircuitJordan.0.Gimle.Forseti.Examples.LinearCircuitJordan.prefix_of_rational_prefix",
       "prefix_sha256": "a3b578bd8ba51563be0a8229c40483ef6ab82dec5192b7b61262a51f8b8b9054",
-      "proposition_sha256": "c6ff5e7880ae6bed9ad934d39da0655ccac3f86cf8b5ddf6374436d2f595e17d",
+      "proposition_sha256": "efb979c3f6057e8d30ba05286c846ae6f9b0e258f930bc819cfd248421a34095",
       "start_line": 117,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 153,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan1_prefix",
       "prefix_sha256": "2d184e080a28db53ea278963e1134c3fcf02cc56a033ed4b72838e562e4a3570",
-      "proposition_sha256": "59c58f2dfb06da67de6ccb002dd5c649698ecaf876628ea3b2c16254e92ec5af",
+      "proposition_sha256": "7e9f76c223c8fddc7deb4ccbcab86f11ca082c5607a2e0ea93ae4a5c4609298e",
       "start_line": 148,
       "status": "checked",
       "uses": [
@@ -65,7 +65,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -73,7 +73,7 @@
       "end_line": 158,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan1_equivalent",
       "prefix_sha256": "c6f0bbff31a38db698f618893e17c58e3773f0d7c8310ae0da52b5bb0c8f3243",
-      "proposition_sha256": "b7f777671bb360dfaa770b3414b52dbb1ed28e04beacc566659054d001298a4b",
+      "proposition_sha256": "8033a18ed608bb811739c2b7a97838e02f4749d7959cfdfdd69b856e9d4c84cf",
       "start_line": 155,
       "status": "checked",
       "uses": [
@@ -95,7 +95,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -103,7 +103,7 @@
       "end_line": 165,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan2_prefix",
       "prefix_sha256": "94e4b75efedb7f0a7671e8347c132b33a6a0bfebc4181a9f44a537dbc5118b9c",
-      "proposition_sha256": "c730e53dafb94d7afd41eb11f0457efac0c5248beba072200d7096725601d444",
+      "proposition_sha256": "289ec21fe0d813ac788868c5d516c8c8cd7b01cce7aa385a7aa707fd368e98b9",
       "start_line": 160,
       "status": "checked",
       "uses": [
@@ -125,7 +125,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -133,7 +133,7 @@
       "end_line": 170,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan2_equivalent",
       "prefix_sha256": "cec1714c2144f5ed2ffa6f0cd64ad116a0bd6518ae8fa36b0621f93e47b76a20",
-      "proposition_sha256": "0f7cda55c8ae8b96be99eaa2d63a7b8a1e9cea7fb7d6eb5257c82f3e03399a18",
+      "proposition_sha256": "480fa20e337eacb602be312962bb5953cc05a0767e4ae12b6c0b3b56ee10a5b4",
       "start_line": 167,
       "status": "checked",
       "uses": [
@@ -155,7 +155,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -163,7 +163,7 @@
       "end_line": 177,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan3_prefix",
       "prefix_sha256": "6ca61ca3d3d1c99a07c0c19bff7dda0d0e65c8a41149a1be08ac55e8be953f10",
-      "proposition_sha256": "61464504bdadd7cf8f657f04c000d06cb8c9e0c0ac6f13ff3b884e25c0f8a0b0",
+      "proposition_sha256": "605a99bfa02acc52a402e149ed6f60efb31f314492609fed3eadab2dc5807b81",
       "start_line": 172,
       "status": "checked",
       "uses": [
@@ -185,7 +185,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -193,7 +193,7 @@
       "end_line": 182,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan3_equivalent",
       "prefix_sha256": "842f66011d5c2d742cebb7dbf4fa25154a80e03ab5502dcc439142ef5504ee8e",
-      "proposition_sha256": "486a5bcde93ad9edd54ff18d814d66bd7a49982fa54051d96c36f3b6500ec846",
+      "proposition_sha256": "f08b16b9d6e6f5e8a8bd06efebcd1a94513a49d3fb9f11cae9837d1de26fb4b1",
       "start_line": 179,
       "status": "checked",
       "uses": [
@@ -215,7 +215,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -223,7 +223,7 @@
       "end_line": 205,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan2_expected",
       "prefix_sha256": "3eadfa0afe0c9694fbd683d11de994372329e2a18d44b2448d379a2481162d54",
-      "proposition_sha256": "1e88f9ea6f4339ccfac0023a6155deaa097db259e0a572b4b9b8e897d5264fca",
+      "proposition_sha256": "97361ca5f2a6d9ff7b494ceef66ad4b084916e251175d464a088b57d699b920b",
       "start_line": 194,
       "status": "checked",
       "uses": []
@@ -239,7 +239,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -247,7 +247,7 @@
       "end_line": 219,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan3_expected",
       "prefix_sha256": "6faedd1f5c76c7d8735f077c6f9b06788548eebc62b54d019fa66e0a531dc497",
-      "proposition_sha256": "3dfafd78f70a95a2e432bb00555870efd91b3cb8212c8d22f79cc818cbce27e1",
+      "proposition_sha256": "6320f4984dc059dba27ccbf95f5650833150c4158a24e8b7c601f11e57df70ae",
       "start_line": 207,
       "status": "checked",
       "uses": []
@@ -263,7 +263,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -271,7 +271,7 @@
       "end_line": 224,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan2_different_updates",
       "prefix_sha256": "abe2bea31b53c5e2206a882d7aeb6d4cd8c6f0c8d27a4b2c75c7c6d7589618d7",
-      "proposition_sha256": "114626c0048557ebadae05e131a4371ba0e7d1881c4fae7a7ac58527657063ad",
+      "proposition_sha256": "f81d0c766723452564060fa8fbdeaf623f331749c0d45d718fc68b7bf94f7e6d",
       "start_line": 221,
       "status": "checked",
       "uses": []
@@ -287,7 +287,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -295,15 +295,15 @@
       "end_line": 228,
       "name": "Gimle.Forseti.Examples.LinearCircuitJordan.jordan3_different_updates",
       "prefix_sha256": "f28309e3abb05acb077be9e161607bf19cdef2212b01eca01e6feb73e7cf6fff",
-      "proposition_sha256": "ce47d78600528ddeb5f5baf8a9cd2e36df296de6ad5e5d9ae9c5364080aff58a",
+      "proposition_sha256": "355220cac23afc32405a166d41128189d7b7ddbd515aba2a26ea013b89be5e5b",
       "start_line": 226,
       "status": "checked",
       "uses": []
     }
   ],
   "environment": {
-    "check": "fad9016f1d83aeadad3ef5afdd882dca14c6d87be4f82dca910f4c1ac57a8919",
-    "fingerprint": "4fe32996c3724f4a55a9fcf106388d90c4827113218b887da3a901c51980e9bd"
+    "check": "d06e8f0b8d080cc1c38343a508148b399f4b3c07ca615d3d04689b4196ce7f39",
+    "fingerprint": "ad1245d6d87655c7e33dc4b4c7a5af9768fba54d1769cf7cd032c3876ea31284"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "a6684acf9ddce44023fefef188a25ef848359e0b95c7b1cc6779342093fd81f6",

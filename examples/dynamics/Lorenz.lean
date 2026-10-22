@@ -189,7 +189,7 @@ theorem in_ball :
   have root : forsetiRoot := by
     unfold forsetiRoot forsetiIdentities forsetiContract
     refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.Lorenz.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.Lorenz.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have time : forsetiTime = Gimle.Forseti.Examples.Lorenz.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.Lorenz.evolution]
     have init : forsetiInitial = Gimle.Forseti.Examples.Lorenz.compiled.initial := by rw [Gimle.Forseti.Examples.Lorenz.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
     have obs : forsetiObservation = Gimle.Forseti.Examples.Lorenz.energyIndex := rfl
     rw [time, init, obs]
