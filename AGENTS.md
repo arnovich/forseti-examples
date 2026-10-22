@@ -20,10 +20,19 @@ structurally. After rechecking notebooks in another checkout, copy their results
 here with `python3 -m scripts.collect_results /path/to/that/checkout` (add
 `--dry-run` to validate only), then commit each results file by its path.
 
-To recheck every notebook at once, use the `Notebook recheck` workflow: it runs
-on pull requests that change the notebooks, the Lake pins or the Glitnir pin,
-and on manual dispatch (optionally for named notebooks), on Linux with the
-gallery's pinned Glitnir. `python -m scripts.recheck` checks each notebook
+To recheck notebooks, use the `Notebook recheck` workflow. On pull requests it
+rechecks only what changed: `scripts/select_recheck.py` takes
+`git diff --name-only <base>...HEAD` and selects the notebooks whose `.lean`
+source changed plus those that import them (through `import` lines and the
+lakefile's libraries). A change to `lean-toolchain`, `lake-manifest.json`,
+`lakefile.toml`, the gallery or recheck requirements, `scripts/recheck.py`,
+`scripts/select_recheck.py` or the workflow rechecks all; results files and
+docs recheck nothing, and the workflow's `.lean` paths filter does not even
+start it for a pull request without `.lean` changes. When nothing is selected
+the job succeeds with a summary line and builds no Lean. Manual dispatch takes
+an optional `only` list (empty means all), on Linux with the gallery's pinned
+Glitnir. Because the diff is against the pull request's base, a results commit
+on top of a source change rechecks that notebook again. `python -m scripts.recheck` checks each notebook
 through Glitnir's preview service, decides out-of-date decisions again
 (replacing an earlier decision's block the way **Accept** inserts it), runs
 out-of-date evidence again and draws every view so its drawing is saved. The
