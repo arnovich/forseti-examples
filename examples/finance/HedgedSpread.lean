@@ -115,7 +115,7 @@ theorem budget_rate (d : Point width) (x : Point states) :
     2 * x (0 : Fin 2) * (compiled.rates.expressions (0 : Fin 2)).eval (pointAppend d x) +
       2 * x (1 : Fin 2) * (compiled.rates.expressions (1 : Fin 2)).eval (pointAppend d x) =
       -2 * energy x + 2 * x (0 : Fin 2) * d dIndex := by
-  rw [field_forced, field_forced, rate_zero, rate_one]
+  rw [field_forced, field_forced, rate_zero (x := x), rate_one (x := x)]
   simp only [energy]
   ring
 

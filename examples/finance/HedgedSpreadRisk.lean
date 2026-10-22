@@ -412,6 +412,7 @@ theorem mark_on_any_date :
     rcases Nat.eq_zero_or_pos n with rfl | hn0
     · have hempty : {ω : ℕ → ℝ | ¬ exposureWithin 1 (run step compiled.initial ω 0)} = ∅ := by
         ext ω
+        rw [Set.mem_ofPred_eq, run_zero]
         norm_num [exposureWithin, initial_eq]
       refine ⟨h.prob, by norm_num, ?_⟩
       rw [hempty, measure_empty]
