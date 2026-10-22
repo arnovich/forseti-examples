@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 82,
       "name": "NavierStokes.circuit_contract",
       "prefix_sha256": "dc2b359aef58f47444c2b4cb5aab09223364ec69b8b0966165d82c8abab0d1af",
-      "proposition_sha256": "22b615d4866ae9f772876499dcc147456a7a5ba97ef1e342bcb01efc2a538181",
+      "proposition_sha256": "da10f778d4b1630a191befee4d2b2ce2e224a161183f1888fc728a9482ea4ba0",
       "start_line": 73,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 90,
       "name": "NavierStokes.truncation_contract",
       "prefix_sha256": "56272c64dd86727ec1530f6ffb23d6c2b59c2b4beeba9235fa2df7f5aa955880",
-      "proposition_sha256": "a0f94892edfa5d9331360b1fa7e55770f302a83b0509733562b7b53fab056a62",
+      "proposition_sha256": "336e7d1fa3967f682a6ce74254acf713b4e6f5917eacb7899971b6b8db956bf8",
       "start_line": 84,
       "status": "checked",
       "uses": [
@@ -65,7 +65,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -73,7 +73,7 @@
       "end_line": 98,
       "name": "NavierStokes.band_contract",
       "prefix_sha256": "b1af20d255dbb6348648395123e5b6b74907391c76d9756964862d04bcd9294d",
-      "proposition_sha256": "1d48f4c2a44e2cb53f6cfeda51067903f7dca467d8ddd27032a6901f9f95588f",
+      "proposition_sha256": "600e4c357f14e58ec52b1c2604c2d0b4ae4ab988679682a692967793f6db75c9",
       "start_line": 92,
       "status": "checked",
       "uses": [
@@ -95,7 +95,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -103,7 +103,7 @@
       "end_line": 122,
       "name": "NavierStokes.euler_scale_contract",
       "prefix_sha256": "0e3033be7f4e32c2cc26e68393e16d4c916a4b91932fa3427824e665759dc8e6",
-      "proposition_sha256": "6eb0456c40b64ae0de8274808edd04373e744f22a68497efceb060abbab301cc",
+      "proposition_sha256": "f5368c4341bb409fe95003bc39fe71dbd757ade83d516c168a8add8e30fbc150",
       "start_line": 114,
       "status": "checked",
       "uses": []
@@ -119,7 +119,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -127,7 +127,7 @@
       "end_line": 135,
       "name": "NavierStokes.euler_tail_contract",
       "prefix_sha256": "5d17f038fc018abea3da470651ccd5ba4f3f5140285d753bca0730a0af3a9835",
-      "proposition_sha256": "40aa0ffb27470aa42c81b67f600a73fbb8178187925c91cbcf3450ca94c29d38",
+      "proposition_sha256": "2e25379edb0be15623d0c6637926cff1d5e51b447d71d6f7a30612dc36562278",
       "start_line": 124,
       "status": "checked",
       "uses": [
@@ -149,7 +149,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -157,7 +157,7 @@
       "end_line": 178,
       "name": "NavierStokes.heat_x",
       "prefix_sha256": "3545390c7213d73ff33e397be8dde0d7cf9a13a2a2168e23f7744aff527c8ef7",
-      "proposition_sha256": "9b8b92cd7c756867956539571a4026805e6684d721a9a33f3619107007a5555c",
+      "proposition_sha256": "e6038eb397f729cae735cb312b05dc80b2968f79a47801fe396348e5d71ededf",
       "start_line": 176,
       "status": "checked",
       "uses": []
@@ -173,7 +173,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -181,7 +181,7 @@
       "end_line": 183,
       "name": "NavierStokes.first_y",
       "prefix_sha256": "6589a63b92328f9d0d036e47b58a70664d8bb40238b30e03e628607ed82d33d4",
-      "proposition_sha256": "847d246aa25a6e8a691046c4af4ba31cd6b4126fc247cb8ac330d62a0fbeec8b",
+      "proposition_sha256": "df6e180b6b932a0bb1ec79590fa643469d5d6fda822408f004a87c865c991a35",
       "start_line": 180,
       "status": "checked",
       "uses": []
@@ -197,7 +197,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -205,7 +205,7 @@
       "end_line": 188,
       "name": "NavierStokes.second_2x2y",
       "prefix_sha256": "7da1c3658513efa3bf693bae958395790f59314f8b234e47a7db0f34429ba2c5",
-      "proposition_sha256": "43f7db5f8577320d989529cddc306c1bd1c2e2944fb3ad436f4e220a7f58a2e7",
+      "proposition_sha256": "51cc153982775e7ce7be5e6ed831ed7f6f14a5d071ade57b8d3e224ed3e28952",
       "start_line": 185,
       "status": "checked",
       "uses": []
@@ -221,7 +221,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -229,7 +229,7 @@
       "end_line": 192,
       "name": "NavierStokes.inspected_output",
       "prefix_sha256": "3c1ec02254468099e6f29141f4e264c55196bccc6f9c4299088ae17ca0b2349e",
-      "proposition_sha256": "5f172012aa7bcbd248311e432d0d0bf6e97d870f375ec891ae45c7b32854feb9",
+      "proposition_sha256": "488b04083a339c31621f705af87f65b974e48c498afc74bc1e6be777705443c4",
       "start_line": 190,
       "status": "checked",
       "uses": []
@@ -245,7 +245,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -253,7 +253,7 @@
       "end_line": 209,
       "name": "NavierStokes.crossing",
       "prefix_sha256": "71afccefd9bcb3c46f2efd203f028d240d6428be7890c45c79e2702687dbc009",
-      "proposition_sha256": "45cde2d221cef6eb860f40eb5a1e1288831ca1777dd736ff260f8bfb4b3f2b1f",
+      "proposition_sha256": "fd24ee6cb833ff20718d27466c182462726ac331b9df4e2202e9b63135f21d7d",
       "start_line": 207,
       "status": "checked",
       "uses": []
@@ -269,7 +269,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -277,7 +277,7 @@
       "end_line": 240,
       "name": "NavierStokes.exists_certified",
       "prefix_sha256": "69415192af72e5f3c59d71b535859d0bdd783842600460804823645dd5569052",
-      "proposition_sha256": "9cf0968cf0d9ee7a4696f7b3fd0a83c0ea3a765619da5959b0dd1ca0ce9f321f",
+      "proposition_sha256": "049618ea54c24695773e12ab194ea48a027f271993fcc1e2c9c648298b798ef9",
       "start_line": 236,
       "status": "checked",
       "uses": [
@@ -299,7 +299,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -307,7 +307,7 @@
       "end_line": 246,
       "name": "NavierStokes.classical_output",
       "prefix_sha256": "9c405619d0dab1f52760ca9b59b70a926996bfb09a2457a5148ee2b20aa9ef96",
-      "proposition_sha256": "4a37ed405c339b27a8cd90f29310bc6c2166dbe02197110184c1258898ed75b9",
+      "proposition_sha256": "9ec2d54a6fc4ce5ba08fdaeb095f1c65c2c9f6797de59ce1942201f73d997ef7",
       "start_line": 242,
       "status": "checked",
       "uses": [
@@ -329,7 +329,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -337,7 +337,7 @@
       "end_line": 272,
       "name": "NavierStokes.enstrophy_identity",
       "prefix_sha256": "c4afe54f8434e57afce38c369245391aa8f265062e892697add5f3e1f840cddc",
-      "proposition_sha256": "be4dc20c250a0fdddd31339f347aefed67cf2c68b54d21e72f90a84f302048e0",
+      "proposition_sha256": "2fa9487b741bf1596d1e8d3e8bab2c24422d784b5b49ba7807d60044b9beb6dd",
       "start_line": 266,
       "status": "checked",
       "uses": [
@@ -359,7 +359,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -367,7 +367,7 @@
       "end_line": 280,
       "name": "NavierStokes.energy_identity",
       "prefix_sha256": "a5d7715c35c6f35a1431007546a9bab8ccded0d0b005659a227321d07183f9ee",
-      "proposition_sha256": "c973f60c7bf36c8cf9a3abe13748193b1c6d11ce84d1571244380ba3d896db67",
+      "proposition_sha256": "6f6d76087d4cb7fb39926793e3233b63beb08a3a0c2271eeb2a0f061e2694ff2",
       "start_line": 274,
       "status": "checked",
       "uses": [
@@ -389,7 +389,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -397,7 +397,7 @@
       "end_line": 287,
       "name": "NavierStokes.energy_endpoint",
       "prefix_sha256": "c1aaeaea4540ffce3110757605212cd0d05518472b5a49d69183419dc394e124",
-      "proposition_sha256": "5aaafe58a99e695cc4669415743e6f7ae933757a871a6836b70edc1959b655ac",
+      "proposition_sha256": "408c96a3bd149e441f895405c5219e391d7becebd37673e01d813c06d9f23600",
       "start_line": 282,
       "status": "checked",
       "uses": [
@@ -419,7 +419,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -427,7 +427,7 @@
       "end_line": 366,
       "name": "NavierStokes.Decided_truncation_decided.truncation_decided",
       "prefix_sha256": "b8ffe27b892abced533bd69078af706c5b302c67568c5050e54dba05a83ab6be",
-      "proposition_sha256": "77fd29a7f52605d870536bc5ce44e5e9a58cd657f64187fa84c9d66ccd02bbeb",
+      "proposition_sha256": "fe07b4fcec9c3f51ecac19291a0ffaca88476adf0111a3f0b9249347849823f5",
       "start_line": 332,
       "status": "checked",
       "uses": []
@@ -443,7 +443,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -451,15 +451,15 @@
       "end_line": 433,
       "name": "NavierStokes.Decided_band_decided.band_decided",
       "prefix_sha256": "6cdbea135b2ea69659b90c3c17a12cedf585d8e00b92c370218b5c5397c6b827",
-      "proposition_sha256": "c0dbacd7cb6ca3e6baac166e0e642107b13e33f1bba72f56d45c923882d1db34",
+      "proposition_sha256": "2de11ef7e3d057170c853ef93ffc7302e58e9a103513a75ed8231d258600e2c8",
       "start_line": 397,
       "status": "checked",
       "uses": []
     }
   ],
   "environment": {
-    "check": "3078d3385fe2461f7df75db60e26d2b45a94b14b2068868c810549c5c02e28af",
-    "fingerprint": "6edb710547f712ff5bd5e3e3328f9f977a45d76254946c522434dd61cdf67500"
+    "check": "c98fc75b2af66ef05c6100d69cff82ed6ac2dd903a6c08ded2f7220bebb7c14a",
+    "fingerprint": "4c2a26039238462de2051ea66fbdc5e649c42cbad921c4b176246b71f5bc0d16"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "c66f7cc7b60520dc03661b55f7844cbeaa19d512dddfaa4177478ed7eb0b0599",

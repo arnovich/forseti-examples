@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 110,
       "name": "Notebook.NSK5.triad_lossless",
       "prefix_sha256": "475c92e8f392624ea8e0655aeaaee129e1652570aca5ffddf25c19bedc01d447",
-      "proposition_sha256": "91cb3dc78fb7497f687bb4f28336bfcd4bb1160b36df6b11b2858ed93eb777e3",
+      "proposition_sha256": "35e1adfa07c6918c8a85f2a8d906998dab0dae3501aca13e95d0c5fdd866948d",
       "start_line": 105,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 125,
       "name": "Notebook.NSK5.energy_rate",
       "prefix_sha256": "efe2f3de876768973bbb66ca70ce4466ac1c743e04ccf242ebf7d77dccad1968",
-      "proposition_sha256": "c952a7a1ecbdd2c1f9d9be2ff200d778b01e079895c1aecfa58f8a8220e37cd8",
+      "proposition_sha256": "d68343adc4e0d5fee8a124d2be4ca49b4587f2f7c8fdc70ac4bce52d76536cf3",
       "start_line": 120,
       "status": "checked",
       "uses": []
@@ -59,7 +59,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -67,7 +67,7 @@
       "end_line": 149,
       "name": "Notebook.NSK5.laminar_energy",
       "prefix_sha256": "8ab66f151f3327d1248556dc9ae89097b1f9136097b868d89bec0675535c1a2f",
-      "proposition_sha256": "f6f274b6c3ed9159550fedf24f2c6fca6771ce4aeb452452ca82f007b3fa9439",
+      "proposition_sha256": "4a2729bed10cd37db828942d80f84bfb76750f7be7c7634c7225301fa2e39946",
       "start_line": 147,
       "status": "checked",
       "uses": []
@@ -83,7 +83,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -91,7 +91,7 @@
       "end_line": 155,
       "name": "Notebook.NSK5.certificate_here",
       "prefix_sha256": "63270e6d3415170c25bb5c88e07939f79076be072f7267a7fe6b8442ddf6e70d",
-      "proposition_sha256": "e76618ff558038627aa62059c877b402b50a742b6590251e45a367b151f9a5b2",
+      "proposition_sha256": "7786a94076981bae70eca7857bdc69f8b97543017b99bdf36614d2e0c1ce0879",
       "start_line": 151,
       "status": "checked",
       "uses": []
@@ -107,7 +107,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -115,7 +115,7 @@
       "end_line": 176,
       "name": "Notebook.NSK5.is_family_member",
       "prefix_sha256": "89e483489afb8c9b5e92c2418d829610aeaeaced36e58d370f753f55d9bb57bc",
-      "proposition_sha256": "6a36be76665ac6063b61c98290376d750691243941df685b2193c46108e9668d",
+      "proposition_sha256": "570ba04228f585f6f37f573e3064c0370787af1abeb2b5f9f2eca4b2b7b0f774",
       "start_line": 172,
       "status": "checked",
       "uses": []
@@ -131,7 +131,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -139,7 +139,7 @@
       "end_line": 191,
       "name": "Notebook.NSK5.every_member",
       "prefix_sha256": "29f4e11207bd1d867c261d4f2f75b6a47001f9814aae0effcd95fdaa2efdeb98",
-      "proposition_sha256": "1c23768e55eaf321ab953ca3cb43d42ee6d5ca121a3772cbfc144a3b6fc685c2",
+      "proposition_sha256": "1040f270886e5ec3ff5bbcc6e1bd948d8693240aa6a38c936359ed259f95e3b7",
       "start_line": 178,
       "status": "checked",
       "uses": []
@@ -155,7 +155,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -163,7 +163,7 @@
       "end_line": 227,
       "name": "Notebook.NSK5.enstrophy_rate",
       "prefix_sha256": "8fab0cf91a774218457fe477f0453c859d3c730492f4449af7da3721ab031c6b",
-      "proposition_sha256": "e4d04f465c3f96802923519fd2a6c6538250b7e369733fad6417ed54beaa4f95",
+      "proposition_sha256": "3d9ba8939b8004bf4e981f725b4571f5edb24a62b1ee22024e0fd91758ace022",
       "start_line": 222,
       "status": "checked",
       "uses": []
@@ -179,7 +179,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -187,7 +187,7 @@
       "end_line": 231,
       "name": "Notebook.NSK5.laminar_enstrophy",
       "prefix_sha256": "fea8302efc2731a52d7e4b5c6455fbe510a05166f6632b4a46f4f07619bdef98",
-      "proposition_sha256": "bb72b2e85871b7c41045ee279b58784e5fbb6ffc320bb50fbdddc7ce5cec9652",
+      "proposition_sha256": "7b7b011e80a839e0da1241b4ec8da1d45d5b2dcf559b8cabf823aedbabde9e3a",
       "start_line": 229,
       "status": "checked",
       "uses": []
@@ -203,7 +203,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -211,7 +211,7 @@
       "end_line": 237,
       "name": "Notebook.NSK5.enstrophy_certificate_here",
       "prefix_sha256": "a4e62532b59d4cc34a4022b1efd7aa1d6cfe0fbc852b554590c60b0944e9ef2d",
-      "proposition_sha256": "0dd060fbeb75361ed8fed5e5dad6e2addf1083a87d8a8379c8ec2e2c0c9752a4",
+      "proposition_sha256": "19214087c686a63983c055757f3383da94e71c0b4b2d74e43f4c642f62ef6684",
       "start_line": 233,
       "status": "checked",
       "uses": []
@@ -227,7 +227,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -235,7 +235,7 @@
       "end_line": 245,
       "name": "Notebook.NSK5.amplitude_bound",
       "prefix_sha256": "9fae219de23f94490be82fbf3fae6a6fbd56c11ea8e1b96b5337bce7edb0bbf8",
-      "proposition_sha256": "52e5b801926f29494cf7f51839965d4602a9ac115e49b2cfb36e195947c3ddf2",
+      "proposition_sha256": "7b92bc5fa995c789073af656e8552953b3ba2fbf0190306f5f2e516e9ff9c024",
       "start_line": 239,
       "status": "checked",
       "uses": []
@@ -251,7 +251,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -259,7 +259,7 @@
       "end_line": 272,
       "name": "Notebook.NSK5.only_two",
       "prefix_sha256": "c2cd6247960c8c2956d1fc5fba36f0b3fc8b01047094805c0fe754e192d60cdc",
-      "proposition_sha256": "9b8d798221f4c9aeead38849062c636de47fa125a81d924be4bedb41b51d55e4",
+      "proposition_sha256": "d063d1b92790fe3a3cc87da5498bf3ff7eb0b6f565ee690cdf839cd476fac61c",
       "start_line": 261,
       "status": "checked",
       "uses": []
@@ -275,7 +275,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -283,7 +283,7 @@
       "end_line": 291,
       "name": "Notebook.NSK5.symmetric_invariant",
       "prefix_sha256": "f7508f5eebe32491dbed84a4c1ab9359c77fd74a47a7c2b08c624915a74fe551",
-      "proposition_sha256": "587d58980dae68d36aa2377a46e7d8b7da4ec6c893f8b2672c4c535ed23a9052",
+      "proposition_sha256": "e7c9d994d82435b7c6126a088610b03c853563ae46304bbf76704c9b7c5f0650",
       "start_line": 284,
       "status": "checked",
       "uses": []
@@ -299,7 +299,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -307,7 +307,7 @@
       "end_line": 326,
       "name": "Notebook.NSK5.laminar_is_equilibrium",
       "prefix_sha256": "e30604abb0b7af2b029a12ccbf2e2bba900350642be9aa51f534bad1f7e45c5b",
-      "proposition_sha256": "104a12d1b2852a21d7208554f9b43b26c0c6b42b7e4302a1c863251af28ca1d2",
+      "proposition_sha256": "acde10221b5adc70832915c6b3f5df9bcc90680f2105e65c6398abea8bde2c8f",
       "start_line": 324,
       "status": "checked",
       "uses": []
@@ -323,7 +323,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -331,7 +331,7 @@
       "end_line": 331,
       "name": "Notebook.NSK5.tube_excludes_laminar",
       "prefix_sha256": "53c3452f0c08cec154fdc6ed8b7841b7eaf37838ae58199f372dae31394906a4",
-      "proposition_sha256": "afea73bb3c4f1eb70871745582ef0084b7ee12e0ce71ae258c0957b1d81933c7",
+      "proposition_sha256": "ae54799e3ab1b2b622784ce0b49243034bb9df34f53a1a425d22c9a02e3c363a",
       "start_line": 328,
       "status": "checked",
       "uses": []
@@ -347,7 +347,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -355,7 +355,7 @@
       "end_line": 336,
       "name": "Notebook.NSK5.tube_below_six",
       "prefix_sha256": "251114f6c436d323555b91e985fd9845ca48fc2b9b50e866fe1b0a2b7fc6f666",
-      "proposition_sha256": "715d6030d7a25e9cfcf9859fa15900507de25236f0ca343a8f5e06bae4141d58",
+      "proposition_sha256": "c02a81cebb7434f78589ea4921a55bc4b93a3935125f04bad5e58b31b81e56fa",
       "start_line": 333,
       "status": "checked",
       "uses": []
@@ -371,7 +371,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -381,7 +381,7 @@
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiTime Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiTime",
       "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_ball._glitnir_example_19651",
       "prefix_sha256": "eec72848ecaa4f59b1a3c3a53714ca91f84dd12c4e634d1e715f592aeb949d1e",
-      "proposition_sha256": "cfa01eccc327473ab379b7d73c001b09f0359024c7dabe436360613b98bc8635",
+      "proposition_sha256": "261ec4753e2291f172f8722d7030d8021cad77a693c1841121b98ee8277d4297",
       "start_line": 387,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -398,7 +398,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -408,7 +408,7 @@
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiInitial Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiInitial",
       "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_ball._glitnir_example_19723",
       "prefix_sha256": "ae5acd340fa128b3ad416f1c693da36d0923c3a0d030d64f8906bdf9ecfad6b1",
-      "proposition_sha256": "45d33617cf142de6cd5ef620cc3a021d538bc8098959ba9feaf71df7051dd181",
+      "proposition_sha256": "9b263f8c34c27d0fe3f2c8faacf5d9e9cadd55f2353c5c92fe564a5676cb04a6",
       "start_line": 388,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -422,7 +422,7 @@
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiObservation\n  Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiObservation",
       "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_ball._glitnir_example_19801",
       "prefix_sha256": "eaf6295d821788f125256ecbb5170fda1bfed054ec270ab00f187920e8695102",
-      "proposition_sha256": "a406ad26fa1d96932b2eaff37d71eed7a64e11599a0c7239159a44fdc9f233e9",
+      "proposition_sha256": "9990a54d853091f71b53c4edbeb351be487e493ab90b232d4db9e236046ef4ee",
       "start_line": 389,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -439,7 +439,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -449,7 +449,7 @@
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiIdentities Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiIdentities",
       "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_ball._glitnir_example_19887",
       "prefix_sha256": "4bf95142cf58cda184a301cf3ec29bfcf17175127e698fc55a2beea54a40e0e5",
-      "proposition_sha256": "8bd187e779eb0b7f62724ede2471aa5e35919cd124087bbd382b506cf4f42df5",
+      "proposition_sha256": "864c94b135519d0303f522599c0c11685ae9bb629624b6baefca32148480fa22",
       "start_line": 390,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -466,15 +466,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "59ddd5ab285251d3a7bb48371d12ea537b329807f1718df33ed40ceded52b311",
+      "declaration_sha256": "9675871d1a385d18d738a8a8450910e9f7cafe5dc47a4e3ca5f14a9058ab721f",
       "end_line": 450,
       "name": "Notebook.NSK5.Decided_in_ball.in_ball",
-      "prefix_sha256": "6c829d64392bdd9c205266128e658b07a8f70bae586a3b9199e3b5f807683f8c",
-      "proposition_sha256": "fe2505ea824526d8e000c536c4ffc46fb0ed7b2afa7c336e795d74026c60beea",
+      "prefix_sha256": "f9c4ba0cdf64673a22c0f2b38f982cc19a673dc1e4c8c63081820a1af5c65895",
+      "proposition_sha256": "f7a8897f45e804755c96b3743a0bd9bdbd4128c16b4a7dc81becaf0f1412f8e3",
       "start_line": 409,
       "status": "checked",
       "uses": []
@@ -490,7 +490,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -498,9 +498,9 @@
       "end_line": 469,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiTime Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiTime",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26491",
-      "prefix_sha256": "344224ec08f948b48074cdd424d2d6ae724ebfcfcb6ef09d78c2a2b81fdadb42",
-      "proposition_sha256": "cfa01eccc327473ab379b7d73c001b09f0359024c7dabe436360613b98bc8635",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26459",
+      "prefix_sha256": "91d17df34cb366ebf5efa5ca1619ac18ab1c7f400221bf8653a9281c7c7279c0",
+      "proposition_sha256": "261ec4753e2291f172f8722d7030d8021cad77a693c1841121b98ee8277d4297",
       "start_line": 469,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -517,7 +517,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -525,9 +525,9 @@
       "end_line": 470,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiInitial Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiInitial",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26563",
-      "prefix_sha256": "430f17b2f2a5ce5d51950a36e6f5312526e635f9a33dfdc1f27164eb86a9fb7b",
-      "proposition_sha256": "45d33617cf142de6cd5ef620cc3a021d538bc8098959ba9feaf71df7051dd181",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26531",
+      "prefix_sha256": "4b4aef4183d9f42942241af9d83bc2e49c8dfdfe4b12ad62d9934499d7d4a745",
+      "proposition_sha256": "9b263f8c34c27d0fe3f2c8faacf5d9e9cadd55f2353c5c92fe564a5676cb04a6",
       "start_line": 470,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -539,9 +539,9 @@
       "end_line": 471,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiObservation\n  Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiObservation",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26641",
-      "prefix_sha256": "1f6e971bd7aa05b191a43e1aeec4ca13de5a910f2a454a1f6a5938304cbe5e3b",
-      "proposition_sha256": "a406ad26fa1d96932b2eaff37d71eed7a64e11599a0c7239159a44fdc9f233e9",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26609",
+      "prefix_sha256": "1b9abd9ae858448517ff020910682c3931476a293336f97cd8a66bf389ef554a",
+      "proposition_sha256": "9990a54d853091f71b53c4edbeb351be487e493ab90b232d4db9e236046ef4ee",
       "start_line": 471,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -558,7 +558,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -566,9 +566,9 @@
       "end_line": 472,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiIdentities Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiIdentities",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26727",
-      "prefix_sha256": "e487416b852c265f062a7acff9a339337a56993be62a3042bd51667fefac1e73",
-      "proposition_sha256": "8bd187e779eb0b7f62724ede2471aa5e35919cd124087bbd382b506cf4f42df5",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_one._glitnir_example_26695",
+      "prefix_sha256": "a536804ffe9ea586e294754a8cbd0ca03ef37bfa0c76795b23fe9ee70529bab5",
+      "proposition_sha256": "864c94b135519d0303f522599c0c11685ae9bb629624b6baefca32148480fa22",
       "start_line": 472,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -589,15 +589,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "569491416c2e04175cb9693a2ea6b99c008839a11f342e65c54da39e8eb59301",
       "end_line": 497,
       "name": "Notebook.NSK5.Decided_below_one.below_one",
-      "prefix_sha256": "277c03548648a235fd217a6503f02440f582253be67efa2c9ea013fa1a5b9083",
-      "proposition_sha256": "0a5eb8dc46b2139bce88f62ab00962794c3d196253441de10b8199ffebc6a79c",
+      "prefix_sha256": "58e100437e7f6aba49bef90e574d7bf1ac84b12f3fba8f6edd999720d594459b",
+      "proposition_sha256": "f0b7f8d96bf464a46737ca0e7cb61adfd3c5d8787b64472e4af963a58783ba35",
       "start_line": 486,
       "status": "admitted",
       "uses": []
@@ -613,7 +613,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -621,9 +621,9 @@
       "end_line": 516,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiTime Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiTime",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28784",
-      "prefix_sha256": "7901fe44145e78bbe56879bce2cda77d404ddf47c2afd3a2415fee2dc442f528",
-      "proposition_sha256": "cfa01eccc327473ab379b7d73c001b09f0359024c7dabe436360613b98bc8635",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28752",
+      "prefix_sha256": "cbe04f12e119e2d36509e052f3f29d794445f03a0a71dfe3092e8ddff0092c2b",
+      "proposition_sha256": "261ec4753e2291f172f8722d7030d8021cad77a693c1841121b98ee8277d4297",
       "start_line": 516,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -640,7 +640,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -648,9 +648,9 @@
       "end_line": 517,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiInitial Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiInitial",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28856",
-      "prefix_sha256": "0587f5fef2662844d9ce7e325dc8835b6bfe7b97892ce0c7e070033e881ea8dc",
-      "proposition_sha256": "45d33617cf142de6cd5ef620cc3a021d538bc8098959ba9feaf71df7051dd181",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28824",
+      "prefix_sha256": "a9c83e19d61ba29b71573e3f704d64e116388452be01d3226e5b65ea4c838eb1",
+      "proposition_sha256": "9b263f8c34c27d0fe3f2c8faacf5d9e9cadd55f2353c5c92fe564a5676cb04a6",
       "start_line": 517,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -662,9 +662,9 @@
       "end_line": 518,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiObservation\n  Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiObservation",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28934",
-      "prefix_sha256": "93b0c181a7612adfff850dfb76e6f480074cf2c1d42ab771af681da72fcad24c",
-      "proposition_sha256": "a406ad26fa1d96932b2eaff37d71eed7a64e11599a0c7239159a44fdc9f233e9",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28902",
+      "prefix_sha256": "00e5fa142e621afe91562b9ff490d52002982a5dc39cfcac61ce8424e70f14ec",
+      "proposition_sha256": "9990a54d853091f71b53c4edbeb351be487e493ab90b232d4db9e236046ef4ee",
       "start_line": 518,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -681,7 +681,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -689,9 +689,9 @@
       "end_line": 519,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiIdentities Notebook.NSK5.DecidedShared_c7e9c8d9daff.forsetiIdentities",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_29020",
-      "prefix_sha256": "6075fc9822583fd25ecd12a31e040dfa2da62c55db5ee0e20ece3214c4f6139b",
-      "proposition_sha256": "8bd187e779eb0b7f62724ede2471aa5e35919cd124087bbd382b506cf4f42df5",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_below_6._glitnir_example_28988",
+      "prefix_sha256": "9ceb63e50a237855f7565cb556000cd7ebda0fbf5ad6055be0917b82fe3bc5e6",
+      "proposition_sha256": "864c94b135519d0303f522599c0c11685ae9bb629624b6baefca32148480fa22",
       "start_line": 519,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -708,15 +708,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "058907371567ee025cba54afb37cdf25e8eb2f2111a96c0b2de32ec5093bc97b",
+      "declaration_sha256": "b037efd9ad0a07135c75b59dc50ce68480c525987d6cfbc2c82e632d6fa7be6f",
       "end_line": 579,
       "name": "Notebook.NSK5.Decided_below_6.below_6",
-      "prefix_sha256": "d7d67bcae085983aee2269ecdd7874fe7d4b279b732025a575dc4ac97ffb92f0",
-      "proposition_sha256": "3ccab37a3fddabfdee0cae2905c1d527b1968e6466e24c0f77c7412388e264a9",
+      "prefix_sha256": "66d1f7065abc562f196daf9b0c4248a6b6699fa83b5999ef4b075068b27da930",
+      "proposition_sha256": "ef4267326a94ba5fba9cbaead22d6ca85a45b0a38781709f2936ddaa46bd97b9",
       "start_line": 538,
       "status": "checked",
       "uses": []
@@ -732,7 +732,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -740,9 +740,9 @@
       "end_line": 620,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_41629943fbbd.forsetiTime Notebook.NSK5.DecidedShared_41629943fbbd.forsetiTime",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36435",
-      "prefix_sha256": "f9770188eee3d073cc91d33a4f1fd6ee0ef81b362fded5dcb5d8b4c5bc32df6a",
-      "proposition_sha256": "66d58cfa423275c6e26b845a2ce1687493ea96367b5103e402c20b32370cf5f3",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36371",
+      "prefix_sha256": "37e1602be6b3154b2dc0aea2fb7449ad3c63ae74a9ccfa3a260bad292d56dd41",
+      "proposition_sha256": "b4d26316726151324bd9406cb2001d5166fbfa91c5ce777c4f8312acd42bbfd3",
       "start_line": 620,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -759,7 +759,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -767,9 +767,9 @@
       "end_line": 621,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_41629943fbbd.forsetiInitial Notebook.NSK5.DecidedShared_41629943fbbd.forsetiInitial",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36507",
-      "prefix_sha256": "a465f74aaf4e09318da28cbb4dd6e221ee87b7dfb0b5b41b85adb08842e93d25",
-      "proposition_sha256": "f6e4b9b5dc0c66db190270cd47621976459de81092fe5605996988c6aaddac03",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36443",
+      "prefix_sha256": "63af352743c56b54d1b882342f7d3ed22bc5f33297bf31701c6a212d1baf48fd",
+      "proposition_sha256": "93f5157d4b2713cdb16a438f1fbda7025fe57fd5152e571b50facd681ce41036",
       "start_line": 621,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -781,9 +781,9 @@
       "end_line": 622,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_41629943fbbd.forsetiObservation\n  Notebook.NSK5.DecidedShared_41629943fbbd.forsetiObservation",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36585",
-      "prefix_sha256": "0c37881999f638d1ffdee89a14d0d2ed0410f9bfd89f2afbb39498f6b58d8986",
-      "proposition_sha256": "9e9dc515c8270831bc13fa7b6910b14b9b67b48035080e4e81b5f393a20e6757",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36521",
+      "prefix_sha256": "3ee394f34ef081809602b158789db5f6b09a412d81bd56aca4e1a3ab4b084a05",
+      "proposition_sha256": "d6ec1d93c9c4037dba2ac6c5087ab8b94856b941e4fae6658ccb348f21398700",
       "start_line": 622,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -800,7 +800,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -808,9 +808,9 @@
       "end_line": 623,
       "example": true,
       "kernel_statement": "Eq Notebook.NSK5.DecidedShared_41629943fbbd.forsetiIdentities Notebook.NSK5.DecidedShared_41629943fbbd.forsetiIdentities",
-      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36671",
-      "prefix_sha256": "9aa809111728ec8a6e151b0530410d9ec164e54c4a6802bed2c0ac4784c3469b",
-      "proposition_sha256": "702556aee89077b5a51539de33c28a6e163fe1ecee49b30ff2484fb9accf15ee",
+      "name": "_private.NS_K5.0.Notebook.NSK5.Decided_in_enstrophy_ball._glitnir_example_36607",
+      "prefix_sha256": "40e64092bb497328fa68e9fa12a8e466b598bebacfd10158028601270230ba2c",
+      "proposition_sha256": "71b53f0537f8f37e78569230723684c6e56c29dd8019179c2be0049b393e3feb",
       "start_line": 623,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -827,25 +827,109 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "2776fa638898538a15c43302c54ecd8200588debf32b3e27a6945246849afac0",
+      "declaration_sha256": "30182cafe16acd9047d4a735b4408018e57101e93f94e9cdf5fdac26647fedfb",
       "end_line": 683,
       "name": "Notebook.NSK5.Decided_in_enstrophy_ball.in_enstrophy_ball",
-      "prefix_sha256": "640729ecf4edc3fa243d9755486280e8c61d7f14592641ace55e2d3680a5ac12",
-      "proposition_sha256": "4a7083ed5b1a446f0b6a43145d08670d9a798a4176f2072ba3e8710fb64f7b16",
+      "prefix_sha256": "83900ff41dab3f7f28d57a0eda27ba880f6b75773fc2c1af18967bc872e7c355",
+      "proposition_sha256": "c9d5a659401257632d08d099689ce2cebaa7f70eb946806583c847d08e841b2e",
       "start_line": 642,
       "status": "checked",
       "uses": []
     }
   ],
   "environment": {
-    "check": "981db58521219b7a6a5bd9d0403e72746cf98f2db763442e9b694b3f010b10b5",
-    "fingerprint": "7904d4b6588d455e1aa1aece7648e21845fb39104b71ef8ff30830fc1fd83507"
+    "check": "6b32af0321add58e7b19609e9ef878c4ccb23464799408ab139cb3d7d778af9b",
+    "fingerprint": "53c7c88b1c6fff56f66a9f5ee44b0048ebc426eea4e9013a22afed8e0b3b60d5"
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "f174de8a9a86b9aa63b0c0cde6789aca9fbd1c7f08cbba99dbbcb9a27a960a3c",
+  "source_sha256": "b734cf9ea894664c19e68216e12b9d0f00a3f0e06e8a160b6eb962d93332d679",
+  "views": {
+    "0488a846b4d82797a6ee195f4bffad9ff52177f73dcca8ae2086a71d7812dbaa": {
+      "created": "2026-10-22T17:35:09+00:00",
+      "drawing": {
+        "contracts": [],
+        "detail": null,
+        "model": {
+          "axis": "t",
+          "observations": [
+            [
+              "a10",
+              "state-a10"
+            ],
+            [
+              "a01",
+              "state-a01"
+            ],
+            [
+              "a11",
+              "state-a11"
+            ],
+            [
+              "a21",
+              "state-a21"
+            ],
+            [
+              "a12",
+              "state-a12"
+            ],
+            [
+              "E",
+              "E"
+            ],
+            [
+              "Z",
+              "Z"
+            ],
+            [
+              "R",
+              "R"
+            ]
+          ],
+          "start": "0",
+          "states": [
+            {
+              "equation": "da10/dt = ((((-1/10) \u00d7 a10) + (((-3/20) \u00d7 a11) \u00d7 a21)) + (((-1/4) \u00d7 a01) \u00d7 a11))",
+              "id": "state-a10",
+              "initial": "1",
+              "name": "a10"
+            },
+            {
+              "equation": "da01/dt = ((((-1/10) \u00d7 a01) + ((3/20 \u00d7 a11) \u00d7 a12)) + ((1/4 \u00d7 a10) \u00d7 a11))",
+              "id": "state-a01",
+              "initial": "1",
+              "name": "a01"
+            },
+            {
+              "equation": "da11/dt = (((1 + ((-1/5) \u00d7 a11)) + (((-2/5) \u00d7 a01) \u00d7 a12)) + ((2/5 \u00d7 a10) \u00d7 a21))",
+              "id": "state-a11",
+              "initial": "1",
+              "name": "a11"
+            },
+            {
+              "equation": "da21/dt = (((-1/2) \u00d7 a21) + (((-1/4) \u00d7 a10) \u00d7 a11))",
+              "id": "state-a21",
+              "initial": "1",
+              "name": "a21"
+            },
+            {
+              "equation": "da12/dt = (((-1/2) \u00d7 a12) + ((1/4 \u00d7 a01) \u00d7 a11))",
+              "id": "state-a12",
+              "initial": "1",
+              "name": "a12"
+            }
+          ]
+        },
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1399 1061\" width=\"1399\" height=\"1061\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><text x=\"35\" y=\"35\" font-size=\"20\" fill=\"#172f43\" textLength=\"528\" lengthAdjust=\"spacingAndGlyphs\">Continuous circuit \u00b7 compiled model overview</text><text x=\"35\" y=\"62\" font-size=\"14\" fill=\"#172f43\" textLength=\"369\" lengthAdjust=\"spacingAndGlyphs\">Axis t [time] \u2022 start 0 \u2022 exact coefficients</text><rect x=\"100\" y=\"100\" width=\"769\" height=\"510\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"120\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"189\" lengthAdjust=\"spacingAndGlyphs\">Compiled vector field</text><rect x=\"979\" y=\"100\" width=\"240\" height=\"510\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"999\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"153\" lengthAdjust=\"spacingAndGlyphs\">Integrate along t</text><g><title>state: state-a10; derivative: da10; initial: initial-a10</title><text x=\"120\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"672\" lengthAdjust=\"spacingAndGlyphs\">da10/dt = ((((-1/10) \u00d7 a10) + (((-3/20) \u00d7 a11) \u00d7 a21)) + (((-1/4) \u00d7 a01) \u00d7 a11))</text><polyline points=\"869,165 979,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"979,165 972,161 972,169\" fill=\"#476579\"></polygon><text x=\"999\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a10</text><text x=\"999\" y=\"189\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a10(0) = 1</text><polyline points=\"1219,165 1369,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1369,165 1362,161 1362,169\" fill=\"#476579\"></polygon><text x=\"1234\" y=\"155\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">0: a10</text></g><g><title>state: state-a01; derivative: da01; initial: initial-a01</title><text x=\"120\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"621\" lengthAdjust=\"spacingAndGlyphs\">da01/dt = ((((-1/10) \u00d7 a01) + ((3/20 \u00d7 a11) \u00d7 a12)) + ((1/4 \u00d7 a10) \u00d7 a11))</text><polyline points=\"869,255 979,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"979,255 972,251 972,259\" fill=\"#476579\"></polygon><text x=\"999\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a01</text><text x=\"999\" y=\"279\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a01(0) = 1</text><polyline points=\"1219,255 1369,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1369,255 1362,251 1362,259\" fill=\"#476579\"></polygon><text x=\"1234\" y=\"245\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">1: a01</text></g><g><title>state: state-a11; derivative: da11; initial: initial-a11</title><text x=\"120\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"680\" lengthAdjust=\"spacingAndGlyphs\">da11/dt = (((1 + ((-1/5) \u00d7 a11)) + (((-2/5) \u00d7 a01) \u00d7 a12)) + ((2/5 \u00d7 a10) \u00d7 a21))</text><polyline points=\"869,345 979,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"979,345 972,341 972,349\" fill=\"#476579\"></polygon><text x=\"999\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a11</text><text x=\"999\" y=\"369\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a11(0) = 1</text><polyline points=\"1219,345 1369,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1369,345 1362,341 1362,349\" fill=\"#476579\"></polygon><text x=\"1234\" y=\"335\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">2: a11</text></g><g><title>state: state-a21; derivative: da21; initial: initial-a21</title><text x=\"120\" y=\"435\" font-size=\"14\" fill=\"#172f43\" textLength=\"428\" lengthAdjust=\"spacingAndGlyphs\">da21/dt = (((-1/2) \u00d7 a21) + (((-1/4) \u00d7 a10) \u00d7 a11))</text><polyline points=\"869,435 979,435\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"979,435 972,431 972,439\" fill=\"#476579\"></polygon><text x=\"999\" y=\"435\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a21</text><text x=\"999\" y=\"459\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a21(0) = 1</text><polyline points=\"1219,435 1369,435\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1369,435 1362,431 1362,439\" fill=\"#476579\"></polygon><text x=\"1234\" y=\"425\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">3: a21</text></g><g><title>state: state-a12; derivative: da12; initial: initial-a12</title><text x=\"120\" y=\"525\" font-size=\"14\" fill=\"#172f43\" textLength=\"403\" lengthAdjust=\"spacingAndGlyphs\">da12/dt = (((-1/2) \u00d7 a12) + ((1/4 \u00d7 a01) \u00d7 a11))</text><polyline points=\"869,525 979,525\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"979,525 972,521 972,529\" fill=\"#476579\"></polygon><text x=\"999\" y=\"525\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a12</text><text x=\"999\" y=\"549\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a12(0) = 1</text><polyline points=\"1219,525 1369,525\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1369,525 1362,521 1362,529\" fill=\"#476579\"></polygon><text x=\"1234\" y=\"515\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">4: a12</text></g><circle cx=\"1349\" cy=\"165\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1349,165 1349,650 20,650 20,165 100,165\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,165 93,161 93,169\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"643\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 0: a10</text><circle cx=\"1337\" cy=\"255\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1337,255 1337,678 32,678 32,255 100,255\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,255 93,251 93,259\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"671\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 1: a01</text><circle cx=\"1325\" cy=\"345\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1325,345 1325,706 44,706 44,345 100,345\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,345 93,341 93,349\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"699\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 2: a11</text><circle cx=\"1313\" cy=\"435\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1313,435 1313,734 56,734 56,435 100,435\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,435 93,431 93,439\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"727\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 3: a21</text><circle cx=\"1301\" cy=\"525\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1301,525 1301,762 68,762 68,525 100,525\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,525 93,521 93,529\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"755\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 4: a12</text><text x=\"35\" y=\"810\" font-size=\"13\" fill=\"#172f43\" textLength=\"234\" lengthAdjust=\"spacingAndGlyphs\">Observations (declared order):</text><text x=\"35\" y=\"835\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">0: a10 \u2190 state-a10</text><text x=\"35\" y=\"857\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">1: a01 \u2190 state-a01</text><text x=\"35\" y=\"879\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">2: a11 \u2190 state-a11</text><text x=\"35\" y=\"901\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">3: a21 \u2190 state-a21</text><text x=\"35\" y=\"923\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">4: a12 \u2190 state-a12</text><text x=\"35\" y=\"945\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">5: E \u2190 E</text><text x=\"35\" y=\"967\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">6: Z \u2190 Z</text><text x=\"35\" y=\"989\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">7: R \u2190 R</text><text x=\"35\" y=\"1011\" font-size=\"12\" fill=\"#172f43\" textLength=\"475\" lengthAdjust=\"spacingAndGlyphs\">Crossings are not junctions. IC inputs are read at the start time.</text><text x=\"35\" y=\"1036\" font-size=\"12\" fill=\"#172f43\" textLength=\"511\" lengthAdjust=\"spacingAndGlyphs\">Diagram only. Existence, uniqueness and bounds require separate proofs.</text></svg>"
+      },
+      "fingerprint": "1ca5d72163365ef06ea8db8a1745adadefe04b24e27f591a9044894c6b72cf6b",
+      "prefix_sha256": "7dd3edb99ef2af23000718a0176fee3d16dea0fe9ddebc7ec2880065b7306ad7",
+      "provider": "forseti",
+      "provider_sha256": "3ee999d48ec9f7b09afab8e99e7d436a59111fac5b5ce04d3c68f50082631598"
+    }
+  },
   "withheld": null
 }

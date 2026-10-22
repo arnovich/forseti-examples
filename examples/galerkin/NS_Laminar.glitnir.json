@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 96,
       "name": "Notebook.NSLaminar.rest_rate",
       "prefix_sha256": "0fe36b3eea4c8f77758af24ed8c1f3bee96fa1913a2d5880def8ebd1c5d77525",
-      "proposition_sha256": "ae9ed878d6a6010769b22ea41067a2ec9b49b04494af909ab1b1f0210de46bfa",
+      "proposition_sha256": "aaaf5c49f054734e08201ed14c5a5e1c9ac18779789fba001a7310b2f8775036",
       "start_line": 89,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 102,
       "name": "Notebook.NSLaminar.coupling_sum",
       "prefix_sha256": "3112835f2f5ee98a95605944dde1a59de7b81409c71be939647d580618a4e4fa",
-      "proposition_sha256": "f311ff9ba3735f16698c863c71150cc1918afc9947df2e625915428847db6df4",
+      "proposition_sha256": "9e5b5e7d6c9701be3b36d7ed7b127ecebb42782bfd9d4ffd903b2bf6f6076a3d",
       "start_line": 98,
       "status": "checked",
       "uses": []
@@ -59,7 +59,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -67,7 +67,7 @@
       "end_line": 106,
       "name": "Notebook.NSLaminar.below_threshold",
       "prefix_sha256": "010d205124be098a06e5fa2ad7fe4c934ba438c44365b489e10b43c03294423f",
-      "proposition_sha256": "18dc7f3e78d320bf7b5b499678625020bc77dfaacd71703a184def4bbd46421a",
+      "proposition_sha256": "b40946103c5b6c7ee918fa8605f7d69c10e14476fbfc4a717cc7240e741a5fd8",
       "start_line": 104,
       "status": "checked",
       "uses": []
@@ -83,7 +83,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -91,7 +91,7 @@
       "end_line": 111,
       "name": "Notebook.NSLaminar.above_threshold_at_small_viscosity",
       "prefix_sha256": "5a12512d682984a9106b778be73d6b80aa1345a480d14d9db12021d15d9bf934",
-      "proposition_sha256": "5bf7627747f3d6d162e5b77ffc0753593cd1367282d8ac69ee033b1f64dadd4e",
+      "proposition_sha256": "d5779807da11801417d66bb951dcfcc3e96ea8a10c361af93969fd702215fad5",
       "start_line": 108,
       "status": "checked",
       "uses": []
@@ -107,7 +107,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -115,7 +115,7 @@
       "end_line": 132,
       "name": "Notebook.NSLaminar.rest_decays",
       "prefix_sha256": "d4f070d6d80b25a2f7ce210be2d86b9fa378b438ad3a60e1d5b5f9304476f1c6",
-      "proposition_sha256": "3c11762a09bee23804b5001959268f9771e895b8d979e188de1a27e574eb68b9",
+      "proposition_sha256": "ae975821ecf7d4973c4931e948da1a9ac55241c8ac484c63707c455338357b50",
       "start_line": 113,
       "status": "checked",
       "uses": []
@@ -131,7 +131,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -139,7 +139,7 @@
       "end_line": 158,
       "name": "Notebook.NSLaminar.every_member",
       "prefix_sha256": "02a90966098e65c2eb59e6b96b2fd654c18d7b67425b494dfa803ddb30bd3326",
-      "proposition_sha256": "6a6ebe6d8e3609e45dcbba4670169d7fe00e6af7433ed8c71b00d9563dd29d94",
+      "proposition_sha256": "185bd89be8f4ad386ad324be8d25df126c5ce18aad759d2ce1f4202ed9d394de",
       "start_line": 145,
       "status": "checked",
       "uses": []
@@ -155,7 +155,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -165,7 +165,7 @@
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiTime Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiTime",
       "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9507",
       "prefix_sha256": "727e9085f0d6e39d86b8fbcee382f448e3bf0b42aa75c369a16a1f62522bf59a",
-      "proposition_sha256": "9b4755fed6bf64427c75e12e19ccb72834239f6679af1a34f582fdaf866dff0d",
+      "proposition_sha256": "c8d33f33c2e34fdab26aee7e39c8f618a0fcca79cabf17aed8b4925178c6c8d7",
       "start_line": 193,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -182,7 +182,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -192,7 +192,7 @@
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiInitial",
       "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9579",
       "prefix_sha256": "fb380ee122cc73c7dca2856ad4610df3a17e4316a2a9a0e108720efc9f4fef5e",
-      "proposition_sha256": "634fe8ee2afbffd701ae2eb3cd058d25cdeb9082502f1aff89c5c4fa08d412b1",
+      "proposition_sha256": "fec2fae9c6b795310b04bfba4599a61f8803c6e0662c5137dc26f0a96261971e",
       "start_line": 194,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -206,7 +206,7 @@
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiObservation",
       "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9657",
       "prefix_sha256": "1f7ac6ad247cb5d4787c7000d4c461947c70a782f167432d60d77357b474c4c8",
-      "proposition_sha256": "d64d526c086647cf34d661e2fbb912acd248b2c05f0b2ecb8915448b9823f825",
+      "proposition_sha256": "7ea2f00f4091b0e2fcd1db30d9a8306082bedbbc48296bfe791f88844012b49d",
       "start_line": 195,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -223,7 +223,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -233,7 +233,7 @@
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_9a6160343b19.forsetiIdentities",
       "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_enstrophy_ball._glitnir_example_9743",
       "prefix_sha256": "b30263928ed330f2ffe655de061ed509744b35817faa5808ff297643d458b212",
-      "proposition_sha256": "d9d766e87f46883cf1a7c2e1c1be333daac19bce40616562e2016de4a9a2a992",
+      "proposition_sha256": "8e815c296c08c9b3a183805cc234cadbbc7f058e36d458888dced28314154533",
       "start_line": 196,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -250,15 +250,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "5f2bb6eb499631a6198377d25812a54cd7d71333c87d67a2cfa63a2b076d54e7",
+      "declaration_sha256": "3d4d5741d7463db18d5e67c7902f318b86fdf23a1777f10e136e80d96569a34e",
       "end_line": 256,
       "name": "Notebook.NSLaminar.Decided_in_enstrophy_ball.in_enstrophy_ball",
-      "prefix_sha256": "8b4f59208be83f1dcfd4256d0c4d4a0524fdb3da91643cbcb017416d9cc2fabc",
-      "proposition_sha256": "d08018646955c301c44d396b0ebdecaaccee30b3b00db460143836de1cf3f3b1",
+      "prefix_sha256": "64b657be253f7acdf42df5c3937b8213015f6acc9867f888d2bc1dd96b6a36fd",
+      "proposition_sha256": "85edc28fa50e9f5f5bbc7280c6cfd0c05b212b0d3ad0e12af1fb2083f7218bca",
       "start_line": 215,
       "status": "checked",
       "uses": []
@@ -274,7 +274,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -282,9 +282,9 @@
       "end_line": 285,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiTime Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiTime",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16788",
-      "prefix_sha256": "e11a3a1766c498c26783174d6fe039e41b1898b854fcfc48337d7779189b16dd",
-      "proposition_sha256": "c1c7ba2be4cdf87708a880d9c753fb816dc99728168aae61d272b7e67999f9fc",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16756",
+      "prefix_sha256": "77e1efa44991be48436cb443af6e92ec770c6aa0ab412267d7e6a56302c76d7f",
+      "proposition_sha256": "c80eed3dd29ec643eda49c772e5d6f1dd2f268c5f76ba0175de75c2dd6e61111",
       "start_line": 285,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -301,7 +301,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -309,9 +309,9 @@
       "end_line": 286,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiInitial",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16860",
-      "prefix_sha256": "75ebc552d566ed53c63d7769f7942302bee1f7a17657b09ac353726970e5d367",
-      "proposition_sha256": "37464d098c11fb9cb0e90689b2b21ed0a9ba3d78f930f58ea8a3526c558cb55e",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16828",
+      "prefix_sha256": "a05a0751863dad48bbc176307604f636f1ed74bc3f1f57976aafeb2d2220e148",
+      "proposition_sha256": "4322dce461a8e449bc997d4cc97f483cefb46432b69cc88e744c934af624338a",
       "start_line": 286,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -323,9 +323,9 @@
       "end_line": 287,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiObservation",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16938",
-      "prefix_sha256": "41f3416f95cf7c711026faca1c89f76e352af9f7cbc033cfad14e089895f7690",
-      "proposition_sha256": "118e18d1041d703c5721c5b101a770c14c16e50a6214aaa391fab8021db5907e",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16906",
+      "prefix_sha256": "0d9d2bd36cdbee4f481f51b2eadeab64c07313e1bd7f7013bb6d77129477e8c4",
+      "proposition_sha256": "7f4ba48bee0cba8ff820b7938eb4cf9da18c4a7adc79a166240c742df6565d1c",
       "start_line": 287,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -342,7 +342,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -350,9 +350,9 @@
       "end_line": 288,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_f551903755fb.forsetiIdentities",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_17024",
-      "prefix_sha256": "ac3b0eaccf1c1ec554f1af909534ad9d9ac5a3e809534110fba01a9391c17bdf",
-      "proposition_sha256": "b52bc900f140f76b0fc7e6349c8290701d44eab7870e5820aec3262e45e12a7b",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_in_energy_ball._glitnir_example_16992",
+      "prefix_sha256": "8693e3ce823dfb117c71d79bb6e41cea257ae8e33bb2156ca36e05131368a97c",
+      "proposition_sha256": "d577f1c60b5188fec72ffdbfaf6df305e374b16ee20ca292af8d1248e70f5dcd",
       "start_line": 288,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -369,15 +369,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "95ea8fd515acf7a319ce2052e159cc215f248bdbd1ec84b6cf91c29df6777587",
+      "declaration_sha256": "940ed3730d916dbb4026d38ca46e90d85fd29f4dbd21767ce338bb1054bcb74b",
       "end_line": 348,
       "name": "Notebook.NSLaminar.Decided_in_energy_ball.in_energy_ball",
-      "prefix_sha256": "6083e9157c11e2ebc2468df5d9e9554cf33e84d60a419146d7b3e1371a4f20a6",
-      "proposition_sha256": "2476f08974f744ed5aea7a38b4087e52b84c5813d758c97d5ae2d10c0f263c8d",
+      "prefix_sha256": "cdd8ea329b495a836128f917a70485572300dfa01cb92d97e1195df02b95f96c",
+      "proposition_sha256": "93b12cf330a92c333d5efd78895f874421872ec3c3787d1573770b21113add7b",
       "start_line": 307,
       "status": "checked",
       "uses": []
@@ -393,7 +393,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -401,9 +401,9 @@
       "end_line": 377,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24079",
-      "prefix_sha256": "772972275383ccfa2d50caf3f07bea5a39fe6e6b7417ecb0401db851e0119a05",
-      "proposition_sha256": "e7bc5e0660bc931f82c670f4a3ef7927e8ab25344d3a93c6caa57bf654e72340",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24015",
+      "prefix_sha256": "6b1cb14eb83092d9d90638a62f93b2328d41905931925425aae29ec282808555",
+      "proposition_sha256": "3247c49849dedd365b385731a3daf6c4237df353c304a1de1a5697bce557b02f",
       "start_line": 377,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -420,7 +420,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -428,9 +428,9 @@
       "end_line": 378,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24151",
-      "prefix_sha256": "a0e130a101740186ca6cd1907672356314c34191a32abab3d40af9d02a5287be",
-      "proposition_sha256": "ada2a9461766cdaebd65680121f3c78d812c2e99f21fe0b023f385b30dfcdc7d",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24087",
+      "prefix_sha256": "7976ed5db04ebe6392b76079d2a80b72148111ec8beed30b50bd9368f4bf4338",
+      "proposition_sha256": "1d53bb10a6e41a4742a3d76ea6dd541a5172dd6dd29acd5b5698e746a92804aa",
       "start_line": 378,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -442,9 +442,9 @@
       "end_line": 379,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24229",
-      "prefix_sha256": "c516e66333bd810f366082a1056745f190413a8a7b2e4cf3f09b99b6e9ba9f87",
-      "proposition_sha256": "8e238829c88fa7ceb6c8cf4884a44004abe2f228b729b59b93c9097e1fbaf057",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24165",
+      "prefix_sha256": "5af6d42053519a277709d166d2f204ae6a3ed819812f8d5de82edbce21124c73",
+      "proposition_sha256": "6f3cd61a81c200f7c10bc1eaa9b515a9aa8930826c79a29130b9da762b50fa4f",
       "start_line": 379,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -461,7 +461,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -469,9 +469,9 @@
       "end_line": 380,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24315",
-      "prefix_sha256": "4c12a87d3d801aed30b8230c7ccb2ad7dbd6b6e043deab65dea882cf88130a7c",
-      "proposition_sha256": "c10daa5d21e90216f0034be4aea5ffc53be712bced09d7fe0743ccf9a398efca",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_never_grows._glitnir_example_24251",
+      "prefix_sha256": "ad4eeae513f76b3172dfbd2db651241ffb2e7ebab0745cf1ba3a993000ee6a3d",
+      "proposition_sha256": "570a94e104289268e3eac50680ca2d5aa578680c595e1ca7abe3d8b8890ded93",
       "start_line": 380,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -488,15 +488,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "e74579b7145b34779cf8b962bf2c7df8b0e031dff286b42015ac5d17c4a6e46a",
+      "declaration_sha256": "5ffc966833f8fc8ba34da3e0a3e45d6afe3ef28077e789560682cdf3a68513ab",
       "end_line": 440,
       "name": "Notebook.NSLaminar.Decided_rest_never_grows.rest_never_grows",
-      "prefix_sha256": "73ae282a4448d01e92c192f7d9d02325f4188934b94d912eff869a40f2a489c5",
-      "proposition_sha256": "4fbb9295fd85d9f9827f807a24df2fa5a7dc4cf095b70af1838bf492a46f6a2c",
+      "prefix_sha256": "6ea54093c0e544a7030ec865c9d9c1551a6442d1b8366b041a34fd00957437af",
+      "proposition_sha256": "3be36181287a30788f678ddf8fa684dc631f31fcb87bda738ae21592b0e0adc1",
       "start_line": 399,
       "status": "checked",
       "uses": []
@@ -512,7 +512,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -520,9 +520,9 @@
       "end_line": 451,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiTime",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30636",
-      "prefix_sha256": "a2267752e30682b92b0711939ee947d22b0ba89fddf2b1b2685b647c097ef2f7",
-      "proposition_sha256": "e7bc5e0660bc931f82c670f4a3ef7927e8ab25344d3a93c6caa57bf654e72340",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30540",
+      "prefix_sha256": "824803fc197b9c9068ba09ac8de5e51ae1850b2f272343661840439f458e0408",
+      "proposition_sha256": "3247c49849dedd365b385731a3daf6c4237df353c304a1de1a5697bce557b02f",
       "start_line": 451,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -539,7 +539,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -547,9 +547,9 @@
       "end_line": 452,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiInitial",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30708",
-      "prefix_sha256": "0fa9e8610028ec377abf65827f8abc93624bd95689de11a6cdb433347196f3d6",
-      "proposition_sha256": "ada2a9461766cdaebd65680121f3c78d812c2e99f21fe0b023f385b30dfcdc7d",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30612",
+      "prefix_sha256": "9c3be23d9d418325cfb561562b9dd8df737e3625e106015efc04d88656bdc503",
+      "proposition_sha256": "1d53bb10a6e41a4742a3d76ea6dd541a5172dd6dd29acd5b5698e746a92804aa",
       "start_line": 452,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -561,9 +561,9 @@
       "end_line": 453,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiObservation",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30786",
-      "prefix_sha256": "c16d608932832132cec0ee3ba0d139e14b995cea1d6bd87a22a58a2f48a58f51",
-      "proposition_sha256": "8e238829c88fa7ceb6c8cf4884a44004abe2f228b729b59b93c9097e1fbaf057",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30690",
+      "prefix_sha256": "a2f8e05f31fe74727d89b68ea2494b043a33a6bdd86d960144e6a277cd8e234f",
+      "proposition_sha256": "6f3cd61a81c200f7c10bc1eaa9b515a9aa8930826c79a29130b9da762b50fa4f",
       "start_line": 453,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -580,7 +580,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -588,9 +588,9 @@
       "end_line": 454,
       "example": true,
       "kernel_statement": "Eq Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities\n  Notebook.NSLaminar.DecidedShared_e85b1539f483.forsetiIdentities",
-      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30872",
-      "prefix_sha256": "dd9517a04e5eb15c84960ef58f6afa44a288178d16ea43375070e6aa8dbe43b5",
-      "proposition_sha256": "c10daa5d21e90216f0034be4aea5ffc53be712bced09d7fe0743ccf9a398efca",
+      "name": "_private.NS_Laminar.0.Notebook.NSLaminar.Decided_rest_below_one._glitnir_example_30776",
+      "prefix_sha256": "43937bc05f99805e707f0cc7a756bd9a3fffeda9c0a740779a4427c3277e71d2",
+      "proposition_sha256": "570a94e104289268e3eac50680ca2d5aa578680c595e1ca7abe3d8b8890ded93",
       "start_line": 454,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -611,25 +611,89 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "76e13f5a874477789667271363b878e5de89cf2a8c6b4b174f2e00d6bccc4a83",
       "end_line": 479,
       "name": "Notebook.NSLaminar.Decided_rest_below_one.rest_below_one",
-      "prefix_sha256": "bee85d2310535eeb77c2d4b3caa101fd9064785be97495bd302c91cdc7300f3b",
-      "proposition_sha256": "e642d5edff21ff24209f718c99e867cdcc96c6683d5d29f227f992c843e182ab",
+      "prefix_sha256": "08e84f42a9a6d136f164ba5c7dcb379891db9e442aaf53d46ce877fc3033dcfa",
+      "proposition_sha256": "3d64f4aa93ad48c159935b29ef0f4106230d250bd5fd12e6f2afd0b9ac68d1cc",
       "start_line": 468,
       "status": "admitted",
       "uses": []
     }
   ],
   "environment": {
-    "check": "f629f57041d6c4df22302feed16b222ad6ece3cec2b3f774871fc13a052dd7d7",
-    "fingerprint": "49763733740b33b9c60fb882b0203a115d1ebef2406da5fa7fdc9049b6d720fd"
+    "check": "960acfd702e434d599025142a59f3642d465a93212fa2652e24af82bf9cf80a6",
+    "fingerprint": "366dfdc9153d5841d54211ab75056ec8c9fbd83bd400d3c1a729a072ec616ed2"
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "331b7f219b71d40f47640ce1da5de6b7fe9b611ccfa8b35e079b41b40d439e28",
+  "source_sha256": "e0798de92295ae6cdf0cd9cf3eccaef1dccfa5ff7f4b120fd3ea01ac66e2f143",
+  "views": {
+    "5ed705207da3739382a6e654ee9c758bb474ac2a6af3a6e5f27d95afa4e05ff3": {
+      "created": "2026-10-22T17:44:31+00:00",
+      "drawing": {
+        "contracts": [],
+        "detail": null,
+        "model": {
+          "axis": "t",
+          "observations": [
+            [
+              "a10",
+              "state-a10"
+            ],
+            [
+              "a11",
+              "state-a11"
+            ],
+            [
+              "a21",
+              "state-a21"
+            ],
+            [
+              "E",
+              "E"
+            ],
+            [
+              "Z",
+              "Z"
+            ],
+            [
+              "R",
+              "R"
+            ]
+          ],
+          "start": "0",
+          "states": [
+            {
+              "equation": "da10/dt = (((-1/2) \u00d7 a10) + (((-3/20) \u00d7 a11) \u00d7 a21))",
+              "id": "state-a10",
+              "initial": "1",
+              "name": "a10"
+            },
+            {
+              "equation": "da11/dt = ((1 + ((-1) \u00d7 a11)) + ((2/5 \u00d7 a10) \u00d7 a21))",
+              "id": "state-a11",
+              "initial": "1",
+              "name": "a11"
+            },
+            {
+              "equation": "da21/dt = (((-5/2) \u00d7 a21) + (((-1/4) \u00d7 a10) \u00d7 a11))",
+              "id": "state-a21",
+              "initial": "1",
+              "name": "a21"
+            }
+          ]
+        },
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1138 781\" width=\"1138\" height=\"781\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><text x=\"35\" y=\"35\" font-size=\"20\" fill=\"#172f43\" textLength=\"528\" lengthAdjust=\"spacingAndGlyphs\">Continuous circuit \u00b7 compiled model overview</text><text x=\"35\" y=\"62\" font-size=\"14\" fill=\"#172f43\" textLength=\"369\" lengthAdjust=\"spacingAndGlyphs\">Axis t [time] \u2022 start 0 \u2022 exact coefficients</text><rect x=\"100\" y=\"100\" width=\"508\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"120\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"189\" lengthAdjust=\"spacingAndGlyphs\">Compiled vector field</text><rect x=\"718\" y=\"100\" width=\"240\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"738\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"153\" lengthAdjust=\"spacingAndGlyphs\">Integrate along t</text><g><title>state: state-a10; derivative: da10; initial: initial-a10</title><text x=\"120\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"436\" lengthAdjust=\"spacingAndGlyphs\">da10/dt = (((-1/2) \u00d7 a10) + (((-3/20) \u00d7 a11) \u00d7 a21))</text><polyline points=\"608,165 718,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"718,165 711,161 711,169\" fill=\"#476579\"></polygon><text x=\"738\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a10</text><text x=\"738\" y=\"189\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a10(0) = 1</text><polyline points=\"958,165 1108,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1108,165 1101,161 1101,169\" fill=\"#476579\"></polygon><text x=\"973\" y=\"155\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">0: a10</text></g><g><title>state: state-a11; derivative: da11; initial: initial-a11</title><text x=\"120\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"436\" lengthAdjust=\"spacingAndGlyphs\">da11/dt = ((1 + ((-1) \u00d7 a11)) + ((2/5 \u00d7 a10) \u00d7 a21))</text><polyline points=\"608,255 718,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"718,255 711,251 711,259\" fill=\"#476579\"></polygon><text x=\"738\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a11</text><text x=\"738\" y=\"279\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a11(0) = 1</text><polyline points=\"958,255 1108,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1108,255 1101,251 1101,259\" fill=\"#476579\"></polygon><text x=\"973\" y=\"245\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">1: a11</text></g><g><title>state: state-a21; derivative: da21; initial: initial-a21</title><text x=\"120\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"428\" lengthAdjust=\"spacingAndGlyphs\">da21/dt = (((-5/2) \u00d7 a21) + (((-1/4) \u00d7 a10) \u00d7 a11))</text><polyline points=\"608,345 718,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"718,345 711,341 711,349\" fill=\"#476579\"></polygon><text x=\"738\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a21</text><text x=\"738\" y=\"369\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a21(0) = 1</text><polyline points=\"958,345 1108,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1108,345 1101,341 1101,349\" fill=\"#476579\"></polygon><text x=\"973\" y=\"335\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">2: a21</text></g><circle cx=\"1088\" cy=\"165\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1088,165 1088,470 20,470 20,165 100,165\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,165 93,161 93,169\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"463\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 0: a10</text><circle cx=\"1076\" cy=\"255\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1076,255 1076,498 32,498 32,255 100,255\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,255 93,251 93,259\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"491\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 1: a11</text><circle cx=\"1064\" cy=\"345\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1064,345 1064,526 44,526 44,345 100,345\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,345 93,341 93,349\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"519\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 2: a21</text><text x=\"35\" y=\"574\" font-size=\"13\" fill=\"#172f43\" textLength=\"234\" lengthAdjust=\"spacingAndGlyphs\">Observations (declared order):</text><text x=\"35\" y=\"599\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">0: a10 \u2190 state-a10</text><text x=\"35\" y=\"621\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">1: a11 \u2190 state-a11</text><text x=\"35\" y=\"643\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">2: a21 \u2190 state-a21</text><text x=\"35\" y=\"665\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">3: E \u2190 E</text><text x=\"35\" y=\"687\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">4: Z \u2190 Z</text><text x=\"35\" y=\"709\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">5: R \u2190 R</text><text x=\"35\" y=\"731\" font-size=\"12\" fill=\"#172f43\" textLength=\"475\" lengthAdjust=\"spacingAndGlyphs\">Crossings are not junctions. IC inputs are read at the start time.</text><text x=\"35\" y=\"756\" font-size=\"12\" fill=\"#172f43\" textLength=\"511\" lengthAdjust=\"spacingAndGlyphs\">Diagram only. Existence, uniqueness and bounds require separate proofs.</text></svg>"
+      },
+      "fingerprint": "041ed3046548534bf55e6f089a139ff00c32051faa4d7a6d83d717731e0df6e4",
+      "prefix_sha256": "3b77dc62bcfc71d5ca9a6ebcec246094b43b2a51c804582d694056089991951e",
+      "provider": "forseti",
+      "provider_sha256": "7257aa1a11bb3134f6343b7965c5af6e20a15f73a240c81a5f6c87357c88bf72"
+    }
+  },
   "withheld": null
 }

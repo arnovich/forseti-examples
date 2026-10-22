@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 101,
       "name": "Notebook.Burgers.uniqueness",
       "prefix_sha256": "ea406c898452080c150d5b291b75de0c2521ed3d0ef98b8241fe9e050c588951",
-      "proposition_sha256": "6b52c49112203844f269388bbafd5b9275af3f4703f46fa420cfdfa3fbdf3144",
+      "proposition_sha256": "1c82fd1a8cfe2417959678da18b7acbec913e2b61d805e7d5721903dc1fcb9e0",
       "start_line": 96,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 110,
       "name": "Notebook.Burgers.circuit_reconstructs",
       "prefix_sha256": "4d585aee4b31d9b46eb9439ff9e6dc92323544152a9ba462fb16d5743ca8b7a7",
-      "proposition_sha256": "5c51726a5509591b9ba497eea61521f9ccc1269c21b3738e3dcf8dfb98891ee2",
+      "proposition_sha256": "474964177c4df92d0d4b2329767de3d2411dfc8e49cd27ce44a4130e29bc7fdc",
       "start_line": 103,
       "status": "checked",
       "uses": []
@@ -59,7 +59,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -67,7 +67,7 @@
       "end_line": 116,
       "name": "Notebook.Burgers.from_circuit",
       "prefix_sha256": "e2bf6e1b6c1f685305e4761a67b8eb52df23ee9a48bcdbc30c6d40f52631195e",
-      "proposition_sha256": "8887da69e7de289d8bf090c8e2e29e57f7af2c31737b8f71a70c308ca73ce03c",
+      "proposition_sha256": "f1648eaec1cc928a63d0f62c94be82c600c49e3a272ec039de2ed8aa963db5da",
       "start_line": 112,
       "status": "checked",
       "uses": []
@@ -83,7 +83,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -91,7 +91,7 @@
       "end_line": 147,
       "name": "Notebook.Burgers.coefficient_t",
       "prefix_sha256": "7beef3eb3794866c455c0ea7c76c982ed2c2e0f54332d7afb544fda5229610cd",
-      "proposition_sha256": "89704a319e08fff15c9905bd6243e3494dc137bc0c18d755a58a67bae379d2ce",
+      "proposition_sha256": "12929b28009838b4ff869879a26297473e1ca7bfa0f9e819762a5d7260d1e1a2",
       "start_line": 142,
       "status": "checked",
       "uses": []
@@ -107,7 +107,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -115,7 +115,7 @@
       "end_line": 153,
       "name": "Notebook.Burgers.coefficient_t_x3",
       "prefix_sha256": "1102c2c7632e7f2ffe0907fdffa69bd19ea68b72797a498da813f8cb76e34418",
-      "proposition_sha256": "2d389f3ffe00fddb0fac43818d67bb298c1cb12cd203e490606a51a1b2296af6",
+      "proposition_sha256": "5e649fb5f5749b82aa34a0714310960ddec8561cf4b2f190d196a872a947f8d9",
       "start_line": 149,
       "status": "checked",
       "uses": []
@@ -131,7 +131,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -139,7 +139,7 @@
       "end_line": 161,
       "name": "Notebook.Burgers.coefficients_t2",
       "prefix_sha256": "e4179c9cc0b4845d7b6e7256df42f1503958fed45de109d5b240440aedba679a",
-      "proposition_sha256": "4840d48be9bf523fcf4eea0c82fa385292b3eed02bce47efcc15b37e73b39e86",
+      "proposition_sha256": "466c1c5bb874ae4e7c24d6d4bca184d5031a9446ab7286ca6db7f219a831e6e7",
       "start_line": 155,
       "status": "checked",
       "uses": []
@@ -155,7 +155,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -163,7 +163,7 @@
       "end_line": 170,
       "name": "Notebook.Burgers.coefficients_t3",
       "prefix_sha256": "13b1735c550e858b348a38b8f8f211ec09e2b55f07328d72be91f039df2d13e5",
-      "proposition_sha256": "6dbdb7221bda4c4042127f104cabf85d157a21d0396986da7d33533662ff5105",
+      "proposition_sha256": "d7c1bb4b7a16114d7a1f720de2a1f5195af9188d64f04f103038955ed3559213",
       "start_line": 163,
       "status": "checked",
       "uses": []
@@ -179,7 +179,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -187,7 +187,7 @@
       "end_line": 196,
       "name": "Notebook.Burgers.not_heat",
       "prefix_sha256": "0c15a9184bb476579a7a4c4f012f90ba3020fcff85497d10a515ac4f9f6d360d",
-      "proposition_sha256": "786bb15cd9de582543609ab2fc018c29c988934e2ca8fc51fe740461cb67ff85",
+      "proposition_sha256": "76427af5f8d1f9b345260177396b17a024de0665781e854069fdf2769f384339",
       "start_line": 186,
       "status": "checked",
       "uses": [
@@ -209,15 +209,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "3a7e65464fa2437a5f290542d440c69d2bccda50910d46d26f6808fe0e892106",
-      "end_line": 251,
+      "declaration_sha256": "785fae4ab30463347398bb069c7c93970cdaaa10704d8d381c53c3d7c33fc57b",
+      "end_line": 250,
       "name": "Notebook.Burgers.affine_coefficient",
-      "prefix_sha256": "201c40380de3355139f9ee7a2f5a7762f801a40ecc789c328eebb90f53e0eb12",
-      "proposition_sha256": "a5d46cb9b90f91b3a7bb01f7afebd49cd50513f7a1be8f40b50ecf67cfdc26b8",
+      "prefix_sha256": "9fc63553f5964da42009482769ab7a4c38ebde24cc9eab3e710516bec242520d",
+      "proposition_sha256": "84d70e759cc757d6359eb3de707db9a1c82dffd314b6b55c997342f160af2b66",
       "start_line": 244,
       "status": "checked",
       "uses": []
@@ -233,16 +233,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "542cb7f22a62d2da99206153dcfd7f44ab9a8a5b2d94fa9043067b6cca810963",
-      "end_line": 306,
+      "end_line": 305,
       "name": "Notebook.Burgers.front_at_origin",
-      "prefix_sha256": "3f90dc7da6ccfd065a83c1c65bd659eb4a1a49bcc0809430ebe283626d323fe9",
-      "proposition_sha256": "1b68803623f36535990d74c70e035ab5aabde8235195b811aeaff6ec52f15e9b",
-      "start_line": 302,
+      "prefix_sha256": "c6c29275de4639c009d60cae46d56bbca78526b4a8955fbecde8344765e247c2",
+      "proposition_sha256": "159651d69923a78717cc8725fde9d4b227a6331dfcaa1c5806da2982774af089",
+      "start_line": 301,
       "status": "checked",
       "uses": []
     },
@@ -257,16 +257,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "0576f093e1bc9d6ae7730b8e1aaf853ecb770a511341110b405a981dbf272900",
-      "end_line": 313,
+      "end_line": 312,
       "name": "Notebook.Burgers.front_error",
-      "prefix_sha256": "8dc4158fa66d27af3de3aebb045df9efc47b30ffeef7d3a39e3241c1632418b8",
-      "proposition_sha256": "6751d23c9f57c6cc6874c3d0c2be03df7b6136674f773a6d19d6c2e3e6d14988",
-      "start_line": 308,
+      "prefix_sha256": "6c116c2695a84262264c0dda82879fbb9256a464c35af3ccc7703f23b6187380",
+      "proposition_sha256": "20ccab1958246ed7e002c1439596eea0fcce188ae1d7b4ecf54c740ea94d4a7c",
+      "start_line": 307,
       "status": "checked",
       "uses": []
     },
@@ -281,16 +281,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "3455dd9d692c9a8842041f14cc4e026e42bc74e0ddf40c82ea98e10159a9e4ad",
-      "end_line": 324,
+      "end_line": 323,
       "name": "Notebook.Burgers.front_converges",
-      "prefix_sha256": "7589f16615689ff7a71cb3e83778dd5be67f2fcc49ed1618cfc1ac50e154198b",
-      "proposition_sha256": "01f0e0d1deecb5e9eb4bbbb17f607d72e4523ce5a0cf666f866f5acb0915377a",
-      "start_line": 315,
+      "prefix_sha256": "565ecd5b687a689c436295a8bcbb0dc6081518017f973e6dfc376dbe9b662929",
+      "proposition_sha256": "b62685685f67bc614bec3e22585768d41967e6b0515998ad8387a4bd710ee2f7",
+      "start_line": 314,
       "status": "checked",
       "uses": []
     },
@@ -305,16 +305,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "f4bd02c43947529985208f4142eeb3de1ec598d95af9c4b3fd391e44bd1502a9",
-      "end_line": 334,
+      "end_line": 333,
       "name": "Notebook.Burgers.front_certified",
-      "prefix_sha256": "507c4993bbfcf0b4c5ecbc131aa42a9ef9fbb238b896f185631f4c2306459a30",
-      "proposition_sha256": "d60a8b13593dd6ac0008f8e45b7a8d3f9061c3d2d190d9cca015467729f6718a",
-      "start_line": 326,
+      "prefix_sha256": "d7908ccb9044ce57f632315053012682eca35cc798fb3cdf4983bd4abfdac5b3",
+      "proposition_sha256": "1e4beb13dc77c59d86b22bc5299a11c11a2a140b6ee6b772abcc9685ae9702d4",
+      "start_line": 325,
       "status": "checked",
       "uses": []
     },
@@ -329,16 +329,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "15250853e54c67e92e11c4b1e8d5482e783766c1e3f07e47089a45b97c11eecc",
-      "end_line": 371,
+      "end_line": 370,
       "name": "Notebook.Burgers.front_field",
-      "prefix_sha256": "a9fffbd662b96abe5718b487f9a140383467550fdb81bdcc931988630540c85c",
-      "proposition_sha256": "53113d810511056118eecea2732597d71a795d1a39d10c97773470461c39d71a",
-      "start_line": 366,
+      "prefix_sha256": "338e5b335ea63ffb59ea3de2177a9dd298aa14e1e89a92f1c3e87d9bf5e08ae8",
+      "proposition_sha256": "13bcb420219af644e44f2fab75e17f7a081c4e9eb4f05a479d4ea07c807386e0",
+      "start_line": 365,
       "status": "checked",
       "uses": []
     },
@@ -353,16 +353,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "50b6f10f033d0027c80ae52adba0d21bfb49b30ccd7119f30bcbb33ffcfbfca0",
-      "end_line": 381,
+      "end_line": 380,
       "name": "Notebook.Burgers.front_band",
-      "prefix_sha256": "88bdfcab7852d207cc9636625a06b6e044902a8b02e28a8f5207c205cd06a02d",
-      "proposition_sha256": "fb7b3c7050d1b4bd2ea01281419db6e079add8ff1418c976cf6deb8e63f47858",
-      "start_line": 373,
+      "prefix_sha256": "d3236503392e385f28132069fc9196a61a694e678314fb3f03074c7dc590071b",
+      "proposition_sha256": "cf7133d994bf3c2a0f6539fa10d227a5c392416bde1f9b9ccff050506038b778",
+      "start_line": 372,
       "status": "checked",
       "uses": []
     },
@@ -377,16 +377,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "fd94c47156909f3bf57e2b9a5804573764aee99444db5854620374c3f5c3dfb3",
-      "end_line": 391,
+      "end_line": 390,
       "name": "Notebook.Burgers.front_not_below",
-      "prefix_sha256": "d1f70575d375ba88fecfd99c09f812c1809bbd2718f50d7e2be201f0debf9176",
-      "proposition_sha256": "e7e6c79aefedf2a62d18f41b495359801cc668679026373fe08379eef9e756b2",
-      "start_line": 383,
+      "prefix_sha256": "dd767accdfdd34bc24f3f114fee20d4d383505468b65b38abb37a3404362762b",
+      "proposition_sha256": "17ba9e334fa60b58e6914149f2c07505aaf8e8d29a117a0c8e56fdf4a3de27e7",
+      "start_line": 382,
       "status": "checked",
       "uses": []
     },
@@ -401,16 +401,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "9c397d927e39be3c35020ac88d02b6e3da1c486881ebed418cfc51bf4eed6570",
-      "end_line": 504,
+      "end_line": 503,
       "name": "Notebook.Burgers.Decided_front_decided.front_decided",
-      "prefix_sha256": "5c792903394401e957b527fa854ab6497be10883e787e33722e42405dedda809",
-      "proposition_sha256": "8bc066855091a59d9275f7886060b1412ba1c1dc20b9c96dcb63024e85fd918e",
-      "start_line": 449,
+      "prefix_sha256": "621db211fbd94ec5bf17b9936fa9addd5f646492e2dd74beb44cc2e613a5a052",
+      "proposition_sha256": "c2967ff29550ce4e75df820191ac8d4e66af6392afed0c563c127fc6b6065ef4",
+      "start_line": 448,
       "status": "checked",
       "uses": []
     },
@@ -425,16 +425,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "601065bc5f58dd98d83cb65b74a01e1389abb20e09d6a201ca5892b9eedeeecc",
-      "end_line": 635,
+      "end_line": 634,
       "name": "Notebook.Burgers.Decided_front_band_decided.front_band_decided",
-      "prefix_sha256": "79c5de30773d1e52cbbe22f9db119dcf0ff325bc3ba01eff255f4691e363775e",
-      "proposition_sha256": "7ad1dc9e0a8f400ac51f694b5f00e2d8f8bb082cd4f20e5a7720702d0cdf562d",
-      "start_line": 587,
+      "prefix_sha256": "378073a4736fc4d0027f6dbec514b5edae67570f9c6f016d05db4e33a3b93cbc",
+      "proposition_sha256": "907b3dea33975400bf44071c75bfa0d692ecaf53c38e4d9e8a4831b07219ca4d",
+      "start_line": 586,
       "status": "checked",
       "uses": []
     },
@@ -453,25 +453,25 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "4ffe76609c9c4c8021a1e56a4c6dae3c6a3a69b518e347ebd419bd176b89dd9b",
-      "end_line": 701,
+      "end_line": 700,
       "name": "Notebook.Burgers.Decided_front_band_refuted.front_band_refuted",
-      "prefix_sha256": "a1fdc674c1259fd596574695f08df782a665adfb5d13d33db5ec50e265ee9d6e",
-      "proposition_sha256": "c73185263663812f26ff768752228562e4ff46424777f498acf9105b4d081d53",
-      "start_line": 690,
+      "prefix_sha256": "2b8f3b66f64e34302ec9cae966c04d309733cca677e341e08c4654e279237528",
+      "proposition_sha256": "b6a0da3947cfc42d304b254c8d3d71efc02cde0e955a42774cd616e8aa22e800",
+      "start_line": 689,
       "status": "admitted",
       "uses": []
     }
   ],
   "environment": {
-    "check": "8411740080b66fc3048213300956ba1424b03c8fd0724841f1f2be47e03d5120",
-    "fingerprint": "3713135f41a10c1e1621dcdca510d9f92025fdd8f349984ade40b186433e3305"
+    "check": "58817f815625bfe17d7d5081df58eb0576b23419d002ae84d0ab8a0b84a23e0b",
+    "fingerprint": "d44cbcffa4ca5c0d386525ddc9db1ae6108fd79c5d54570bfac30ccd634c5bf1"
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "059b449bc88c37e728db4f0a050282016ce0e9fce6d79d4d2787a0d34cb9706d",
+  "source_sha256": "6d749f4f935bcee6e4a54a4b2caa6c760592b8948b732cd2d3365e300283e2ab",
   "withheld": null
 }

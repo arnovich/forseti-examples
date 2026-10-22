@@ -11,7 +11,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -19,7 +19,7 @@
       "end_line": 185,
       "name": "Notebook.HedgedSpreadRisk.Decided_year_breach_bound.year_breach_bound",
       "prefix_sha256": "09156cfa7d8b10b8545976f1ca7e1c3b488ada288040d946be57069d00d2a158",
-      "proposition_sha256": "37159d74cace43c760238671b152026c2dc8112ee6c2f8914b63c676776547a8",
+      "proposition_sha256": "61d5198a4d0328498742ad502201187afc31ff25d3dcdd48fab992add5aacc7a",
       "start_line": 173,
       "status": "checked",
       "uses": []
@@ -35,7 +35,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -43,7 +43,7 @@
       "end_line": 203,
       "name": "Notebook.HedgedSpreadRisk.year_bound_any_variance_le",
       "prefix_sha256": "2acd1866612e217e1b4e242c688a3c189dbc3fa1a4c71b2bd677176386ef8225",
-      "proposition_sha256": "8f7f90bd8f4d42fe3d12de60995396d75d1f47e6d0a8d37cf3671fe5fae53fbf",
+      "proposition_sha256": "a81fef898bf037e2f1f4435423e3cf25f88e9262be7dd59d5732e572dd25dd09",
       "start_line": 195,
       "status": "checked",
       "uses": []
@@ -59,7 +59,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -67,7 +67,7 @@
       "end_line": 220,
       "name": "Notebook.HedgedSpreadRisk.gaussian_in_both",
       "prefix_sha256": "6f34a5d532221a780563f87c2a92908ce229ce3b4be553d697ce43f2235d23dd",
-      "proposition_sha256": "cd45d81fc8f09d30f17a61d194284fee2e0e29ae7889f2aa1f6d420c003a908c",
+      "proposition_sha256": "795ed2fb6e9b39eecafbce5f7dd8dd2efb77b5d22cc1f39a6484c3af3c9ac3cb",
       "start_line": 214,
       "status": "checked",
       "uses": []
@@ -83,7 +83,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -91,7 +91,7 @@
       "end_line": 253,
       "name": "Notebook.HedgedSpreadRisk.three_point_in_class",
       "prefix_sha256": "34dd11e2311064ccf0f0552a3929ccf5884d2b10a11ea0f089e6abb692c6ac93",
-      "proposition_sha256": "b6b4093e3cffc439ac3b3e17eccec3292ae78dc80f0f0065ce9e313ac07e934a",
+      "proposition_sha256": "4353512be9695789514e634578b252eb8a6a75632154becc04cb053c080b2cea",
       "start_line": 246,
       "status": "checked",
       "uses": []
@@ -107,7 +107,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -115,7 +115,7 @@
       "end_line": 279,
       "name": "Notebook.HedgedSpreadRisk.three_point_breaches_often",
       "prefix_sha256": "de4b2ded532392027cd84c4aa68e9ed3c049f2df1c08176e345f9d4e92958c52",
-      "proposition_sha256": "0e18c570b342963cbac5789f7c98d99709e3eaa83524fb42ad2663a6a2467fa4",
+      "proposition_sha256": "618062581697f81a3a34027e08bcc6c7377116b0bd828cb84578a54bbcf6d229",
       "start_line": 271,
       "status": "checked",
       "uses": []
@@ -131,7 +131,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -139,7 +139,7 @@
       "end_line": 285,
       "name": "Notebook.HedgedSpreadRisk.three_point_lower_bound_decimal",
       "prefix_sha256": "f44f1b895005cea49452deebf21f71d7e8c73482be19a888324967b4385cbc77",
-      "proposition_sha256": "bebca83d7ec10452dfcaf8c39accbe118af54bcc1766db6ea68853e8f1946990",
+      "proposition_sha256": "03bc0a1da131564dc56fc801b8f30a1271452d6ee71c7ee1aaccc4bd1dbcd2ad",
       "start_line": 281,
       "status": "checked",
       "uses": []
@@ -155,7 +155,7 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
@@ -163,7 +163,7 @@
       "end_line": 349,
       "name": "Notebook.HedgedSpreadRisk.Decided_tight_limit.tight_limit_refuted",
       "prefix_sha256": "a702251ed589db78484b4539265b775f3727cd41e6f5dbe4a679952a8c967b44",
-      "proposition_sha256": "f1ecdcd74770bdacc2b37c46aefae86e50a3a50d1655acdd94c6f229db2f3ade",
+      "proposition_sha256": "cac69d6d22b0670404d01cd45758fbe85157422cf71e072a8537ea11c2874eae",
       "start_line": 331,
       "status": "checked",
       "uses": []
@@ -179,15 +179,15 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "f887f9a2c60ed0c331deaa5b81f488a476f3b83bcebba6fbc40bf5be933bc64c",
-      "end_line": 438,
+      "declaration_sha256": "f10d9f21c895d092f5a1c015e1791310db50cc728e4fed8841d559eeb0ccc1b9",
+      "end_line": 439,
       "name": "Notebook.HedgedSpreadRisk.Decided_mark_on_any_date.mark_on_any_date",
-      "prefix_sha256": "1e26d49391d8ecca24f1390500cfc477444a7f6dd51b20ddd124097cde0c22c4",
-      "proposition_sha256": "153c43f1796418c7745b46ef38b37cba5aa623ab816b0a9dbc6c38b6600e3800",
+      "prefix_sha256": "398e0b8acfb5e52a56d26b0b8395a8cf4b1045947bb3002a48b47061b78fca63",
+      "proposition_sha256": "00d42b349776a9532f0119fcfa8f51f8e8a1f58bd5966e7214ac5495d007ce0d",
       "start_line": 390,
       "status": "checked",
       "uses": []
@@ -203,16 +203,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "a17daf73279659de1d5e7e089f859c3fda594379f0e141daa2009fe70a15c268",
-      "end_line": 467,
+      "end_line": 468,
       "name": "Notebook.HedgedSpreadRisk.energy_step_identity",
-      "prefix_sha256": "772e9b761e92f22e907e21114ef3ea83d784cb96a22a8baa5f3123457fcbf875",
-      "proposition_sha256": "0195f01317bef4a08aac26c06c5b7e823fe1a4b240e400c90af6c7a09abcce5e",
-      "start_line": 459,
+      "prefix_sha256": "c6deb66f5fdc7f82638720f82094c3d5c499b0e1b7831425e726d6a9416f726e",
+      "proposition_sha256": "8a698f4d2bd2e826d35bfef19f1c293c2c39de1be83ef420adebb29fcd270ef6",
+      "start_line": 460,
       "status": "checked",
       "uses": []
     },
@@ -227,16 +227,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "eebc42627cdda5f6614f049530357758d15a5a907faa5a0961491e9697f38cf2",
-      "end_line": 482,
+      "end_line": 483,
       "name": "Notebook.HedgedSpreadRisk.stationary_energy",
-      "prefix_sha256": "994a545413a6ca41897dff72c031f7563386925f58357acdeb43e8f2eb6c9ff3",
-      "proposition_sha256": "e1ec43426e64f7314d351a12cbbd33b53794ece59fb947f224219ee7168b9058",
-      "start_line": 480,
+      "prefix_sha256": "e26e86ea16f0415849e14c0aef5ac8627d8490c369f25009ba188f233e90d10a",
+      "proposition_sha256": "00931a01bca672d77473bb73051cf09a59c9c7bb8c3340b600749ea36705ed25",
+      "start_line": 481,
       "status": "checked",
       "uses": []
     },
@@ -251,16 +251,16 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "ad95aec21b1737ad7f94bb9c0fc67187e24728959070bf1804012a3f7a5ab0df",
-      "end_line": 490,
+      "end_line": 491,
       "name": "Notebook.HedgedSpreadRisk.expected_gauge_every_mark",
-      "prefix_sha256": "b73045cf2e55e19493adbe93515d0399ffac877354a0cf00545287c74429f5ec",
-      "proposition_sha256": "6b9ac6abcc0a892aac2c468818286ed553e0b7f924cf603a94ea6cd873cd872c",
-      "start_line": 484,
+      "prefix_sha256": "5298ea66688177c47ccbad6635c69de2f54a73065ed6c2499cdd55eba02f957f",
+      "proposition_sha256": "1a61eee3bb337d0b0b2d33f8ac8a02d4ffb3097eeaf4537bbe69ad7589d88e29",
+      "start_line": 485,
       "status": "checked",
       "uses": [
         {
@@ -281,24 +281,24 @@
           "name": "Classical.choice"
         },
         {
-          "module": "Init.Core",
+          "module": "Init.Prelude",
           "name": "Quot.sound"
         }
       ],
       "declaration_sha256": "887f75af40b0845e2a912e5ca035df38aa92536ba88e5ac2e763381455d3dd5e",
-      "end_line": 533,
+      "end_line": 534,
       "name": "Notebook.HedgedSpreadRisk.Decided_expected_gauge.expected_gauge",
-      "prefix_sha256": "967f3a7d5cd742942455eb735145ee29eb3c2a58b0cdc921da5d7f993d712f26",
-      "proposition_sha256": "ee189bef459a4d021dd218316160eaac959c6bad39bcecdf65e4fd96ca41965a",
-      "start_line": 515,
+      "prefix_sha256": "859b7b5de5e97be53cc6d863331620d45627efcfcf70b7066c903106d7b86f11",
+      "proposition_sha256": "974913e8743fabe8209aa389a00f2c83db66b829284a751552d8ea446ce7b3d3",
+      "start_line": 516,
       "status": "checked",
       "uses": []
     }
   ],
   "decisions": {
     "2020e5e719c74654e28753ee4dd829fd28628bfa0d7df4d321549dc57c32037f": {
-      "created": "2026-10-20T23:00:28+00:00",
-      "fingerprint": "57af50da584b9306ae030f2f990d6bb6fe6ef555baf3fd0f6efad4f51ec798c1",
+      "created": "2026-10-22T17:07:10+00:00",
+      "fingerprint": "0e5883befdeb124ef1e3f406a6af2c78168e5a8ac10fb31378cc18258a799b4d",
       "outcome": {
         "block": null,
         "reason": "unsupported",
@@ -317,7 +317,7 @@
         "status": "unknown",
         "theorem": null
       },
-      "prefix_sha256": "b1e88c61e1dbeec655cf4f5370abe1c0c161770a69c33bc712090293e20bf308",
+      "prefix_sha256": "75e4c15aa6a082b7a2c14d81bf1bb869ec1905fc1d62548776a3efc18b7a5a4f",
       "provider": "forseti",
       "verification": null
     },
@@ -400,10 +400,10 @@
       }
     },
     "93f083cb2ea3b8afa2a16eaa5261447a5e41916e19c31c2f8cff05f33d7bc388": {
-      "created": "2026-10-20T22:58:08+00:00",
-      "fingerprint": "57af50da584b9306ae030f2f990d6bb6fe6ef555baf3fd0f6efad4f51ec798c1",
+      "created": "2026-10-22T17:07:03+00:00",
+      "fingerprint": "0e5883befdeb124ef1e3f406a6af2c78168e5a8ac10fb31378cc18258a799b4d",
       "outcome": {
-        "block": "namespace Decided_mark_on_any_date\n\nopen MeasureTheory\nopen Gimle.Forseti.Stepped\nopen Gimle.Forseti.Examples.HedgedSpread\nopen Gimle.Forseti.Examples.HedgedSpreadContract\nopen Gimle.Forseti.Examples.HedgedSpreadStepped\n\ndef forsetiClaim : Prop :=\n  \u2200 law : Measure \u211d, SubGaussianLaw law 64 \u2192\n    AtEveryMark step compiled.initial law 256 (exposureWithin 1) (1/100)\n\n/-- For independent, identically distributed shocks drawn from any sub-Gaussian law with proxy 64, at each mark up to 256, taken separately, the probability that the exposure s breaches 1 is at most 1/100. `step` is the model's step of size 1/256 with the shock in its driver slot, from `compiled.initial` = (0, 0); `exposureWithin 1` is the band |s| \u2264 1. The stepped decider proved it. Goal (stepped): stepped hedged-spread from (0, 0) at 0 step 1/256 shocks subgaussian 64 at every mark within 256 observe s breach 1 probability <= 1/100 -/\ntheorem mark_on_any_date :\n    \u2200 law : Measure \u211d, SubGaussianLaw law 64 \u2192\n      AtEveryMark step compiled.initial law 256 (exposureWithin 1) (1/100) := by\n  have root : forsetiClaim := by\n    unfold forsetiClaim\n    intro law h\n    have numeric : \u2200 c : \u211d, 0 < c \u2192 c \u2264 18251/200000 \u2192 2 * Real.exp (-1 ^ 2 / (2 * c)) \u2264 1/100 := by\n      intro c h0 h1\n      have hr : (100000/18251 : \u211d) \u2264 1 ^ 2 / (2 * c) := by\n        rw [le_div_iff\u2080 (by positivity)]\n        linarith\n      have hexp : Real.exp (-1 ^ 2 / (2 * c)) \u2264 Real.exp (-(100000/18251)) := by\n        rw [Real.exp_le_exp, neg_div]\n        exact neg_le_neg hr\n      have hE := exp_ge_floor_cubic 5 (r := 100000/18251) (by norm_num)\n      norm_num at hE\n      have hq : 2 * Real.exp (-(100000/18251)) \u2264 1/100 := by\n        rw [Real.exp_neg, \u2190 div_eq_mul_inv, div_le_iff\u2080 (Real.exp_pos _)]\n        linarith\n      linarith\n    intro n hn\n    rcases Nat.eq_zero_or_pos n with rfl | hn0\n    \u00b7 have hempty : {\u03c9 : \u2115 \u2192 \u211d | \u00ac exposureWithin 1 (run step compiled.initial \u03c9 0)} = \u2205 := by\n        ext \u03c9\n        norm_num [exposureWithin, initial_eq]\n      refine \u27e8h.prob, by norm_num, ?_\u27e9\n      rw [hempty, measure_empty]\n      exact zero_le\n    \u00b7 refine exceeds_at_proxy h (by norm_num) n ?_\n      have hc : proxy 64 256 \u2264 18251/200000 := by\n        rw [\u2190 proxyRec_eq]\n        decide +kernel\n      have hle : (proxy 64 n : \u211d) \u2264 18251/200000 := by\n        have := Rat.cast_le (K := \u211d) |>.mpr ((proxy_mono 64 (by norm_num) hn).trans hc)\n        push_cast at this\n        exact this\n      have hpos : (0 : \u211d) < proxy 64 n := by\n        have h1 : (0 : \u211a) < proxy 64 1 := by\n          rw [\u2190 proxyRec_eq]\n          decide +kernel\n        exact_mod_cast h1.trans_le (proxy_mono 64 (by norm_num) hn0)\n      exact numeric _ hpos hle\n  refine (fun (bridge : _ \u2194 forsetiClaim) => bridge.mpr root) ?_\n  constructor\n  \u00b7 intro claim\n    exact claim\n  \u00b7 intro lane\n    exact lane\n\nend Decided_mark_on_any_date",
+        "block": "namespace Decided_mark_on_any_date\n\nopen MeasureTheory\nopen Gimle.Forseti.Stepped\nopen Gimle.Forseti.Examples.HedgedSpread\nopen Gimle.Forseti.Examples.HedgedSpreadContract\nopen Gimle.Forseti.Examples.HedgedSpreadStepped\n\ndef forsetiClaim : Prop :=\n  \u2200 law : Measure \u211d, SubGaussianLaw law 64 \u2192\n    AtEveryMark step compiled.initial law 256 (exposureWithin 1) (1/100)\n\n/-- For independent, identically distributed shocks drawn from any sub-Gaussian law with proxy 64, at each mark up to 256, taken separately, the probability that the exposure s breaches 1 is at most 1/100. `step` is the model's step of size 1/256 with the shock in its driver slot, from `compiled.initial` = (0, 0); `exposureWithin 1` is the band |s| \u2264 1. The stepped decider proved it. Goal (stepped): stepped hedged-spread from (0, 0) at 0 step 1/256 shocks subgaussian 64 at every mark within 256 observe s breach 1 probability <= 1/100 -/\ntheorem mark_on_any_date :\n    \u2200 law : Measure \u211d, SubGaussianLaw law 64 \u2192\n      AtEveryMark step compiled.initial law 256 (exposureWithin 1) (1/100) := by\n  have root : forsetiClaim := by\n    unfold forsetiClaim\n    intro law h\n    have numeric : \u2200 c : \u211d, 0 < c \u2192 c \u2264 18251/200000 \u2192 2 * Real.exp (-1 ^ 2 / (2 * c)) \u2264 1/100 := by\n      intro c h0 h1\n      have hr : (100000/18251 : \u211d) \u2264 1 ^ 2 / (2 * c) := by\n        rw [le_div_iff\u2080 (by positivity)]\n        linarith\n      have hexp : Real.exp (-1 ^ 2 / (2 * c)) \u2264 Real.exp (-(100000/18251)) := by\n        rw [Real.exp_le_exp, neg_div]\n        exact neg_le_neg hr\n      have hE := exp_ge_floor_cubic 5 (r := 100000/18251) (by norm_num)\n      norm_num at hE\n      have hq : 2 * Real.exp (-(100000/18251)) \u2264 1/100 := by\n        rw [Real.exp_neg, \u2190 div_eq_mul_inv, div_le_iff\u2080 (Real.exp_pos _)]\n        linarith\n      linarith\n    intro n hn\n    rcases Nat.eq_zero_or_pos n with rfl | hn0\n    \u00b7 have hempty : {\u03c9 : \u2115 \u2192 \u211d | \u00ac exposureWithin 1 (run step compiled.initial \u03c9 0)} = \u2205 := by\n        ext \u03c9\n        simp only [run_zero]\n        norm_num [exposureWithin, initial_eq]\n      refine \u27e8h.prob, by norm_num, ?_\u27e9\n      rw [hempty, measure_empty]\n      exact zero_le\n    \u00b7 refine exceeds_at_proxy h (by norm_num) n ?_\n      have hc : proxy 64 256 \u2264 18251/200000 := by\n        rw [\u2190 proxyRec_eq]\n        decide +kernel\n      have hle : (proxy 64 n : \u211d) \u2264 18251/200000 := by\n        have := Rat.cast_le (K := \u211d) |>.mpr ((proxy_mono 64 (by norm_num) hn).trans hc)\n        push_cast at this\n        exact this\n      have hpos : (0 : \u211d) < proxy 64 n := by\n        have h1 : (0 : \u211a) < proxy 64 1 := by\n          rw [\u2190 proxyRec_eq]\n          decide +kernel\n        exact_mod_cast h1.trans_le (proxy_mono 64 (by norm_num) hn0)\n      exact numeric _ hpos hle\n  refine (fun (bridge : _ \u2194 forsetiClaim) => bridge.mpr root) ?_\n  constructor\n  \u00b7 intro claim\n    exact claim\n  \u00b7 intro lane\n    exact lane\n\nend Decided_mark_on_any_date",
         "reason": "Found by the fixed-date stage.",
         "stages": [
           [
@@ -479,13 +479,13 @@
     }
   },
   "environment": {
-    "check": "b2bc20a1d19760a22d8cf899636665c847cc17ddf808dfe502e596e304c7643a",
-    "fingerprint": "57af50da584b9306ae030f2f990d6bb6fe6ef555baf3fd0f6efad4f51ec798c1"
+    "check": "ee77f59be97fe7d874650e55c63a2ce8df14360d5902b2d05cde21ed547c1038",
+    "fingerprint": "0e5883befdeb124ef1e3f406a6af2c78168e5a8ac10fb31378cc18258a799b4d"
   },
   "evidence": {
     "45885ffbf143beb49e82d989048a1fe83c22f1b57c56beef6ffdcf3baf7bbc89": {
-      "created": "2026-10-20T23:01:18+00:00",
-      "fingerprint": "0db5680e2c7859a312adf72ddd41406ba218c00d1e48118c0a4a0e65ec7b0680",
+      "created": "2026-10-22T17:08:34+00:00",
+      "fingerprint": "0dda8cab075f707375b6b54c05e9f3e7f628d92968189f6bb6f0c5ba97cbfafc",
       "prefix_sha256": "36dfce17828b3c1ab01b93375408cab247c5ed2e1686dba15ede9741d5e1d1b3",
       "provider": "forseti",
       "snapshot": {
@@ -554,11 +554,11 @@
           ],
           [
             "provider",
-            "glitnir-forseti 0.1.3"
+            "glitnir-forseti 0.1.5"
           ],
           [
             "created",
-            "2026-10-20T23:01:18+00:00"
+            "2026-10-22T17:08:34+00:00"
           ]
         ],
         "series": {
@@ -3665,8 +3665,8 @@
       }
     },
     "dac3b6ea2ec60c3565c0f1bd2ae77be0c9185cb78cb829eb55cacfc81c1cc68a": {
-      "created": "2026-10-20T23:01:02+00:00",
-      "fingerprint": "0db5680e2c7859a312adf72ddd41406ba218c00d1e48118c0a4a0e65ec7b0680",
+      "created": "2026-10-22T17:08:13+00:00",
+      "fingerprint": "0dda8cab075f707375b6b54c05e9f3e7f628d92968189f6bb6f0c5ba97cbfafc",
       "prefix_sha256": "71c01f3a15e2ab0cd6fd8dca175df0ba9728d5bdd17cf15708631da5a963e211",
       "provider": "forseti",
       "snapshot": {
@@ -3735,11 +3735,11 @@
           ],
           [
             "provider",
-            "glitnir-forseti 0.1.3"
+            "glitnir-forseti 0.1.5"
           ],
           [
             "created",
-            "2026-10-20T23:01:02+00:00"
+            "2026-10-22T17:08:13+00:00"
           ]
         ],
         "series": {
@@ -6847,6 +6847,6 @@
     }
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "ea44849044e4c660f6e82cec6a8ba6ce6f12da2ccbe30366c0301c5113297258",
+  "source_sha256": "badd5e1d781abd05ca31aeaf6d4403da212adbe5dbc25f404f8b448b0c1fcc69",
   "withheld": null
 }
