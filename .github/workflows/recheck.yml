@@ -1,10 +1,17 @@
 name: Notebook recheck
 
-# Rechecks every notebook with the pinned Glitnir release and uploads what it
+# Rechecks notebooks with the pinned Glitnir release and uploads what it
 # records: each <Notebook>.glitnir.json (claims, refreshed decisions and
 # evidence, saved drawings), any decision block it accepted again, a patch of
 # all of it and a per-notebook report. It never pushes; commit the uploaded
 # results after review (`git apply recheck.patch`).
+#
+# A pull request rechecks only the notebooks whose .lean source changed plus the
+# notebooks importing them (scripts/select_recheck.py); a change to the Lake
+# pins, the requirements, scripts/recheck.py or this workflow rechecks all. The
+# paths filter lists .lean files, not examples/**, so a pull request that
+# changes only recorded results or docs never starts this workflow. Manual
+# dispatch rechecks the named notebooks, or all when none are named.
 
 on:
   workflow_dispatch:
@@ -18,7 +25,8 @@ on:
       - lean-toolchain
       - lake-manifest.json
       - lakefile.toml
-      - 'examples/**'
+      - 'examples/**/*.lean'
+      - scripts/select_recheck.py
       - scripts/recheck.py
       - scripts/recheck-requirements.txt
       - scripts/gallery/requirements.txt
@@ -32,7 +40,51 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  select:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      run: ${{ steps.select.outputs.run }}
+      only: ${{ steps.select.outputs.only }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Choose the notebooks to recheck
+        id: select
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          INPUT_ONLY: ${{ needs.select.outputs.only }}
+        run: |
+          if [ "$EVENT" = pull_request ]; then
+            git diff --name-only "$BASE_SHA...HEAD" | tee changed.txt
+            selection=$(python -m scripts.select_recheck < changed.txt)
+          else
+            selection=$INPUT_ONLY
+            [ -n "$selection" ] || selection=all
+          fi
+          if [ -z "$selection" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Notebook recheck: no notebook source changed; nothing to recheck." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          echo "run=true" >> "$GITHUB_OUTPUT"
+          if [ "$selection" = all ]; then
+            echo "only=" >> "$GITHUB_OUTPUT"
+            echo "Notebook recheck: rechecking all notebooks." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "only=$selection" >> "$GITHUB_OUTPUT"
+            echo "Notebook recheck: rechecking $selection." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
   recheck:
+    needs: select
+    if: needs.select.outputs.run == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 360
     steps:
@@ -100,7 +152,7 @@ jobs:
           # Glitnir caps one check at 30 minutes; the first check also replays
           # Mathlib's kernel closure once, on a separate one-hour bound.
           GLITNIR_ELABORATION_TIMEOUT_MS: '1800000'
-          ONLY: ${{ github.event.inputs.only }}
+          ONLY: ${{ needs.select.outputs.only }}
         run: |
           if [ -n "$ONLY" ]; then
             read -r -a only <<< "$ONLY"
