@@ -247,8 +247,7 @@ theorem affine_coefficient :
       (Finsupp.single 0 1 + Finsupp.single 1 1) = -1 := by
   have idx : (Finsupp.single 0 1 + Finsupp.single 1 1 : Index 2) 0 = 1 := by simp
   rw [stream_ogf_coeff, idx, show (1 / 10 : ℚ) = ν from rfl, picard_affine_one]
-  simp [MvPolynomial.coeff_X_mul', MvPolynomial.coeff_X, Finsupp.ext_iff, Fin.forall_fin_two,
-    Finsupp.single_apply, Finsupp.tsub_apply]
+  simp [MvPolynomial.coeff_X, Finsupp.ext_iff, Finsupp.single_apply]
 
 /-!
 ## Certify convergence and truncation for the front {fold}
