@@ -57,7 +57,7 @@ To activate publication, set **Settings → Pages → Source → GitHub Actions*
 run the workflow. Restrict the `github-pages` environment to `main`. Update README
 gallery/image URLs if the repository name or owner changes.
 
-The gallery uses the Glitnir v0.1.5 backend and renderer and the Forseti view
+The gallery uses the Glitnir v0.1.6 backend and renderer and the Forseti view
 provider, pinned by hash in `scripts/gallery/requirements.txt`. Use Python 3.12+,
 Node 22.22.2, Lean 4.35.0 and a working sandbox (bubblewrap on Linux). Diagrams are
 drawn in this project's own Lake environment, so first build the modules they
