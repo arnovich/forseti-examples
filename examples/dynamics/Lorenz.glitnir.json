@@ -19,7 +19,7 @@
       "end_line": 90,
       "name": "Notebook.Lorenz.energy_at_start",
       "prefix_sha256": "acb70a06b47854d60b555f9c94a235895221085bd0654941ed11356246bf0492",
-      "proposition_sha256": "eb62aff3dc6a71614beda7a6ef0b12f886288d6e181a999e4681c1ecdbd2a8ac",
+      "proposition_sha256": "9bb5732bb06235602623cf2e6285c31ae75bdf9e360cc2ab7b340b335616010c",
       "start_line": 88,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 94,
       "name": "Notebook.Lorenz.rate_positive_at_origin_side",
       "prefix_sha256": "4272f9c2690b02dfb41c3d3e5dc487a5e8f59bc04f3a10dff57b155be6c0acbd",
-      "proposition_sha256": "642d36c180b591ef50ec472111ef8253b93441aade8d2d2b548dcd95166bf8a1",
+      "proposition_sha256": "fa06da52122df6804c20e8f044797b5bbd00e4f7530f3cbf5a4075ee4b5e51d4",
       "start_line": 92,
       "status": "checked",
       "uses": []
@@ -67,7 +67,7 @@
       "end_line": 110,
       "name": "Notebook.Lorenz.storage_inequality",
       "prefix_sha256": "eb5238f8ca53dc4c3d9ca8059fc36323b5980c91ddd7d93d5216fa71382d4f39",
-      "proposition_sha256": "ec46b92ac1aa508d03ef44bd95f2c8da4d5231536f7fd34fe47a94c27cc185a6",
+      "proposition_sha256": "d0ca1a071c9966f53edecd815a3658d1b8e79cdcea91c9d4b095fe499f0d6fa0",
       "start_line": 108,
       "status": "checked",
       "uses": []
@@ -93,7 +93,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiTime Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiTime",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_in_ball._glitnir_example_6575",
       "prefix_sha256": "76b2b70622883baedc5882ef0da3a4dd4913ab33b40bb2ebae1bd51b2318f79a",
-      "proposition_sha256": "f19acb3183296327b7a597996b505991fd82fd074a09bb8884ac2857118a35a9",
+      "proposition_sha256": "9c07c2a9a6527762aa3431218fcb24c5d68fdd4193b128526f05d737789772e8",
       "start_line": 156,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -120,7 +120,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiInitial Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiInitial",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_in_ball._glitnir_example_6647",
       "prefix_sha256": "11b31df71f86a0e6032ce05433fec6c6666140c7956f5cde26d95de2706d83f8",
-      "proposition_sha256": "367eae9d67f537ec77dd7ce246d438a88a6ab6c720f914bff01b791ba2be8024",
+      "proposition_sha256": "90cdc4f5fd1019d7c792bc2dd5910278dc5c8ae61fecd371c5ed9c34496d4f9d",
       "start_line": 157,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -134,7 +134,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiObservation\n  Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiObservation",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_in_ball._glitnir_example_6725",
       "prefix_sha256": "c65fb0898ac71ce4072e877ce92e823dbb1e19a019249ff171f043e96af28650",
-      "proposition_sha256": "94c3317d1f2027215d7464ed531e4dd088b24362a0f069702f881634e027f1d5",
+      "proposition_sha256": "80e68d0ba648432404de3dcd24fb6aeb8f05c3a228f27a95adce4e4ee55e0b55",
       "start_line": 158,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -161,7 +161,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiIdentities\n  Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiIdentities",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_in_ball._glitnir_example_6811",
       "prefix_sha256": "86dfbb7564a5e65c2017c4409826c039accfba858dd73449cb130aa36abdec5a",
-      "proposition_sha256": "fca2257c60a3866383a207192cb1448e1bb9ec7e1fe8826e6ab3729e82556cc2",
+      "proposition_sha256": "7852185143997dd41a5a7ef9d1e0d627c8a3a89d4d968edaaddf5a013068214a",
       "start_line": 159,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -186,7 +186,7 @@
       "end_line": 219,
       "name": "Notebook.Lorenz.Decided_in_ball.in_ball",
       "prefix_sha256": "72548070bf08f7594b3112b1d90a7c5909551de220c630371c2d3f934d7caca2",
-      "proposition_sha256": "ab8ffa9462ad52c5bf18ee706c8986fc01d04d628cb379dc0ca7e003b84d1c0a",
+      "proposition_sha256": "0dcd8b7c20db19e0a0a4bb8a309b441c6163a484f124393e911eef82330fbff6",
       "start_line": 178,
       "status": "checked",
       "uses": []
@@ -212,7 +212,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiTime Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiTime",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_below_thirteen_hundred._glitnir_example_13039",
       "prefix_sha256": "ea03b9d928747bb8fd22b58cc47987f2cc3612b267b219678b66a817df1f8079",
-      "proposition_sha256": "f19acb3183296327b7a597996b505991fd82fd074a09bb8884ac2857118a35a9",
+      "proposition_sha256": "9c07c2a9a6527762aa3431218fcb24c5d68fdd4193b128526f05d737789772e8",
       "start_line": 230,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
@@ -239,7 +239,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiInitial Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiInitial",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_below_thirteen_hundred._glitnir_example_13111",
       "prefix_sha256": "458952c7452cbb9de62d533dd505c7dd6bf02049330b547599239b2907c20e88",
-      "proposition_sha256": "367eae9d67f537ec77dd7ce246d438a88a6ab6c720f914bff01b791ba2be8024",
+      "proposition_sha256": "90cdc4f5fd1019d7c792bc2dd5910278dc5c8ae61fecd371c5ed9c34496d4f9d",
       "start_line": 231,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
@@ -253,7 +253,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiObservation\n  Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiObservation",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_below_thirteen_hundred._glitnir_example_13189",
       "prefix_sha256": "9cdcdca4d867231e9a03d7fe1393bf97990e7b48cfb6339c710e3b41169e3c03",
-      "proposition_sha256": "94c3317d1f2027215d7464ed531e4dd088b24362a0f069702f881634e027f1d5",
+      "proposition_sha256": "80e68d0ba648432404de3dcd24fb6aeb8f05c3a228f27a95adce4e4ee55e0b55",
       "start_line": 232,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
@@ -280,7 +280,7 @@
       "kernel_statement": "Eq Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiIdentities\n  Notebook.Lorenz.DecidedShared_72f9d7627148.forsetiIdentities",
       "name": "_private.Lorenz.0.Notebook.Lorenz.Decided_below_thirteen_hundred._glitnir_example_13275",
       "prefix_sha256": "078095dbb833ddbb0b390846d221200eaf0a7718f25852895a7b3f425a38e521",
-      "proposition_sha256": "fca2257c60a3866383a207192cb1448e1bb9ec7e1fe8826e6ab3729e82556cc2",
+      "proposition_sha256": "7852185143997dd41a5a7ef9d1e0d627c8a3a89d4d968edaaddf5a013068214a",
       "start_line": 233,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
@@ -309,21 +309,21 @@
       "end_line": 258,
       "name": "Notebook.Lorenz.Decided_below_thirteen_hundred.below_thirteen_hundred",
       "prefix_sha256": "055195f0d7d3b2ed6b54e753dba6744af0d380ece5c367ab3993d7b706124075",
-      "proposition_sha256": "b308f2f7497221e86f5e9224e64c38a96f4e26f4d79f89f6199326721c298481",
+      "proposition_sha256": "3f2da39416e8b84aaaa93aea5e6dfb5f21fb8fd8eeb081752c9b6e1c3827df45",
       "start_line": 247,
       "status": "admitted",
       "uses": []
     }
   ],
   "environment": {
-    "check": "8cf09e5560b0f475c2e9150864c31e398ba39daa34e7ade6fa90eddadf2a082b",
-    "fingerprint": "20683c90186a5485e74d7159b246e6a55efcba921f605a545eebe0778edae56d"
+    "check": "87fd1c53585da3858eeac2643e091943d0c72fbf3854318c7b6544df8846cd13",
+    "fingerprint": "4dd0a50202c78f3bb50ae8a26de5b6e5ef8cee3ba80f3263d84143c74294c9f6"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "3fcfdec4b20fb1dfa09eb72da1c4de866fc95ff2d36322cce3bb6fdb16b14065",
   "views": {
     "11614910b7faf0d4510356f550a764e7796f6ae2683a012ce1d88b97d40bfa02": {
-      "created": "2026-10-22T16:51:44+00:00",
+      "created": "2026-10-23T13:37:18+00:00",
       "drawing": {
         "contracts": [],
         "detail": {
@@ -10096,7 +10096,7 @@
         },
         "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1020 737\" width=\"1020\" height=\"737\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><text x=\"35\" y=\"35\" font-size=\"20\" fill=\"#172f43\" textLength=\"528\" lengthAdjust=\"spacingAndGlyphs\">Continuous circuit \u00b7 compiled model overview</text><text x=\"35\" y=\"62\" font-size=\"14\" fill=\"#172f43\" textLength=\"369\" lengthAdjust=\"spacingAndGlyphs\">Axis t [time] \u2022 start 0 \u2022 exact coefficients</text><rect x=\"100\" y=\"100\" width=\"390\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"120\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"189\" lengthAdjust=\"spacingAndGlyphs\">Compiled vector field</text><rect x=\"600\" y=\"100\" width=\"240\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"620\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"153\" lengthAdjust=\"spacingAndGlyphs\">Integrate along t</text><g><title>state: state-x; derivative: dx; initial: initial-x</title><text x=\"120\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"210\" lengthAdjust=\"spacingAndGlyphs\">dx/dt = (10 \u00d7 (y + (-x)))</text><polyline points=\"490,165 600,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"600,165 593,161 593,169\" fill=\"#476579\"></polygon><text x=\"620\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"58\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  x</text><text x=\"620\" y=\"189\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">x(0) = 1</text><polyline points=\"840,165 990,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"990,165 983,161 983,169\" fill=\"#476579\"></polygon><text x=\"855\" y=\"155\" font-size=\"12\" fill=\"#172f43\" textLength=\"28\" lengthAdjust=\"spacingAndGlyphs\">0: x</text></g><g><title>state: state-y; derivative: dy; initial: initial-y</title><text x=\"120\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"285\" lengthAdjust=\"spacingAndGlyphs\">dy/dt = ((x \u00d7 (28 + (-z))) + (-y))</text><polyline points=\"490,255 600,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"600,255 593,251 593,259\" fill=\"#476579\"></polygon><text x=\"620\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"58\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  y</text><text x=\"620\" y=\"279\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">y(0) = 1</text><polyline points=\"840,255 990,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"990,255 983,251 983,259\" fill=\"#476579\"></polygon><text x=\"855\" y=\"245\" font-size=\"12\" fill=\"#172f43\" textLength=\"28\" lengthAdjust=\"spacingAndGlyphs\">1: y</text></g><g><title>state: state-z; derivative: dz; initial: initial-z</title><text x=\"120\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"268\" lengthAdjust=\"spacingAndGlyphs\">dz/dt = ((x \u00d7 y) + (-(8/3 \u00d7 z)))</text><polyline points=\"490,345 600,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"600,345 593,341 593,349\" fill=\"#476579\"></polygon><text x=\"620\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"58\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  z</text><text x=\"620\" y=\"369\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">z(0) = 1</text><polyline points=\"840,345 990,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"990,345 983,341 983,349\" fill=\"#476579\"></polygon><text x=\"855\" y=\"335\" font-size=\"12\" fill=\"#172f43\" textLength=\"28\" lengthAdjust=\"spacingAndGlyphs\">2: z</text></g><circle cx=\"970\" cy=\"165\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"970,165 970,470 20,470 20,165 100,165\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,165 93,161 93,169\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"463\" font-size=\"12\" fill=\"#172f43\" textLength=\"93\" lengthAdjust=\"spacingAndGlyphs\">Feedback 0: x</text><circle cx=\"958\" cy=\"255\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"958,255 958,498 32,498 32,255 100,255\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,255 93,251 93,259\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"491\" font-size=\"12\" fill=\"#172f43\" textLength=\"93\" lengthAdjust=\"spacingAndGlyphs\">Feedback 1: y</text><circle cx=\"946\" cy=\"345\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"946,345 946,526 44,526 44,345 100,345\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,345 93,341 93,349\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"519\" font-size=\"12\" fill=\"#172f43\" textLength=\"93\" lengthAdjust=\"spacingAndGlyphs\">Feedback 2: z</text><text x=\"35\" y=\"574\" font-size=\"13\" fill=\"#172f43\" textLength=\"234\" lengthAdjust=\"spacingAndGlyphs\">Observations (declared order):</text><text x=\"35\" y=\"599\" font-size=\"13\" fill=\"#172f43\" textLength=\"109\" lengthAdjust=\"spacingAndGlyphs\">0: x \u2190 state-x</text><text x=\"35\" y=\"621\" font-size=\"13\" fill=\"#172f43\" textLength=\"109\" lengthAdjust=\"spacingAndGlyphs\">1: y \u2190 state-y</text><text x=\"35\" y=\"643\" font-size=\"13\" fill=\"#172f43\" textLength=\"109\" lengthAdjust=\"spacingAndGlyphs\">2: z \u2190 state-z</text><text x=\"35\" y=\"665\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">3: V \u2190 V</text><text x=\"35\" y=\"687\" font-size=\"12\" fill=\"#172f43\" textLength=\"475\" lengthAdjust=\"spacingAndGlyphs\">Crossings are not junctions. IC inputs are read at the start time.</text><text x=\"35\" y=\"712\" font-size=\"12\" fill=\"#172f43\" textLength=\"511\" lengthAdjust=\"spacingAndGlyphs\">Diagram only. Existence, uniqueness and bounds require separate proofs.</text></svg>"
       },
-      "fingerprint": "ab78f5bc89d78a629a130acf052cd5587591520a5d35879e1e47a9d3e62e1dc5",
+      "fingerprint": "b9c24850c7b2ba826b5e7588f7913839b41323481c1f7fab728d775cbd392d4a",
       "prefix_sha256": "da7b9057e6834634805b206355cc1b623b92f8b764d7aea1be3cd49c0f7f86b0",
       "provider": "forseti",
       "provider_sha256": "9c7cbe4bb84ca7568db419c9891d9fb1a6fdf71b8904b01ec73ad5b55ad8c684"

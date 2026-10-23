@@ -19,7 +19,7 @@
       "end_line": 153,
       "name": "Notebook.BurgersFronts.Decided_fast_truncation.fast_truncation",
       "prefix_sha256": "c71660d95c7e0ea8edf2b8ae19bfa9b01f9da40109d9a279f3d3e9325787690f",
-      "proposition_sha256": "4eeca5f3f72eb65aa4b085215daca27311a116936048e68540f467d39cd75d2c",
+      "proposition_sha256": "af80f8494a146225a8783f5779190206aa381651aca68eea9960eb2c7f090f67",
       "start_line": 98,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 260,
       "name": "Notebook.BurgersFronts.Decided_fast_band.fast_band",
       "prefix_sha256": "c0c4bcaef28fffab4e3da14ed4d05b9a5bc3d527cf739e906b3f4f81e7c80ab6",
-      "proposition_sha256": "adfa91d608f2d7a16fa95f2b2d9b91bd38a6dcbd0a06cd0d6e2aff1f93ea4e20",
+      "proposition_sha256": "c07e26988891f228f447b8ea1ab1c6956ac21de0d10838b6b9be5e536ff4543d",
       "start_line": 212,
       "status": "checked",
       "uses": []
@@ -71,7 +71,7 @@
       "end_line": 326,
       "name": "Notebook.BurgersFronts.Decided_fast_crosses_one.fast_crosses_one",
       "prefix_sha256": "84ff8dfb2f9de2f4cee85f09f5918e3e5b078ae9a711ce3d27e3b2aeaf86803a",
-      "proposition_sha256": "b7f5860c885ceee538b39fe2c2e51433ff00d319e783e2f85e9c8abefc50af1f",
+      "proposition_sha256": "718e30ce76bbc466bc34557bece638b5ec6a751ba4037ebe0cdb11aef062983e",
       "start_line": 315,
       "status": "admitted",
       "uses": []
@@ -95,7 +95,7 @@
       "end_line": 446,
       "name": "Notebook.BurgersFronts.Decided_fast_true_band_small_box.fast_true_band_small_box",
       "prefix_sha256": "ef120104863cecd437af0c7f4e937f9d74422de848c5d53c83777b465a7e3e67",
-      "proposition_sha256": "cde7700ecb4246626c28befb8ca1248a13cf6d0d343e6be692f92fc107869049",
+      "proposition_sha256": "1d38eee5f7d53b58c4b5394a1f10df6c87eab20268f26b6f67f7e5681abe2c5e",
       "start_line": 398,
       "status": "checked",
       "uses": []
@@ -119,15 +119,15 @@
       "end_line": 564,
       "name": "Notebook.BurgersFronts.Decided_two_exponentials_band.two_exponentials_band",
       "prefix_sha256": "ebfad8cc710e72018bcfc12b82968b0cca79e1c58a8ba8f3a941fbf7ed5cf2c6",
-      "proposition_sha256": "2695d18dd63e8fd68a85ecb24365c58480c0addc97da93d84ce592dfac697fe8",
+      "proposition_sha256": "be80708fea99621cc9cdc9a8eb190ac1c8df58a58f226895ec09a011dae008a8",
       "start_line": 516,
       "status": "checked",
       "uses": []
     }
   ],
   "environment": {
-    "check": "896be3af63ab7f9e64735dd3ce4e4269467013263224d044963da13cd53649a5",
-    "fingerprint": "938a6237249f67e49f63864a125a95da1a0bffb51b786dd58e9914eadf4f34fa"
+    "check": "8f87738d8a7c561e8f8f52dc6ec3a58fda1872ae86990edc5699f0821a04aff5",
+    "fingerprint": "07bdeab6888aee315eeed2840056ce842d72f9d44bc97aa672d7b748852732b7"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "65f2bdffdd6b118130a0b5f9243ce9567167d4a44c7d9916bb1c1cb481bc4a83",
