@@ -107,7 +107,7 @@ def drawable(drawing: dict[str, Any]) -> bool:
 
 def _saved_notebook(path: Path) -> Any:
     """Open a notebook through Glitnir's public static export."""
-    from glitnir.notebook.static_export import SavedNotebook
+    from glitnir.service.static_export import SavedNotebook
 
     return SavedNotebook(path)
 
@@ -249,7 +249,8 @@ def main() -> None:
     before = notebook_hashes(root)
     args.diagram_cache.mkdir(parents=True, exist_ok=True)
 
-    from glitnir.notebook import static_export
+    from glitnir.preview.editor import renderer_directory
+    from glitnir.service import static_export
 
     # Commit time makes rebuilds deterministic; export does not imply a new check.
     timestamp = subprocess.check_output(
@@ -269,7 +270,7 @@ def main() -> None:
                 "revision": revision,
                 "timestamp": timestamp,
                 "notebooks": notebooks,
-                "media": str(Path(static_export.__file__).parent / "app"),
+                "media": str(renderer_directory()),
                 "css": static_export.export_styles(),
             }
             inputs = work / "inputs.json"
