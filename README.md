@@ -14,7 +14,7 @@ In the [notebook gallery](https://arnovich.github.io/forseti-examples/) you can 
 
 The best experience is to use [Glitnir](https://github.com/arnovich/glitnir) with VS Code
 and Lean for VS Code, on local macOS or Linux. These steps use
-[Glitnir 0.1.8](https://github.com/arnovich/glitnir/releases/tag/v0.1.8) or newer.
+[Glitnir 0.1.9](https://github.com/arnovich/glitnir/releases/tag/v0.1.9) or newer.
 
 1. [Install VS Code](https://code.visualstudio.com/docs/getstarted/overview#install-vs-code),
    Python 3.12 or newer and [uv](https://docs.astral.sh/uv/getting-started/installation/).
