@@ -76,6 +76,8 @@ test('gallery provides related-product navigation without losing notebook entry 
     assert.ok(doc.querySelector('nav[aria-label="Topics"] a[href="#pdes"]'));
     assert.ok(doc.querySelector('link[rel="icon"][href="assets/favicon.svg"]'));
     assert.equal(doc.querySelectorAll('h1').length, 1);
+    assert.equal(doc.querySelector('h1').textContent, 'Glitnir notebooks.');
+    assert.ok(doc.querySelector('.intro-note').textContent.includes('Lean, Mathlib, Forseti and Asgard'));
     assert.equal(doc.querySelectorAll('script').length, 0);
   } finally { dom.window.close(); }
 });

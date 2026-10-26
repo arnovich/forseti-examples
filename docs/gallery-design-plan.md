@@ -1,4 +1,4 @@
-# Bring the Glitnir design to the Forseti examples
+# Glitnir notebook gallery design
 
 ## Intent
 
@@ -15,7 +15,9 @@ Use a shared Gimle mark, spacious left-aligned heading, split introduction/actio
 real preview images, and light topic rules. Keep the catalog central and readable.
 
 Compared with the Glitnir landing page, this is a library rather than a product
-pitch. Retain "Forseti examples" and its concrete subject description; avoid
+pitch. Use "Glitnir notebooks" for the visitor-facing title, with the current collection
+explicitly described as examples using Lean, Mathlib, Forseti and Asgard. Keep its concrete
+subject description; avoid
 adding feature marketing, signup, or decorative screenshots. Topic navigation
 becomes a wrapping row on mobile; all assets remain local and Pages-prefix safe.
 
