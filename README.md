@@ -1,14 +1,21 @@
-# Forseti Examples
+# Glitnir notebooks
 
-A collection of Lean notebooks exploring formal proofs of the properties of dynamical systems using the [Forseti](https://github.com/arnovich/forseti-lean) program logic and proof system for dynamical systems.
+Worked mathematical notebooks in Lean, presented with [Glitnir](https://glitnir.gimlelabs.com/).
+Explore circuits, dynamical systems, finance and partial differential equations
+through readable explanations, models and proofs. The collection includes Lean
+and Mathlib examples alongside notebooks using the
+[Forseti](https://github.com/arnovich/forseti-lean) proof libraries and
+[Asgard](https://github.com/arnovich/asgard-lean) circuit models.
 
-The notebooks are written in the [Glitnir](https://github.com/arnovich/glitnir) style for Lean notebooks, making them richer and easier to read than your standard Lean file.
+Each notebook is an ordinary `.lean` file, with Markdown prose in Lean comments.
+Read it in the gallery, or open it in Glitnir to inspect its source and check its
+claims. Saved observations are shown as recorded; simulations are evidence.
 
-In the [notebook gallery](https://arnovich.github.io/forseti-examples/) you can see rendered HTML snapshots of all the examples without installing Lean or Glitnir.
+In the [notebook gallery](https://notebooks.gimlelabs.com/) you can see rendered HTML snapshots of all the examples without installing Lean or Glitnir.
 
 | A model in motion | How circuits compose |
 | --- | --- |
-| [![ThreeState notebook preview](https://arnovich.github.io/forseti-examples/previews/ThreeState.png)](https://arnovich.github.io/forseti-examples/basics/ThreeState.html) | [![CircuitProofs notebook preview](https://arnovich.github.io/forseti-examples/previews/CircuitProofs.png)](https://arnovich.github.io/forseti-examples/circuits/CircuitProofs.html) |
+| [![ThreeState notebook preview](https://notebooks.gimlelabs.com/previews/ThreeState.png)](https://notebooks.gimlelabs.com/basics/ThreeState.html) | [![CircuitProofs notebook preview](https://notebooks.gimlelabs.com/previews/CircuitProofs.png)](https://notebooks.gimlelabs.com/circuits/CircuitProofs.html) |
 
 ## Getting started
 
@@ -68,7 +75,7 @@ which takes about 18 minutes on a laptop; later checks take a few minutes.
 | [Laminar](examples/galerkin/NS_Laminar.lean), [T3](examples/galerkin/NS_T3.lean), [K5](examples/galerkin/NS_K5.lean), [B2](examples/galerkin/NS_B2.lean) | Finite-dimensional fluid models, energy and enstrophy |
 | [Burgers](examples/pdes/Burgers.lean), [BurgersFronts](examples/pdes/BurgersFronts.lean), [Euler](examples/pdes/Euler.lean), [NavierStokes](examples/pdes/NavierStokes.lean) | Stream and PDE contracts |
 
-Each [gallery entry](https://arnovich.github.io/forseti-examples/) links
+Each [gallery entry](https://notebooks.gimlelabs.com/) links
 to its rendered notebook and exact Lean source revision.
 
 This repository is maintained by its authors and does not accept external contributions.

@@ -1,4 +1,4 @@
-# Forseti examples
+# Glitnir notebooks
 
 For notebook authoring, use Glitnir's `glitnir-notebooks` skill. Install it with
 **Glitnir: Set Up Coding Agent**, as described in [getting started](README.md#getting-started).
@@ -51,11 +51,21 @@ an upgrade is intentional.
 
 ## Gallery maintenance
 
+The canonical repository is `arnovich/glitnir-notebooks`; the public gallery is
+https://notebooks.gimlelabs.com/. Its custom domain is configured in GitHub Pages
+and Cloudflare DNS, independently of the repository name.
+
 The `Notebook gallery` workflow builds on main pushes, pull requests and manual
 dispatch. It retains preview artifacts and deploys Pages only from public main.
 To activate publication, set **Settings → Pages → Source → GitHub Actions** and
-run the workflow. Restrict the `github-pages` environment to `main`. Update README
-gallery/image URLs if the repository name or owner changes.
+run the workflow. Restrict the `github-pages` environment to `main`. Keep README
+gallery/image URLs on the stable custom domain; update repository and source
+references if the repository name or owner changes.
+
+The repository was formerly `arnovich/forseti-examples`. Do not recreate that
+repository name: doing so removes GitHub's redirects to `glitnir-notebooks`.
+Old GitHub Pages project paths are outside the repository-rename redirect
+guarantee; use the canonical gallery domain.
 
 The gallery uses the Glitnir v0.1.8 backend and renderer and the Forseti view
 provider, pinned by hash in `scripts/gallery/requirements.txt`. Use Python 3.12+,
