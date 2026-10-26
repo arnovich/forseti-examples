@@ -201,7 +201,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("_site"))
     parser.add_argument(
         "--repository",
-        default=os.environ.get("GITHUB_REPOSITORY", "arnovich/forseti-examples"),
+        default=os.environ.get("GITHUB_REPOSITORY", "arnovich/glitnir-notebooks"),
     )
     parser.add_argument("--revision", default=os.environ.get("GITHUB_SHA"))
     parser.add_argument("--diagram-cache", type=Path, default=Path(".gallery-cache"))
