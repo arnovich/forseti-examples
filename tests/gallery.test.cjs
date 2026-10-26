@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const {JSDOM} = require('jsdom');
-const {addNotebookNavigation, validateExport, galleryIndex, rewriteReferences} = require('../scripts/gallery/render.cjs');
+const {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, rewriteReferences} = require('../scripts/gallery/render.cjs');
 
 test('export validation refuses missing claims, scripts and incomplete diagrams', () => {
   const entry = {snapshot: {sha256: 'abc', project_claims: [{name: 'first'}], views: []}};
@@ -62,4 +62,34 @@ test('notebook navigation preserves gallery and exact source links without chang
     assert.equal(dom.window.document.getElementById('cell-first').textContent, 'Recorded claim');
     assert.equal(dom.window.document.querySelectorAll('script').length, 0);
   } finally { dom.window.close(); }
+});
+
+
+test('gallery provides related-product navigation without losing notebook entry points', () => {
+  const html = galleryIndex({repository: 'owner/examples', revision: 'a'.repeat(40)}, []);
+  const dom = new JSDOM(html);
+  try {
+    const doc = dom.window.document;
+    assert.ok(doc.querySelector('nav[aria-label="Main navigation"] a[href="https://glitnir.gimlelabs.com/"]'));
+    assert.ok(doc.querySelector('a[href="https://gimlelabs.com/"]'));
+    assert.ok(doc.querySelector('a.start[href="basics/ScalarDecay.html"]'));
+    assert.ok(doc.querySelector('nav[aria-label="Topics"] a[href="#pdes"]'));
+    assert.ok(doc.querySelector('link[rel="icon"][href="assets/favicon.svg"]'));
+    assert.equal(doc.querySelectorAll('h1').length, 1);
+    assert.equal(doc.querySelectorAll('script').length, 0);
+  } finally { dom.window.close(); }
+});
+
+test('gallery packages its local fonts, marks and font license for offline hosting', async () => {
+  const fs = require('node:fs/promises');
+  const os = require('node:os');
+  const path = require('node:path');
+  const output = await fs.mkdtemp(path.join(os.tmpdir(), 'forseti-gallery-assets-'));
+  try {
+    await copyGalleryAssets(output);
+    for (const asset of ['gimle.svg', 'favicon.svg', 'inter-regular.ttf', 'inter-medium.ttf', 'LICENSE-Inter.txt']) {
+      const source = await fs.readFile(path.join(__dirname, '../gallery/assets', asset));
+      assert.deepEqual(await fs.readFile(path.join(output, 'assets', asset)), source);
+    }
+  } finally { await fs.rm(output, {recursive: true, force: true}); }
 });

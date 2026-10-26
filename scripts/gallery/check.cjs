@@ -35,10 +35,17 @@ async function main() {
       }
       console.log(`Browser checked ${entry.html}`);
     }
-    for (const width of [1100, 390]) {
+    for (const width of [1100, 390, 320]) {
       await page.setViewportSize({width, height: 850});
       await page.goto(pathToFileURL(path.join(root, 'index.html')).href);
       assert.equal(await page.locator('.notebook-title').count(), manifest.notebooks.length);
+      const galleryImagesOK = await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0));
+      assert.ok(galleryImagesOK, 'Gallery image failed to load');
+      const fontsOK = await page.evaluate(async () => {
+        await document.fonts.ready;
+        return ['400 17px Inter', '500 17px Inter'].every(font => document.fonts.check(font));
+      });
+      assert.ok(fontsOK, 'Gallery fonts failed to load');
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Gallery overflows viewport');
       for (const href of await page.locator('a[href]').evaluateAll(links => links.map(link => link.getAttribute('href')))) {
         if (!/^(https?:|#)/.test(href)) await fs.access(path.join(root, href.split('#')[0]));

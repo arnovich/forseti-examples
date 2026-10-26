@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 12px 32px;
-  border-bottom: 1px solid var(--border, #d8e1e8);
-  background: var(--paper, #ffffff);
+  gap: 16px;
+  padding: 16px 32px;
+  border-bottom: 1px solid #dce5ef;
+  background: #ffffff;
   font: 500 13px/1.4 var(--sans, system-ui);
 }
 
@@ -14,7 +14,7 @@
   align-items: center;
   gap: 8px;
   min-height: 36px;
-  color: var(--muted, #5b6e7f);
+  color: #526174;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -27,23 +27,23 @@
 
 .gallery-nav .gallery-source {
   padding: 0 12px;
-  border: 1px solid var(--border, #d8e1e8);
+  border: 1px solid #dce5ef;
   border-radius: 5px;
-  background: var(--chrome, #f3f6f9);
-  color: var(--ink, #223445);
+  background: #f1f6fc;
+  color: #0066cc;
 }
 
 .gallery-nav a:hover {
-  color: var(--blue, #285c9a);
+  color: #0066cc;
 }
 
 .gallery-nav .gallery-source:hover {
-  border-color: var(--blue, #285c9a);
-  background: var(--blue-soft, #eaf2fc);
+  border-color: #0066cc;
+  background: #e5effb;
 }
 
 .gallery-nav a:focus-visible {
-  outline: 2px solid var(--blue, #285c9a);
+  outline: 2px solid #0066cc;
   outline-offset: 3px;
   border-radius: 4px;
 }

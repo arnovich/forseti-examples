@@ -3,28 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Lean notebooks on circuits, dynamical systems and partial differential equations.">
-  <title>Forseti examples</title>
+  <meta name="description" content="Explore Lean notebooks on circuits, dynamical systems and partial differential equations. Read the mathematics and follow the proofs with Forseti and Glitnir.">
+  <title>Forseti examples — Gimle Labs</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
   <a class="skip" href="#notebooks">Skip to notebooks</a>
-  <header class="masthead"><a href="index.html">Forseti</a><a href="https://github.com/{{repository}}">View repository</a></header>
+  <header class="masthead">
+    <a class="brand" href="index.html" aria-label="Forseti examples home"><img src="assets/gimle.svg" width="31" height="31" alt=""><span>Forseti</span></a>
+    <nav aria-label="Main navigation"><a href="#notebooks">Notebooks</a><a href="https://glitnir.gimlelabs.com/">Glitnir</a><a href="https://github.com/{{repository}}">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </header>
   <main>
-    <section class="introduction">
-      <h1>Forseti examples</h1>
-      <p class="lead">Lean notebooks on circuits, dynamical systems and partial differential equations.</p>
-      <p><a class="start" href="basics/ScalarDecay.html">Start with scalar decay</a><a class="setup" href="https://github.com/{{repository}}/blob/main/README.md#getting-started">Open notebooks in Glitnir</a></p>
+    <section class="introduction" aria-labelledby="gallery-title">
+      <a class="byline" href="https://gimlelabs.com/">By Gimle Labs</a>
+      <h1 id="gallery-title">Forseti examples.</h1>
+      <div class="introduction-bottom">
+        <div><p class="lead">Lean notebooks on circuits, dynamical systems and partial differential equations.</p><p class="intro-note">Read the mathematics, explore the models and follow the proofs.</p></div>
+        <div class="introduction-actions"><a class="start" href="basics/ScalarDecay.html">Start with scalar decay</a><a class="setup" href="https://github.com/{{repository}}/blob/main/README.md#getting-started">Open notebooks in Glitnir <span aria-hidden="true">↗</span></a></div>
+      </div>
     </section>
     <section class="previews" aria-label="A look inside the notebooks">
-      <a href="basics/ThreeState.html"><img src="previews/ThreeState.png" width="1100" height="760" alt="A rendered ThreeState notebook with mathematical prose and a model diagram"><span>A model in motion <small>ThreeState</small></span></a>
-      <a href="circuits/CircuitProofs.html"><img src="previews/CircuitProofs.png" width="1100" height="760" alt="A rendered CircuitProofs notebook with composition diagrams and claim observations"><span>How circuits compose <small>CircuitProofs</small></span></a>
+      <a href="basics/ThreeState.html"><div class="preview-image"><img src="previews/ThreeState.png" width="1100" height="760" alt="A rendered ThreeState notebook with mathematical prose and a model diagram"></div><span>A model in motion <small>ThreeState</small></span></a>
+      <a href="circuits/CircuitProofs.html"><div class="preview-image"><img src="previews/CircuitProofs.png" width="1100" height="760" alt="A rendered CircuitProofs notebook with composition diagrams and claim observations"></div><span>How circuits compose <small>CircuitProofs</small></span></a>
     </section>
     <div class="catalog" id="notebooks">
-      <nav aria-label="Topics"><h2>Explore</h2><a href="#basics">Start here</a><a href="#circuits">Circuits</a><a href="#dynamics">Dynamical systems</a><a href="#finance">Finance</a><a href="#galerkin">Galerkin models</a><a href="#pdes">PDEs</a></nav>
+      <nav aria-label="Topics"><h2>Explore the notebooks</h2><a href="#basics">Start here</a><a href="#circuits">Circuits</a><a href="#dynamics">Dynamical systems</a><a href="#finance">Finance</a><a href="#galerkin">Galerkin models</a><a href="#pdes">PDEs</a></nav>
       <div class="topics">{{topics}}</div>
     </div>
   </main>
-  <footer><p>Made with <a href="https://github.com/arnovich/glitnir">Glitnir</a>. <a href="LICENSE">MIT License</a>.</p><a href="https://github.com/{{repository}}/tree/{{revision}}">Source for this edition</a></footer>
+  <footer><div><a class="footer-brand" href="https://glitnir.gimlelabs.com/">Made with Glitnir</a><p><a href="https://gimlelabs.com/">Gimle Labs</a><span aria-hidden="true"> · </span><a href="LICENSE">MIT License</a></p></div><a href="https://github.com/{{repository}}/tree/{{revision}}">Source for this edition <span aria-hidden="true">↗</span></a></footer>
 </body>
 </html>
