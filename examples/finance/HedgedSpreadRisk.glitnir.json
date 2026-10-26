@@ -19,7 +19,7 @@
       "end_line": 185,
       "name": "Notebook.HedgedSpreadRisk.Decided_year_breach_bound.year_breach_bound",
       "prefix_sha256": "09156cfa7d8b10b8545976f1ca7e1c3b488ada288040d946be57069d00d2a158",
-      "proposition_sha256": "39ba46bf127320e4ff7edb69c5eb827c776e377c03cedd934947a4aeccfce074",
+      "proposition_sha256": "bab397e4434e1998adc8fb518e10b7a0be1eaf0e882caf8e22585bdba7f28f82",
       "start_line": 173,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 203,
       "name": "Notebook.HedgedSpreadRisk.year_bound_any_variance_le",
       "prefix_sha256": "2acd1866612e217e1b4e242c688a3c189dbc3fa1a4c71b2bd677176386ef8225",
-      "proposition_sha256": "c7c33cb1e3a24d617427fab01f5f7baaf91676cca38af61924a1125135d056d7",
+      "proposition_sha256": "8d9c6c37e368a710a33d2cfa1ddd7fff4bb1746380f7049adde02be0f781c3af",
       "start_line": 195,
       "status": "checked",
       "uses": []
@@ -67,7 +67,7 @@
       "end_line": 220,
       "name": "Notebook.HedgedSpreadRisk.gaussian_in_both",
       "prefix_sha256": "6f34a5d532221a780563f87c2a92908ce229ce3b4be553d697ce43f2235d23dd",
-      "proposition_sha256": "aa10b139fa1b7d9beb24ae3796d97f069ba3e1ab875d24d14e2c34dc588368d2",
+      "proposition_sha256": "88b4157397d93f0b1f357c7508c605c4baab93fb1a5650097de447a1d7578111",
       "start_line": 214,
       "status": "checked",
       "uses": []
@@ -91,7 +91,7 @@
       "end_line": 253,
       "name": "Notebook.HedgedSpreadRisk.three_point_in_class",
       "prefix_sha256": "34dd11e2311064ccf0f0552a3929ccf5884d2b10a11ea0f089e6abb692c6ac93",
-      "proposition_sha256": "22e83f5acda9ac2607778c18fd071ff03b49d1242d27efdeac3956b56acde433",
+      "proposition_sha256": "9cf5c514b1d795100f68621c170e682852552d17ba9a8f8e99d5169e28f1b9c2",
       "start_line": 246,
       "status": "checked",
       "uses": []
@@ -115,7 +115,7 @@
       "end_line": 279,
       "name": "Notebook.HedgedSpreadRisk.three_point_breaches_often",
       "prefix_sha256": "de4b2ded532392027cd84c4aa68e9ed3c049f2df1c08176e345f9d4e92958c52",
-      "proposition_sha256": "d744144454e0e20bbc917fa032bcdb2860660f72bdf4d3334fb0043f7378d1c0",
+      "proposition_sha256": "c7e33d6181c66c189437e6742ea2521fe23ad9bc1167fc6de531c2ff17ff2ff0",
       "start_line": 271,
       "status": "checked",
       "uses": []
@@ -139,7 +139,7 @@
       "end_line": 285,
       "name": "Notebook.HedgedSpreadRisk.three_point_lower_bound_decimal",
       "prefix_sha256": "f44f1b895005cea49452deebf21f71d7e8c73482be19a888324967b4385cbc77",
-      "proposition_sha256": "eb6ff3764d233d5e674856374a3b2a223978d343d2d0afbfebc3b8fda51d9fe5",
+      "proposition_sha256": "bf2285c461ed4d93108891b182fcb3fe61d13c6425f7d34d8c35e187f14b6622",
       "start_line": 281,
       "status": "checked",
       "uses": []
@@ -163,7 +163,7 @@
       "end_line": 349,
       "name": "Notebook.HedgedSpreadRisk.Decided_tight_limit.tight_limit_refuted",
       "prefix_sha256": "a702251ed589db78484b4539265b775f3727cd41e6f5dbe4a679952a8c967b44",
-      "proposition_sha256": "d0cb85926e6a851e80545e24f23750d6698791e4319b920072386704637dfb02",
+      "proposition_sha256": "617bc3e93765c1922530085c69ff55b8207ac3e47493da66e817bab98ea978b9",
       "start_line": 331,
       "status": "checked",
       "uses": []
@@ -187,7 +187,7 @@
       "end_line": 439,
       "name": "Notebook.HedgedSpreadRisk.Decided_mark_on_any_date.mark_on_any_date",
       "prefix_sha256": "398e0b8acfb5e52a56d26b0b8395a8cf4b1045947bb3002a48b47061b78fca63",
-      "proposition_sha256": "5e8555e4557111779b2fb442c36d8894757c854e3897c9a403d52594ab2c57ac",
+      "proposition_sha256": "a08bc3d38519ea5ca8f779e6a4ca7f77e0a69f464d0f13233dc357981a362824",
       "start_line": 390,
       "status": "checked",
       "uses": []
@@ -211,7 +211,7 @@
       "end_line": 468,
       "name": "Notebook.HedgedSpreadRisk.energy_step_identity",
       "prefix_sha256": "c6deb66f5fdc7f82638720f82094c3d5c499b0e1b7831425e726d6a9416f726e",
-      "proposition_sha256": "4c63069518bfbe26c3e1fe3884d1aa17c82bba4f11d2e3ae81f32cbcf3198b31",
+      "proposition_sha256": "ef9743dd4889ab4398100dc152c188005da80a1df5ea09a9c24790e3eb278404",
       "start_line": 460,
       "status": "checked",
       "uses": []
@@ -235,7 +235,7 @@
       "end_line": 483,
       "name": "Notebook.HedgedSpreadRisk.stationary_energy",
       "prefix_sha256": "e26e86ea16f0415849e14c0aef5ac8627d8490c369f25009ba188f233e90d10a",
-      "proposition_sha256": "72113a7673f2f752eddd5964484fca4a0bd61018c9e83e792d6b129a49865525",
+      "proposition_sha256": "8ad78043e96cc38e9b5f854126119c5ddf8016da87679925e05826ccaad4bfb4",
       "start_line": 481,
       "status": "checked",
       "uses": []
@@ -259,7 +259,7 @@
       "end_line": 491,
       "name": "Notebook.HedgedSpreadRisk.expected_gauge_every_mark",
       "prefix_sha256": "5298ea66688177c47ccbad6635c69de2f54a73065ed6c2499cdd55eba02f957f",
-      "proposition_sha256": "2dd3183e52006751fdaa9467740b5d24b201c6edcc05e69911b67618630f5d80",
+      "proposition_sha256": "896d081c14f7dcba017d9dcae51b086e6c589a102bb38353e4f6914cdfce5122",
       "start_line": 485,
       "status": "checked",
       "uses": [
@@ -289,7 +289,7 @@
       "end_line": 534,
       "name": "Notebook.HedgedSpreadRisk.Decided_expected_gauge.expected_gauge",
       "prefix_sha256": "859b7b5de5e97be53cc6d863331620d45627efcfcf70b7066c903106d7b86f11",
-      "proposition_sha256": "330274c3abc24b4bedcdb361bdac18bb61aa9dbad0c454b9332120f62886ae27",
+      "proposition_sha256": "5175a68514c2f1fd2ac924bb9794bdf2d94b16e1b7bf1380bf4701f4d11e3a26",
       "start_line": 516,
       "status": "checked",
       "uses": []
@@ -297,8 +297,8 @@
   ],
   "decisions": {
     "2020e5e719c74654e28753ee4dd829fd28628bfa0d7df4d321549dc57c32037f": {
-      "created": "2026-10-23T13:45:52+00:00",
-      "fingerprint": "7286bf58240fcc05a103332f722bc4a9b99095fbe5006f51a4c965b56a8cb255",
+      "created": "2026-10-25T23:49:33+00:00",
+      "fingerprint": "a3b7b33ef55ab96ee86e6d200e386bcd52e1c915dd24b4f4f1ca3a106f3d48af",
       "outcome": {
         "block": null,
         "reason": "unsupported",
@@ -479,13 +479,13 @@
     }
   },
   "environment": {
-    "check": "4b9b966e554f9b3dad2859c197ac39a4f56c9b02b63abdb920da4b7a7cec9aa1",
-    "fingerprint": "7286bf58240fcc05a103332f722bc4a9b99095fbe5006f51a4c965b56a8cb255"
+    "check": "56494f879e2c9722d3229cb801793f3358293bcee36e220b7ebb61fe6f03dacd",
+    "fingerprint": "a3b7b33ef55ab96ee86e6d200e386bcd52e1c915dd24b4f4f1ca3a106f3d48af"
   },
   "evidence": {
     "45885ffbf143beb49e82d989048a1fe83c22f1b57c56beef6ffdcf3baf7bbc89": {
-      "created": "2026-10-23T13:47:02+00:00",
-      "fingerprint": "5ddb096aa2f2083e357de453686444ce3614faf814f244394af96a460a0ead07",
+      "created": "2026-10-25T23:50:43+00:00",
+      "fingerprint": "74720b9484ca86d2e76b83d51216381dbe59c243207ee12e5486e34bec1465a8",
       "prefix_sha256": "36dfce17828b3c1ab01b93375408cab247c5ed2e1686dba15ede9741d5e1d1b3",
       "provider": "forseti",
       "snapshot": {
@@ -554,11 +554,11 @@
           ],
           [
             "provider",
-            "glitnir-forseti 0.1.6"
+            "glitnir-forseti 0.1.8"
           ],
           [
             "created",
-            "2026-10-23T13:47:02+00:00"
+            "2026-10-25T23:50:43+00:00"
           ]
         ],
         "series": {
@@ -3665,8 +3665,8 @@
       }
     },
     "dac3b6ea2ec60c3565c0f1bd2ae77be0c9185cb78cb829eb55cacfc81c1cc68a": {
-      "created": "2026-10-23T13:46:47+00:00",
-      "fingerprint": "5ddb096aa2f2083e357de453686444ce3614faf814f244394af96a460a0ead07",
+      "created": "2026-10-25T23:50:27+00:00",
+      "fingerprint": "74720b9484ca86d2e76b83d51216381dbe59c243207ee12e5486e34bec1465a8",
       "prefix_sha256": "71c01f3a15e2ab0cd6fd8dca175df0ba9728d5bdd17cf15708631da5a963e211",
       "provider": "forseti",
       "snapshot": {
@@ -3735,11 +3735,11 @@
           ],
           [
             "provider",
-            "glitnir-forseti 0.1.6"
+            "glitnir-forseti 0.1.8"
           ],
           [
             "created",
-            "2026-10-23T13:46:47+00:00"
+            "2026-10-25T23:50:27+00:00"
           ]
         ],
         "series": {

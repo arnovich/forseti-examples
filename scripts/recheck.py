@@ -1,7 +1,7 @@
 """Recheck every notebook with the installed Glitnir and save what it records.
 
 For each configured notebook, in file order, this drives Glitnir's own preview
-service (`glitnir.notebook.source_preview.SourcePreviewService`) the way the
+service (`glitnir.service.preview.SourcePreviewService`) the way the
 editor does, so that ``<Notebook>.glitnir.json`` ends up current:
 
 1. Every decision whose saved entry is out of date is decided again. When the
@@ -209,7 +209,7 @@ class Recheck:
 
     def __init__(self, path: Path, *, runs: bool = True) -> None:
         """Prepare the service for ``path``; nothing runs until `run`."""
-        from glitnir.notebook.source_preview import SourcePreviewService
+        from glitnir.service.preview import SourcePreviewService
 
         self.path = path
         self.runs = runs
