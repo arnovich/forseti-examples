@@ -160,6 +160,10 @@ function galleryIndex(manifest, entries) {
     .replaceAll('{{revision}}', escape(manifest.revision));
 }
 
+async function copyGalleryAssets(output) {
+  await fs.cp(path.join(ROOT, 'gallery/assets'), path.join(output, 'assets'), {recursive: true});
+}
+
 async function main(inputs, output) {
   const manifest = JSON.parse(await fs.readFile(inputs, 'utf8'));
   const entries = [];
@@ -177,10 +181,11 @@ async function main(inputs, output) {
   }
   await fs.writeFile(path.join(output, 'index.html'), galleryIndex(manifest, entries));
   await fs.copyFile(path.join(ROOT, 'gallery/gallery.css'), path.join(output, 'gallery.css'));
+  await copyGalleryAssets(output);
   await fs.copyFile(path.join(ROOT, 'LICENSE'), path.join(output, 'LICENSE'));
   await fs.writeFile(path.join(output, '.nojekyll'), '');
   await fs.writeFile(path.join(output, 'manifest.json'), JSON.stringify({repository: manifest.repository, revision: manifest.revision, notebooks: entries}, null, 2) + '\n');
 }
 
-module.exports = {addNotebookNavigation, validateExport, galleryIndex, renderNotebook, rewriteReferences};
+module.exports = {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, renderNotebook, rewriteReferences};
 if (require.main === module) main(...process.argv.slice(2)).catch(error => { console.error(error); process.exitCode = 1; });
