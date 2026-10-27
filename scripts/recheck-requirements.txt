@@ -1,6 +1,6 @@
 # Installed after scripts/gallery/requirements.txt (the pinned Glitnir and
 # Forseti wheels): the recheck also runs decisions, which need the Forseti
-# plugin's z3 extra at the version it requires (glitnir-forseti 0.1.8).
+# plugin's z3 extra at the version it requires (glitnir-forseti 0.1.9).
 z3-solver==5.1.0.0 \
     --hash=sha256:dfad9e309d7010b1ff6bdb33f21570a1603ef4727373221c7117a74448f0cfef \
     --hash=sha256:399a38a85d784105e5df5a05c04a581481bfdb80af7424779cf76fa843b4e66c

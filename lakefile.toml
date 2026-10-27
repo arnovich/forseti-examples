@@ -5,7 +5,7 @@ defaultTargets = ["Burgers", "BurgersFronts", "CircuitProofs", "EnergyOptimizati
 [[require]]
 name = "forseti"
 git = "https://github.com/arnovich/forseti-lean.git"
-rev = "b4116348eafe491c5dbc5bb0de6880f40ca5c1ec"
+rev = "f1a84124ad7cca473fe13929d814801bd6a1452c"
 
 [[lean_lib]]
 name = "Burgers"
