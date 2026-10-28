@@ -1,0 +1,814 @@
+{
+  "format": "glitnir.walkthrough-outline/v1",
+  "title": "Truly subquadratic 3SUM and truly subcubic APSP: a guided walkthrough",
+  "overview": "A sparse set of wanted entries of a thin integer matrix product can be computed with polynomially fewer operations than the product has entries; through a deterministic reduction from Exact Triangle to a lopsided sparse-triangle problem and known reductions from 3SUM, the (min,+)-product, APSP and Zero-Weight k-Clique, this gives polynomial speedups for all of them on a word RAM.",
+  "project": {
+    "root": "../_originals/e1a4e6508154/formal-math/3sum-apsp",
+    "repository": "https://github.com/anthropics/formal-math",
+    "path": "3sum-apsp",
+    "commit": "e1a4e6508154ea59f030480661590a9fe3018011",
+    "toolchain": "leanprover/lean4:v4.33.1",
+    "trusted": "EndStatement.lean"
+  },
+  "sources": [
+    {
+      "kind": "paper",
+      "title": "Alman and Vassilevska Williams, Truly Subquadratic 3SUM and Truly Subcubic APSP via Triangles in Sparse Lopsided Graphs",
+      "url": "https://arxiv.org/pdf/2610.06783v1",
+      "version": "arXiv:2610.06783v1"
+    },
+    {
+      "kind": "index",
+      "title": "docs/INDEX.md: the items of the paper and the Lean statements",
+      "path": "../_originals/e1a4e6508154/formal-math/3sum-apsp/docs/INDEX.md",
+      "version": "commit e1a4e65"
+    },
+    {
+      "kind": "readme",
+      "title": "README.md",
+      "path": "../_originals/e1a4e6508154/formal-math/3sum-apsp/README.md",
+      "version": "commit e1a4e65"
+    },
+    {
+      "kind": "note",
+      "title": "docs/REMARKS.md: differences from the paper and what is not proved",
+      "path": "../_originals/e1a4e6508154/formal-math/3sum-apsp/docs/REMARKS.md",
+      "version": "commit e1a4e65"
+    },
+    {
+      "kind": "note",
+      "title": "docs/MACHINE.md: the machine and the meaning of the statements",
+      "path": "../_originals/e1a4e6508154/formal-math/3sum-apsp/docs/MACHINE.md",
+      "version": "commit e1a4e65"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "model",
+      "label": "Word RAM model",
+      "kind": "definition",
+      "section": "§1, §2",
+      "pages": "7",
+      "statement": "A problem is solved in time $O(n^r)$ if, for every exponent $\\kappa$ bounding the input numbers by $n^\\kappa$, one deterministic word-RAM program with words of $\\Theta(\\log n)$ bits halts within $T(n) = O(n^r)$ steps with the right answer on every instance of size $n$.",
+      "idea": "This is the model of Theorem 2 and Section 2, made precise: the program, a word-size slope $b$ and the bound $T$ are chosen after $\\kappa$ and before the instance, and must work at every word size of at least $b(\\lfloor \\log_2 n \\rfloor + 1)$ bits.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "EndStatement.exec",
+          "file": "EndStatement.lean",
+          "line": 29,
+          "type": "{W : Nat} (P : List Instr) : (t pc : Nat) → (m : Int → BitVec W) → Option (Bool × (Int → BitVec W))",
+          "note": "Nine instructions: the constant 1, add, subtract and multiply modulo $2^W$, signed load and store, a jump on a negative word, accept and reject. No division, shift or bitwise operation; every step counts one (docs/MACHINE.md, Part 1)."
+        },
+        {
+          "name": "EndStatement.BigO",
+          "file": "EndStatement.lean",
+          "line": 50,
+          "type": "(T : Nat → Nat) (r : Rat) : Prop",
+          "note": "Core Lean has no fractional powers, so $T(n) = O(n^r)$ for $r = p/q$ is written $T(n)^q \\le K n^p$ for $n \\ge 2$."
+        },
+        {
+          "name": "EndStatement.Problem.SolvedBy",
+          "file": "EndStatement.lean",
+          "line": 61,
+          "type": "(Q : Problem) {n : Nat} (x : Q.Instance n) (P : List Instr) (W t : Nat) : Prop",
+          "note": "The size $n$ stands in cell 0, the input after it; an output is read from the cells right after the input. How each problem is written into memory is fixed by the formalization, not the paper."
+        },
+        {
+          "name": "EndStatement.Problem.SolvedInTime",
+          "file": "EndStatement.lean",
+          "line": 67,
+          "type": "(Q : Problem) (r : Rat) : Prop",
+          "note": "The model is generous on a few points that change no exponent: all other cells start at 0 and space is not charged, the cells named in a program's text need not be addressable, and the slope $b$ is chosen after $\\kappa$. $\\kappa$ ranges over all natural numbers, 0 included, where the paper has $\\nu \\ge 1$ in Theorem 19 and Corollary 39."
+        }
+      ]
+    },
+    {
+      "id": "thm2",
+      "label": "Theorem 2",
+      "kind": "theorem",
+      "section": "§1.2",
+      "pages": "7",
+      "statement": "On a word RAM, for inputs of polynomially bounded integers, deterministic algorithms solve Exact Triangle in $O(n^{2.9983})$, APSP and the (min,+)-product in $O(n^{2.9995})$, and 3SUM in $O(n^{1.9992})$ time; on real inputs, Las Vegas algorithms do slightly worse.",
+      "idea": "The introduction's summary of Theorems 19, 22 and 35. The integer half is the four headline claims on Exact Triangle, 3SUM, the (min,+)-product and APSP, with coarser roundings of the exponents.",
+      "uses": [
+        "model",
+        "thm19",
+        "thm22-3sum",
+        "thm22-minplus",
+        "thm22-apsp"
+      ],
+      "lean": [
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Theorem_2",
+          "file": "PaperStatements.lean",
+          "line": 4154,
+          "type": ": Prop",
+          "note": "Only the four deterministic lines, with Exact Triangle in tripartite form (Items.Theorem_2_graphs has $n$-vertex graphs). The lines on real inputs are not proved for any machine: the machine has no random bits and no real numbers; they occur only as the conclusion of the conditional lemma conditional_theorem_35."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_theorem_2",
+          "file": "ThreeSumApsp/RunningTimes/Sec1/Theorems1_4.lean",
+          "line": 47,
+          "type": ": Items.Theorem_2"
+        }
+      ]
+    },
+    {
+      "id": "thm5",
+      "label": "Theorem 5",
+      "kind": "theorem",
+      "section": "§2",
+      "pages": "13",
+      "statement": "Let $D \\ge 4$ be a power of four and $N \\ge D^{18}$. For integer matrices $X \\in \\mathbb{Z}^{N \\times D}$, $Y \\in \\mathbb{Z}^{D \\times N}$ with entries of size $N^{O(1)}$ and a set $W$ of at most $N^2/\\sqrt{D}$ positions, the entries $(XY)[I,J]$ for $(I,J) \\in W$ can be computed deterministically in $O(N^2 \\log^2 D / D^{1/18})$ time.",
+      "idea": "Run Coppersmith's recursion built on Schönhage's identity with $L = 19m$ levels and $D = 4^m$, over a tiling of the product; share each band's encoding among all tiles (affordable by (6)), and prune the recursion to the leaves that some wanted entry needs (Lemma 10). Lemma 11 bounds those leaves by $O(M/D^{1/18})$ per tile of $M$ entries, at $O(L^2)$ operations per leaf.",
+      "uses": [
+        "model",
+        "lem7",
+        "lem9",
+        "lem10",
+        "lem11",
+        "eq6"
+      ],
+      "lean": [
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Theorem_5",
+          "file": "PaperStatements.lean",
+          "line": 3838,
+          "type": ": Prop",
+          "note": "A statement that a program exists. As such it also follows from Corollary 26, whose bound is smaller on these inputs; that the algorithm of Section 2 itself reaches the bound is shown only by the library's proofs. None of the five headline claims depends on it."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_theorem_5",
+          "file": "ThreeSumApsp/RunningTimes/Sec2/Theorem5.lean",
+          "line": 31,
+          "type": ": Items.Theorem_5"
+        }
+      ]
+    },
+    {
+      "id": "lem6",
+      "label": "Lemma 6",
+      "kind": "lemma",
+      "section": "§2.2",
+      "pages": "16",
+      "statement": "Schönhage's identity: ten products $\\varphi_\\lambda \\psi_\\lambda \\chi_\\lambda$ of linear forms sum to $G + E$, where $G = \\sum_{i,j \\le 3} x_i y_j z_{ij} + (\\sum_{i,j \\le 2} p_{ij} q_{ij}) z_0$ holds a $3 \\times 3$ outer product and a 4-term inner product, and every monomial of the error $E$ pairs an outer output variable with an inner input variable.",
+      "idea": "Compare coefficients. The coefficient of $z_{ij}$ comes from the term $P_{ij}$ alone; in the coefficient of $z_0$ the outer products cancel and the cross terms vanish because the columns of $\\hat p$ and the rows of $\\hat q$ sum to zero.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Lemma_6",
+          "file": "PaperStatements.lean",
+          "line": 618,
+          "type": ": Prop",
+          "note": "An identity of integer polynomials in the 24 variables. Indices count from 0 in Lean, from 1 in the paper."
+        },
+        {
+          "name": "PaperStatements.lemma_6",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 31,
+          "type": ": Lemma_6"
+        }
+      ],
+      "claim": "lemma6"
+    },
+    {
+      "id": "lem7",
+      "label": "Lemma 7",
+      "kind": "lemma",
+      "section": "§2.3.2",
+      "pages": "19",
+      "statement": "The recursion $\\mathrm{Full}(a, b)$, which applies Schönhage's identity at each of $L$ levels, multiplies $\\Phi_\\tau(a)$ by $\\Psi_\\tau(b)$ at each leaf $\\tau$ and returns $\\mathrm{Mult}(a, b)$, the array whose entry at an output string $w$ is the sum of these leaf products over the leaves contributing to $w$ (equation (2)).",
+      "idea": "Induction on $L$: the encoding step turns the leaf numbers of the children into those of the parent, and the decoding step sums exactly the children that contribute to each output variable.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Lemma_7",
+          "file": "PaperStatements.lean",
+          "line": 635,
+          "type": ": Prop"
+        },
+        {
+          "name": "PaperStatements.lemma_7",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 33,
+          "type": ": Lemma_7"
+        }
+      ],
+      "claim": "lemma7"
+    },
+    {
+      "id": "lem8",
+      "label": "Lemma 8",
+      "kind": "lemma",
+      "section": "§2.3.2",
+      "pages": "20",
+      "statement": "$\\mathrm{Mult}(a,b)[w] = \\sum_{u,v} \\prod_{\\ell=1}^{L} \\gamma(u_\\ell, v_\\ell, w_\\ell)\\, a[u]\\, b[v]$, where $\\gamma(s,t,z)$ is the coefficient of $s t z$ in the identity (equation (3)).",
+      "idea": "A leaf contributes to $w$ level by level, independently at each level, so the sum over contributing leaves of a product over levels is the product over levels of the per-level sums, which are the $\\gamma$'s.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Lemma_8",
+          "file": "PaperStatements.lean",
+          "line": 642,
+          "type": ": Prop"
+        },
+        {
+          "name": "PaperStatements.lemma_8",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 34,
+          "type": ": Lemma_8"
+        }
+      ],
+      "claim": "lemma8"
+    },
+    {
+      "id": "lem9",
+      "label": "Lemma 9",
+      "kind": "lemma",
+      "section": "§2.3.3",
+      "pages": "21",
+      "statement": "If the input arrays hold matrices $X_Q \\in \\mathbb{Z}^{N_0 \\times D}$ and $Y_Q \\in \\mathbb{Z}^{D \\times N_0}$ side by side, one pair for each set $Q$ of $m$ levels ($N_0 = 3^{L-m}$, $D = 4^m$), and zero elsewhere, then for each output string $w$ with inner set $Q$ of size $m$, $\\mathrm{Mult}(a,b)[w] = (X_Q Y_Q)[w]$ (equation (4)). One run computes all $\\binom{L}{m}$ products, and the error $E$ does no harm.",
+      "idea": "By Lemma 8, only pairs of strings whose inner sets are exactly $Q$ survive: at a level of $Q$ only the monomials $p_{ij} q_{ij} z_0$ of $G + E$ carry $z_0$, and outside $Q$ the only monomial with $z_{ij}$ and no inner variable is $x_i y_j z_{ij}$. Each remaining summand is one term of the matrix product.",
+      "uses": [
+        "lem6",
+        "lem8"
+      ],
+      "lean": [
+        {
+          "name": "PaperStatements.Lemma_9",
+          "file": "PaperStatements.lean",
+          "line": 668,
+          "type": ": Prop"
+        },
+        {
+          "name": "PaperStatements.lemma_9",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 36,
+          "type": ": Lemma_9"
+        }
+      ],
+      "claim": "lemma9"
+    },
+    {
+      "id": "lem10",
+      "label": "Lemma 10",
+      "kind": "lemma",
+      "section": "§2.4.2",
+      "pages": "25",
+      "statement": "Called at the root with a set $U$ of output strings, the pruned recursion returns $\\mathrm{Mult}(a,b)$ restricted to $U$, visits exactly the leaves $\\mathrm{Leaves}(U)$ that contribute to some string of $U$, and passes sets of total size at most $(L+1)\\,|\\mathrm{Leaves}(U)|$ to its calls.",
+      "idea": "Each call is made at most once and receives the suffixes of the strings of $U$ to which its vertex contributes; mapping each such suffix to one leaf below it shows each depth handles at most $|\\mathrm{Leaves}(U)|$ strings.",
+      "uses": [
+        "lem7"
+      ],
+      "lean": [
+        {
+          "name": "PaperStatements.Lemma_10",
+          "file": "PaperStatements.lean",
+          "line": 685,
+          "type": ": Prop",
+          "note": "The second claim carries the hypothesis $0 < L$ or $U \\ne \\emptyset$, which the paper does not state; it excludes only $L = 0$, $U = \\emptyset$ (NOTE in PaperStatements.lean)."
+        },
+        {
+          "name": "PaperStatements.lemma_10",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 37,
+          "type": ": Lemma_10"
+        }
+      ],
+      "claim": "lemma10"
+    },
+    {
+      "id": "eq5",
+      "label": "Equation (5)",
+      "kind": "lemma",
+      "section": "§2.4.3",
+      "pages": "26",
+      "statement": "With $L = 19m$, the number $\\beta_d = \\binom{L}{m-d} 9^{L-m+d}$ of leaves of order $d$ satisfies $\\beta_d \\le 2^{-d} M$ for $0 \\le d \\le m$, where $M = \\beta_0$ is the number of output entries of a tile.",
+      "idea": "The ratio $\\beta_d/\\beta_{d-1} = 9(m-d+1)/(L-m+d)$ is at most $9m/(18m+1) < 1/2$ when $L = 19m$.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Eq_5",
+          "file": "PaperStatements.lean",
+          "line": 734,
+          "type": ": Prop",
+          "note": "The conclusion, multiplied out: $2^d \\beta_d \\le M$. The ratio and the two inequalities are the separate statements Eq_5_ratio (stated for every $L \\ge m$) and Eq_5_bound."
+        },
+        {
+          "name": "PaperStatements.eq_5",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 44,
+          "type": ": Eq_5"
+        }
+      ],
+      "claim": "equation5"
+    },
+    {
+      "id": "lem11",
+      "label": "Lemma 11",
+      "kind": "lemma",
+      "section": "§2.4.3",
+      "pages": "27",
+      "statement": "For a set $U$ of output strings with inner sets of size $m$, $|\\mathrm{Leaves}(U)| \\le \\sum_{d=0}^{m} \\min\\{|U| \\alpha_d, \\beta_d\\}$ with $\\alpha_d = \\binom{m}{d} 9^d$, and if $L = 19m$ then $|\\mathrm{Leaves}(U)| \\le 2^{-m/9}(2^m |U| + 2M)$.",
+      "idea": "Count leaves by order: charge each string its $\\alpha_d$ leaves of order $d$ for small $d \\le m/9$, and take all $\\beta_d$ leaves for $d > m/9$, which (5) makes geometrically few. With $|U| = M/\\sqrt{D}$ wanted entries the bound is $O(M/D^{1/18})$.",
+      "uses": [
+        "eq5"
+      ],
+      "lean": [
+        {
+          "name": "PaperStatements.Lemma_11",
+          "file": "PaperStatements.lean",
+          "line": 752,
+          "type": ": Prop"
+        },
+        {
+          "name": "PaperStatements.lemma_11",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 46,
+          "type": ": Lemma_11"
+        }
+      ],
+      "claim": "lemma11"
+    },
+    {
+      "id": "eq6",
+      "label": "Equation (6)",
+      "kind": "lemma",
+      "section": "§2.4.4",
+      "pages": "29",
+      "statement": "If $N \\ge D^{18}$ with $D = 4^m$ and $L = 19m$, then $10^L \\le 2^{-m/9} N N_0$: the shared encodings, $O(10^L)$ operations for each of $O(N/N_0)$ bands, fit within the time budget.",
+      "idea": "Compare $m$-th roots: $10^{19} \\cdot 2^{1/9} / 3^{18} < 4^{18}$.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Eq_6",
+          "file": "PaperStatements.lean",
+          "line": 763,
+          "type": ": Prop"
+        },
+        {
+          "name": "PaperStatements.eq_6",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 47,
+          "type": ": Eq_6"
+        }
+      ],
+      "claim": "equation6"
+    },
+    {
+      "id": "def13",
+      "label": "Definition 13",
+      "kind": "definition",
+      "section": "§3.1",
+      "pages": "31",
+      "statement": "Lop-AE-SparseTri$(n, D)$: given a tripartite graph with outer parts $A$, $B$ of $n$ vertices, a middle part of at most $D$ vertices and a set $W \\subseteq A \\times B$ of query pairs, decide for each $(a,b) \\in W$ whether $a$ and $b$ have a common middle neighbour.",
+      "idea": "With biadjacency matrices $X$ and $Y$, this asks for the Boolean entries of the thin product $XY$ at the wanted positions $W$; the counting version (Definition 14) asks for the integer entries.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "ThreeSumApsp.LopInstance",
+          "file": "PaperStatements.lean",
+          "line": 801,
+          "type": "(n : ℕ)"
+        },
+        {
+          "name": "ThreeSumApsp.LopInstance.IsDetectionAnswer",
+          "file": "PaperStatements.lean",
+          "line": 838,
+          "type": "{n : ℕ} (I : LopInstance n) (ans : Fin n × Fin n → Bool) : Prop"
+        },
+        {
+          "name": "ThreeSumApsp.WordRam.lopDetect",
+          "file": "PaperStatements.lean",
+          "line": 3549,
+          "type": ": Problem",
+          "note": "The problem as the machine sees it: the two 0/1 biadjacency matrices and the query pairs in memory, one output cell per pair."
+        }
+      ]
+    },
+    {
+      "id": "cor15",
+      "label": "Corollary 15",
+      "kind": "corollary",
+      "section": "§3.1",
+      "pages": "32",
+      "statement": "For $D \\ge 4$ a power of four and $n \\ge D^{18}$, Lop-AE-SparseTri$(n,D)$ and its counting version with $|W| \\le n^2/\\sqrt{D}$ query pairs are solved deterministically in $O(n^2 \\log^2 D / D^{1/18})$ time, and in general in $O((n^2 + |W|\\sqrt{D}) \\log^2 D / D^{1/18})$.",
+      "idea": "Apply Theorem 5 to the two biadjacency matrices: entry $(a,b)$ of $XY$ counts common neighbours. Split a larger $W$ into pieces.",
+      "uses": [
+        "model",
+        "thm5",
+        "def13"
+      ],
+      "lean": [
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Corollary_15",
+          "file": "PaperStatements.lean",
+          "line": 3853,
+          "type": ": Prop",
+          "note": "As a statement that a program exists it also follows from Corollary 16; the route through Theorem 5 is shown only by the library's proofs."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_corollary_15",
+          "file": "ThreeSumApsp/RunningTimes/Sec3/Corollary15_16.lean",
+          "line": 57,
+          "type": ": Items.Corollary_15"
+        }
+      ]
+    },
+    {
+      "id": "cor16",
+      "label": "Corollary 16",
+      "kind": "corollary",
+      "section": "§3.1",
+      "pages": "32",
+      "statement": "For $n \\ge D^{18}$, Lop-AE-SparseTri$(n,D)$ and its counting version with $|W|$ query pairs are solved deterministically in $O(|W| D^{0.437} + n^2/D^{0.063})$ time.",
+      "idea": "Corollary 26 with $N = n$, applied to the two biadjacency matrices.",
+      "uses": [
+        "model",
+        "cor26",
+        "def13"
+      ],
+      "lean": [
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Corollary_16",
+          "file": "PaperStatements.lean",
+          "line": 3869,
+          "type": ": Prop",
+          "note": "Assumes $D \\ge 1$, which the paper leaves out (NOTE)."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_corollary_16",
+          "file": "ThreeSumApsp/RunningTimes/Sec3/Corollary15_16.lean",
+          "line": 61,
+          "type": ": Items.Corollary_16"
+        }
+      ]
+    },
+    {
+      "id": "thm17",
+      "label": "Theorem 17",
+      "kind": "theorem",
+      "section": "§3.2",
+      "pages": "33-34",
+      "statement": "For $16 \\le D \\le n$ and an integer $1 \\le g \\le \\sqrt{D}$, Exact Triangle with $n$ vertices per part and weights at most $n^\\nu$ reduces deterministically and non-adaptively to at most $4ng$ instances of Lop-AE-SparseTri$(n,D)$, each with at most $n^2/\\sqrt{D}$ query pairs, plus $O(\\nu n^3 \\log n / g + n^{\\omega+o(1)} D^{3/2} + n^2 D g)$ further time.",
+      "idea": "Hash the weights modulo a prime $p \\in [\\sqrt{D}/2, \\sqrt{D})$ chosen to have the fewest false positives, counted with matrix products over $\\mathbb{Z}[x]/(x^p-1)$. Group the pairs $(a,b)$ by $w(a,b) \\bmod p$ and use middle vertices $(c, \\sigma)$ with labels, so that a zero sum mod $p$ becomes a common neighbour. Scan the accepted pairs for real witnesses; failed scans are false positives, of which there are few.",
+      "uses": [
+        "def13"
+      ],
+      "lean": [
+        {
+          "name": "PaperStatements.Theorem_17",
+          "file": "PaperStatements.lean",
+          "line": 1551,
+          "type": ": Prop",
+          "note": "Everything but the running time: a selected prime exists, at most $4ng$ instances, middle parts of at most $D$ vertices, at most $n^2/\\sqrt{D}$ query pairs, non-adaptivity, and correctness for every oracle answer and every order of the scans, with a count of the triples scanned behind the term $\\nu n^3 \\log n/g$. A machine program cannot be called as a subroutine, so the time bound is proved only in the library, for programs over an arbitrary solver, with Strassen's exponent in place of $\\omega$; $D$ is a natural number (NOTE)."
+        },
+        {
+          "name": "PaperStatements.theorem_17",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 56,
+          "type": ": Theorem_17"
+        }
+      ],
+      "claim": "theorem17"
+    },
+    {
+      "id": "thm19",
+      "label": "Theorem 19",
+      "kind": "theorem",
+      "section": "§3.3",
+      "pages": "35",
+      "statement": "For every constant $\\nu \\ge 1$, Exact Triangle on $n$ vertices per part with integer weights at most $n^\\nu$ is solved deterministically in $O(n^{3-1/648} \\log^2 n)$ time via Corollary 15, and in $O(n^{3-\\varepsilon'} \\log n) \\le O(n^{3-\\varepsilon_T})$ time via Corollary 16, with $\\varepsilon' = 0.00175$ and $\\varepsilon_T = 0.0017$.",
+      "idea": "Apply Theorem 17 and solve its instances with a corollary of Section 3.1. With $D = \\lfloor n^{1/18} \\rfloor$ and $g = \\lceil D^{0.0315} \\rceil$, the $O(nD^{0.0315})$ instances cost $O(n^2/D^{0.063})$ each, so $O(n^3 D^{-0.0315})$ in all, and the scans cost the same up to a $\\log n$; $D^{-0.0315} \\le 2n^{-0.00175}$.",
+      "uses": [
+        "model",
+        "thm17",
+        "cor15",
+        "cor16"
+      ],
+      "lean": [
+        {
+          "name": "EndStatement.ExactTriangle",
+          "file": "EndStatement.lean",
+          "line": 76,
+          "type": ": Problem",
+          "note": "The complete tripartite form of Section 3.2: three $n \\times n$ weight matrices, written row by row."
+        },
+        {
+          "name": "EndStatement.Theorem_19",
+          "file": "EndStatement.lean",
+          "line": 85,
+          "type": ": Prop",
+          "note": "The headline claim is the third bound, $O(n^{3-0.0017})$, which rests on the route through Corollary 16 and Corollary 26, not on Theorem 5."
+        },
+        {
+          "name": "ThreeSumApsp.endStatement_theorem_19",
+          "file": "ThreeSumApsp/Statements/EndStatement.lean",
+          "line": 38,
+          "type": ": EndStatement.Theorem_19"
+        },
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Theorem_19",
+          "file": "PaperStatements.lean",
+          "line": 3884,
+          "type": ": Prop",
+          "note": "All three printed bounds, the first two with their logarithms. As statements that programs exist, the first and third follow from the second."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_theorem_19",
+          "file": "ThreeSumApsp/RunningTimes/Sec3/Theorem19.lean",
+          "line": 68,
+          "type": ": Items.Theorem_19"
+        }
+      ],
+      "claim": "theorem19"
+    },
+    {
+      "id": "thm21a",
+      "label": "Theorem 21(a)",
+      "kind": "theorem",
+      "section": "§3.4",
+      "pages": "35-36",
+      "statement": "3SUM on $n$ integers of absolute value at most $n^\\nu$ reduces deterministically, in $n^{3/2+o(1)}$ time, to $n^{1/2+o(1)}$ instances of Exact Triangle with $n^{1/2+o(1)}$ vertices per part and weights of size $n^{O(1)}$.",
+      "idea": "Cited from Chan and He [CH20] (3SUM to Convolution-3SUM) and Vassilevska Williams and Williams [VW13] (Convolution-3SUM to Exact Triangle); the paper gives no proof.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Theorem_21a_threeSum_to_exact",
+          "file": "PaperStatements.lean",
+          "line": 1785,
+          "type": ": Prop",
+          "note": "The two reductions composed, for the explicitly defined function ChanHe.instances: the number and size of the triangle instances, a bound on their weights, and correctness. The running time is not stated (it is about a machine), nor the forms $n^{1/2+o(1)}$; the cited reductions are written and proved in the library, those for [VW13] not compared with their source."
+        },
+        {
+          "name": "PaperStatements.theorem_21a_threeSum_to_exact",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 72,
+          "type": ": Theorem_21a_threeSum_to_exact"
+        }
+      ],
+      "claim": "theorem21a"
+    },
+    {
+      "id": "thm21b",
+      "label": "Theorem 21(b)",
+      "kind": "theorem",
+      "section": "§3.4",
+      "pages": "36",
+      "statement": "If Exact Triangle on $s$ vertices per part with weights $O(U)$ is solved deterministically in time $T(s)$ with $T(s)/s$ nondecreasing, then the (min,+)-product of two $n \\times n$ integer matrices with entries at most $U$ is computed in $O(n^2 T(n^{1/3}) \\log^2 U)$ time, and APSP with weights at most $n^\\nu$ and no negative cycle in $O(n^2 T(n^{1/3}) \\log^3 n)$ time.",
+      "idea": "Cited from [VW10, VW18, VW13]: Negative Triangle reduces to $O(\\log U)$ Exact Triangle instances, the (min,+)-product to Negative Triangle on $n^{1/3}$-vertex parts, and APSP to $\\lceil \\log_2 n \\rceil$ (min,+)-squarings.",
+      "uses": [],
+      "lean": [
+        {
+          "name": "PaperStatements.Theorem_21b_negative_to_exact",
+          "file": "PaperStatements.lean",
+          "line": 1669,
+          "type": ": Prop",
+          "note": "The combinatorial content of [VW13, Theorem 3.3]: at most $2\\lfloor \\log_2 U \\rfloor + 6$ re-weighted instances with weights at most $6U$ decide whether there is a negative triangle. The implication between running times is not stated; for programs over an arbitrary solver it is proved in the library."
+        },
+        {
+          "name": "PaperStatements.theorem_21b_negative_to_exact",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 65,
+          "type": ": Theorem_21b_negative_to_exact"
+        },
+        {
+          "name": "PaperStatements.Theorem_21b_repeated_squaring",
+          "file": "PaperStatements.lean",
+          "line": 1624,
+          "type": ": Prop",
+          "note": "With no negative closed walk, $\\lceil \\log_2 n \\rceil$ (min,+)-squarings of the weight matrix give the distances; stated over any linearly ordered commutative group."
+        },
+        {
+          "name": "PaperStatements.theorem_21b_repeated_squaring",
+          "file": "ThreeSumApsp/Statements/PaperStatements.lean",
+          "line": 60,
+          "type": ": Theorem_21b_repeated_squaring"
+        }
+      ],
+      "claim": "theorem21b"
+    },
+    {
+      "id": "thm22-3sum",
+      "label": "Theorem 22 (3SUM)",
+      "kind": "theorem",
+      "section": "§3.4",
+      "pages": "36",
+      "statement": "3SUM on $n$ integers of absolute value at most $n^\\nu$ is solved deterministically in $n^{2-\\varepsilon'/2+o(1)} \\le O(n^{1.9992})$ time (and in $O(n^{1.99923})$ by the route through Theorem 5).",
+      "idea": "Plug Theorem 19 into Theorem 21(a): $n^{1/2+o(1)}$ instances on $n^{1/2+o(1)}$ vertices cost $n^{1/2} \\cdot (n^{1/2})^{3-\\varepsilon'} = n^{2-\\varepsilon'/2}$ up to $n^{o(1)}$, and $2 - 0.00175/2 = 1.999125$.",
+      "uses": [
+        "model",
+        "thm19",
+        "thm21a"
+      ],
+      "lean": [
+        {
+          "name": "EndStatement.ThreeSum",
+          "file": "EndStatement.lean",
+          "line": 89,
+          "type": ": Problem",
+          "note": "The three numbers must stand at three different positions of the input, a reading the paper leaves open."
+        },
+        {
+          "name": "EndStatement.Theorem_22_3SUM",
+          "file": "EndStatement.lean",
+          "line": 95,
+          "type": ": Prop"
+        },
+        {
+          "name": "ThreeSumApsp.endStatement_theorem_22_3SUM",
+          "file": "ThreeSumApsp/Statements/EndStatement.lean",
+          "line": 44,
+          "type": ": EndStatement.Theorem_22_3SUM"
+        },
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Theorem_22_second",
+          "file": "PaperStatements.lean",
+          "line": 3905,
+          "type": ": Prop",
+          "note": "The bounds of the route through Corollary 26 for all three problems; the headline claims are its first and last two bounds. Plugging Theorem 19 into Theorem 21 needs a uniform form of Theorem 19 for all sizes and weight bounds (exactTriangleUniform_of_explicit, docs/REMARKS.md, Section 3, point 3)."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_theorem_22_second",
+          "file": "ThreeSumApsp/RunningTimes/Sec3/Theorem22.lean",
+          "line": 108,
+          "type": ": Items.Theorem_22_second"
+        }
+      ],
+      "claim": "theorem22ThreeSum"
+    },
+    {
+      "id": "thm22-minplus",
+      "label": "Theorem 22 ((min,+)-product)",
+      "kind": "theorem",
+      "section": "§3.4",
+      "pages": "36",
+      "statement": "The (min,+)-product of two $n \\times n$ integer matrices with entries at most $n^\\nu$ is computed deterministically in $\\tilde O(n^{3-\\varepsilon'/3}) \\le O(n^{2.99942})$ time (and in $O(n^{2.99949})$ by the route through Theorem 5).",
+      "idea": "Plug $T(s) = O(s^{3-\\varepsilon'} \\log s)$ from Theorem 19 into Theorem 21(b): $n^2 (n^{1/3})^{3-\\varepsilon'} = n^{3-\\varepsilon'/3}$, and $3 - 0.00175/3 = 2.99941\\ldots$.",
+      "uses": [
+        "model",
+        "thm19",
+        "thm21b"
+      ],
+      "lean": [
+        {
+          "name": "EndStatement.MinPlusProduct",
+          "file": "EndStatement.lean",
+          "line": 99,
+          "type": ": Problem",
+          "note": "The program must accept and leave the $n^2$ entries of the product in the cells after the input."
+        },
+        {
+          "name": "EndStatement.Theorem_22_MinPlus",
+          "file": "EndStatement.lean",
+          "line": 106,
+          "type": ": Prop"
+        },
+        {
+          "name": "ThreeSumApsp.endStatement_theorem_22_MinPlus",
+          "file": "ThreeSumApsp/Statements/EndStatement.lean",
+          "line": 49,
+          "type": ": EndStatement.Theorem_22_MinPlus"
+        }
+      ],
+      "claim": "theorem22MinPlus"
+    },
+    {
+      "id": "thm22-apsp",
+      "label": "Theorem 22 (APSP)",
+      "kind": "theorem",
+      "section": "§3.4",
+      "pages": "36",
+      "statement": "APSP on directed $n$-vertex graphs with integer weights at most $n^\\nu$ and no negative cycle is solved deterministically in $\\tilde O(n^{3-\\varepsilon'/3}) \\le O(n^{2.99942})$ time (and in $O(n^{2.99949})$ by the route through Theorem 5).",
+      "idea": "As for the (min,+)-product, with the APSP half of Theorem 21(b), whose repeated squaring adds one more logarithm.",
+      "uses": [
+        "model",
+        "thm19",
+        "thm21b"
+      ],
+      "lean": [
+        {
+          "name": "EndStatement.Path",
+          "file": "EndStatement.lean",
+          "line": 110,
+          "type": "{n : Nat} (w : Fin n → Fin n → Option Int) : Fin n → Fin n → Int → Prop",
+          "note": "A walk and its weight; it may repeat vertices."
+        },
+        {
+          "name": "EndStatement.APSP",
+          "file": "EndStatement.lean",
+          "line": 116,
+          "type": ": Problem",
+          "note": "An edge may be missing; the input is the 0/1 edge matrix and then the weights. For each pair the output is a flag and a distance, the distance free where there is no path. The promise of no negative cycle is part of the instance type."
+        },
+        {
+          "name": "EndStatement.Theorem_22_APSP",
+          "file": "EndStatement.lean",
+          "line": 125,
+          "type": ": Prop"
+        },
+        {
+          "name": "ThreeSumApsp.endStatement_theorem_22_APSP",
+          "file": "ThreeSumApsp/Statements/EndStatement.lean",
+          "line": 54,
+          "type": ": EndStatement.Theorem_22_APSP"
+        }
+      ],
+      "claim": "theorem22APSP"
+    },
+    {
+      "id": "cor26",
+      "label": "Corollary 26",
+      "kind": "corollary",
+      "section": "§4.1",
+      "pages": "40",
+      "statement": "For $N \\ge D^{18}$ and integer matrices $X \\in \\mathbb{Z}^{N \\times D}$, $Y \\in \\mathbb{Z}^{D \\times N}$ with entries of size $N^{O(1)}$, a deterministic preprocessing in $O(N^2/D^{0.063})$ time and space lets any single entry of $XY$ be computed in $O(D^{0.437})$ time; so any set $W$ of wanted entries costs $O(|W| D^{0.437} + N^2/D^{0.063})$.",
+      "idea": "The one statement of Section 4 that the claims use, summarized here as a single node. It keeps Section 2's recursion and encodings (Lemmas 7 and 9) with $L = 21m$ and a switching order $t = m/9$: a query reads the few leaves of order below $t$ one by one, and the preprocessing adds the leaves of higher order into shared partial sums ('boxes', Lemmas 27 to 29, Theorem 30), counted as in the proof of Lemma 11.",
+      "uses": [
+        "model",
+        "lem7",
+        "lem9"
+      ],
+      "lean": [
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Corollary_26",
+          "file": "PaperStatements.lean",
+          "line": 3967,
+          "type": ": Prop",
+          "note": "Assumes $D \\ge 1$, which the paper leaves out (NOTE). 'Space' is read as the extent of the memory in which the preprocessing leaves the structure. The last sentence, for a set $W$, is Items.Corollary_26_wanted."
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_corollary_26",
+          "file": "ThreeSumApsp/RunningTimes/Sec4/Corollary26.lean",
+          "line": 78,
+          "type": ": Items.Corollary_26"
+        }
+      ]
+    },
+    {
+      "id": "cor39",
+      "label": "Corollary 39",
+      "kind": "corollary",
+      "section": "§5.3",
+      "pages": "58",
+      "statement": "For constants $k \\ge 3$ and $\\nu \\ge 1$, whether a complete $k$-partite graph with parts of $n$ vertices and integer edge weights at most $n^\\nu$ has a $k$-clique of total weight zero is decided deterministically in $O(n^{k - \\varepsilon_T \\lfloor k/3 \\rfloor})$ time.",
+      "idea": "The reduction of Nešetřil and Poljak: group the parts into three groups of $\\lfloor k/3 \\rfloor$ (after fixing one vertex in each of the $k - 3\\lfloor k/3 \\rfloor$ leftover parts, in all $n^{k - 3\\lfloor k/3 \\rfloor}$ ways), make each group's cliques the vertices of one part of a tripartite graph on $N = n^{\\lfloor k/3 \\rfloor}$ vertices per part, and spread the clique weight over its three edges; then run Theorem 19.",
+      "uses": [
+        "model",
+        "thm19"
+      ],
+      "lean": [
+        {
+          "name": "EndStatement.ZeroWeightKClique",
+          "file": "EndStatement.lean",
+          "line": 129,
+          "type": "(k : Nat) : Problem",
+          "note": "All $k^2$ weight blocks are input; only the blocks $i < j$ count. The minimum- and maximum-weight cases of Corollary 39 are Items.Corollary_39_min_max, not a headline claim."
+        },
+        {
+          "name": "EndStatement.Corollary_39_ZeroWeight",
+          "file": "EndStatement.lean",
+          "line": 136,
+          "type": ": Prop"
+        },
+        {
+          "name": "ThreeSumApsp.endStatement_corollary_39_zeroWeight",
+          "file": "ThreeSumApsp/Statements/EndStatement.lean",
+          "line": 60,
+          "type": ": EndStatement.Corollary_39_ZeroWeight"
+        },
+        {
+          "name": "ThreeSumApsp.WordRam.Items.Corollary_39_zero",
+          "file": "PaperStatements.lean",
+          "line": 4065,
+          "type": ": Prop"
+        },
+        {
+          "name": "ThreeSumApsp.wordRam_corollary_39_zero",
+          "file": "ThreeSumApsp/RunningTimes/Sec5/Corollary39.lean",
+          "line": 33,
+          "type": ": Items.Corollary_39_zero"
+        }
+      ],
+      "claim": "corollary39"
+    }
+  ],
+  "figures": [
+    {
+      "file": "assets/leaf-orders.svg",
+      "node": "lem11",
+      "caption": "Lemma 11 for m = 36, L = 684 and |U| = M/2^36 = M/√D wanted strings: per order d, the leaves needed are at most min{|U| α_d, β_d}; summed over all orders this is about 0.045 M, under the lemma's bound 2^-4 (2^36 |U| + 2M) = 0.1875 M."
+    },
+    {
+      "file": "assets/theorem17.svg",
+      "node": "thm17",
+      "caption": "Theorem 17's labels for p = 5, ϱ = 2 and a query pair with w(a,b) = 7: (c₁, 1) is a zero triangle (7 + 4 - 11 = 0), (c₂, 0) a false positive (7 + 3 + 0 = 10), and c₃ gives a and b different labels (3 and 4)."
+    },
+    {
+      "file": "assets/exponents.svg",
+      "node": "thm19",
+      "caption": "How the per-instance saving D^0.063 of Corollary 16 becomes ε′ = 0.00175 in Theorem 19 (g = D^0.0315, D = n^(1/18)), and then 1.999125 ≤ 1.9992 for 3SUM, 2.999416… ≤ 2.99942 for the (min,+)-product and APSP, and k - 0.0017⌊k/3⌋ for Zero-Weight k-Clique."
+    }
+  ]
+}

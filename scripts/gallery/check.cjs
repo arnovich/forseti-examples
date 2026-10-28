@@ -5,6 +5,30 @@ const path = require('node:path');
 const {pathToFileURL} = require('node:url');
 const {chromium} = require('playwright');
 
+// A walkthrough's map is the helper's page, published as drawn: it runs a script
+// and loads KaTeX from cdnjs (without SRI; a known Glitnir follow-up). Load it
+// with scripts on and the network blocked, show one statement, and fail on any
+// script error or on a request to anything but that KaTeX.
+const MAP_KATEX = /^https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/KaTeX\/0\.16\.9\//;
+async function checkMap(browser, file) {
+  const context = await browser.newContext({viewport: {width: 1100, height: 760}});
+  const requests = [];
+  const errors = [];
+  await context.route(/^https?:/, route => { requests.push(route.request().url()); return route.abort(); });
+  try {
+    const page = await context.newPage();
+    page.on('pageerror', error => errors.push(error));
+    await page.goto(pathToFileURL(file).href);
+    const box = page.locator('#map [data-id]').first();
+    const id = await box.getAttribute('data-id');
+    await box.click();
+    const data = JSON.parse(await page.locator('#walkthrough-data').textContent());
+    assert.equal(await page.locator('#detail h1').textContent(), data.nodes.find(node => node.id === id).label, `Map does not show a statement: ${file}`);
+    assert.deepEqual(errors, [], `Script error in ${file}`);
+    assert.deepEqual(requests.filter(url => !MAP_KATEX.test(url)), [], `Map requests more than KaTeX: ${file}`);
+  } finally { await context.close(); }
+}
+
 async function main() {
   const root = path.resolve(process.argv[2] || '_site');
   const manifest = JSON.parse(await fs.readFile(path.join(root, 'manifest.json'), 'utf8'));
@@ -24,6 +48,11 @@ async function main() {
       assert.equal(await page.locator('.claim').count(), entry.claims);
       assert.equal(await page.locator('.katex-error,.view-wait,script').count(), 0);
       assert.ok(await page.locator('body').innerText().then(text => text.includes(entry.source_sha256)));
+      if (entry.walkthrough) {
+        // Unchecked: the page says so and links its clickable map, published beside it.
+        assert.ok((await page.locator('.snapshot').innerText()).includes(entry.unchecked_notice), `Walkthrough not shown as unchecked: ${entry.html}`);
+        await checkMap(browser, path.join(root, entry.walkthrough.map));
+      }
       const imagesOK = await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0));
       assert.ok(imagesOK, `Unloaded images: ${entry.html}`);
       for (const href of await page.locator('a[href]').evaluateAll(links => links.map(link => link.getAttribute('href')))) {

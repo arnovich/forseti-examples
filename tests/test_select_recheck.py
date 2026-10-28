@@ -37,6 +37,18 @@ class SelectTests(unittest.TestCase):
         )
         self.assertEqual(self.select(), [])
 
+    def test_walkthroughs_are_never_selected(self) -> None:
+        """Walkthroughs are not notebooks of this project: nothing rechecks them."""
+        self.assertEqual(
+            self.select(
+                "walkthroughs/eth/EthWalkthrough.lean",
+                "walkthroughs/eth/outline.json",
+                "walkthroughs/eth/lakefile.toml",
+                "walkthroughs/eth/lean-toolchain",
+            ),
+            [],
+        )
+
     def test_one_notebook(self) -> None:
         """An isolated notebook rechecks alone, results file or not."""
         self.assertEqual(self.select("examples/y/D.lean", "examples/y/D.glitnir.json"), ["D"])

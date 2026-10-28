@@ -1,0 +1,72 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='760' height='470' viewBox='0 0 760 470' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='#ffffff'/>
+<text x='380.0' y='28' font-size='17' text-anchor='middle' font-weight='bold'>Lemma 11: leaves of each order, m = 36, L = 19m, |U| = M/2^36</text>
+<polygon points='90.0,400.0 90.0,382.1 142.5,344.8 195.0,312.1 247.5,282.3 300.0,254.5 352.5,245.4 405.0,250.9 457.5,256.7 510.0,262.6 562.5,268.8 615.0,275.2 667.5,281.9 720.0,288.9 720.0,400.0' fill='#cfe3f7' stroke='none'/>
+<line x1='90' y1='400.0' x2='720' y2='400.0' stroke='#e2e2e2'/>
+<text x='82' y='404.0' font-size='12' text-anchor='end'>2^-40 M</text>
+<line x1='90' y1='355.3' x2='720' y2='355.3' stroke='#e2e2e2'/>
+<text x='82' y='359.3' font-size='12' text-anchor='end'>2^-30 M</text>
+<line x1='90' y1='310.5' x2='720' y2='310.5' stroke='#e2e2e2'/>
+<text x='82' y='314.5' font-size='12' text-anchor='end'>2^-20 M</text>
+<line x1='90' y1='265.8' x2='720' y2='265.8' stroke='#e2e2e2'/>
+<text x='82' y='269.8' font-size='12' text-anchor='end'>2^-10 M</text>
+<line x1='90' y1='221.1' x2='720' y2='221.1' stroke='#e2e2e2'/>
+<text x='82' y='225.1' font-size='12' text-anchor='end'>M</text>
+<line x1='90' y1='176.3' x2='720' y2='176.3' stroke='#e2e2e2'/>
+<text x='82' y='180.3' font-size='12' text-anchor='end'>2^10 M</text>
+<line x1='90' y1='131.6' x2='720' y2='131.6' stroke='#e2e2e2'/>
+<text x='82' y='135.6' font-size='12' text-anchor='end'>2^20 M</text>
+<line x1='90' y1='86.8' x2='720' y2='86.8' stroke='#e2e2e2'/>
+<text x='82' y='90.8' font-size='12' text-anchor='end'>2^30 M</text>
+<text x='90.0' y='418' font-size='12' text-anchor='middle'>0</text>
+<text x='142.5' y='418' font-size='12' text-anchor='middle'>1</text>
+<text x='195.0' y='418' font-size='12' text-anchor='middle'>2</text>
+<text x='247.5' y='418' font-size='12' text-anchor='middle'>3</text>
+<text x='300.0' y='418' font-size='12' text-anchor='middle'>4</text>
+<text x='352.5' y='418' font-size='12' text-anchor='middle'>5</text>
+<text x='405.0' y='418' font-size='12' text-anchor='middle'>6</text>
+<text x='457.5' y='418' font-size='12' text-anchor='middle'>7</text>
+<text x='510.0' y='418' font-size='12' text-anchor='middle'>8</text>
+<text x='562.5' y='418' font-size='12' text-anchor='middle'>9</text>
+<text x='615.0' y='418' font-size='12' text-anchor='middle'>10</text>
+<text x='667.5' y='418' font-size='12' text-anchor='middle'>11</text>
+<text x='720.0' y='418' font-size='12' text-anchor='middle'>12</text>
+<line x1='90' y1='400' x2='720' y2='400' stroke='#333'/>
+<line x1='90' y1='60' x2='90' y2='400' stroke='#333'/>
+<text x='405.0' y='438' font-size='13' text-anchor='middle'>order d of a leaf</text>
+<text x='22' y='230.0' font-size='13' text-anchor='middle' transform='rotate(-90 22 230.0)'>number of leaves (log scale)</text>
+<line x1='300.0' y1='60' x2='300.0' y2='400' stroke='#555' stroke-dasharray='5,4'/>
+<text x='306.0' y='74' font-size='12'>proof splits at d = m/9 = 4</text>
+<polyline points='90.0,382.1 142.5,344.8 195.0,312.1 247.5,282.3 300.0,254.5 352.5,228.3 405.0,203.5 457.5,180.0 510.0,157.5 562.5,136.0 615.0,115.4 667.5,95.6 720.0,76.7' fill='none' stroke='#c0392b' stroke-width='2.5'/>
+<polyline points='90.0,221.1 142.5,225.5 195.0,230.2 247.5,235.1 300.0,240.2 352.5,245.4 405.0,250.9 457.5,256.7 510.0,262.6 562.5,268.8 615.0,275.2 667.5,281.9 720.0,288.9' fill='none' stroke='#1f6fb2' stroke-width='2.5'/>
+<circle cx='90.0' cy='382.1' r='3' fill='#c0392b'/>
+<circle cx='142.5' cy='344.8' r='3' fill='#c0392b'/>
+<circle cx='195.0' cy='312.1' r='3' fill='#c0392b'/>
+<circle cx='247.5' cy='282.3' r='3' fill='#c0392b'/>
+<circle cx='300.0' cy='254.5' r='3' fill='#c0392b'/>
+<circle cx='352.5' cy='228.3' r='3' fill='#c0392b'/>
+<circle cx='405.0' cy='203.5' r='3' fill='#c0392b'/>
+<circle cx='457.5' cy='180.0' r='3' fill='#c0392b'/>
+<circle cx='510.0' cy='157.5' r='3' fill='#c0392b'/>
+<circle cx='562.5' cy='136.0' r='3' fill='#c0392b'/>
+<circle cx='615.0' cy='115.4' r='3' fill='#c0392b'/>
+<circle cx='667.5' cy='95.6' r='3' fill='#c0392b'/>
+<circle cx='720.0' cy='76.7' r='3' fill='#c0392b'/>
+<circle cx='90.0' cy='221.1' r='3' fill='#1f6fb2'/>
+<circle cx='142.5' cy='225.5' r='3' fill='#1f6fb2'/>
+<circle cx='195.0' cy='230.2' r='3' fill='#1f6fb2'/>
+<circle cx='247.5' cy='235.1' r='3' fill='#1f6fb2'/>
+<circle cx='300.0' cy='240.2' r='3' fill='#1f6fb2'/>
+<circle cx='352.5' cy='245.4' r='3' fill='#1f6fb2'/>
+<circle cx='405.0' cy='250.9' r='3' fill='#1f6fb2'/>
+<circle cx='457.5' cy='256.7' r='3' fill='#1f6fb2'/>
+<circle cx='510.0' cy='262.6' r='3' fill='#1f6fb2'/>
+<circle cx='562.5' cy='268.8' r='3' fill='#1f6fb2'/>
+<circle cx='615.0' cy='275.2' r='3' fill='#1f6fb2'/>
+<circle cx='667.5' cy='281.9' r='3' fill='#1f6fb2'/>
+<circle cx='720.0' cy='288.9' r='3' fill='#1f6fb2'/>
+<text x='331.5' y='104.7' font-size='13' fill='#c0392b'>|U| α_d : charge each wanted string</text>
+<text x='436.5' y='230.0' font-size='13' fill='#1f6fb2'>β_d ≤ 2^-d M : all leaves of order d</text>
+<text x='105.8' y='377.6' font-size='12' fill='#2b5d8a'>shaded: min{|U| α_d, β_d} (orders 0 to 12 shown); its sum over d = 0..36 is ≈ 0.045 M</text>
+<text x='380.0' y='456' font-size='12' text-anchor='middle' fill='#444'>Lemma 11's bound: 2^-4 (2^36 |U| + 2M) = 0.1875 M, a factor D^(1/18) = 16 below 3M.</text>
+</svg>

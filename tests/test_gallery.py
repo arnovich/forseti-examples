@@ -1,12 +1,13 @@
 """Guard complete, portable gallery inventories and unchanged notebook inputs."""
 
 import hashlib
+import os
 import tempfile
 import unittest
 from pathlib import Path
 from unittest import mock
 
-from conftest import make_corpus
+from conftest import make_corpus, make_original, make_walkthrough
 
 from scripts.build_gallery import (
     DRAWING_INPUTS,
@@ -15,7 +16,10 @@ from scripts.build_gallery import (
     inventory,
     notebook_hashes,
     prepare_notebook,
+    prepare_walkthrough,
     source_url,
+    unchecked_notice,
+    walkthrough_inventory,
 )
 
 
@@ -44,6 +48,23 @@ class FakeNotebook:
     def draw_view(self, cell: int, line: int) -> dict:
         self.draws += 1
         return dict(self.drawing)
+
+
+class FakeWalkthrough(FakeNotebook):
+    """Stand in for SavedNotebook on a walkthrough: no results, claims or views."""
+
+    def __init__(self, path: Path) -> None:
+        super().__init__(path, {})
+
+    def snapshot(self) -> dict:
+        text = self.path.read_text()
+        return {
+            "sha256": hashlib.sha256(text.encode()).hexdigest(),
+            "preview": {"recorded": True, "notice": "Saved results, shown as recorded."},
+            "project_claims": [],
+            "views": [],
+            "assets": [],
+        }
 
 
 class GalleryTests(unittest.TestCase):
@@ -160,6 +181,80 @@ class GalleryTests(unittest.TestCase):
         self.assertEqual(entry["diagram_errors"], ["0:1"])
         self.assertIn("boom", entry["drawings"]["0:1"]["error"])
         self.assertEqual(list(cache.iterdir()), [])
+
+    def _walkthrough(self) -> tuple[Path, Path]:
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        base = Path(directory.name)
+        root = base / "repo"
+        make_corpus(root)
+        original, commit = make_original(base / "upstream/formal")
+        return root, make_walkthrough(root, original, commit)
+
+    def test_walkthrough_is_shown_unchecked(self) -> None:
+        """A walkthrough is exported with no results and an unchecked notice."""
+        root, notebook = self._walkthrough()
+        with mock.patch(
+            "scripts.build_gallery._saved_notebook", return_value=FakeWalkthrough(notebook)
+        ):
+            entry = prepare_walkthrough(notebook, root)
+        self.assertEqual(entry["html"], "walkthroughs/fixture/Fixture.html")
+        self.assertEqual(entry["walkthrough"], {"name": "fixture", "map": "walkthroughs/fixture/map.html"})
+        notice = entry["snapshot"]["preview"]["notice"]
+        self.assertEqual(notice, unchecked_notice(notebook.parent / "outline.json"))
+        self.assertTrue(notice.startswith("Unchecked walkthrough."))
+        self.assertIn("example.invalid/formal (proj) at commit", notice)
+        # True of any build: CI runs the text check before publication.
+        self.assertIn("CI's text check (walkthrough.py check) confirms", notice)
+        self.assertIn("before publication; nothing was compiled.", notice)
+        self.assertNotIn("shown as recorded", notice)
+        self.assertEqual((entry["drawings"], entry["diagram_errors"]), ({}, []))
+
+    def test_walkthrough_with_results_or_claims_is_refused(self) -> None:
+        """A results file, a saved claim or a view is never published for one."""
+        root, notebook = self._walkthrough()
+        fake = FakeWalkthrough(notebook)
+        for change in ("results", "claims", "views"):
+            with self.subTest(change=change):
+                snapshot = fake.snapshot()
+                if change == "results":
+                    notebook.with_suffix(".glitnir.json").write_text("{}")
+                else:
+                    snapshot[f"project_{change}" if change == "claims" else change] = [{}]
+                with mock.patch.object(fake, "snapshot", return_value=snapshot), mock.patch(
+                    "scripts.build_gallery._saved_notebook", return_value=fake
+                ):
+                    with self.assertRaises(ValueError):
+                        prepare_walkthrough(notebook, root)
+                if change == "results":
+                    with self.assertRaisesRegex(ValueError, "no results"):
+                        walkthrough_inventory(root)
+                    notebook.with_suffix(".glitnir.json").unlink()
+        self.assertEqual(walkthrough_inventory(root), [notebook])
+        self.assertEqual(walkthrough_inventory(root, only=["Example"]), [])
+
+    def test_hashes_cover_walkthroughs_but_not_fetched_originals(self) -> None:
+        """The no-write guard covers walkthroughs; fetched originals are not inputs."""
+        root, notebook = self._walkthrough()
+        before = notebook_hashes(root)
+        self.assertIn("walkthroughs/fixture/Fixture.lean", before)
+        self.assertIn("walkthroughs/fixture/outline.json", before)
+        self.assertFalse(any("_originals" in path for path in before))
+        # The fetched originals are pruned, not walked: they can be large.
+        walked: list[str] = []
+        real_walk = os.walk
+
+        def spy(top, *args, **kwargs):
+            for entry in real_walk(top, *args, **kwargs):
+                walked.append(entry[0])
+                yield entry
+
+        with mock.patch("scripts.build_gallery.os.walk", spy):
+            self.assertEqual(notebook_hashes(root), before)
+        self.assertTrue(walked)
+        self.assertFalse(any("_originals" in Path(directory).parts for directory in walked))
+        notebook.write_text(notebook.read_text() + "-- edited\n")
+        self.assertNotEqual(before, notebook_hashes(root))
 
     def test_source_link_is_revision_bound(self) -> None:
         """Published pages point to the exact source that produced them."""

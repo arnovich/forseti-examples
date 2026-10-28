@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const {JSDOM} = require('jsdom');
-const {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, rendererScripts, rewriteReferences} = require('../scripts/gallery/render.cjs');
+const {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, linkMarkdown, rendererScripts, rewriteReferences, WALKTHROUGHS} = require('../scripts/gallery/render.cjs');
 const {mkdtempSync, writeFileSync} = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
@@ -113,4 +113,73 @@ test('the renderer scripts are the ones its page lists, in page order', () => {
     writeFileSync(path.join(media, 'index.html'), `<!doctype html><html><head></head><body><div class="app"></div>\n${tags}\n</body></html>`);
     assert.deepEqual(rendererScripts(media), expected);
   }
+});
+
+test('a walkthrough export must say it is unchecked and never shown as recorded', () => {
+  const notice = 'Unchecked walkthrough. Its claims restate theorems of o/r (p) at commit abcdef0; this page shows no checking result.';
+  const entry = {walkthrough: {name: 'eth', map: 'walkthroughs/eth/map.html'}, snapshot: {sha256: 'abc', project_claims: [], views: [], preview: {notice}}};
+  const html = `<p class="snapshot">abc. ${notice} This static page does not check or update results.</p>`;
+  assert.doesNotThrow(() => validateExport(html, entry));
+  assert.throws(() => validateExport('<p>abc · Saved results, shown as recorded.</p>', entry), /unchecked/);
+  assert.throws(() => validateExport(`${html}<p>Saved results, shown as recorded</p>`, entry), /no saved results/);
+});
+
+test('walkthrough pages link back two levels and to their map beside them', () => {
+  const dom = new JSDOM('<!doctype html><html><head></head><body><div class="app"><h1>Walkthrough</h1></div></body></html>');
+  const source = `https://github.com/owner/examples/blob/${'a'.repeat(40)}/walkthroughs/eth/EthWalkthrough.lean`;
+  try {
+    addNotebookNavigation(dom.window.document, {html: 'walkthroughs/eth/EthWalkthrough.html', source_url: source,
+      snapshot: {file: 'EthWalkthrough.lean'}, walkthrough: {name: 'eth', map: 'walkthroughs/eth/map.html'}});
+    const links = [...dom.window.document.querySelectorAll('.app > .gallery-nav a')].map(link => link.getAttribute('href'));
+    assert.deepEqual(links, ['../../index.html', 'map.html', source]);
+  } finally { dom.window.close(); }
+});
+
+test('Markdown links to other sites become links outside code and mathematics', () => {
+  const dom = new JSDOM('<main><p>See [`LICENSE`](https://example.invalid/LICENSE) and [the index](https://example.invalid/i#L3)\'s entry.</p><p><code>[x](https://example.invalid/c)</code> <span class="math">[y](https://example.invalid/m)</span> [z](map.html)</p></main>');
+  try {
+    const doc = dom.window.document;
+    linkMarkdown(doc, doc.querySelector('main'));
+    const links = [...doc.querySelectorAll('a')];
+    assert.deepEqual(links.map(link => link.getAttribute('href')), ['https://example.invalid/LICENSE', 'https://example.invalid/i#L3']);
+    assert.equal(links[0].innerHTML, '<code>LICENSE</code>');
+    assert.equal(links[1].textContent, 'the index');
+    assert.equal(doc.querySelector('p').textContent, "See LICENSE and the index's entry.");
+    assert.ok(doc.body.textContent.includes('[x](https://example.invalid/c)'));
+    assert.ok(doc.body.textContent.includes('[y](https://example.invalid/m)'));
+    assert.ok(doc.body.textContent.includes('[z](map.html)'));
+  } finally { dom.window.close(); }
+});
+
+test('the gallery index lists walkthroughs in their own section with their maps', () => {
+  const html = galleryIndex({repository: 'owner/examples', revision: 'a'.repeat(40)}, [
+    {html: 'basics/Test.html', title: 'Test'},
+    {html: 'walkthroughs/eth/EthWalkthrough.html', title: 'ETH <walkthrough>', walkthrough: {name: 'eth', map: 'walkthroughs/eth/map.html'}},
+  ]);
+  const dom = new JSDOM(html);
+  try {
+    const doc = dom.window.document;
+    const section = doc.getElementById('walkthroughs');
+    assert.equal(section.querySelector('h2').textContent, 'Walkthroughs of existing formalizations');
+    assert.ok(section.querySelector('header p').textContent.includes('Unchecked'));
+    const title = section.querySelector('a.notebook-title');
+    assert.equal(title.getAttribute('href'), 'walkthroughs/eth/EthWalkthrough.html');
+    assert.equal(title.textContent, 'ETH <walkthrough>');
+    assert.equal(section.querySelector('li p').textContent, WALKTHROUGHS.eth);
+    assert.equal(section.querySelector('a.walkthrough-map').getAttribute('href'), 'walkthroughs/eth/map.html');
+    assert.equal(doc.querySelectorAll('.topic:not(.walkthroughs) a[href^="walkthroughs/"]').length, 0);
+    assert.ok(doc.querySelector('nav[aria-label="Topics"] a[href="#walkthroughs"]'));
+    assert.equal(doc.querySelectorAll('.notebook-title').length, 2);
+  } finally { dom.window.close(); }
+});
+
+test('the gallery index has no walkthrough section when none was exported', () => {
+  const dom = new JSDOM(galleryIndex({repository: 'owner/examples', revision: 'a'.repeat(40)}, [{html: 'basics/Test.html', title: 'Test'}]));
+  try {
+    const doc = dom.window.document;
+    assert.equal(doc.getElementById('walkthroughs'), null);
+    assert.equal(doc.querySelector('nav[aria-label="Topics"] a[href="#walkthroughs"]'), null);
+    assert.ok(doc.querySelector('nav[aria-label="Topics"] a[href="#pdes"]'));
+    assert.ok(!doc.documentElement.outerHTML.includes('{{'));
+  } finally { dom.window.close(); }
 });

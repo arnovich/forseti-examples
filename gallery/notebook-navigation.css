@@ -33,6 +33,13 @@
   color: #0066cc;
 }
 
+.gallery-nav .gallery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .gallery-nav a:hover {
   color: #0066cc;
 }

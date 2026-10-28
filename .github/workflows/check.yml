@@ -16,6 +16,14 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Check portable pins and saved Glitnir results
         run: python3 scripts/check_bundles.py
+      - name: Fetch the walkthroughs' originals and the pinned helper
+        run: python3 scripts/fetch_originals.py
+      - name: Check the walkthroughs against their originals (text only; unchecked)
+        env:
+          REQUIRE_WALKTHROUGH_HELPER: '1'
+        run: |
+          python3 -m unittest discover -s tests -p test_walkthroughs.py -v
+          python3 scripts/check_walkthroughs.py
   editor:
     runs-on: ubuntu-latest
     timeout-minutes: 180

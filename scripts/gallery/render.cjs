@@ -19,6 +19,13 @@ const TOPICS = {
   galerkin: ['Galerkin models', 'Finite-dimensional fluid models, energy and enstrophy.'],
   pdes: ['Partial differential equations', 'Stream contracts, formal expansions and analytic certificates.'],
 };
+// Walkthroughs of other people's Lean projects, by folder under walkthroughs/: unchecked.
+const WALKTHROUGHS_TITLE = 'Walkthroughs of existing formalizations';
+const WALKTHROUGHS_INTRO = 'Guided readings of Lean projects that Glitnir cannot check. Unchecked: each claim is compared with the original only as text, and nothing here was compiled.';
+const WALKTHROUGHS = {
+  eth: 'A 2^o(n)-time algorithm for 3-SAT and the failure of the Exponential Time Hypothesis, through the Lean project eth of anthropics/formal-math.',
+  '3sum-apsp': 'Truly subquadratic 3SUM and truly subcubic APSP through triangles in sparse lopsided graphs, through the Lean project 3sum-apsp of anthropics/formal-math.',
+};
 
 function rewriteReferences(content, notebooks) {
   for (const link of content.querySelectorAll('a[href]')) {
@@ -27,6 +34,38 @@ function rewriteReferences(content, notebooks) {
     const module = url.searchParams.get('reference') || url.searchParams.get('notebook');
     const target = notebooks.find(item => item.snapshot.file === `${module}.lean`);
     if (target) link.href = `https://gallery.invalid/${target.html}`;
+  }
+}
+
+// Glitnir's renderer shows a Markdown link to another site as its source text.
+// On walkthrough pages, turn such text outside code and mathematics into links.
+const MARKDOWN_LINK = /\[([^\]\n]+)\]\((https:\/\/[^)\s]+)\)/g;
+function linkMarkdown(doc, root) {
+  const walker = doc.createTreeWalker(root, doc.defaultView.NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    if (!walker.currentNode.parentElement.closest('a,code,pre,.math')) nodes.push(walker.currentNode);
+  }
+  for (const node of nodes) {
+    const text = node.nodeValue;
+    const matches = [...text.matchAll(MARKDOWN_LINK)];
+    if (!matches.length) continue;
+    const fragment = doc.createDocumentFragment();
+    let at = 0;
+    for (const match of matches) {
+      fragment.append(text.slice(at, match.index));
+      const link = doc.createElement('a');
+      link.href = match[2];
+      link.rel = 'noopener noreferrer';
+      match[1].split('`').forEach((part, index) => {
+        if (!part) return;
+        if (index % 2) { const code = doc.createElement('code'); code.textContent = part; link.append(code); } else link.append(part);
+      });
+      fragment.append(link);
+      at = match.index + match[0].length;
+    }
+    fragment.append(text.slice(at));
+    node.replaceWith(fragment);
   }
 }
 
@@ -39,7 +78,11 @@ function validateExport(html, entry) {
     const doc = dom.window.document;
     assert.equal(doc.querySelectorAll('script,iframe,object,embed,form,.view-wait,.katex-error').length, 0, 'Unsafe or incomplete export');
     assert.ok(doc.body.textContent.includes(entry.snapshot.sha256), 'Missing source fingerprint');
-    assert.ok(doc.body.textContent.includes(RECORDED), 'Saved results must be shown as recorded');
+    if (entry.walkthrough) {
+      // A walkthrough has no results: its notice says it is unchecked, never recorded.
+      assert.ok(doc.body.textContent.includes(entry.snapshot.preview.notice), 'Walkthrough must be shown as unchecked');
+      assert.ok(!doc.body.textContent.includes(RECORDED), 'A walkthrough has no saved results');
+    } else assert.ok(doc.body.textContent.includes(RECORDED), 'Saved results must be shown as recorded');
     for (const claim of entry.snapshot.project_claims) {
       assert.ok(doc.getElementById(`cell-${claim.name}`), `Missing claim ${claim.name}`);
     }
@@ -61,7 +104,11 @@ function addNotebookNavigation(doc, entry) {
   const nav = doc.createElement('nav');
   nav.className = 'gallery-nav';
   nav.setAttribute('aria-label', 'Notebook navigation');
-  nav.innerHTML = `<a class="gallery-back" href="../index.html" aria-label="Back to notebook gallery"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 5-5 5 5 5M6 10h10"/></svg><span>Gallery</span></a><a class="gallery-source" href="${escape(entry.source_url)}" title="View ${escape(entry.snapshot.file)} on GitHub"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 5-5 5 5 5m6-10 5 5-5 5"/></svg><span>Lean source</span></a>`;
+  // Pages sit one folder deep (topic/), walkthroughs two (walkthroughs/name/).
+  const index = '../'.repeat(Math.max(1, (entry.html || '').split('/').length - 1)) + 'index.html';
+  const source = `<a class="gallery-source" href="${escape(entry.source_url)}" title="View ${escape(entry.snapshot.file)} on GitHub"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7 5-5 5 5 5m6-10 5 5-5 5"/></svg><span>Lean source</span></a>`;
+  const map = entry.walkthrough ? `<a class="gallery-source gallery-map" href="${escape(path.posix.basename(entry.walkthrough.map))}" title="The clickable map of the proof"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10" cy="4" r="2"/><circle cx="4" cy="16" r="2"/><circle cx="16" cy="16" r="2"/><path d="m9 6-4 8m6-8 4 8"/></svg><span>Map</span></a>` : '';
+  nav.innerHTML = `<a class="gallery-back" href="${index}" aria-label="Back to notebook gallery"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 5-5 5 5 5M6 10h10"/></svg><span>Gallery</span></a>${map ? `<span class="gallery-actions">${map}${source}</span>` : source}`;
   app.prepend(nav);
   const style = doc.createElement('style');
   style.textContent = NOTEBOOK_NAVIGATION_CSS;
@@ -148,6 +195,7 @@ async function renderNotebook(manifest, entry) {
         const target = new URL(link.href).pathname.slice(1);
         link.href = path.posix.relative(path.posix.dirname(entry.html), target);
       }
+      if (entry.walkthrough) linkMarkdown(doc, doc.querySelector('main'));
       const snapshot = doc.querySelector('.snapshot');
       snapshot.textContent = snapshot.textContent.replace(' · exported ', ' · source revision dated ');
       addNotebookNavigation(doc, entry);
@@ -161,8 +209,12 @@ function galleryIndex(manifest, entries) {
     const notebooks = entries.filter(entry => entry.html.startsWith(topic + '/'));
     return `<section id="${topic}" class="topic"><header><h2>${title}</h2><p>${description}</p></header><ul>${notebooks.map(entry => `<li><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a></li>`).join('')}</ul></section>`;
   }).join('\n');
+  // Only an edition that exports walkthroughs lists them.
+  const guided = entries.filter(entry => entry.walkthrough);
+  const walkthroughs = !guided.length ? '' : `<section id="walkthroughs" class="topic walkthroughs"><header><h2>${WALKTHROUGHS_TITLE}</h2><p>${WALKTHROUGHS_INTRO}</p></header><ul>${guided.map(entry => `<li class="walkthrough"><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a><p>${escape(WALKTHROUGHS[entry.walkthrough.name])}</p><a class="walkthrough-map" href="${escape(entry.walkthrough.map)}">Map of the proof</a></li>`).join('')}</ul></section>`;
   return readFileSync(path.join(ROOT, 'gallery/index.html'), 'utf8')
-    .replace('{{topics}}', groups)
+    .replace('{{topics}}', groups + (walkthroughs && '\n' + walkthroughs))
+    .replace('{{walkthroughs-nav}}', guided.length ? '<a href="#walkthroughs">Walkthroughs</a>' : '')
     .replaceAll('{{repository}}', escape(manifest.repository))
     .replaceAll('{{revision}}', escape(manifest.revision));
 }
@@ -176,14 +228,18 @@ async function main(inputs, output) {
   const entries = [];
   await fs.mkdir(output, {recursive: true});
   for (const entry of manifest.notebooks) {
-    assert.ok(TOPICS[entry.html.split('/')[0]], `Unknown gallery topic: ${entry.html}`);
+    if (entry.walkthrough) assert.ok(WALKTHROUGHS[entry.walkthrough.name], `Undescribed walkthrough: ${entry.html}`);
+    else assert.ok(TOPICS[entry.html.split('/')[0]], `Unknown gallery topic: ${entry.html}`);
     const rendered = await renderNotebook(manifest, entry);
     const destination = path.join(output, entry.html);
     await fs.mkdir(path.dirname(destination), {recursive: true});
     await fs.writeFile(destination, rendered.html);
+    // The walkthrough's committed clickable map, published beside its page.
+    if (entry.walkthrough) await fs.copyFile(path.join(ROOT, entry.walkthrough.map), path.join(output, entry.walkthrough.map));
     entries.push({html: entry.html, title: rendered.title, source_url: entry.source_url,
       source_sha256: entry.snapshot.sha256, claims: entry.snapshot.project_claims.length,
-      diagrams: entry.snapshot.views.length, unavailable_diagrams: (entry.diagram_errors || []).length});
+      diagrams: entry.snapshot.views.length, unavailable_diagrams: (entry.diagram_errors || []).length,
+      ...(entry.walkthrough ? {walkthrough: entry.walkthrough, unchecked_notice: entry.snapshot.preview.notice} : {})});
     console.log(`Exported ${entry.html}`);
   }
   await fs.writeFile(path.join(output, 'index.html'), galleryIndex(manifest, entries));
@@ -194,5 +250,5 @@ async function main(inputs, output) {
   await fs.writeFile(path.join(output, 'manifest.json'), JSON.stringify({repository: manifest.repository, revision: manifest.revision, notebooks: entries}, null, 2) + '\n');
 }
 
-module.exports = {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, renderNotebook, rendererScripts, rewriteReferences};
+module.exports = {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, linkMarkdown, renderNotebook, rendererScripts, rewriteReferences, WALKTHROUGHS};
 if (require.main === module) main(...process.argv.slice(2)).catch(error => { console.error(error); process.exitCode = 1; });

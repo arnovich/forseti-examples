@@ -1,0 +1,38 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='820' height='560' viewBox='0 0 820 560' font-family='Helvetica, Arial, sans-serif'>
+<rect width='100%' height='100%' fill='#ffffff'/>
+<defs><marker id='ah' markerWidth='10' markerHeight='8' refX='9' refY='4' orient='auto'><path d='M0,0 L10,4 L0,8 z' fill='#555'/></marker></defs>
+<text x='410.0' y='28' font-size='17' text-anchor='middle' font-weight='bold'>From a saving per instance to the five exponents (route through Corollary 26)</text>
+<rect x='250' y='50' width='320' height='62' rx='8' fill='#fff6dd' stroke='#c79a1e' stroke-width='1.5'/>
+<text x='410.0' y='76.8' font-size='13' text-anchor='middle' font-weight='bold'>Corollary 16 (from Corollary 26)</text>
+<text x='410.0' y='93.8' font-size='13' text-anchor='middle'>one instance: n²/D^0.063 when |W| ≤ n²/√D</text>
+<line x1='410' y1='112' x2='410' y2='148' stroke='#555' stroke-width='1.6' marker-end='url(#ah)'/>
+<rect x='170' y='150' width='480' height='92' rx='8' fill='#fdecdf' stroke='#d9772b' stroke-width='1.5'/>
+<text x='410.0' y='175.4' font-size='12.5' text-anchor='middle' font-weight='bold'>Theorem 19 with Theorem 17</text>
+<text x='410.0' y='191.9' font-size='12.5' text-anchor='middle'>D = ⌊n^(1/18)⌋, g = ⌈D^0.0315⌉: 4ng instances cost n³ D^-0.0315,</text>
+<text x='410.0' y='208.4' font-size='12.5' text-anchor='middle'>scans n³ D^-0.0315 log n; D^-0.0315 ≤ 2 n^-0.00175</text>
+<text x='410.0' y='224.9' font-size='12.5' text-anchor='middle'>Exact Triangle: O(n^(3-0.00175) log n) ≤ O(n^(3-0.0017)) = O(n^2.9983)</text>
+<line x1='260' y1='242' x2='120' y2='318' stroke='#555' stroke-width='1.6' marker-end='url(#ah)'/>
+<line x1='410' y1='242' x2='410' y2='318' stroke='#555' stroke-width='1.6' marker-end='url(#ah)'/>
+<line x1='560' y1='242' x2='700' y2='318' stroke='#555' stroke-width='1.6' marker-end='url(#ah)'/>
+<rect x='20' y='320' width='230' height='120' rx='8' fill='#fdecdf' stroke='#d9772b' stroke-width='1.5'/>
+<text x='135.0' y='351.2' font-size='12.5' text-anchor='middle' font-weight='bold'>3SUM (Thm 21(a))</text>
+<text x='135.0' y='367.7' font-size='12.5' text-anchor='middle'>n^(1/2+o(1)) instances</text>
+<text x='135.0' y='384.2' font-size='12.5' text-anchor='middle'>on n^(1/2+o(1)) vertices:</text>
+<text x='135.0' y='400.7' font-size='12.5' text-anchor='middle'>2 - 0.00175/2 = 1.999125</text>
+<text x='135.0' y='417.2' font-size='12.5' text-anchor='middle'>≤ 1.9992</text>
+<rect x='295' y='320' width='230' height='120' rx='8' fill='#fdecdf' stroke='#d9772b' stroke-width='1.5'/>
+<text x='410.0' y='351.2' font-size='12.5' text-anchor='middle' font-weight='bold'>(min,+), APSP (Thm 21(b))</text>
+<text x='410.0' y='367.7' font-size='12.5' text-anchor='middle'>n² T(n^(1/3)) up to logs:</text>
+<text x='410.0' y='384.2' font-size='12.5' text-anchor='middle'>3 - 0.00175/3</text>
+<text x='410.0' y='400.7' font-size='12.5' text-anchor='middle'>= 2.999416…</text>
+<text x='410.0' y='417.2' font-size='12.5' text-anchor='middle'>≤ 2.99942</text>
+<rect x='570' y='320' width='230' height='120' rx='8' fill='#fff6dd' stroke='#c79a1e' stroke-width='1.5'/>
+<text x='685.0' y='351.2' font-size='12.5' text-anchor='middle' font-weight='bold'>Zero-Weight k-Clique</text>
+<text x='685.0' y='367.7' font-size='12.5' text-anchor='middle'>n^(k-3⌊k/3⌋) triangle instances</text>
+<text x='685.0' y='384.2' font-size='12.5' text-anchor='middle'>on N = n^⌊k/3⌋ vertices:</text>
+<text x='685.0' y='400.7' font-size='12.5' text-anchor='middle'>n^(k-3⌊k/3⌋) N^(3-0.0017)</text>
+<text x='685.0' y='417.2' font-size='12.5' text-anchor='middle'>= n^(k-0.0017⌊k/3⌋)</text>
+<text x='410.0' y='478' font-size='12.5' text-anchor='middle' fill='#333'>Remark 20: g = D^η balances instances (n³ D^(η-γ)) against scans (n³ D^-η) at η = γ/2;</text>
+<text x='410.0' y='497' font-size='12.5' text-anchor='middle' fill='#333'>with γ = 0.063 this is η = 0.0315, and D = n^(1/18) turns it into ε′ = 0.0315/18 = 0.00175.</text>
+<text x='410.0' y='530' font-size='12' text-anchor='middle' fill='#666'>The route through Theorem 5 (γ = 1/18, η = 1/36) gives 3 - 1/648, 2 - 1/1296 and 3 - 1/1944 instead.</text>
+</svg>

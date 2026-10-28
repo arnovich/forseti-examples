@@ -1,0 +1,23 @@
+name = "eth-walkthrough"
+defaultTargets = ["EthWalkthrough"]
+
+# An untested template: nothing builds this walkthrough yet, so this file has
+# never been run through Lake. It stays so until the walkthrough can be built
+# (Glitnir task 371).
+
+# The original, unchanged, from its repository at the outline's commit. Its own
+# lakefile pins Mathlib.
+[[require]]
+name = "eth"                        # the package name in the original's lakefile
+git = "https://github.com/anthropics/formal-math"
+rev = "16a5ce41304fcdaea4e0be7c132e1c361dc26da5"
+subDir = "eth"
+
+# As in the original, so that a misspelled name is an error rather than a new variable.
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[lean_lib]]
+name = "EthWalkthrough"
+roots = ["EthWalkthrough"]
