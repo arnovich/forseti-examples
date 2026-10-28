@@ -19,7 +19,7 @@
       "end_line": 82,
       "name": "NavierStokes.circuit_contract",
       "prefix_sha256": "dc2b359aef58f47444c2b4cb5aab09223364ec69b8b0966165d82c8abab0d1af",
-      "proposition_sha256": "8e53a97be9130fd8ef154887540e4fc756eb6d525a34ee4adf51c9b247d76b0e",
+      "proposition_sha256": "1cb70e9ee18fdb18ea74c4633d56062b71b75032112b60b3f207047816965233",
       "start_line": 73,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 90,
       "name": "NavierStokes.truncation_contract",
       "prefix_sha256": "56272c64dd86727ec1530f6ffb23d6c2b59c2b4beeba9235fa2df7f5aa955880",
-      "proposition_sha256": "9b00b683bc5d38a0d41d3fc9da428a8ee32bca2a947d846f249fdb188200999d",
+      "proposition_sha256": "c58c2d0a976dc105a5a88e1de18e219321c218e925109ec30092347cc0a5cc00",
       "start_line": 84,
       "status": "checked",
       "uses": [
@@ -73,7 +73,7 @@
       "end_line": 98,
       "name": "NavierStokes.band_contract",
       "prefix_sha256": "b1af20d255dbb6348648395123e5b6b74907391c76d9756964862d04bcd9294d",
-      "proposition_sha256": "6f53d58a0ebc0ccbe82851eb3bfa16bf8589ec23a7eeab300ffff5dc1c7be677",
+      "proposition_sha256": "9bef6691e1c7c683e6d3d517dfca0e6a48d82eafd733c1439a15913e64f58a4d",
       "start_line": 92,
       "status": "checked",
       "uses": [
@@ -103,7 +103,7 @@
       "end_line": 122,
       "name": "NavierStokes.euler_scale_contract",
       "prefix_sha256": "0e3033be7f4e32c2cc26e68393e16d4c916a4b91932fa3427824e665759dc8e6",
-      "proposition_sha256": "42b392b5d0874e5a9bd36c8b49579d21d426b2f3b595545dc4c9d05fa13a4637",
+      "proposition_sha256": "344806fcb8f13d9e3cff18889d84efe63e55d24bab996c16aadffbfa3f55e40c",
       "start_line": 114,
       "status": "checked",
       "uses": []
@@ -127,7 +127,7 @@
       "end_line": 135,
       "name": "NavierStokes.euler_tail_contract",
       "prefix_sha256": "5d17f038fc018abea3da470651ccd5ba4f3f5140285d753bca0730a0af3a9835",
-      "proposition_sha256": "0bd315ba98ad8103b91edca9a35152f5c77c2becbb3efd27a32d4bf38489ff77",
+      "proposition_sha256": "2c362fff175d9d0e6fb9b331fa809f0af8928428686ff0eeabcb065fd58c95f6",
       "start_line": 124,
       "status": "checked",
       "uses": [
@@ -157,7 +157,7 @@
       "end_line": 178,
       "name": "NavierStokes.heat_x",
       "prefix_sha256": "3545390c7213d73ff33e397be8dde0d7cf9a13a2a2168e23f7744aff527c8ef7",
-      "proposition_sha256": "d572da7bd9f52637142efb25b0986ee0280377c61d3931478c03074e952cd58d",
+      "proposition_sha256": "df0f6eabe760f0c225d235a0fb12c587a91ce16c39cdf230197528e0a387dffd",
       "start_line": 176,
       "status": "checked",
       "uses": []
@@ -181,7 +181,7 @@
       "end_line": 183,
       "name": "NavierStokes.first_y",
       "prefix_sha256": "6589a63b92328f9d0d036e47b58a70664d8bb40238b30e03e628607ed82d33d4",
-      "proposition_sha256": "59a7237459b8c038d1e285f557c122a4c3e90931ddebebd8746fd80e4aa217c6",
+      "proposition_sha256": "709037ae9007bd8b8b2db7db7072d6ae50c51480964cbd2c7c2ba189b73b6091",
       "start_line": 180,
       "status": "checked",
       "uses": []
@@ -205,7 +205,7 @@
       "end_line": 188,
       "name": "NavierStokes.second_2x2y",
       "prefix_sha256": "7da1c3658513efa3bf693bae958395790f59314f8b234e47a7db0f34429ba2c5",
-      "proposition_sha256": "f5070cdbe2d41a705456ad14f1bd15f86151aebe4cec03d7ed48ffd001fdadec",
+      "proposition_sha256": "55cf32536e4cb67d7fe0e58b88d57d9fd010a8104b073f7a5c7622381c07761f",
       "start_line": 185,
       "status": "checked",
       "uses": []
@@ -229,7 +229,7 @@
       "end_line": 192,
       "name": "NavierStokes.inspected_output",
       "prefix_sha256": "3c1ec02254468099e6f29141f4e264c55196bccc6f9c4299088ae17ca0b2349e",
-      "proposition_sha256": "261bd7e6e737cc652e337fa3232c41efa10bef6c928bb1837efe0b2d0e901050",
+      "proposition_sha256": "4e324d1c92d51101eb6c2326fffe943d5b71c9ffd4891624e385a7e96e9b589f",
       "start_line": 190,
       "status": "checked",
       "uses": []
@@ -253,7 +253,7 @@
       "end_line": 209,
       "name": "NavierStokes.crossing",
       "prefix_sha256": "71afccefd9bcb3c46f2efd203f028d240d6428be7890c45c79e2702687dbc009",
-      "proposition_sha256": "6b00d43ec9621bc5bb39e3b2cf5900eab09ee68e12c56b3ce5ec87081dc93d6f",
+      "proposition_sha256": "e84eead008ece65adb8cf4601dda54ff7b0f665a64282ec8beab1caeb91e4c36",
       "start_line": 207,
       "status": "checked",
       "uses": []
@@ -277,7 +277,7 @@
       "end_line": 240,
       "name": "NavierStokes.exists_certified",
       "prefix_sha256": "69415192af72e5f3c59d71b535859d0bdd783842600460804823645dd5569052",
-      "proposition_sha256": "d1f85d9c0af4fb9991170716b6b157f3550de168b4610f8f077758b9e633c956",
+      "proposition_sha256": "97a836f73e6b22198c1dfb4e35c55e82964e7c175064b72159e7ce8134788bf9",
       "start_line": 236,
       "status": "checked",
       "uses": [
@@ -307,7 +307,7 @@
       "end_line": 246,
       "name": "NavierStokes.classical_output",
       "prefix_sha256": "9c405619d0dab1f52760ca9b59b70a926996bfb09a2457a5148ee2b20aa9ef96",
-      "proposition_sha256": "5b502b120b663048290503123e41c229027407c76481c7af523edb0297c4db13",
+      "proposition_sha256": "e7c932ec2bbef9dacdf78999eb11a28d5e9f99433954d2b6ff6ecc2af683fa03",
       "start_line": 242,
       "status": "checked",
       "uses": [
@@ -337,7 +337,7 @@
       "end_line": 272,
       "name": "NavierStokes.enstrophy_identity",
       "prefix_sha256": "c4afe54f8434e57afce38c369245391aa8f265062e892697add5f3e1f840cddc",
-      "proposition_sha256": "3ee94d75ab382d06ae64ba5802dd2a111403cd142b6a8f4c524558f5c03e97ba",
+      "proposition_sha256": "056d482e83dd10511bc383405fef03dd979dd16c1fc8b95a08203f4d7f7c7a71",
       "start_line": 266,
       "status": "checked",
       "uses": [
@@ -367,7 +367,7 @@
       "end_line": 280,
       "name": "NavierStokes.energy_identity",
       "prefix_sha256": "a5d7715c35c6f35a1431007546a9bab8ccded0d0b005659a227321d07183f9ee",
-      "proposition_sha256": "328b5d9afc568478da6fa875a57b361c7ed6baf7ade5a7456e5a4aae32c806bc",
+      "proposition_sha256": "9912cbdc7cb86746b2c94d15042abec855ae21e00c95f6b01fff7bc4bbe5cf93",
       "start_line": 274,
       "status": "checked",
       "uses": [
@@ -397,7 +397,7 @@
       "end_line": 287,
       "name": "NavierStokes.energy_endpoint",
       "prefix_sha256": "c1aaeaea4540ffce3110757605212cd0d05518472b5a49d69183419dc394e124",
-      "proposition_sha256": "afc829ad360e9792cf674d2427ce8611cc71ff9d2b8f21f118f30c28e96b1249",
+      "proposition_sha256": "07a9557218bad93154c17ea069c222484891856456c7c02d5ac2e55d156c91de",
       "start_line": 282,
       "status": "checked",
       "uses": [
@@ -427,7 +427,7 @@
       "end_line": 366,
       "name": "NavierStokes.Decided_truncation_decided.truncation_decided",
       "prefix_sha256": "b8ffe27b892abced533bd69078af706c5b302c67568c5050e54dba05a83ab6be",
-      "proposition_sha256": "9aca7e71d415214767e3e6b0558783f53a2d0ab96e2c56b9ceffa5b459daa7fb",
+      "proposition_sha256": "87012cd1801f8c729c7a1fa80f6bdd10d610f42cb99199d7684c8f24573a417f",
       "start_line": 332,
       "status": "checked",
       "uses": []
@@ -451,15 +451,15 @@
       "end_line": 433,
       "name": "NavierStokes.Decided_band_decided.band_decided",
       "prefix_sha256": "6cdbea135b2ea69659b90c3c17a12cedf585d8e00b92c370218b5c5397c6b827",
-      "proposition_sha256": "01ea9ed4677619ecc2ad693b4e62afe959a05f3b1ce9285350f5b4bf3f5403a3",
+      "proposition_sha256": "39a128dc69d3c74359e85cdd760dbfa1db51fc58575c4f942420e20d17f7105b",
       "start_line": 397,
       "status": "checked",
       "uses": []
     }
   ],
   "environment": {
-    "check": "de600201a198d5e5b91398ee95d809c02884d5e6557fdb62b417008b9548008e",
-    "fingerprint": "c600f0228ab588460d965f50b39887a6719ee2b5cb5e4d0b7936283d8bfd0efa"
+    "check": "0a768cccb9d8e4b94bec83fbf0ede53fce5f46ba4e6f5f7768c8cef38c99947f",
+    "fingerprint": "042e566707c20dc65d86f6363b78365f0c689c0683200cb938cb2c3360204f9a"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "c66f7cc7b60520dc03661b55f7844cbeaa19d512dddfaa4177478ed7eb0b0599",

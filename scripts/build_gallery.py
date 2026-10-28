@@ -18,6 +18,7 @@ diagram, and an uncertain one with Glitnir's "May be out of date" note.
 import argparse
 import base64
 import hashlib
+import importlib.metadata
 import json
 import os
 import re
@@ -30,7 +31,8 @@ from urllib.parse import quote
 
 from scripts.check_bundles import check_bundles, check_results, notebook_paths
 
-# Inputs a drawing depends on besides the notebook text before its directive.
+# Inputs a drawing depends on besides the notebook text before its directive
+# and the installed Glitnir and plugin versions (``drawing_tools``).
 DRAWING_INPUTS = (
     "scripts/gallery/requirements.txt",
     "lakefile.toml",
@@ -76,8 +78,19 @@ def saved_text(path: Path) -> str:
     return path.read_bytes().decode("utf-8").replace("\r\n", "\n")
 
 
+def drawing_tools() -> dict[str, str]:
+    """The installed Glitnir backend and Forseti plugin versions that draw."""
+    versions = {}
+    for project in ("glitnir", "glitnir-forseti"):
+        try:
+            versions[project] = importlib.metadata.version(project)
+        except importlib.metadata.PackageNotFoundError:
+            versions[project] = "missing"
+    return versions
+
+
 def drawing_key(root: Path, text: str, view: dict[str, Any]) -> str:
-    """Identify a drawing by everything Lean reads to draw it."""
+    """Identify a drawing by everything Lean reads to draw it, and what draws it."""
     inputs = {
         name: hashlib.sha256((root / name).read_bytes()).hexdigest()
         for name in DRAWING_INPUTS
@@ -85,6 +98,7 @@ def drawing_key(root: Path, text: str, view: dict[str, Any]) -> str:
     prefix = "".join(line + "\n" for line in text.split("\n")[: view["line"] - 1])
     unit = {
         "inputs": inputs,
+        "tools": drawing_tools(),
         "kind": view["kind"],
         "name": view["name"],
         "using": view["using"],

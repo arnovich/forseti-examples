@@ -57,6 +57,7 @@ class SelectTests(unittest.TestCase):
             "lake-manifest.json",
             "lakefile.toml",
             "scripts/gallery/requirements.txt",
+            "scripts/glitnir_release.py",
             "scripts/recheck-requirements.txt",
             "scripts/recheck.py",
             "scripts/select_recheck.py",

@@ -97,6 +97,22 @@ class GalleryTests(unittest.TestCase):
             (root / "lake-manifest.json").write_text("{}")
             self.assertNotEqual(key, drawing_key(root, text, view))
 
+    def test_drawing_key_follows_the_installed_glitnir(self) -> None:
+        """A different Glitnir or plugin release redraws every diagram."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            make_corpus(root)
+            for name in DRAWING_INPUTS:
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                if not (root / name).exists():
+                    (root / name).write_text(name)
+            view = {"line": 2, "kind": "circuit", "name": "c", "using": []}
+            text = "def c := 1\n-- @view circuit c\n"
+            with mock.patch("scripts.build_gallery.drawing_tools", return_value={"glitnir": "0.1.9", "glitnir-forseti": "0.1.9"}):
+                key = drawing_key(root, text, view)
+            with mock.patch("scripts.build_gallery.drawing_tools", return_value={"glitnir": "0.1.10", "glitnir-forseti": "0.1.9"}):
+                self.assertNotEqual(key, drawing_key(root, text, view))
+
     def test_diagram_note_is_machine_independent(self) -> None:
         """Unavailable-diagram notes do not leak local paths or long logs."""
         root = Path("/work/examples")
