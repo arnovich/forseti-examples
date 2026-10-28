@@ -2,13 +2,16 @@
 
 import hashlib
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from conftest import git, make_original, outline_for
 
 from scripts.fetch_originals import (
+    ALLOW_FILE_REPOSITORIES,
     FetchError,
     checked_out_commit,
     checkout_directory,
@@ -26,6 +29,10 @@ class FetchTests(unittest.TestCase):
 
     def setUp(self) -> None:
         """Create an original repository, a walkthrough of it and a helper."""
+        # The local fixture repositories are file:// URLs, allowed for tests only.
+        patcher = mock.patch.dict(os.environ, {ALLOW_FILE_REPOSITORIES: "1"})
+        patcher.start()
+        self.addCleanup(patcher.stop)
         directory = tempfile.TemporaryDirectory()
         self.addCleanup(directory.cleanup)
         base = Path(directory.name)
@@ -113,6 +120,31 @@ class FetchTests(unittest.TestCase):
         checkout_directory(self.root, project).mkdir(parents=True)
         with self.assertRaisesRegex(FetchError, "remove it"):
             fetch_all(self.root, self.url)
+
+    def test_file_repositories_need_the_test_flag(self) -> None:
+        """Outside tests, a repository must be an https:// URL."""
+        with mock.patch.dict(os.environ, {ALLOW_FILE_REPOSITORIES: ""}):
+            with self.assertRaisesRegex(FetchError, "https://"):
+                fetch_all(self.root, self.url)
+            self.write_outline("one", "https://example.invalid/formal", self.commit)
+            self.assertEqual(
+                project_of(self.root / "walkthroughs/one/outline.json").name, "formal"
+            )
+
+    def test_repository_name_is_a_plain_folder_name(self) -> None:
+        """The checkout folder is the repository's name: no dots-only or odd names."""
+        for repository in (
+            "https://example.invalid/..",
+            "https://example.invalid/.",
+            "https://example.invalid/a%2Fb",
+            "https://example.invalid/a b",
+            "https://example.invalid/",
+            "https://example.invalid/.git",
+        ):
+            with self.subTest(repository=repository):
+                path = self.write_outline("one", repository, self.commit)
+                with self.assertRaisesRegex(FetchError, "repository"):
+                    project_of(path)
 
     def test_outline_needs_a_full_commit_and_url(self) -> None:
         """Abbreviated commits and other URL schemes are refused."""

@@ -1,8 +1,8 @@
 """Fetch what the walkthroughs' text check reads: the originals and the helper.
 
 Each ``walkthroughs/<name>/outline.json`` names an existing Lean project by its
-repository, commit and folder (``project.repository``, ``project.commit``,
-``project.path``). This script checks out each distinct repository and commit
+repository (an ``https://`` URL), commit and folder (``project.repository``,
+``project.commit``, ``project.path``). This script checks out each distinct repository and commit
 once, shallowly, at::
 
     walkthroughs/_originals/<first 12 hex digits of the commit>/<repository name>/
@@ -26,10 +26,12 @@ Usage::
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
 import urllib.request
+from urllib.parse import urlparse
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -41,6 +43,9 @@ HELPER_URL = (
     "https://raw.githubusercontent.com/arnovich/glitnir/{commit}"
     "/skills/glitnir-notebooks/scripts/walkthrough.py"
 )
+#: Set to 1 to allow file:// repositories: for the tests' local fixtures only.
+ALLOW_FILE_REPOSITORIES = "WALKTHROUGH_ALLOW_FILE_REPOSITORIES"
+_NAME = re.compile(r"[A-Za-z0-9._-]+")
 _COMMIT = re.compile(r"[0-9a-f]{40}")
 _SHA256 = re.compile(r"[0-9a-f]{64}")
 _TIMEOUT_SECONDS = 120
@@ -58,11 +63,8 @@ class Project:
     repository: str
     commit: str
     path: str
-
-    @property
-    def name(self) -> str:
-        """The repository's name, which is also its checkout folder's name."""
-        return self.repository.rstrip("/").rsplit("/", 1)[-1].removesuffix(".git")
+    #: The repository's name, which is also its checkout folder's name.
+    name: str
 
 
 @dataclass(frozen=True)
@@ -93,15 +95,36 @@ def load_outline(path: Path) -> dict[str, Any]:
     return data
 
 
+def repository_name(repository: Any) -> str | None:
+    """Return the name of an https:// repository URL, or None if it is not one.
+
+    ``file://`` URLs are accepted only when ``ALLOW_FILE_REPOSITORIES`` is 1.
+    The name, the URL's last path segment without ``.git``, must be a plain
+    folder name.
+    """
+    if not isinstance(repository, str) or re.search(r"\s", repository):
+        return None
+    parsed = urlparse(repository)
+    schemes = {"https"} | ({"file"} if os.environ.get(ALLOW_FILE_REPOSITORIES) == "1" else set())
+    if parsed.scheme not in schemes or (parsed.scheme == "https" and not parsed.netloc):
+        return None
+    name = parsed.path.rstrip("/").rsplit("/", 1)[-1].removesuffix(".git")
+    if not _NAME.fullmatch(name) or name in (".", ".."):
+        return None
+    return name
+
+
 def project_of(path: Path) -> Project:
     """Read and validate the project an outline names."""
     project = load_outline(path)["project"]
     repository, commit = project.get("repository"), project.get("commit")
     folder = project.get("path")
-    if not isinstance(repository, str) or not re.fullmatch(
-        r"(https|file)://\S+", repository
-    ):
-        raise FetchError(f"{path}: project.repository must be an https:// or file:// URL")
+    name = repository_name(repository)
+    if name is None:
+        raise FetchError(
+            f"{path}: project.repository must be an https:// URL ending in a "
+            "repository name"
+        )
     if not isinstance(commit, str) or not _COMMIT.fullmatch(commit):
         raise FetchError(f"{path}: project.commit must be a full 40-digit commit")
     if (
@@ -111,7 +134,7 @@ def project_of(path: Path) -> Project:
         or ".." in Path(folder).parts
     ):
         raise FetchError(f"{path}: project.path must be a folder in the repository")
-    return Project(path, repository, commit, folder)
+    return Project(path, str(repository), commit, folder, name)
 
 
 def checkout_directory(root: Path, project: Project) -> Path:
