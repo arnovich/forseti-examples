@@ -1,6 +1,7 @@
 """Guard complete, portable gallery inventories and unchanged notebook inputs."""
 
 import hashlib
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -187,6 +188,9 @@ class GalleryTests(unittest.TestCase):
         self.assertEqual(notice, unchecked_notice(notebook.parent / "outline.json"))
         self.assertTrue(notice.startswith("Unchecked walkthrough."))
         self.assertIn("example.invalid/formal (proj) at commit", notice)
+        # True of any build: CI runs the text check before publication.
+        self.assertIn("CI's text check (walkthrough.py check) confirms", notice)
+        self.assertIn("before publication; nothing was compiled.", notice)
         self.assertNotIn("shown as recorded", notice)
         self.assertEqual((entry["drawings"], entry["diagram_errors"]), ({}, []))
 
@@ -220,6 +224,19 @@ class GalleryTests(unittest.TestCase):
         self.assertIn("walkthroughs/fixture/Fixture.lean", before)
         self.assertIn("walkthroughs/fixture/outline.json", before)
         self.assertFalse(any("_originals" in path for path in before))
+        # The fetched originals are pruned, not walked: they can be large.
+        walked: list[str] = []
+        real_walk = os.walk
+
+        def spy(top, *args, **kwargs):
+            for entry in real_walk(top, *args, **kwargs):
+                walked.append(entry[0])
+                yield entry
+
+        with mock.patch("scripts.build_gallery.os.walk", spy):
+            self.assertEqual(notebook_hashes(root), before)
+        self.assertTrue(walked)
+        self.assertFalse(any("_originals" in Path(directory).parts for directory in walked))
         notebook.write_text(notebook.read_text() + "-- edited\n")
         self.assertNotEqual(before, notebook_hashes(root))
 

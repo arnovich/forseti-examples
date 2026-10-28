@@ -172,3 +172,14 @@ test('the gallery index lists walkthroughs in their own section with their maps'
     assert.equal(doc.querySelectorAll('.notebook-title').length, 2);
   } finally { dom.window.close(); }
 });
+
+test('the gallery index has no walkthrough section when none was exported', () => {
+  const dom = new JSDOM(galleryIndex({repository: 'owner/examples', revision: 'a'.repeat(40)}, [{html: 'basics/Test.html', title: 'Test'}]));
+  try {
+    const doc = dom.window.document;
+    assert.equal(doc.getElementById('walkthroughs'), null);
+    assert.equal(doc.querySelector('nav[aria-label="Topics"] a[href="#walkthroughs"]'), null);
+    assert.ok(doc.querySelector('nav[aria-label="Topics"] a[href="#pdes"]'));
+    assert.ok(!doc.documentElement.outerHTML.includes('{{'));
+  } finally { dom.window.close(); }
+});

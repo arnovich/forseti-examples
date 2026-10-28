@@ -209,10 +209,12 @@ function galleryIndex(manifest, entries) {
     const notebooks = entries.filter(entry => entry.html.startsWith(topic + '/'));
     return `<section id="${topic}" class="topic"><header><h2>${title}</h2><p>${description}</p></header><ul>${notebooks.map(entry => `<li><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a></li>`).join('')}</ul></section>`;
   }).join('\n');
+  // Only an edition that exports walkthroughs lists them.
   const guided = entries.filter(entry => entry.walkthrough);
-  const walkthroughs = `<section id="walkthroughs" class="topic walkthroughs"><header><h2>${WALKTHROUGHS_TITLE}</h2><p>${WALKTHROUGHS_INTRO}</p></header><ul>${guided.map(entry => `<li class="walkthrough"><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a><p>${escape(WALKTHROUGHS[entry.walkthrough.name])}</p><a class="walkthrough-map" href="${escape(entry.walkthrough.map)}">Map of the proof</a></li>`).join('')}</ul></section>`;
+  const walkthroughs = !guided.length ? '' : `<section id="walkthroughs" class="topic walkthroughs"><header><h2>${WALKTHROUGHS_TITLE}</h2><p>${WALKTHROUGHS_INTRO}</p></header><ul>${guided.map(entry => `<li class="walkthrough"><a class="notebook-title" href="${escape(entry.html)}">${escape(entry.title)}</a><p>${escape(WALKTHROUGHS[entry.walkthrough.name])}</p><a class="walkthrough-map" href="${escape(entry.walkthrough.map)}">Map of the proof</a></li>`).join('')}</ul></section>`;
   return readFileSync(path.join(ROOT, 'gallery/index.html'), 'utf8')
-    .replace('{{topics}}', groups + '\n' + walkthroughs)
+    .replace('{{topics}}', groups + (walkthroughs && '\n' + walkthroughs))
+    .replace('{{walkthroughs-nav}}', guided.length ? '<a href="#walkthroughs">Walkthroughs</a>' : '')
     .replaceAll('{{repository}}', escape(manifest.repository))
     .replaceAll('{{revision}}', escape(manifest.revision));
 }

@@ -85,12 +85,21 @@ def walkthrough_inventory(root: Path, only: list[str] | None = None) -> list[Pat
 
 
 def notebook_hashes(root: Path) -> dict[str, str]:
-    """Fingerprint sources, saved results and assets before and after export."""
+    """Fingerprint sources, saved results and assets before and after export.
+
+    The fetched originals are pruned from the walk: they are no export input.
+    """
+    files: list[Path] = []
+    for folder in INPUTS:
+        for directory, subdirectories, names in os.walk(root / folder):
+            here = Path(directory)
+            subdirectories[:] = sorted(
+                name for name in subdirectories if here / name != root / FETCHED
+            )
+            files.extend(here / name for name in names if (here / name).is_file())
     return {
         path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-        for folder in INPUTS
-        for path in sorted((root / folder).rglob("*"))
-        if path.is_file() and not path.is_relative_to(root / FETCHED)
+        for path in sorted(files)
     }
 
 
@@ -169,9 +178,9 @@ def unchecked_notice(outline: Path) -> str:
     return (
         f"Unchecked walkthrough. Its claims restate theorems of {repository} "
         f"({project.path}) at commit {project.commit[:7]}; this page shows no "
-        "checking result. The text check of Glitnir's walkthrough helper "
-        "(walkthrough.py check) confirmed that each claim matches the project's "
-        "source; nothing was compiled."
+        "checking result. CI's text check (walkthrough.py check) confirms that "
+        "each claim matches the project's source before publication; nothing was "
+        "compiled."
     )
 
 
