@@ -67,8 +67,9 @@ repository name: doing so removes GitHub's redirects to `glitnir-notebooks`.
 Old GitHub Pages project paths are outside the repository-rename redirect
 guarantee; use the canonical gallery domain.
 
-The gallery uses the Glitnir v0.1.9 backend and renderer and the Forseti view
-provider, pinned by hash in `scripts/gallery/requirements.txt`. Use Python 3.12+,
+The gallery uses the backend, renderer and Forseti view provider of the latest
+published Glitnir release, or of the tag a workflow dispatch names, resolved by
+`scripts/glitnir_release.py` and installed by hash from that release's SHA256SUMS. Use Python 3.12+,
 Node 22.22.2, Lean 4.35.0 and a working sandbox (bubblewrap on Linux). Diagrams are
 drawn in this project's own Lake environment, so first build the modules they
 import, from this checkout:
