@@ -4,8 +4,8 @@ import ThreeSumApsp.Statements.PaperStatements
 /-!
 # Truly subquadratic 3SUM and truly subcubic APSP: a guided walkthrough
 
-This notebook walks through the paper *Truly Subquadratic 3SUM and Truly
-Subcubic APSP via Triangles in Sparse Lopsided Graphs* by Josh Alman and
+This notebook walks through the paper "Truly Subquadratic 3SUM and Truly
+Subcubic APSP via Triangles in Sparse Lopsided Graphs" by Josh Alman and
 Virginia Vassilevska Williams (arXiv:2610.06783v1), and its Lean 4
 formalization, the project `3sum-apsp` in the repository
 [`anthropics/formal-math`](https://github.com/anthropics/formal-math/tree/e1a4e6508154ea59f030480661590a9fe3018011/3sum-apsp)
@@ -24,11 +24,11 @@ nothing, not even Mathlib, contains no proof, and defines a small word RAM, what
 it means for a problem to be solved within a time bound on it, and five
 problems. The five claims say that programs of that machine exist which solve
 
-* Exact Triangle in $O(n^{3-0.0017})$ steps (Theorem 19),
-* 3SUM in $O(n^{1.9992})$ steps (Theorem 22),
-* the (min,+)-product of two $n \times n$ matrices in $O(n^{2.99942})$ steps (Theorem 22),
-* APSP on directed graphs without negative cycles in $O(n^{2.99942})$ steps (Theorem 22),
-* Zero-Weight $k$-Clique in $O(n^{k - 0.0017\lfloor k/3 \rfloor})$ steps for every $k \ge 3$ (Corollary 39),
+- Exact Triangle in $O(n^{3-0.0017})$ steps (Theorem 19),
+- 3SUM in $O(n^{1.9992})$ steps (Theorem 22),
+- the (min,+)-product of two $n \times n$ matrices in $O(n^{2.99942})$ steps (Theorem 22),
+- APSP on directed graphs without negative cycles in $O(n^{2.99942})$ steps (Theorem 22),
+- Zero-Weight $k$-Clique in $O(n^{k - 0.0017\lfloor k/3 \rfloor})$ steps for every $k \ge 3$ (Corollary 39),
 
 each for integer inputs of absolute value at most $n^\kappa$, for every fixed
 $\kappa$. The proofs are in the library folder [`ThreeSumApsp/`](https://github.com/anthropics/formal-math/tree/e1a4e6508154ea59f030480661590a9fe3018011/3sum-apsp/ThreeSumApsp) of the project.
@@ -74,8 +74,8 @@ Lean declarations and links to the paper's pages and the source lines.
 ## The strategy in one page
 
 **The engine (Section 2).** Let $X$ be an $N \times D$ and $Y$ a $D \times N$
-integer matrix with $D$ a small power of $N$ (a *thin* product), and let $W$ be
-a set of at most $N^2/\sqrt{D}$ *wanted* positions. Computing each wanted entry
+integer matrix with $D$ a small power of $N$ (a "thin" product), and let $W$ be
+a set of at most $N^2/\sqrt{D}$ "wanted" positions. Computing each wanted entry
 as an inner product costs $N^2\sqrt{D}$; computing all of $XY$ costs at least
 $N^2$. Theorem 5 does better than both: $O(N^2 \log^2 D / D^{1/18})$ when
 $N \ge D^{18}$. It runs Coppersmith's rectangular multiplication, built from
@@ -98,7 +98,7 @@ total weight zero?) deterministically to instances of the lopsided problem, by
 hashing the weights modulo a well-chosen small prime. Plugging in Corollary 16
 gives Theorem 19: $O(n^{3-0.00175}\log n)$.
 
-**3SUM, (min,+), APSP and $k$-Clique.** Known reductions to Exact Triangle
+**3SUM, (min,+), APSP and** $k$**-Clique.** Known reductions to Exact Triangle
 (Theorem 21, cited) give Theorem 22 for 3SUM, the (min,+)-product and APSP, and
 a classical grouping of the parts gives Corollary 39 for Zero-Weight
 $k$-Clique.
@@ -126,24 +126,24 @@ The paper works on "a word RAM with $O(\log n)$-bit words" for inputs of
 polynomially bounded integers (Theorem 2, and the start of Section 2).
 [`EndStatement.lean`](https://github.com/anthropics/formal-math/blob/e1a4e6508154ea59f030480661590a9fe3018011/3sum-apsp/EndStatement.lean) makes this precise in about sixty lines.
 
-* **The machine** (`EndStatement.Instr`, `EndStatement.exec`). Memory cells are
+- **The machine** (`EndStatement.Instr`, `EndStatement.exec`). Memory cells are
   named by integers and hold words of $W$ bits. There are nine instructions: put
   the constant 1 into a cell; add, subtract or multiply two cells modulo $2^W$;
   load from or store to the cell whose name is the signed value of a word; jump
   if a word is negative; accept; reject. Every instruction is one step; running
   past the end rejects. There is no division, shift or bitwise operation, and no
   constant other than 1.
-* **One run** (`EndStatement.Problem.SolvedBy`). The size $n$ stands in cell 0
+- **One run** (`EndStatement.Problem.SolvedBy`). The size $n$ stands in cell 0
   and the input numbers after it (`EndStatement.loadWords`); every other cell
   holds 0. The program must halt within $t$ steps, accept exactly on yes
   instances, and leave any required output in the cells right after the input.
-* **Solved in time $O(n^r)$** (`EndStatement.Problem.SolvedInTime`). For every
+- **Solved in time** $O(n^r)$ (`EndStatement.Problem.SolvedInTime`). For every
   natural number $\kappa$ there are one program, one slope $b$ and one bound
   $T(n) = O(n^r)$ such that on every instance of every size $n$ (0 included)
   whose numbers have absolute value at most $n^\kappa$, and at every word size
   of at least $b(\lfloor\log_2 n\rfloor + 1)$ bits, the program solves the
   instance within $T(n)$ steps.
-* **$O(n^r)$ without real powers** (`EndStatement.BigO`). Core Lean has no
+- $O(n^r)$ **without real powers** (`EndStatement.BigO`). Core Lean has no
   fractional powers, so for $r = p/q$ the bound reads $T(n)^q \le K n^p$ for
   $n \ge 2$; for example $r = 1.9992 = 2499/1250$.
 
@@ -207,7 +207,7 @@ theorem theorem19 : EndStatement.Theorem_19 := by
 
 /-!
 **3SUM** (`EndStatement.ThreeSum`): given $n$ integers, are there three at
-three *different positions* that sum to 0? The paper leaves open whether the
+three **different positions** that sum to 0? The paper leaves open whether the
 positions must differ; Lean requires it. Theorem 22 prints two exponents for
 3SUM, $1.99923$ by the route through Theorem 5 and $1.9992$ by the route through
 Corollary 26; the claim has the smaller.
@@ -249,7 +249,7 @@ theorem theorem22APSP : EndStatement.Theorem_22_APSP := by
   exact ThreeSumApsp.endStatement_theorem_22_APSP
 
 /-!
-**Zero-Weight $k$-Clique** (`EndStatement.ZeroWeightKClique k`): a complete
+**Zero-Weight** $k$**-Clique** (`EndStatement.ZeroWeightKClique k`): a complete
 $k$-partite graph with $n$ vertices per part, given as $k^2$ blocks of
 $n \times n$ weights of which only the blocks $i < j$ count; is there one
 vertex per part whose $\binom{k}{2}$ edge weights sum to 0? The paper's
@@ -285,8 +285,8 @@ positions, the entries $(XY)[I,J]$ for $(I,J) \in W$ can be computed
 deterministically in $O(N^2 \log^2 D / D^{1/18})$ time.
 
 **Idea.** Write $D = 4^m$ and take $L = 19m$ levels of recursion. Cut the
-product into *tiles*, each one run of the recursion that computes
-$\binom{L}{m}$ block products at once (Lemma 9). Compute the *encoding* of each
+product into "tiles", each one run of the recursion that computes
+$\binom{L}{m}$ block products at once (Lemma 9). Compute the "encoding" of each
 row band and column band once, and share it among all tiles; equation (6) says
 this costs little. In each tile, call only the branches of the recursion that
 lead to a wanted entry (Lemma 10), and bound the number of leaves this touches
@@ -303,9 +303,9 @@ equation (6): the statements below are about a single run of the recursion.
 
 ### Schönhage's identity: Lemma 6
 
-**Statement.** Take seven *left* variables $x_1, x_2, x_3, p_{11}, p_{12},
-p_{21}, p_{22}$, seven *right* variables $y_1, y_2, y_3, q_{11}, \dots,
-q_{22}$, and ten *output* variables $z_{ij}$ ($1 \le i, j \le 3$) and $z_0$.
+**Statement.** Take seven "left" variables $x_1, x_2, x_3, p_{11}, p_{12},
+p_{21}, p_{22}$, seven "right" variables $y_1, y_2, y_3, q_{11}, \dots,
+q_{22}$, and ten "output" variables $z_{ij}$ ($1 \le i, j \le 3$) and $z_0$.
 Let $G = \sum_{i,j\le 3} x_i y_j z_{ij} + \big(\sum_{i,j \le 2} p_{ij}
 q_{ij}\big) z_0$: a $3\times 3$ outer product and a four-term inner product on
 disjoint variables. Extend the $p$'s and $q$'s to $3 \times 3$ matrices
@@ -336,14 +336,14 @@ theorem lemma6 : PaperStatements.Lemma_6 := by
 /-!
 ### The recursion and what it computes: Lemmas 7, 8 and 9
 
-**The recursion.** Index arrays by *strings* of $L$ variables: an array on left
+**The recursion.** Index arrays by "strings" of $L$ variables: an array on left
 strings has $7^L$ entries, one on output strings $10^L$. $\mathrm{Full}(a, b)$
 cuts each array into slices by its first variable, forms for each of the ten
 terms $\lambda$ the combinations $A_\lambda = \sum_s \varphi_\lambda(s) a_s$
-and $B_\lambda = \sum_t \psi_\lambda(t) b_t$ (the *encoding*), recurses on each
+and $B_\lambda = \sum_t \psi_\lambda(t) b_t$ (the "encoding"), recurses on each
 pair, and assembles the ten output slices as the forms $\chi_\lambda$ say (the
-*decoding*). Its recursion tree has $10^L$ leaves, one per string $\tau$ of
-terms. A leaf $\tau$ *contributes* to an output string $w$ if it takes $P_{ij}$
+"decoding"). Its recursion tree has $10^L$ leaves, one per string $\tau$ of
+terms. A leaf $\tau$ "contributes" to an output string $w$ if it takes $P_{ij}$
 at every level where $w$ has $z_{ij}$, and anything where $w$ has $z_0$.
 
 **Lemma 7.** At the leaf $\tau$, $\mathrm{Full}$ multiplies two numbers
@@ -372,7 +372,7 @@ theorem lemma8 : PaperStatements.Lemma_8 := by
   exact PaperStatements.lemma_8
 
 /-!
-**Lemma 9.** Fix $m$ and put $N_0 = 3^{L-m}$, $D = 4^m$. The *inner set* of a
+**Lemma 9.** Fix $m$ and put $N_0 = 3^{L-m}$, $D = 4^m$. The "inner set" of a
 string is the set of levels where it has an inner variable ($p$, $q$ or $z_0$).
 Strings with inner set $Q$ of size $m$ index the entries of an
 $N_0 \times D$ matrix $X_Q$, a $D \times N_0$ matrix $Y_Q$ and their product.
@@ -410,7 +410,7 @@ are still wanted from it, and skips calls whose set is empty.
 $\mathrm{Pruned}$ returns $\mathrm{Mult}(a,b)$ restricted to $U$, visits
 exactly the leaves $\mathrm{Leaves}(U)$ that contribute to some string of $U$,
 and passes sets of total size at most $(L+1)\,|\mathrm{Leaves}(U)|$. So its
-cost is governed by the size of the *union* of the leaf sets of the wanted
+cost is governed by the size of the **union** of the leaf sets of the wanted
 strings, not by the sum of their sizes.
 
 **In Lean.** The second claim carries the hypothesis $0 < L$ or
@@ -432,8 +432,8 @@ theorem lemma10 : PaperStatements.Lemma_10 := by
 
 A single output string has $10^m \approx D^{1.66}$ contributing leaves, more
 than the $D$ multiplications of an inner product, so the leaves must be shared.
-The *private leaf* of $w$ takes $P_0$ at every level of its inner set; the
-*order* of a leaf is $m$ minus the number of levels where it takes $P_0$.
+The "private leaf" of $w$ takes $P_0$ at every level of its inner set; the
+"order" of a leaf is $m$ minus the number of levels where it takes $P_0$.
 Exactly $\alpha_d = \binom{m}{d}9^d$ leaves of order $d$ contribute to a given
 string, while the whole tile has $\beta_d = \binom{L}{m-d}9^{L-m+d}$ leaves of
 order $d$, and $\beta_0 = M$.
@@ -469,7 +469,7 @@ linear in $|U|$, so it does not matter how $W$ spreads over the tiles.
 
 ![Lemma 11 for m = 36: the per-order bounds and their minimum](assets/leaf-orders.svg)
 
-*The figure:* $m = 36$, $L = 684$, $|U| = M/2^{36}$. The red curve
+**The figure:** $m = 36$, $L = 684$, $|U| = M/2^{36}$. The red curve
 $|U|\alpha_d$ rises with $d$, the blue $\beta_d$ falls; the leaves needed are at
 most the shaded minimum, which sums to about $0.045\,M$ over all orders, under
 the lemma's bound $2^{-4}\cdot 3M = 0.1875\,M$. The two curves cross between
@@ -516,11 +516,11 @@ wanted entries costs $O(|W|D^{0.437} + N^2/D^{0.063})$, which is
 $O(N^2/D^{0.063})$ when $|W| \le N^2/\sqrt{D}$.
 
 **Idea.** Section 4 keeps the recursion, the tiling and the shared encodings of
-Section 2 (Lemmas 7 and 9), with $L = 21m$ in place of $19m$ and a *switching
-order* $t = m/9$. The $10^m$ leaves contributing to an output string form a
+Section 2 (Lemmas 7 and 9), with $L = 21m$ in place of $19m$ and a "switching
+order" $t = m/9$. The $10^m$ leaves contributing to an output string form a
 cube; a query adds up its few leaves of order below $t$ one by one, while the
 preprocessing adds the leaves of higher order into partial sums over smaller
-cubes (*boxes*), each shared by many output strings (Lemmas 27 to 29,
+cubes ("boxes"), each shared by many output strings (Lemmas 27 to 29,
 Theorem 30). The leaves are counted as in the proof of Lemma 11, with the
 paper's equation (7), $\beta_d \le \rho^d M$, in place of (5). Corollary 26
 is the entry $c = 21$, $q \approx 0.43$ of the paper's Table 2, with the
@@ -542,10 +542,10 @@ prescribed pairs of a tripartite graph with a small middle part. Corollary 15
 solves this lopsided triangle problem by Theorem 5, Corollary 16 by
 Corollary 26; neither can be restated here.
 
-**Definition 13 (Lop-AE-SparseTri$(n, D)$).** A tripartite graph has outer parts
+**Definition 13** (Lop-AE-SparseTri$(n, D)$). A tripartite graph has outer parts
 $A$ and $B$ of $n$ vertices each, a middle part $M$ of at most $D$ vertices,
 arbitrary edges between $M$ and $A$ and between $M$ and $B$, and a set
-$W \subseteq A \times B$ of *query pairs*. For each $(a,b) \in W$, decide
+$W \subseteq A \times B$ of "query pairs". For each $(a,b) \in W$, decide
 whether $a$ and $b$ have a common neighbour in $M$. With the biadjacency matrices
 $X \in \{0,1\}^{n \times D}$ and $Y \in \{0,1\}^{D \times n}$, $(XY)[a,b]$
 counts the common neighbours, so the problem asks for the Boolean entries of a
@@ -582,7 +582,7 @@ statement has everything but the time.
 
 **Exact Triangle.** An instance is a complete tripartite graph on parts $A$,
 $B$, $C$ of $n$ vertices with integer edge weights $|w(e)| \le n^\nu$. With
-$S(a,b,c) = w(a,b) + w(b,c) + w(a,c)$, a *zero triangle* has $S = 0$; decide
+$S(a,b,c) = w(a,b) + w(b,c) + w(a,c)$, a "zero triangle" has $S = 0$; decide
 whether one exists.
 
 **Statement.** Let $16 \le D \le n$ and let $g$ be an integer with
@@ -593,25 +593,25 @@ oracle call.
 
 **Idea.** Three steps.
 
-1. *Hash modulo a prime.* For every prime $p \in [\sqrt{D}/2, \sqrt{D})$, count
+- 1. **Hash modulo a prime.** For every prime $p \in [\sqrt{D}/2, \sqrt{D})$, count
    the triples with $S \equiv 0 \pmod p$ using matrix products over
    $\mathbb{Z}[x]/(x^p - 1)$; pick the prime with the smallest count. A triple
-   with $S \ne 0$ is a *false positive* of the few primes dividing $S$, so by
+   with $S \ne 0$ is a "false positive" of the few primes dividing $S$, so by
    averaging the chosen prime has $F(p) = O(\nu n^3\log n/\sqrt{D})$ of them.
-2. *Build the instances.* Split $C$ into pieces $C_k$ of about $\sqrt{D}/g$
+- 2. **Build the instances.** Split $C$ into pieces $C_k$ of about $\sqrt{D}/g$
    vertices. For each residue $\varrho$, cut the pairs $(a,b)$ with
    $w(a,b) \equiv \varrho$ into chunks of at most $n^2/\sqrt{D}$ query pairs.
    An instance has the middle part $C_k \times \mathbb{Z}_p$, with
    $a \sim (c,\sigma)$ iff $\sigma \equiv w(a,c) + \varrho$ and
    $(c,\sigma) \sim b$ iff $\sigma \equiv -w(b,c)$. A common neighbour is then
    exactly some $c \in C_k$ with $S(a,b,c) \equiv 0 \pmod p$.
-3. *Find witnesses.* For each accepted pair, scan its piece for a $c$ with
+- 3. **Find witnesses.** For each accepted pair, scan its piece for a $c$ with
    $S = 0$. Every failed scan contains its own false positive, so the scans cost
    $O((F(p)+1)\sqrt{D}/g) = O(\nu n^3\log n/g)$.
 
 ![Theorem 17: labels for p = 5](assets/theorem17.svg)
 
-*The figure:* $p = 5$ and a query pair with $w(a,b) = 7$, so $\varrho = 2$.
+**The figure:** $p = 5$ and a query pair with $w(a,b) = 7$, so $\varrho = 2$.
 For $c_1$ ($w(a,c_1) = 4$, $w(b,c_1) = -11$) both labels are 1 and
 $S = 7 + 4 - 11 = 0$: a zero triangle. For $c_2$ ($3$ and $0$) both labels are 0
 and $S = 10$: a false positive. For $c_3$ ($1$ and $1$) the labels are 3 and 4,
@@ -667,7 +667,7 @@ Corollary 15.
 
 ![From a saving per instance to the five exponents](assets/exponents.svg)
 
-*The figure:* how the saving $D^{0.063}$ of Corollary 16 becomes
+**The figure:** how the saving $D^{0.063}$ of Corollary 16 becomes
 $\varepsilon' = 0.0315/18 = 0.00175$, and from there the exponents of the other
 four claims: $2 - 0.00175/2 = 1.999125 \le 1.9992$ for 3SUM,
 $3 - 0.00175/3 = 2.999416\ldots \le 2.99942$ for the (min,+)-product and APSP,
@@ -782,7 +782,7 @@ explicit bound, brute force for small sizes and two closure properties. The
 programs give $(\log n)^{O(1)}$ factors where the paper writes $n^{o(1)}$
 (`Theorem22.threeSum_polylog`).
 
-## Zero-Weight $k$-Clique: Corollary 39 {fold}
+## Zero-Weight k-Clique: Corollary 39 {fold}
 
 For every $k \ge 3$, a classical grouping turns a $k$-partite instance into
 $n^{k-3\lfloor k/3\rfloor}$ Exact Triangle instances on
@@ -822,18 +822,18 @@ maximum-weight triangles; they are not among the five claims.
 Items of Sections 1 to 3 that the five claims do not rest on, and the
 statements outside Sections 1 to 3 beyond the two steps above.
 
-* **Section 1:** Theorems 1, 3 and 4 restate Section 4's matrix results and
+- **Section 1:** Theorems 1, 3 and 4 restate Section 4's matrix results and
   Section 5's hinted Online Matrix-Vector results; Figure 1 is a diagram.
-* **Section 2:** equation (1) (Strassen's seven products, stated as
+- **Section 2:** equation (1) (Strassen's seven products, stated as
   `PaperStatements.Eq_1`) is recalled for intuition only; Figures 2 to 7 and
   Remark 12. Figures 3, 4 and 6 have statements of their own in the project.
-* **Section 3:** Definition 14 (the counting version) is mentioned with
+- **Section 3:** Definition 14 (the counting version) is mentioned with
   Definition 13; Remarks 18 and 20 have statements (`Remark_18_block`,
   `Remark_20_balance`, `Remark_20_brute_force`); Remark 23 (3XOR) indicates a
   method without proof and has none.
-* **Section 4:** everything but Corollary 26, among them Theorems 24, 25 and 30,
+- **Section 4:** everything but Corollary 26, among them Theorems 24, 25 and 30,
   Lemmas 27 to 29, Corollaries 31 and 32 and Table 2.
-* **Section 5:** everything but the zero-weight case of Corollary 39. Of
+- **Section 5:** everything but the zero-weight case of Corollary 39. Of
   Theorems 34 and 35, Lemmas 36 and 37 and Corollary 38 only arithmetic and
   correctness are stated, and their running times are proved for no machine; the
   real-input half of Theorem 2 is among them.
