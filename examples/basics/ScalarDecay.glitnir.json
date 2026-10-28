@@ -19,7 +19,7 @@
       "end_line": 39,
       "name": "Notebook.ScalarDecay.k_pos",
       "prefix_sha256": "1e04ee64eb7fd27e65ee0536f5122e5df773646c3401b247b16c673991f62f64",
-      "proposition_sha256": "e0a84dd9c4281b1bf63f4651f4d9190db0aecbcb70dc614e5ea0b15cfe91fa0c",
+      "proposition_sha256": "2c69e7ab1722af20f3bde9f672bfc99e3b36d2a17289e27c52891bfc7d3754cf",
       "start_line": 36,
       "status": "checked",
       "uses": []
@@ -43,7 +43,7 @@
       "end_line": 53,
       "name": "Notebook.ScalarDecay.energy_rate_nonpositive",
       "prefix_sha256": "d57ba79ef2c77c26deb1ed0fcba46699f542e3dcf3d00a86600b46078640bfae",
-      "proposition_sha256": "031c1bd95589ed9e1c32328e9bf80f6f994865ea548e3af4c0091aed029f04ac",
+      "proposition_sha256": "ce6799e09d001ee5ab9f2ad1e2acf8725d59d33c781b0e44bb67e009c6d0db7d",
       "start_line": 50,
       "status": "checked",
       "uses": [
@@ -73,7 +73,7 @@
       "end_line": 71,
       "name": "Notebook.ScalarDecay.energy_nonneg",
       "prefix_sha256": "883c19c3831a8f0c3e987b1d1984c4d56236c1469791eeb6a9b5c79bbca8e165",
-      "proposition_sha256": "6c8dbe8afa846a2aa2ef6ddde5f4e01dc8c780dba65e82c431e8408a4d747e2c",
+      "proposition_sha256": "2bcc9018a6551f3d9aa09de09c1d2c2d71abdd7756b4ab71f57d94b75d94412c",
       "start_line": 69,
       "status": "checked",
       "uses": []
@@ -101,15 +101,15 @@
       "end_line": 89,
       "name": "Notebook.ScalarDecay.energy_above_floor",
       "prefix_sha256": "4ad24e07a478ee2000db7a559b7342303f6900cad3818549390b341b0d70aa39",
-      "proposition_sha256": "95cab63b9cb4279b77fad2d344e7ded11f54e8fcb6b1886a3e2d430cadf0e7da",
+      "proposition_sha256": "b2687b9e424c0d38fc3531cbc4ba58522cbcd7a3e4d170c8788cb2901d6e886d",
       "start_line": 87,
       "status": "admitted",
       "uses": []
     }
   ],
   "environment": {
-    "check": "caa73f2dcf0ff8053ede27f226d855752ec56e7eb0ecc15d0ff7890d9da30a5c",
-    "fingerprint": "bc8013cc31e2283b7485b074a1f6334157899920e1104d52eb731ee4b348b5a2"
+    "check": "a8edeef95beacbdebb608990939180032b76c587979c5b7d9c2bc0f1a08c63d7",
+    "fingerprint": "4259be503ffabd7618dbe4d80fb2271e540a981aa9849aad815c378a428e969e"
   },
   "format": "glitnir.project-checks/v2",
   "source_sha256": "cf86781b0596d24df074f03c1b8f54bb1e2de33e048bef973eb5b77f9190843c",
