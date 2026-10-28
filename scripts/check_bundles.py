@@ -4,6 +4,10 @@ Every notebook needs a committed ``<Notebook>.glitnir.json`` whose recorded
 source SHA-256 is that of the notebook's saved source. The results are read
 with Glitnir's own record loader when the Glitnir backend is importable, and
 otherwise checked structurally against the same format.
+
+The walkthroughs under ``walkthroughs/`` are not notebooks of this Lake
+project: they are never inventoried here, and the Lake configuration may not
+name them. ``scripts/check_walkthroughs.py`` checks them.
 """
 
 import argparse
@@ -17,6 +21,12 @@ from pathlib import Path
 from typing import Any
 
 RESULTS_SUFFIX = ".glitnir.json"
+#: Walkthroughs of other Lean projects: never notebooks of this Lake project.
+WALKTHROUGHS = "walkthroughs"
+_NOT_A_NOTEBOOK = (
+    "{} is under walkthroughs/: walkthroughs are not notebooks of the root Lake "
+    "project and are checked by scripts/check_walkthroughs.py"
+)
 FORMATS = ("glitnir.project-checks/v1", "glitnir.project-checks/v2")
 MAX_RESULTS_BYTES = 16 * 1024 * 1024
 _SHA256 = re.compile(r"[0-9a-f]{64}")
@@ -171,9 +181,14 @@ def notebook_paths(directory: Path) -> list[Path]:
     """Validate the Lake inventory and pins; return the configured notebooks."""
     root = directory.resolve()
     config = tomllib.loads((root / "lakefile.toml").read_text())
+    for require in config.get("require", []):
+        if Path(require.get("path", ".")).parts[:1] == (WALKTHROUGHS,):
+            raise ValueError(_NOT_A_NOTEBOOK.format(f"Lake dependency {require.get('name')}"))
     configured = {}
     for library in config["lean_lib"]:
         name = library["name"]
+        if Path(library.get("srcDir", ".")).parts[:1] == (WALKTHROUGHS,):
+            raise ValueError(_NOT_A_NOTEBOOK.format(f"Lake library {name}"))
         if name in configured:
             raise ValueError(f"Duplicate Lake library: {name}")
         configured[name] = _file(

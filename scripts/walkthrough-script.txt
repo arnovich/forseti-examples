@@ -1,0 +1,6 @@
+# Glitnir's walkthrough helper, skills/glitnir-notebooks/scripts/walkthrough.py,
+# at this commit of arnovich/glitnir. scripts/fetch_originals.py downloads it
+# and keeps it only with this SHA-256; scripts/check_walkthroughs.py verifies
+# the hash again before every run.
+commit a5004cd4181af366b7444334daf4f237423c808a
+sha256 d5709929e56264986d485d5260656ff07601df97210bb8e8d6863d25d1465134

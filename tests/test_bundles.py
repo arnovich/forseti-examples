@@ -118,6 +118,42 @@ class BundleTests(unittest.TestCase):
             dependency.write_text("-- dependency\n")
             self.assertEqual(check_bundles(root), (1, 1))
 
+    def test_walkthroughs_are_not_notebooks(self) -> None:
+        """Walkthroughs have no results and are neither inventoried nor configured."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            make_corpus(root)
+            folder = root / "walkthroughs/fixture"
+            folder.mkdir(parents=True)
+            (folder / "Fixture.lean").write_text("theorem t : True := trivial\n")
+            (folder / "lakefile.toml").write_text('name = "fixture"\n')
+            (folder / "outline.json").write_text("{}")
+            self.assertEqual(check_bundles(root), (1, 1))
+            lakefile = root / "lakefile.toml"
+            base = lakefile.read_text()
+            for extra in (
+                '[[lean_lib]]\nname = "Fixture"\nsrcDir = "walkthroughs/fixture"\n',
+                '[[lean_lib]]\nname = "Fixture"\nsrcDir = "./walkthroughs/fixture"\n',
+            ):
+                with self.subTest(extra=extra):
+                    lakefile.write_text(base + extra)
+                    with self.assertRaisesRegex(ValueError, "not notebooks of the root"):
+                        check_bundles(root)
+            lakefile.write_text(
+                base.replace(
+                    "[[lean_lib]]",
+                    '[[require]]\nname = "fixture"\npath = "walkthroughs/fixture"\n\n[[lean_lib]]',
+                )
+            )
+            with self.assertRaisesRegex(ValueError, "Lake dependency fixture"):
+                check_bundles(root)
+
+    def test_repository_lakefile_names_no_walkthrough(self) -> None:
+        """This repository's own Lake configuration leaves walkthroughs out."""
+        root = Path(__file__).resolve().parents[1]
+        text = (root / "lakefile.toml").read_text()
+        self.assertNotIn("walkthroughs", text)
+
     def test_internal_symlink_is_rejected(self) -> None:
         """Match the runtime's refusal of linked sources, even inside the repo."""
         with tempfile.TemporaryDirectory() as directory:
