@@ -13,6 +13,13 @@ A diagram that cannot be drawn, or that Glitnir marks uncertain because a
 dependency's state could not be read, fails the build and is never cached.
 With ``--allow-diagram-errors`` the page shows a note in place of a missing
 diagram, and an uncertain one with Glitnir's "May be out of date" note.
+
+Walkthroughs (``walkthroughs/<name>/``) explain Lean projects Glitnir cannot
+check. They have no results file and are exported the same way with none: the
+page shows their prose, figures and Lean source with no checking result, and
+its notice says they are unchecked in place of Glitnir's "shown as recorded".
+Each page's clickable ``map.html`` is published beside it. Their text check,
+``scripts/check_walkthroughs.py``, runs before the build.
 """
 
 import argparse
@@ -28,7 +35,14 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import quote
 
-from scripts.check_bundles import check_bundles, check_results, notebook_paths
+from scripts.check_bundles import (
+    check_bundles,
+    check_results,
+    notebook_paths,
+    results_path,
+)
+from scripts.check_walkthroughs import walkthroughs
+from scripts.fetch_originals import project_of
 
 # Inputs a drawing depends on besides the notebook text before its directive.
 DRAWING_INPUTS = (
@@ -38,6 +52,10 @@ DRAWING_INPUTS = (
     "lean-toolchain",
 )
 TOOLCHAIN_LIBRARIES = {"Init", "Std", "Lean", "Lake"}
+#: The folders of notebook inputs: sources, saved results, figures and maps.
+INPUTS = ("examples", "walkthroughs")
+#: Fetched originals and the helper: inputs of the text check, not of export.
+FETCHED = "walkthroughs/_originals"
 
 
 def inventory(root: Path, only: list[str] | None = None) -> list[Path]:
@@ -53,12 +71,26 @@ def inventory(root: Path, only: list[str] | None = None) -> list[Path]:
     return paths
 
 
+def walkthrough_inventory(root: Path, only: list[str] | None = None) -> list[Path]:
+    """Select walkthrough notebooks, refusing any with a results file."""
+    paths = [
+        notebook
+        for _, notebook in walkthroughs(root)
+        if only is None or notebook.stem in only
+    ]
+    for path in paths:
+        if results_path(path).exists():
+            raise ValueError(f"{path.name}: a walkthrough is unchecked and has no results")
+    return paths
+
+
 def notebook_hashes(root: Path) -> dict[str, str]:
     """Fingerprint sources, saved results and assets before and after export."""
     return {
         path.relative_to(root).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
-        for path in sorted((root / "examples").rglob("*"))
-        if path.is_file()
+        for folder in INPUTS
+        for path in sorted((root / folder).rglob("*"))
+        if path.is_file() and not path.is_relative_to(root / FETCHED)
     }
 
 
@@ -130,6 +162,66 @@ def saved_snapshot(notebook: Any, path: Path) -> dict[str, Any]:
     return snapshot
 
 
+def unchecked_notice(outline: Path) -> str:
+    """Say, in a walkthrough's snapshot, that it shows no checking result."""
+    project = project_of(outline)
+    repository = re.sub(r"^https://github\.com/", "", project.repository.rstrip("/"))
+    return (
+        f"Unchecked walkthrough. Its claims restate theorems of {repository} "
+        f"({project.path}) at commit {project.commit[:7]}; this page shows no "
+        "checking result. The text check of Glitnir's walkthrough helper "
+        "(walkthrough.py check) confirmed that each claim matches the project's "
+        "source; nothing was compiled."
+    )
+
+
+def walkthrough_snapshot(notebook: Any, path: Path) -> dict[str, Any]:
+    """Return Glitnir's snapshot of a walkthrough, marked unchecked.
+
+    A walkthrough has no saved results, so no claim carries a result; its
+    snapshot's notice says so in place of Glitnir's "shown as recorded".
+    """
+    if results_path(path).exists():
+        raise ValueError(f"{path.name}: a walkthrough is unchecked and has no results")
+    snapshot: dict[str, Any] = notebook.snapshot()
+    if snapshot.get("error") or snapshot.get("metadata_error"):
+        raise ValueError(f"{path.name}: {snapshot}")
+    if snapshot["project_claims"] or snapshot["views"]:
+        raise ValueError(f"{path.name}: a walkthrough shows no results and draws no views")
+    snapshot["preview"]["notice"] = unchecked_notice(path.parent / "outline.json")
+    return snapshot
+
+
+def _figures(notebook: Any, snapshot: dict[str, Any], path: Path) -> dict[str, Any]:
+    """Embed every figure the saved prose shows, at the hash its snapshot lists."""
+    figures = {}
+    for asset in snapshot["assets"]:
+        if asset["status"] != "ok":
+            raise ValueError(f"{path.name}: figure unavailable: {asset}")
+        body, media_type = notebook.asset(asset["path"], asset["sha256"])
+        figures[asset["path"]] = {
+            "sha256": asset["sha256"],
+            "url": f"data:{media_type};base64,{base64.b64encode(body).decode()}",
+        }
+    return figures
+
+
+def prepare_walkthrough(path: Path, root: Path) -> dict[str, Any]:
+    """Read a walkthrough through Glitnir's static export, with no results."""
+    with _saved_notebook(path) as notebook:
+        snapshot = walkthrough_snapshot(notebook, path)
+        folder = path.parent.relative_to(root).as_posix()
+        return {
+            "path": path.relative_to(root).as_posix(),
+            "html": f"{folder}/{path.stem}.html",
+            "snapshot": snapshot,
+            "drawings": {},
+            "diagram_errors": [],
+            "figures": _figures(notebook, snapshot, path),
+            "walkthrough": {"name": path.parent.name, "map": f"{folder}/map.html"},
+        }
+
+
 def diagram_imports(root: Path, paths: list[Path]) -> list[str]:
     """List the modules Lean must find built to draw every gallery diagram."""
     modules: set[str] = set()
@@ -176,15 +268,7 @@ def prepare_notebook(
                 drawing = {"error": diagram_note(error, root)}
                 diagram_errors.append(key)
             drawings[key] = drawing
-        figures = {}
-        for asset in snapshot["assets"]:
-            if asset["status"] != "ok":
-                raise ValueError(f"{path.name}: figure unavailable: {asset}")
-            body, media_type = notebook.asset(asset["path"], asset["sha256"])
-            figures[asset["path"]] = {
-                "sha256": asset["sha256"],
-                "url": f"data:{media_type};base64,{base64.b64encode(body).decode()}",
-            }
+        figures = _figures(notebook, snapshot, path)
         return {
             "path": path.relative_to(root).as_posix(),
             "html": path.relative_to(root / "examples").with_suffix(".html").as_posix(),
@@ -214,7 +298,7 @@ def main() -> None:
         "--only",
         action="append",
         metavar="NOTEBOOK",
-        help="export only this notebook (repeatable); for local previews",
+        help="export only this notebook or walkthrough (repeatable); for local previews",
     )
     parser.add_argument(
         "--list-diagram-imports",
@@ -233,17 +317,21 @@ def main() -> None:
         ]
         print(" ".join(diagram_imports(root, paths)))
         return
-    paths = inventory(root, args.only)
+    walkthrough_names = {notebook.stem for _, notebook in walkthroughs(root)}
+    paths = inventory(
+        root, None if args.only is None else [n for n in args.only if n not in walkthrough_names]
+    )
+    guided = walkthrough_inventory(root, args.only)
     revision = args.revision or subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=root, text=True
     ).strip()
     source_url(args.repository, revision, "README.md")
     if args.output.exists():
         parser.error("Output already exists; choose a new directory")
-    if subprocess.run(["git", "diff", "--quiet", revision, "--", "examples"], cwd=root).returncode:
+    if subprocess.run(["git", "diff", "--quiet", revision, "--", *INPUTS], cwd=root).returncode:
         parser.error("Notebook inputs differ from the selected source revision")
     if subprocess.check_output(
-        ["git", "ls-files", "--others", "--exclude-standard", "--", "examples"], cwd=root
+        ["git", "ls-files", "--others", "--exclude-standard", "--", *INPUTS], cwd=root
     ).strip():
         parser.error("Untracked notebook inputs cannot be linked to a source revision")
     before = notebook_hashes(root)
@@ -262,7 +350,7 @@ def main() -> None:
             notebooks = [
                 prepare_notebook(p, root, args.diagram_cache, args.allow_diagram_errors)
                 for p in paths
-            ]
+            ] + [prepare_walkthrough(p, root) for p in guided]
             for notebook in notebooks:
                 notebook["source_url"] = source_url(args.repository, revision, notebook["path"])
             manifest = {
@@ -289,8 +377,8 @@ def main() -> None:
     failed = sum(len(notebook["diagram_errors"]) for notebook in notebooks)
     note = f"; {failed} diagrams shown as unavailable" if failed else ""
     print(
-        f"Exported {len(paths)} notebooks to {args.output}{note}; "
-        "sources and saved results unchanged."
+        f"Exported {len(paths)} notebooks and {len(guided)} unchecked walkthroughs "
+        f"to {args.output}{note}; sources and saved results unchanged."
     )
 
 

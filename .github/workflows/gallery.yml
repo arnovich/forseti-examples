@@ -38,6 +38,13 @@ jobs:
           python -m unittest discover -s tests -v
           python scripts/check_bundles.py
           npm test
+      - name: Check the walkthroughs against their originals (text only; unchecked)
+        env:
+          REQUIRE_WALKTHROUGH_HELPER: '1'
+        run: |
+          python scripts/fetch_originals.py
+          python -m unittest tests.test_walkthroughs -v
+          python scripts/check_walkthroughs.py
       - name: Install Lean and the Linux sandbox
         run: |
           # Disposable runner: these SDKs are unused by Python, Node and Lean.
@@ -95,7 +102,7 @@ jobs:
       - name: Verify every exported page and create preview images
         run: npm run gallery:check -- _site
       - name: Ensure no source or metadata was changed
-        run: git diff --exit-code -- examples
+        run: git diff --exit-code -- examples walkthroughs
       - name: Upload browsable preview
         uses: actions/upload-artifact@v6
         with:

@@ -24,6 +24,11 @@ async function main() {
       assert.equal(await page.locator('.claim').count(), entry.claims);
       assert.equal(await page.locator('.katex-error,.view-wait,script').count(), 0);
       assert.ok(await page.locator('body').innerText().then(text => text.includes(entry.source_sha256)));
+      if (entry.walkthrough) {
+        // Unchecked: the page says so and links its clickable map, published beside it.
+        assert.ok((await page.locator('.snapshot').innerText()).includes(entry.unchecked_notice), `Walkthrough not shown as unchecked: ${entry.html}`);
+        await fs.access(path.join(root, entry.walkthrough.map));
+      }
       const imagesOK = await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0));
       assert.ok(imagesOK, `Unloaded images: ${entry.html}`);
       for (const href of await page.locator('a[href]').evaluateAll(links => links.map(link => link.getAttribute('href')))) {
