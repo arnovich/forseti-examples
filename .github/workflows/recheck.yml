@@ -12,11 +12,6 @@ name: Notebook recheck
 # paths filter lists .lean files, not examples/**, so a pull request that
 # changes only recorded results or docs never starts this workflow. Manual
 # dispatch rechecks the named notebooks, or all when none are named.
-#
-# Walkthroughs (walkthroughs/) are never selected: they are not notebooks of
-# this Lake project, Glitnir cannot check them, and they have no results file.
-# The paths filter does not list them, scripts/select_recheck.py ignores them
-# and scripts.recheck refuses their names.
 
 on:
   workflow_dispatch:
