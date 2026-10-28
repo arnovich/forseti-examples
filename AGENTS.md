@@ -49,6 +49,53 @@ checks and editor builds do not replay notebook claims. Use Glitnir's installed
 skill for checking and metadata handling; preserve pinned dependencies unless
 an upgrade is intentional.
 
+## Walkthroughs
+
+`walkthroughs/<name>/` explains an existing Lean formalization that Glitnir
+cannot check (another Lean version, another repository). Each folder holds one
+notebook with a unique name (`<Name>Walkthrough.lean`), its `outline.json`,
+`assets/` (figures and `map.svg`), `map.html`, `lean-toolchain` and a
+`lakefile.toml` template that requires the original by Git at the outline's
+commit. The template is untested and nothing builds it (Glitnir task 371).
+Walkthroughs are **unchecked**: never compiled, never rechecked, and not part of
+the root Lake project; do not add them to `lakefile.toml`, and never create a
+`.glitnir.json` for one by hand. The bundle check and recheck ignore them, and
+the walkthrough check and gallery build refuse a results file.
+
+To add one, write it with the `glitnir-notebooks` skill's walkthrough workflow,
+then copy it here: rename the notebook uniquely, set the outline's
+`project.root` to `../_originals/<first 12 digits of the commit>/<repository
+name>/<project path>` (also for `sources` paths into the original), make every
+file of the original that the prose names a link to
+`https://github.com/<owner>/<repo>/blob/<commit>/<project path>/<file>#L<line>`
+(`tree/` for a folder), and draw the map with public links. Add its one-line
+description to `WALKTHROUGHS` in `scripts/gallery/render.cjs` and a README row.
+
+Fetch and check, with Python 3.12 or newer:
+
+```sh
+python3 scripts/fetch_originals.py
+python3 scripts/check_walkthroughs.py
+python3 walkthroughs/_originals/walkthrough-<commit>.py map walkthroughs/<name>/outline.json --links public --out walkthroughs/<name>
+```
+
+`fetch_originals.py` checks out each outline's repository at its commit, once
+per distinct commit, under the git-ignored `walkthroughs/_originals/`, and
+downloads Glitnir's walkthrough helper at the commit pinned with its SHA-256 in
+`scripts/walkthrough-script.txt` (update both together when repinning).
+`check_walkthroughs.py` verifies that hash, runs the helper's `check` with
+`--notebook` (every claim and outline entry must match the original's source
+as text) and requires `map.html` and `assets/map.svg` to be exactly what
+`map --links public` draws, with no local path. CI runs both in the bundle and
+gallery workflows; `REQUIRE_WALKTHROUGH_HELPER=1` makes the tests that need
+the pinned helper fail rather than skip.
+
+The gallery exports each walkthrough through Glitnir's `SavedNotebook` with no
+results file, replaces its notice with an unchecked one, publishes `map.html`
+beside the page and lists walkthroughs in their own index section. Glitnir's
+renderer shows Markdown links to other sites as text; on walkthrough pages
+`render.cjs` turns them into links after export.
+
 ## Gallery maintenance
 
 The canonical repository is `arnovich/glitnir-notebooks`; the public gallery is

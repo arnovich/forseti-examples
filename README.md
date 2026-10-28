@@ -78,5 +78,21 @@ which takes about 18 minutes on a laptop; later checks take a few minutes.
 Each [gallery entry](https://notebooks.gimlelabs.com/) links
 to its rendered notebook and exact Lean source revision.
 
+## Walkthroughs
+
+Guided readings of Lean formalizations by others, each with a clickable map of
+how the proof fits together. They are **unchecked**: the projects use a Lean
+version Glitnir does not check, so no claim has a checking result and nothing
+was compiled. Each claim restates a theorem of the original word for word, and
+a text check compares it with the original's source at the pinned commit.
+
+| Walkthrough | Explains | Map |
+| --- | --- | --- |
+| [EthWalkthrough](walkthroughs/eth/EthWalkthrough.lean) | A $2^{o(n)}$-time algorithm for 3-SAT and the failure of ETH: the project [`eth`](https://github.com/anthropics/formal-math/tree/16a5ce41304fcdaea4e0be7c132e1c361dc26da5/eth) of `anthropics/formal-math` | [map](walkthroughs/eth/map.html) |
+| [ThreeSumApspWalkthrough](walkthroughs/3sum-apsp/ThreeSumApspWalkthrough.lean) | Truly subquadratic 3SUM and truly subcubic APSP: the project [`3sum-apsp`](https://github.com/anthropics/formal-math/tree/e1a4e6508154ea59f030480661590a9fe3018011/3sum-apsp) of `anthropics/formal-math` | [map](walkthroughs/3sum-apsp/map.html) |
+
+The formalizations and papers belong to their authors; see each walkthrough's
+opening for attribution and licences.
+
 This repository is maintained by its authors and does not accept external contributions.
 Licensed under the [MIT License](LICENSE).
