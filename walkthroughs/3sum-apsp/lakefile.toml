@@ -1,0 +1,23 @@
+name = "3sum-apsp-walkthrough"
+defaultTargets = ["ThreeSumApspWalkthrough"]
+
+# An untested template: nothing builds this walkthrough yet, so this file has
+# never been run through Lake. It stays so until the walkthrough can be built
+# (Glitnir task 371).
+
+# The original, unchanged, from its repository at the outline's commit. Its own
+# lakefile pins Mathlib.
+[[require]]
+name = "ThreeSumApsp"               # the package name in the original's lakefile
+git = "https://github.com/anthropics/formal-math"
+rev = "e1a4e6508154ea59f030480661590a9fe3018011"
+subDir = "3sum-apsp"
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[lean_lib]]
+name = "ThreeSumApspWalkthrough"
+roots = ["ThreeSumApspWalkthrough"]
