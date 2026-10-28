@@ -22,7 +22,7 @@ jobs:
         env:
           REQUIRE_WALKTHROUGH_HELPER: '1'
         run: |
-          python3 -m unittest tests.test_walkthroughs -v
+          python3 -m unittest discover -s tests -p test_walkthroughs.py -v
           python3 scripts/check_walkthroughs.py
   editor:
     runs-on: ubuntu-latest
