@@ -68,6 +68,13 @@ function addNotebookNavigation(doc, entry) {
   doc.head.append(style);
 }
 
+// The renderer's scripts, as its page lists them and in that order. The page is the
+// one list: Glitnir may split or rename its scripts between releases.
+function rendererScripts(media) {
+  const html = readFileSync(path.join(media, 'index.html'), 'utf8');
+  return [...html.matchAll(/<script src="\/([^"]+)"><\/script>/g)].map(match => match[1]);
+}
+
 async function renderNotebook(manifest, entry) {
   const dom = new JSDOM(await fs.readFile(path.join(manifest.media, 'index.html'), 'utf8'), {
     runScripts: 'outside-only', url: 'https://export.invalid/',
@@ -110,7 +117,7 @@ async function renderNotebook(manifest, entry) {
     },
   };
   try {
-    for (const script of ['katex/katex.min.js', 'export.js', 'circuits.js', 'cards.js', 'app.js']) {
+    for (const script of rendererScripts(manifest.media)) {
       window.eval(await fs.readFile(path.join(manifest.media, script), 'utf8'));
     }
     const originalExport = window.glitnirExport;
@@ -187,5 +194,5 @@ async function main(inputs, output) {
   await fs.writeFile(path.join(output, 'manifest.json'), JSON.stringify({repository: manifest.repository, revision: manifest.revision, notebooks: entries}, null, 2) + '\n');
 }
 
-module.exports = {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, renderNotebook, rewriteReferences};
+module.exports = {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, renderNotebook, rendererScripts, rewriteReferences};
 if (require.main === module) main(...process.argv.slice(2)).catch(error => { console.error(error); process.exitCode = 1; });

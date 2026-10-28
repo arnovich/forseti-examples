@@ -1,7 +1,10 @@
 const assert = require('node:assert/strict');
 const {test} = require('node:test');
 const {JSDOM} = require('jsdom');
-const {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, rewriteReferences} = require('../scripts/gallery/render.cjs');
+const {copyGalleryAssets, addNotebookNavigation, validateExport, galleryIndex, rendererScripts, rewriteReferences} = require('../scripts/gallery/render.cjs');
+const {mkdtempSync, writeFileSync} = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 
 test('export validation refuses missing claims, scripts and incomplete diagrams', () => {
   const entry = {snapshot: {sha256: 'abc', project_claims: [{name: 'first'}], views: []}};
@@ -94,4 +97,20 @@ test('gallery packages its local fonts, marks and font license for offline hosti
       assert.deepEqual(await fs.readFile(path.join(output, 'assets', asset)), source);
     }
   } finally { await fs.rm(output, {recursive: true, force: true}); }
+});
+
+test('the renderer scripts are the ones its page lists, in page order', () => {
+  // Glitnir 0.1.9 ships one workbench script; later releases list several. The gallery
+  // must not name them: it loads whatever `index.html` loads, in that order.
+  const pages = [
+    ['<script src="/katex/katex.min.js"></script>\n<script src="/export.js"></script>\n<script src="/circuits.js"></script>\n<script src="/cards.js"></script>\n<script src="/app.js"></script>',
+      ['katex/katex.min.js', 'export.js', 'circuits.js', 'cards.js', 'app.js']],
+    ['<script src="/katex/katex.min.js"></script>\n<script src="/export.js"></script>\n<script src="/circuits.js"></script>\n<script src="/cards.js"></script>\n<!-- host scripts -->\n<script src="/workbench.js"></script>\n<script src="/figures.js"></script>\n<script src="/chrome.js"></script>',
+      ['katex/katex.min.js', 'export.js', 'circuits.js', 'cards.js', 'workbench.js', 'figures.js', 'chrome.js']],
+  ];
+  for (const [tags, expected] of pages) {
+    const media = mkdtempSync(path.join(os.tmpdir(), 'gallery-media-'));
+    writeFileSync(path.join(media, 'index.html'), `<!doctype html><html><head></head><body><div class="app"></div>\n${tags}\n</body></html>`);
+    assert.deepEqual(rendererScripts(media), expected);
+  }
 });
