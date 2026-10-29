@@ -16,6 +16,20 @@ from typing import Any
 
 FORMAT = "glitnir.triptych-release/v1"
 SHA256 = re.compile(r"[0-9a-f]{64}")
+DECISION_LIMITS = {
+    "wall_time_ms": 300_000,
+    "max_variables": 8,
+    "max_nodes": 512,
+    "max_depth": 64,
+    "max_degree": 8,
+    "max_monomials": 4_096,
+    "max_dictionary": 16,
+    "max_weights": 512,
+    "max_coefficient_bits": 256,
+    "max_artifact_bytes": 1_048_576,
+    "max_lean_output_bytes": 1_048_576,
+    "max_heartbeats": 2_000_000,
+}
 
 
 class ReleaseError(ValueError):
@@ -186,6 +200,8 @@ def check_release(root: Path, manifest_path: Path) -> int:
     manifest = _read_json(manifest_path)
     if manifest.get("format") != FORMAT or manifest.get("glitnir_tag") != "v0.1.10":
         raise ReleaseError(f"expected {FORMAT} pinned to Glitnir v0.1.10")
+    if manifest.get("decision_limits") != DECISION_LIMITS:
+        raise ReleaseError("decision limits differ from Glitnir v0.1.10 defaults")
     toolchain = (root / "lean-toolchain").read_text().strip()
     if toolchain != manifest.get("lean_toolchain"):
         raise ReleaseError("Lean toolchain differs from the release manifest")

@@ -1,4 +1,18 @@
 {
+  "decision_limits": {
+    "max_artifact_bytes": 1048576,
+    "max_coefficient_bits": 256,
+    "max_degree": 8,
+    "max_depth": 64,
+    "max_dictionary": 16,
+    "max_heartbeats": 2000000,
+    "max_lean_output_bytes": 1048576,
+    "max_monomials": 4096,
+    "max_nodes": 512,
+    "max_variables": 8,
+    "max_weights": 512,
+    "wall_time_ms": 300000
+  },
   "format": "glitnir.triptych-release/v1",
   "glitnir_tag": "v0.1.10",
   "lake_manifest_sha256": "e11f1c59bf756299ac5ec68bf0c8912d95ed83590bc742ce1c9a86e579626d60",

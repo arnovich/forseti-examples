@@ -86,6 +86,20 @@ class TriptychReleaseTests(unittest.TestCase):
                 {
                     "format": "glitnir.triptych-release/v1",
                     "glitnir_tag": "v0.1.10",
+                    "decision_limits": {
+                        "wall_time_ms": 300_000,
+                        "max_variables": 8,
+                        "max_nodes": 512,
+                        "max_depth": 64,
+                        "max_degree": 8,
+                        "max_monomials": 4_096,
+                        "max_dictionary": 16,
+                        "max_weights": 512,
+                        "max_coefficient_bits": 256,
+                        "max_artifact_bytes": 1_048_576,
+                        "max_lean_output_bytes": 1_048_576,
+                        "max_heartbeats": 2_000_000,
+                    },
                     "lean_toolchain": "leanprover/lean4:v4.32.1",
                     "lake_manifest_sha256": _sha(self.lake_manifest.read_bytes()),
                     "lake_pins": {"forseti": "a" * 40, "asgard": "b" * 40},
@@ -271,6 +285,13 @@ class TriptychReleaseTests(unittest.TestCase):
         lake["packages"].append({"name": "mathlib", "rev": "c" * 40})
         self.lake_manifest.write_text(json.dumps(lake))
         with self.assertRaisesRegex(ReleaseError, "full Lake dependency manifest"):
+            check_release(self.root, self.manifest)
+
+    def test_rejects_decision_limit_drift(self) -> None:
+        manifest = json.loads(self.manifest.read_text())
+        manifest["decision_limits"]["wall_time_ms"] = 1
+        self.manifest.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(ReleaseError, "decision limits differ"):
             check_release(self.root, self.manifest)
 
 
