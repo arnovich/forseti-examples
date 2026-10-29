@@ -15,7 +15,9 @@ jobs:
       - name: Test bundle validation
         run: python3 -m unittest discover -s tests -v
       - name: Check portable pins and saved Glitnir results
-        run: python3 scripts/check_bundles.py
+        run: |
+          python3 scripts/check_bundles.py
+          python3 scripts/check_triptych.py releases/proved-refuted-unknown.json
       - name: Fetch the walkthroughs' originals and the pinned helper
         run: python3 scripts/fetch_originals.py
       - name: Check the walkthroughs against their originals (text only; unchecked)

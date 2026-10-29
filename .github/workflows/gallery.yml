@@ -51,6 +51,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           python scripts/check_bundles.py
+          python scripts/check_triptych.py releases/proved-refuted-unknown.json
           npm test
       - name: Check the walkthroughs against their originals (text only; unchecked)
         env:

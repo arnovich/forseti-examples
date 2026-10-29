@@ -5,14 +5,13 @@ import Gimle.Forseti.Examples.Lorenz
 /-!
 # The Lorenz butterfly: proved, refuted, or unresolved
 
-The Lorenz system is the most famous picture in dynamics: three coupled
-equations whose solutions wander forever over a two-winged surface, never
-repeating and never settling, so sensitive to their start that no simulation
-of them can be trusted for long. This notebook proves one thing about it that
-no simulation could: from the start $(1, 1, 1)$, the trajectory stays inside an
-explicit ball for all time. It also shows the two other answers a verifier
-must be willing to give: a checked counterexample, or no result under the
-current bounded search.
+The Lorenz system is the most famous picture in dynamics: finite numerical
+trajectories draw its familiar two-winged shape, and the system is widely used
+to illustrate sensitive dependence. This notebook does not prove either
+property. It proves one thing no finite simulation could: from the start
+$(1, 1, 1)$, the trajectory stays inside an explicit ball for all time. It
+also shows the two other answers a verifier must be willing to give: a checked
+counterexample, or no result under the current bounded search.
 
 The equations, with the parameters Lorenz used in 1963, are
 

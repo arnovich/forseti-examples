@@ -16,11 +16,11 @@
         }
       ],
       "declaration_sha256": "fb7e37898a6483a72f66758b1d477e23bc428c6a76b2dd556734210358aabffb",
-      "end_line": 101,
+      "end_line": 100,
       "name": "Notebook.Lorenz.energy_at_start",
-      "prefix_sha256": "ade68c490e65b89ae1385922da75e8fb3abb49864cee7423bb2a06ae150c325a",
-      "proposition_sha256": "d6bf2cea0785dcf69be01310c95fbf6f6cc1de17a8a93747df052085db8e14c0",
-      "start_line": 99,
+      "prefix_sha256": "b7f61be6a9024b7dfd77a2e9b0a2d071a879a3dcf6d679426230e7abf6db760f",
+      "proposition_sha256": "f88727e9140dd670fffe95bb613f8c8607566618532f855797029255790929a0",
+      "start_line": 98,
       "status": "checked",
       "uses": []
     },
@@ -40,11 +40,11 @@
         }
       ],
       "declaration_sha256": "9719819b3642d087f1af339b67cc820110f5227d4e1078d058adb3d783959bb4",
-      "end_line": 105,
+      "end_line": 104,
       "name": "Notebook.Lorenz.rate_positive_at_origin_side",
-      "prefix_sha256": "57d5c07379960f974c2380c85faba685a749d4faf9718213992f012673e27dd9",
-      "proposition_sha256": "080b2fbd05fd8e482bb539ce5a43a0de1a8f925324a00c960cd769e5619e6fbe",
-      "start_line": 103,
+      "prefix_sha256": "d638d30ac4d2a70b5048330d249739ab994ec91e1389308d6f4f3f278c94828f",
+      "proposition_sha256": "730552b39e0da4e5695964b92d91fe9dfd91553930b06d65b52b4b5a31ca56b6",
+      "start_line": 102,
       "status": "checked",
       "uses": []
     },
@@ -64,11 +64,11 @@
         }
       ],
       "declaration_sha256": "39b3083f698bb810815bcdc9fd655846bcd6d607062e9f20cf1e236bf5eb81e4",
-      "end_line": 121,
+      "end_line": 120,
       "name": "Notebook.Lorenz.storage_inequality",
-      "prefix_sha256": "c3489faf728ae2168b42d4af44e1f958dd1f9383d24576fe2a891afd5132329d",
-      "proposition_sha256": "3f4fedb8df89dd3904250fafb6a7977459b39b2da9865c27ce41cb20b4cf4f20",
-      "start_line": 119,
+      "prefix_sha256": "12d759a978baaf2df50ea520005a871c933e08891607f6470468c579f61799d1",
+      "proposition_sha256": "57998ace60ff4d3bb7325ec585d70212ecea5b2ed1ad2b063243fc11da138e19",
+      "start_line": 118,
       "status": "checked",
       "uses": []
     },
@@ -88,11 +88,11 @@
         }
       ],
       "declaration_sha256": "d63559db74ef9c972208d052935fb68c6a8df508452196ca408df5f4c04f086d",
-      "end_line": 218,
+      "end_line": 217,
       "name": "Notebook.Lorenz.Decided_in_ball.in_ball",
-      "prefix_sha256": "3e155359d44a5fc179fb08cad8b4cf3c3d54d5061a7aa1e222c0a175d046ba7a",
-      "proposition_sha256": "6912bdb9bec88e9bb2b976ee0d92086d05d17583ace96aa7da1e6d758d047b04",
-      "start_line": 177,
+      "prefix_sha256": "e312814c06953afaf8d567c1079fee216afbe0afa7f63195e696e4ad15ea660a",
+      "proposition_sha256": "c83d59110efecc9558fcffbb642fc44166da5e81bf255d8703fd4fe2d1078aae",
+      "start_line": 176,
       "status": "checked",
       "uses": []
     },
@@ -112,11 +112,11 @@
         }
       ],
       "declaration_sha256": "a1af446b618e0e6e1fe2166ad700de1a9f62be13fe522414245167aa638e048e",
-      "end_line": 314,
+      "end_line": 313,
       "name": "Notebook.Lorenz.Decided_below_thirteen_hundred.below_thirteen_hundred_refuted",
-      "prefix_sha256": "3f8b71c6fa299e6b34ac9eb814b5442ace6365f51d159c5a6fdb4a5b7caed0ff",
-      "proposition_sha256": "d73254fddae05fd1335665cce623f6c7fcdb79008245ae18dc05881df2bc45ef",
-      "start_line": 271,
+      "prefix_sha256": "5f63ff6ed72d7195fda3086d86e1619aab5942365bcd58fe7875acd13c192308",
+      "proposition_sha256": "7936760249f5f90d0eeb2d35dbb2b53a0c80ab6c7327060715d047652409220f",
+      "start_line": 270,
       "status": "checked",
       "uses": []
     }
@@ -162,7 +162,7 @@
       }
     },
     "4549da0a20f3d0ac8fece61f34df69cd76a2cd8c319629c9729eea35a6891c39": {
-      "created": "2026-10-29T12:02:07+00:00",
+      "created": "2026-10-29T14:15:39+00:00",
       "fingerprint": "aa59a6ed09df1fe96bcc6bf9fd9c56f7f6bc660bdadd3f9dcde1c30696ebc4cd",
       "outcome": {
         "block": null,
@@ -187,7 +187,7 @@
         "status": "unknown",
         "theorem": null
       },
-      "prefix_sha256": "a6514d36064b3fddbfa9b9b0aeb756a1287018907d54e707827d93893703748e",
+      "prefix_sha256": "e66c604196233589f37d6311b6f6800785c28a56e51fcae8a48e34bc8595ccef",
       "provider": "forseti",
       "verification": null
     },
@@ -237,14 +237,14 @@
     }
   },
   "environment": {
-    "check": "bd9c666a25dc6c25cff7786e2dc1820f07ac795d716e01e07601fd9d5a19e0f7",
+    "check": "cbab3ceb18b78128c1e69970a2afccc08151a47dae384c51b181bcfc40c6c212",
     "fingerprint": "aa59a6ed09df1fe96bcc6bf9fd9c56f7f6bc660bdadd3f9dcde1c30696ebc4cd"
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "9759aafa05362120a3bdb60db8d6b6260ce33d96ab13bd4b9789149147e5b635",
+  "source_sha256": "5a513ffb9c3888defe74e89be026577e49c26e502bab6f8098449883e1563960",
   "views": {
     "11614910b7faf0d4510356f550a764e7796f6ae2683a012ce1d88b97d40bfa02": {
-      "created": "2026-10-29T14:01:27+00:00",
+      "created": "2026-10-29T14:21:54+00:00",
       "drawing": {
         "contracts": [],
         "detail": {
@@ -10018,7 +10018,7 @@
         "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1020 737\" width=\"1020\" height=\"737\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><text x=\"35\" y=\"35\" font-size=\"20\" fill=\"#172f43\" textLength=\"528\" lengthAdjust=\"spacingAndGlyphs\">Continuous circuit \u00b7 compiled model overview</text><text x=\"35\" y=\"62\" font-size=\"14\" fill=\"#172f43\" textLength=\"369\" lengthAdjust=\"spacingAndGlyphs\">Axis t [time] \u2022 start 0 \u2022 exact coefficients</text><rect x=\"100\" y=\"100\" width=\"390\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"120\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"189\" lengthAdjust=\"spacingAndGlyphs\">Compiled vector field</text><rect x=\"600\" y=\"100\" width=\"240\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"620\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"153\" lengthAdjust=\"spacingAndGlyphs\">Integrate along t</text><g><title>state: state-x; derivative: dx; initial: initial-x</title><text x=\"120\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"210\" lengthAdjust=\"spacingAndGlyphs\">dx/dt = (10 \u00d7 (y + (-x)))</text><polyline points=\"490,165 600,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"600,165 593,161 593,169\" fill=\"#476579\"></polygon><text x=\"620\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"58\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  x</text><text x=\"620\" y=\"189\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">x(0) = 1</text><polyline points=\"840,165 990,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"990,165 983,161 983,169\" fill=\"#476579\"></polygon><text x=\"855\" y=\"155\" font-size=\"12\" fill=\"#172f43\" textLength=\"28\" lengthAdjust=\"spacingAndGlyphs\">0: x</text></g><g><title>state: state-y; derivative: dy; initial: initial-y</title><text x=\"120\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"285\" lengthAdjust=\"spacingAndGlyphs\">dy/dt = ((x \u00d7 (28 + (-z))) + (-y))</text><polyline points=\"490,255 600,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"600,255 593,251 593,259\" fill=\"#476579\"></polygon><text x=\"620\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"58\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  y</text><text x=\"620\" y=\"279\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">y(0) = 1</text><polyline points=\"840,255 990,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"990,255 983,251 983,259\" fill=\"#476579\"></polygon><text x=\"855\" y=\"245\" font-size=\"12\" fill=\"#172f43\" textLength=\"28\" lengthAdjust=\"spacingAndGlyphs\">1: y</text></g><g><title>state: state-z; derivative: dz; initial: initial-z</title><text x=\"120\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"268\" lengthAdjust=\"spacingAndGlyphs\">dz/dt = ((x \u00d7 y) + (-(8/3 \u00d7 z)))</text><polyline points=\"490,345 600,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"600,345 593,341 593,349\" fill=\"#476579\"></polygon><text x=\"620\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"58\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  z</text><text x=\"620\" y=\"369\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">z(0) = 1</text><polyline points=\"840,345 990,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"990,345 983,341 983,349\" fill=\"#476579\"></polygon><text x=\"855\" y=\"335\" font-size=\"12\" fill=\"#172f43\" textLength=\"28\" lengthAdjust=\"spacingAndGlyphs\">2: z</text></g><circle cx=\"970\" cy=\"165\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"970,165 970,470 20,470 20,165 100,165\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,165 93,161 93,169\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"463\" font-size=\"12\" fill=\"#172f43\" textLength=\"93\" lengthAdjust=\"spacingAndGlyphs\">Feedback 0: x</text><circle cx=\"958\" cy=\"255\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"958,255 958,498 32,498 32,255 100,255\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,255 93,251 93,259\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"491\" font-size=\"12\" fill=\"#172f43\" textLength=\"93\" lengthAdjust=\"spacingAndGlyphs\">Feedback 1: y</text><circle cx=\"946\" cy=\"345\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"946,345 946,526 44,526 44,345 100,345\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,345 93,341 93,349\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"519\" font-size=\"12\" fill=\"#172f43\" textLength=\"93\" lengthAdjust=\"spacingAndGlyphs\">Feedback 2: z</text><text x=\"35\" y=\"574\" font-size=\"13\" fill=\"#172f43\" textLength=\"234\" lengthAdjust=\"spacingAndGlyphs\">Observations (declared order):</text><text x=\"35\" y=\"599\" font-size=\"13\" fill=\"#172f43\" textLength=\"109\" lengthAdjust=\"spacingAndGlyphs\">0: x \u2190 state-x</text><text x=\"35\" y=\"621\" font-size=\"13\" fill=\"#172f43\" textLength=\"109\" lengthAdjust=\"spacingAndGlyphs\">1: y \u2190 state-y</text><text x=\"35\" y=\"643\" font-size=\"13\" fill=\"#172f43\" textLength=\"109\" lengthAdjust=\"spacingAndGlyphs\">2: z \u2190 state-z</text><text x=\"35\" y=\"665\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">3: V \u2190 V</text><text x=\"35\" y=\"687\" font-size=\"12\" fill=\"#172f43\" textLength=\"475\" lengthAdjust=\"spacingAndGlyphs\">Crossings are not junctions. IC inputs are read at the start time.</text><text x=\"35\" y=\"712\" font-size=\"12\" fill=\"#172f43\" textLength=\"511\" lengthAdjust=\"spacingAndGlyphs\">Diagram only. Existence, uniqueness and bounds require separate proofs.</text></svg>"
       },
       "fingerprint": "2c980ab41c6b14c4141890bfc7eac9f71e7781441508d6192dea8e48a7027ebb",
-      "prefix_sha256": "f25e5af74ff3c0c2bf5cc163dd10254d08abf13f6279bd8acfb3018a4b0a1fba",
+      "prefix_sha256": "52b92df91d93dcc5f069145c5798694615b52713c89712aef29625016087cb8b",
       "provider": "forseti",
       "provider_sha256": "9c7cbe4bb84ca7568db419c9891d9fb1a6fdf71b8904b01ec73ad5b55ad8c684"
     }

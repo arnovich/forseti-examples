@@ -46,6 +46,17 @@ def _decision_key(directive: str) -> str:
     return _sha(f"{directive.rstrip()}\n0".encode("utf-8"))
 
 
+def _prefix_sha(source: str, directive: str) -> str:
+    """Return Glitnir's source-prefix hash through ``directive``."""
+    lines = source.split("\n")
+    matches = [index for index, line in enumerate(lines) if line.rstrip() == directive]
+    if len(matches) != 1:
+        raise ReleaseError(
+            f"cannot identify one exact directive for prefix: {directive}"
+        )
+    return _sha("\n".join(lines[: matches[0] + 1]).encode("utf-8"))
+
+
 def _package_pins(root: Path) -> dict[str, str]:
     manifest = _read_json(root / "lake-manifest.json")
     pins = {}
@@ -96,10 +107,42 @@ def _check_decision(
     verification = entry.get("verification")
     expected_axioms = expected.get("axioms")
     if outcome == "unknown":
-        if verification is not None or found.get("block") is not None or found.get("theorem") is not None:
-            raise ReleaseError(f"{notebook}/{name}: UNKNOWN must have no theorem or verification")
-        if expected.get("verification_type_sha256") is not None or expected_axioms != []:
+        if (
+            verification is not None
+            or found.get("block") is not None
+            or found.get("theorem") is not None
+        ):
+            raise ReleaseError(
+                f"{notebook}/{name}: UNKNOWN must have no theorem or verification"
+            )
+        if (
+            expected.get("verification_type_sha256") is not None
+            or expected_axioms != []
+        ):
             raise ReleaseError(f"{notebook}/{name}: malformed UNKNOWN expectation")
+        if found.get("reason") != "exhausted":
+            raise ReleaseError(f"{notebook}/{name}: UNKNOWN run was not exhausted")
+        expected_lanes = [
+            ("binding", "supported"),
+            ("certificate", "none"),
+            ("initial-witness", "none"),
+        ]
+        stages = found.get("stages")
+        if len(stages) != len(expected_lanes) or any(
+            not isinstance(stage, list)
+            or len(stage) != 3
+            or tuple(stage[:2]) != lane
+            or not isinstance(stage[2], str)
+            or not stage[2]
+            for stage, lane in zip(stages, expected_lanes)
+        ):
+            raise ReleaseError(f"{notebook}/{name}: UNKNOWN bounded-run lanes differ")
+        if entry.get("prefix_sha256") != _prefix_sha(source, directive):
+            raise ReleaseError(f"{notebook}/{name}: UNKNOWN source prefix is stale")
+        if re.search(rf"(?m)^namespace\s+Decided_{re.escape(name)}\s*$", source):
+            raise ReleaseError(
+                f"{notebook}/{name}: UNKNOWN retains a generated theorem namespace"
+            )
         return
 
     if not isinstance(verification, dict) or verification.get("status") != "checked":
@@ -111,10 +154,25 @@ def _check_decision(
     theorem = found.get("theorem")
     if not isinstance(block, str) or not isinstance(theorem, str):
         raise ReleaseError(f"{notebook}/{name}: checked outcome has no theorem block")
+    if (
+        source.count(block) != 1
+        or re.search(
+            rf"(?m)^{re.escape(directive)}\n(?:[ \t]*\n)*{re.escape(block)}(?:\n|$)",
+            source,
+        )
+        is None
+    ):
+        raise ReleaseError(
+            f"{notebook}/{name}: checked theorem block is not present exactly once after its directive"
+        )
     if "sorryAx" in axioms or "sorry" in block:
-        raise ReleaseError(f"{notebook}/{name}: sorryAx is forbidden in a release receipt")
+        raise ReleaseError(
+            f"{notebook}/{name}: sorryAx is forbidden in a release receipt"
+        )
     if outcome == "refuted" and theorem != f"{name}_refuted":
-        raise ReleaseError(f"{notebook}/{name}: refutation theorem is not {name}_refuted")
+        raise ReleaseError(
+            f"{notebook}/{name}: refutation theorem is not {name}_refuted"
+        )
     checked_type = verification.get("type")
     if not isinstance(checked_type, str) or _sha(checked_type.encode()) != expected.get(
         "verification_type_sha256"
@@ -131,8 +189,16 @@ def check_release(root: Path, manifest_path: Path) -> int:
     toolchain = (root / "lean-toolchain").read_text().strip()
     if toolchain != manifest.get("lean_toolchain"):
         raise ReleaseError("Lean toolchain differs from the release manifest")
+    lake_manifest = root / "lake-manifest.json"
+    if _sha(lake_manifest.read_bytes()) != manifest.get("lake_manifest_sha256"):
+        raise ReleaseError(
+            "full Lake dependency manifest differs from the release manifest"
+        )
     pins = _package_pins(root)
-    if any(pins.get(name) != revision for name, revision in manifest.get("lake_pins", {}).items()):
+    expected_pins = {name: pins.get(name) for name in ("asgard", "forseti")}
+    if manifest.get("lake_pins") != expected_pins or not all(
+        isinstance(revision, str) and revision for revision in expected_pins.values()
+    ):
         raise ReleaseError("Lake dependency pins differ from the release manifest")
 
     notebooks = manifest.get("notebooks")
@@ -140,11 +206,17 @@ def check_release(root: Path, manifest_path: Path) -> int:
         raise ReleaseError("release manifest has no notebooks")
     checked = 0
     for notebook in notebooks:
-        if not isinstance(notebook, dict) or not isinstance(notebook.get("source"), str):
+        if not isinstance(notebook, dict) or not isinstance(
+            notebook.get("source"), str
+        ):
             raise ReleaseError("malformed notebook entry")
         relative = Path(notebook["source"])
         source_path = (root / relative).resolve()
-        if relative.is_absolute() or not source_path.is_relative_to(root) or not source_path.is_file():
+        if (
+            relative.is_absolute()
+            or not source_path.is_relative_to(root)
+            or not source_path.is_file()
+        ):
             raise ReleaseError(f"notebook source escapes the repository: {relative}")
         result_path = source_path.with_suffix(".glitnir.json")
         if _source_sha(source_path) != notebook.get("source_sha256"):
@@ -175,7 +247,9 @@ def check_release(root: Path, manifest_path: Path) -> int:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("manifest", type=Path)
-    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument(
+        "--root", type=Path, default=Path(__file__).resolve().parents[1]
+    )
     args = parser.parse_args(argv)
     try:
         count = check_release(args.root, args.manifest)

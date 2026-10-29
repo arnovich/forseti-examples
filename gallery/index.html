@@ -27,21 +27,21 @@
       <div class="triptych-copy">
         <p class="eyebrow">The opening demonstration</p>
         <h2 id="triptych-title">One model. Three honest outcomes.</h2>
-        <p>Ask exact questions about the Lorenz system. Glitnir searches. Forseti checks. Lean accepts a proof, a counterexample, or neither.</p>
-        <div class="verdicts" aria-label="Three checked outcomes">
+        <p>Ask exact questions about the Lorenz system. Here <i>V</i> = <i>x</i>² + <i>y</i>² + (<i>z</i> − 38)², the squared distance from (0, 0, 38). Glitnir searches; Lean checks a proof or negation, or the bounded run abstains.</p>
+        <div class="verdicts" aria-label="Three outcomes from one pinned run">
           <div class="verdict verdict-proved"><strong>Proved</strong><span><i>V</i> ≤ 1600 for every <i>t</i> ≥ 0</span></div>
           <div class="verdict verdict-refuted"><strong>Refuted</strong><span><i>V</i> ≤ 1300; the start is 1371</span></div>
           <div class="verdict verdict-unknown"><strong>Unresolved</strong><span><i>V</i> ≤ 1400 after this bounded search</span></div>
         </div>
-        <div class="triptych-links"><a class="start" href="dynamics/Lorenz.html">Inspect the checked notebook</a><a href="galerkin/NS_T3.html">See the same test on a second system</a><a href="triptych-transcript.html">Recording transcript</a></div>
+        <div class="triptych-links"><a class="start" href="dynamics/Lorenz.html">Inspect the checked notebook</a><a href="galerkin/NS_T3.html">See the same test on a second system</a><a href="receipts/proved-refuted-unknown.json">Exact release receipt</a><a href="triptych-transcript.html">Recording transcript</a></div>
       </div>
       <div class="triptych-media">
         <video controls preload="metadata" poster="assets/triptych-poster.svg" aria-label="Proved, refuted, and unresolved: the Lorenz demonstration">
           <source src="assets/triptych.webm" type="video/webm">
-          <track default kind="captions" srclang="en" label="English" src="assets/triptych.vtt">
+          <track kind="captions" srclang="en" label="English" src="assets/triptych.vtt">
           <a href="assets/triptych.webm">Watch the captioned recording</a>
         </video>
-        <p>Finite simulation supplies the picture. Exact replayed certificates supply the verdicts.</p>
+        <p>Finite simulation supplies the picture. Replayed certificates establish proof and refutation; the pinned run receipt records abstention.</p>
       </div>
     </section>
     <section class="previews" aria-label="A look inside the notebooks">
