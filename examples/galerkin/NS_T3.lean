@@ -5,23 +5,24 @@ import Gimle.Forseti.Examples.GalerkinNS.T3Below12
 import Gimle.Forseti.Examples.GalerkinNS.T3Below9
 
 /-!
-# A 3-mode truncation of Navier–Stokes: the energy stays in its ball
+# A three-mode model: proved, refuted, or unresolved
 
-Two-dimensional incompressible flow on the periodic square, kept to three
-cosine modes of the vorticity, forced in one of them and damped in all; in
-simulation it settles to a steady state. It is the smallest member of a family
-of finite truncations of the Navier–Stokes equations; `NS_K5.lean` and
-`NS_B2.lean` are two more. The theorem is one theorem over the whole family
-(forseti-lean's `GalerkinNS.Family`): the energy identity and the certificate
-hold for every member, for every $C > f^2/(8\nu^2)$ the set $E \le C$ is
-invariant, and Lean checks that each compiled member is an instance. What this notebook adds is the concrete ball
-for this member's start, decided against its compiled circuit, and the
-storage and triad identities that explain why the family identity holds.
+**Scope: three-mode coefficient ODE only; no Navier–Stokes PDE claim.**
 
-Read the argument in three stages: derive the family energy bound, add
-control of individual amplitudes through enstrophy, then sharpen the energy
-bound for this start with trapping sets that exclude the laminar equilibrium.
-The decided queries at the end include both refuted and unresolved bounds.
+This exact finite model keeps three vorticity-mode amplitudes. The question is
+simple: from the start $(1,1,1)$, can its energy be shown to remain below a
+chosen bound for all time? The same pinned workflow gives three answers:
+a checked proof, a checked time-zero counterexample, and an unresolved tighter
+bound for which it found neither.
+
+The sharp tube certificate was designed by an offline exact search and encoded
+as rational data in the checked-in Forseti library. Glitnir selects that named
+contract or runs a decision lane; Lean independently checks the resulting
+proof or negation. Glitnir does not discover the tube in this notebook. The
+projection that produced these three coefficients is taken as read.
+
+The longer argument below derives the reusable family energy identity, adds
+enstrophy control, and explains the degree-four trapping tube.
 
 ## The equations
 
@@ -45,35 +46,40 @@ $$ \begin{aligned} a_{10}' &= - \tfrac{1}{10} a_{10} - \tfrac{3}{20} a_{11} a_{2
 
 **Proved.** From the start where every amplitude is $1$, a solution exists for
 all $t \ge 0$, is unique, and its energy $E = \sum_k a_k^2/\lambda_k$ satisfies
-$0 \le E \le 13$ throughout, and in fact $E \le 9$: below the laminar level
+$0 \le E \le 9$ throughout: below the laminar level
 $\tfrac{25}{2}$, which no ball about the origin can pass, from a degree-four
 tube around the focus the start approaches in simulation, trapped under a
 decrease that holds on the set only (`below9_contract`); an ellipsoid with a
 centre and cross terms gave $12$ first (`below12_contract`; the section
-before the claims has both). Decided by the
-trajectory decider from named Lean contracts; the artifacts replay without the
-solver. Its enstrophy $Z = \sum_k a_k^2$ satisfies
+before the claims has both). Glitnir selects the named contract and Lean checks
+the replayed proof. Its enstrophy $Z = \sum_k a_k^2$ satisfies
 $0 \le Z \le 26$ throughout, by the same decider from a second named
 contract, so every amplitude satisfies $|a_k| \le 6$ (`amplitude_bound`).
 
-**Refuted.** $E \le 1$ for all $t \ge 0$: false at the start, where
-$E = \tfrac{17}{10}$.
+**Refuted.** $E \le 1$ for all $t \ge 0$: false at the start because
+$\tfrac{17}{10} > 1$. The decision lane constructs a negation tied to the
+initialized trajectory, and Lean checks it.
 
-**Unknown.** $E \le 8$ for all $t \ge 0$. A simulation from the start peaks
-near $7.0$, so it is probably true; the contracts prove only $9$, and the
-start does not refute it. The decider says so rather than guess. No reweighting
+**Unresolved by this run.** For $E \le 8$ for all $t \ge 0$, this pinned,
+bounded search found neither a replayable proof nor a checked counterexample.
+The finite simulation stays below the threshold over $t \in [0,30]$; that does
+not establish the forever claim. No reweighting
 of the modes about the origin can close it: the energy and the enstrophy are
 the only diagonal quadratics this member's triads conserve (`only_two` below),
 and every closed trapping set that contains the origin contains the laminar
 equilibrium, whose energy is $25/2$ — from the origin the flow runs along the
 forced mode alone and tends to that state. No ellipsoid was found at
 $E \le 10$; the tube that gives $9$ is of degree four, and at $8$ its
-certificate has no room. A search, not a proof that none exists.
+certificate has no room. This is search history, not a proof that no
+certificate exists.
 
-**Not claimed.** Anything about the Navier–Stokes *equations*: this is a
-finite truncation, and nothing here says how it relates to the fluid, to other
-truncations, or to the limit. Nothing about the shape of the flow beyond the
-ball; the simulation is evidence, and no status reads it.
+The thresholds were chosen to show the three response modes clearly; the
+time-zero counterexample is deliberately simple.
+
+**Not claimed.** Any Navier–Stokes PDE statement, checked PDE-to-ODE
+derivation, convergence, truncation error, relation to the fluid, relation to
+other truncations, or limit. Nothing about the shape of the flow beyond the
+ball.
 
 ## The system, compiled
 
@@ -88,12 +94,14 @@ open Gimle.Asgard Gimle.Asgard.Dynamics Gimle.Forseti Gimle.Forseti.Trajectory
 -- @evidence simulate Gimle.Forseti.Examples.GalerkinNS.T3.compiled (h := 1/100) (steps := 3000) (solver := rk4) (plane := a10, a21)
 
 /-!
-## What a simulation shows
+## Simulation: finite-time context, not proof
 
-The run integrates the compiled field with RK4 in floating point. The energy
+The run integrates the compiled field with RK4 in floating point over
+$t \in [0,30]$. The energy
 starts at $\tfrac{17}{10}$, peaks near $7.0$, and then settles at about $4.2$, a
 steady state. That is evidence about this run and nothing more: it does not
-enter any status.
+enter any status. Every status above comes from an exact checked result or from
+the bounded decision receipt, never from this plot.
 
 ## Derive the reusable energy bound {fold}
 
@@ -162,7 +170,8 @@ trajectory from rest along the forced mode alone,
 $a_{(1,1)}(t) = \tfrac{f}{2\nu}(1 - e^{-2\nu t})$ with every other mode at zero
 (a single mode feeds no triad), climbs from $E = 0$ to it, so every smaller
 ball is left.
-The claim below uses $13$, a whisker above.
+That global ball gives the coarse level $13$. The decided initialized trajectory
+below uses the stronger local tube certificate to reach $E \le 9$.
 -/
 
 /-- The laminar equilibrium's energy, the least trappable level. -/
@@ -375,7 +384,7 @@ theorem tube_below_nine (x : Point 3) (hx : Gimle.Forseti.Examples.GalerkinNS.T3
 /-!
 ## Inspect the decided trajectory contracts {fold}
 
-The queries certify energy bounds $13$, $10$ and $12$, and enstrophy bound
+The queries certify energy bounds $9$, $10$ and $12$, and enstrophy bound
 $26$, for the stated start. The energy bound $1$ is refuted; energy bound
 $8$ and enstrophy bound $20$ remain unknown. Unknown requests may have no
 claim card, so the claim counts do not list every unresolved query.
@@ -390,13 +399,90 @@ circuit.
 -/
 
 /-!
-### Inspect the energy bound of thirteen {fold}
+### Inspect the energy bound of nine {fold}
 
-The query certifies existence, uniqueness and $0 \le E \le 13$ for all
+The query certifies existence, uniqueness and $0 \le E \le 9$ for all
 time from $(1,1,1)$. The current decision uses the stronger tube contract.
 -/
 
--- @decide in_ball : trajectory ns-t3 from (1, 1, 1) at 0 observe E always : E >= 0 and E <= 13
+-- @decide in_ball : trajectory ns-t3 from (1, 1, 1) at 0 observe E always : E >= 0 and E <= 9
+namespace Decided_in_ball
+
+def forsetiTime : Gimle.Asgard.Dynamics.TimeDomain :=
+  ⟨"time", (((mkRat (0) 1) : ℚ) : ℝ)⟩
+
+def forsetiInitial : Gimle.Asgard.Point 3 :=
+  ![(((mkRat (1) 1) : ℚ) : ℝ), (((mkRat (1) 1) : ℚ) : ℝ), (((mkRat (1) 1) : ℚ) : ℝ)]
+
+def forsetiObservation : Fin 6 := ⟨3, by decide⟩
+
+def forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=
+  (.and (.atom .ge (.var ⟨0, by decide⟩)) (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (9) 1))))))
+
+def forsetiLeaf : Gimle.Forseti.Syntax.Goal :=
+  ⟨⟨["E"], by decide, by decide, by decide⟩,
+    (.and (.atom .le (.neg (.var ⟨0, by decide⟩))) (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (9) 1)))))),
+    forsetiPost⟩
+
+def forsetiIdentities : Prop :=
+  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.states.map (·.initialId) = ["initial-a10", "initial-a11", "initial-a21"] ∧
+  (Gimle.Forseti.Examples.GalerkinNS.T3.body.observations.get forsetiObservation).port.id =
+    "obs-e" ∧
+  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.axis.id = "time"
+
+def forsetiContract : Prop :=
+  Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.GalerkinNS.T3.observed forsetiTime
+    (Gimle.Forseti.Trajectory.Initialized forsetiTime (fun _ => True)
+      (· = forsetiInitial))
+    (Gimle.Forseti.Trajectory.Always forsetiTime
+      fun o => forsetiPost.holds (fun _ => o forsetiObservation))
+
+def forsetiRoot : Prop := forsetiIdentities ∧ forsetiContract
+
+/-- E is output 3 of the compiled circuit, the port obs-e; the input's initial wires (initial-a10, initial-a11, initial-a21) start at (1, 1, 1) at time = 0. The trajectory decider proved it. Goal (trajectory): trajectory ns-t3 interpretation continuous-real obligation contract start time = 0 initial initial-a10 = 1, initial-a11 = 1, initial-a21 = 1 observe obs-e as E always : E >= 0 and E <= 9 -/
+theorem in_ball :
+    have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed
+    have time : Gimle.Asgard.Dynamics.TimeDomain := ⟨"time", 0⟩
+    ∀ u : Gimle.Asgard.Dynamics.Signal (0 + 3),
+      Gimle.Asgard.Dynamics.signalRight u 0 = ![1, 1, 1] →
+      (∃ y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y) ∧
+      (∀ y y' : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y → circuit.Rel time u y' →
+        ∀ t ≥ 0, y t = y' t) ∧
+      (∀ y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y →
+        ∀ t ≥ 0, have E := y t 3; E ≥ 0 ∧ E ≤ 9) := by
+  have root : forsetiRoot := by
+    unfold forsetiRoot forsetiIdentities forsetiContract
+    refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
+    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
+    have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl
+    rw [time, init, obs]
+    refine Gimle.Forseti.Trajectory.Contract.consequence Gimle.Forseti.Examples.GalerkinNS.T3.below9_contract (fun _ admitted => admitted) ?_
+    intro o band t within
+    have leaf := Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiLeaf ⟨[⟨⟨[]⟩, [⟨[((mkRat (1) 1), (.constant (mkRat (1) 1)))]⟩, ⟨[]⟩]⟩, ⟨⟨[]⟩, [⟨[]⟩, ⟨[((mkRat (1) 1), (.constant (mkRat (1) 1)))]⟩]⟩]⟩ (by decide +kernel)
+    apply leaf
+    simp only [forsetiLeaf, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval]
+    obtain ⟨low, high⟩ := band t within
+    refine ⟨?_, ?_⟩ <;> norm_num [Rat.mkRat_eq_div] <;> linarith
+  have forsetiCast0 : (((mkRat (9) 1) : ℚ) : ℝ) = 9 := by norm_num [Rat.mkRat_eq_div]
+  have forsetiCast1 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]
+  have forsetiCast2 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]
+  refine (fun (bridge : _ ↔ forsetiContract) => bridge.mpr (show forsetiIdentities ∧ forsetiContract from root).2) ?_
+  constructor
+  · intro claim
+    unfold forsetiContract
+    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at claim
+    refine ⟨?_, ?_, ?_⟩ <;> set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc]
+    · exact fun u start => (claim u start).1
+    · exact fun u start => (claim u start).2.1
+    · exact fun u start => (claim u start).2.2
+  · intro lane
+    unfold forsetiContract at lane
+    obtain ⟨realizable, unique, holds⟩ := lane
+    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at realizable unique holds ⊢
+    exact fun u start => ⟨realizable u start, unique u start, holds u start⟩
+
+end Decided_in_ball
 
 namespace DecidedShared_5a37f797df5f
 
@@ -416,98 +502,27 @@ def forsetiIdentities : Prop :=
 
 end DecidedShared_5a37f797df5f
 
-namespace Decided_in_ball
-
-open DecidedShared_5a37f797df5f
-
-example : @forsetiTime = @DecidedShared_5a37f797df5f.forsetiTime := rfl
-example : @forsetiInitial = @DecidedShared_5a37f797df5f.forsetiInitial := rfl
-example : @forsetiObservation = @DecidedShared_5a37f797df5f.forsetiObservation := rfl
-example : @forsetiIdentities = @DecidedShared_5a37f797df5f.forsetiIdentities := rfl
-
-def forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=
-  (.and (.atom .ge (.var ⟨0, by decide⟩)) (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (13) 1))))))
-
-def forsetiLeaf : Gimle.Forseti.Syntax.Goal :=
-  ⟨⟨["E"], by decide, by decide, by decide⟩,
-    (.and (.atom .le (.neg (.var ⟨0, by decide⟩))) (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (9) 1)))))),
-    forsetiPost⟩
-
-def forsetiContract : Prop :=
-  Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.GalerkinNS.T3.observed forsetiTime
-    (Gimle.Forseti.Trajectory.Initialized forsetiTime (fun _ => True)
-      (· = forsetiInitial))
-    (Gimle.Forseti.Trajectory.Always forsetiTime
-      fun o => forsetiPost.holds (fun _ => o forsetiObservation))
-
-def forsetiRoot : Prop := forsetiIdentities ∧ forsetiContract
-
-/-- E is output 3 of the compiled circuit, the port obs-e; the input's initial wires (initial-a10, initial-a11, initial-a21) start at (1, 1, 1) at time = 0. The trajectory decider proved it. Goal (trajectory): trajectory ns-t3 interpretation continuous-real obligation contract start time = 0 initial initial-a10 = 1, initial-a11 = 1, initial-a21 = 1 observe obs-e as E always : E >= 0 and E <= 13 -/
-theorem in_ball :
-    have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed
-    have time : Gimle.Asgard.Dynamics.TimeDomain := ⟨"time", 0⟩
-    ∀ u : Gimle.Asgard.Dynamics.Signal (0 + 3),
-      Gimle.Asgard.Dynamics.signalRight u 0 = ![1, 1, 1] →
-      (∃ y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y) ∧
-      (∀ y y' : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y → circuit.Rel time u y' →
-        ∀ t ≥ 0, y t = y' t) ∧
-      (∀ y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y →
-        ∀ t ≥ 0, have E := y t 3; E ≥ 0 ∧ E ≤ 13) := by
-  have root : forsetiRoot := by
-    unfold forsetiRoot forsetiIdentities forsetiContract
-    refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
-    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution]
-    have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
-    have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl
-    rw [time, init, obs]
-    refine Gimle.Forseti.Trajectory.Contract.consequence Gimle.Forseti.Examples.GalerkinNS.T3.below9_contract (fun _ admitted => admitted) ?_
-    intro o band t within
-    have leaf := Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiLeaf ⟨[⟨⟨[]⟩, [⟨[((mkRat (1) 1), (.constant (mkRat (1) 1)))]⟩, ⟨[]⟩]⟩, ⟨⟨[((mkRat (4) 1), (.constant (mkRat (1) 1)))]⟩, [⟨[]⟩, ⟨[((mkRat (1) 1), (.constant (mkRat (1) 1)))]⟩]⟩]⟩ (by decide +kernel)
-    apply leaf
-    simp only [forsetiLeaf, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval]
-    obtain ⟨low, high⟩ := band t within
-    refine ⟨?_, ?_⟩ <;> norm_num [Rat.mkRat_eq_div] <;> linarith
-  have forsetiCast0 : (((mkRat (13) 1) : ℚ) : ℝ) = 13 := by norm_num [Rat.mkRat_eq_div]
-  have forsetiCast1 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]
-  have forsetiCast2 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]
-  refine (fun (bridge : _ ↔ forsetiContract) => bridge.mpr (show forsetiIdentities ∧ forsetiContract from root).2) ?_
-  constructor
-  · intro claim
-    unfold forsetiContract
-    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at claim
-    refine ⟨?_, ?_, ?_⟩ <;> set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc]
-    · exact fun u start => (claim u start).1
-    · exact fun u start => (claim u start).2.1
-    · exact fun u start => (claim u start).2.2
-  · intro lane
-    unfold forsetiContract at lane
-    obtain ⟨realizable, unique, holds⟩ := lane
-    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at realizable unique holds ⊢
-    exact fun u start => ⟨realizable u start, unique u start, holds u start⟩
-
-/-!
-### Inspect the refuted energy bound of one {fold}
-
-The start already has $E=17/10>1$. A checked refutation is recorded beside
-the notebook; the false positive claim below deliberately uses `sorry`.
--/
-
-end Decided_in_ball
 
 
 -- @decide below_one : trajectory ns-t3 from (1, 1, 1) at 0 observe E always : E <= 1
-
 namespace Decided_below_one
 
-open DecidedShared_5a37f797df5f
+def forsetiTime : Gimle.Asgard.Dynamics.TimeDomain :=
+  ⟨"time", (((mkRat (0) 1) : ℚ) : ℝ)⟩
 
-example : @forsetiTime = @DecidedShared_5a37f797df5f.forsetiTime := rfl
-example : @forsetiInitial = @DecidedShared_5a37f797df5f.forsetiInitial := rfl
-example : @forsetiObservation = @DecidedShared_5a37f797df5f.forsetiObservation := rfl
-example : @forsetiIdentities = @DecidedShared_5a37f797df5f.forsetiIdentities := rfl
+def forsetiInitial : Gimle.Asgard.Point 3 :=
+  ![(((mkRat (1) 1) : ℚ) : ℝ), (((mkRat (1) 1) : ℚ) : ℝ), (((mkRat (1) 1) : ℚ) : ℝ)]
+
+def forsetiObservation : Fin 6 := ⟨3, by decide⟩
 
 def forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=
   (.atom .le (.add (.var ⟨0, by decide⟩) (.neg (.constant (mkRat (1) 1)))))
+
+def forsetiIdentities : Prop :=
+  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.states.map (·.initialId) = ["initial-a10", "initial-a11", "initial-a21"] ∧
+  (Gimle.Forseti.Examples.GalerkinNS.T3.body.observations.get forsetiObservation).port.id =
+    "obs-e" ∧
+  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.axis.id = "time"
 
 def forsetiContract : Prop :=
   Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.GalerkinNS.T3.observed forsetiTime
@@ -519,8 +534,7 @@ def forsetiContract : Prop :=
 def forsetiRoot : Prop := forsetiIdentities ∧ forsetiContract
 
 /-- E is output 3 of the compiled circuit, the port obs-e; the input's initial wires (initial-a10, initial-a11, initial-a21) start at (1, 1, 1) at time = 0. The trajectory decider refuted it. Goal (trajectory): trajectory ns-t3 interpretation continuous-real obligation contract start time = 0 initial initial-a10 = 1, initial-a11 = 1, initial-a21 = 1 observe obs-e as E always : E <= 1 -/
-theorem below_one :
-    have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed
+theorem below_one_refuted : ¬ (have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed
     have time : Gimle.Asgard.Dynamics.TimeDomain := ⟨"time", 0⟩
     ∀ u : Gimle.Asgard.Dynamics.Signal (0 + 3),
       Gimle.Asgard.Dynamics.signalRight u 0 = ![1, 1, 1] →
@@ -528,17 +542,43 @@ theorem below_one :
       (∀ y y' : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y → circuit.Rel time u y' →
         ∀ t ≥ 0, y t = y' t) ∧
       (∀ y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y →
-        ∀ t ≥ 0, have E := y t 3; E ≤ 1) := by
-  sorry
-
-/-!
-### Inspect the energy bound of ten {fold}
-
-The tube contract proves $E \le 9$, so it also certifies the requested
-bound $E \le 10$ for the same initialized trajectory.
--/
+        ∀ t ≥ 0, have E := y t 3; E ≤ 1)) := by
+  have refuted : forsetiIdentities ∧ ¬ forsetiContract := by
+    unfold forsetiIdentities forsetiContract
+    refine ⟨⟨by decide, by decide, by decide⟩, ?_⟩
+    intro contract
+    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]
+    have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]
+    have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl
+    rw [time, init, obs] at contract
+    obtain ⟨state, realized⟩ := Gimle.Forseti.Examples.GalerkinNS.T3.compiled_exists
+    have start : state Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time.start = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by unfold Gimle.Asgard.Model.ContinuousModel.Realizes Gimle.Asgard.Model.ContinuousModel.feedback at realized; exact ((Gimle.Forseti.Trajectory.close_rel _ _ _ _ _ _).mp realized).2.1
+    have bounded := contract.holds _ Gimle.Forseti.Examples.GalerkinNS.T3.declared_input_admitted _ ⟨state, (Gimle.Forseti.Examples.GalerkinNS.T3.feedback_reads _ Gimle.Forseti.Examples.GalerkinNS.T3.declared_input_admitted state).mpr realized, rfl⟩ Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time.start (by simp [Gimle.Asgard.Dynamics.TimeDomain.domain])
+    simp only at bounded
+    rw [start, Gimle.Forseti.Examples.GalerkinNS.T3.energy_at_initial] at bounded
+    have witness : forsetiPost.holds (fun i => (((fun _ : Fin 1 => (mkRat (17) 10)) i : ℚ) : ℝ)) := by convert bounded using 2; norm_num [Rat.mkRat_eq_div]
+    rw [← Gimle.Forseti.Syntax.Formula.holdsQ_iff] at witness
+    exact absurd witness (by decide +kernel)
+  intro claim
+  have forsetiCast0 : (((mkRat (1) 1) : ℚ) : ℝ) = 1 := by norm_num [Rat.mkRat_eq_div]
+  have forsetiCast1 : (((mkRat (0) 1) : ℚ) : ℝ) = 0 := by norm_num [Rat.mkRat_eq_div]
+  refine (fun (bridge : _ ↔ forsetiContract) => refuted.2 (bridge.mp claim)) ?_
+  constructor
+  · intro claim
+    unfold forsetiContract
+    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at claim
+    refine ⟨?_, ?_, ?_⟩ <;> set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc]
+    · exact fun u start => (claim u start).1
+    · exact fun u start => (claim u start).2.1
+    · exact fun u start => (claim u start).2.2
+  · intro lane
+    unfold forsetiContract at lane
+    obtain ⟨realizable, unique, holds⟩ := lane
+    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, ← sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at realizable unique holds ⊢
+    exact fun u start => ⟨realizable u start, unique u start, holds u start⟩
 
 end Decided_below_one
+
 
 
 -- @decide below_10 : trajectory ns-t3 from (1, 1, 1) at 0 observe E always : E <= 10
