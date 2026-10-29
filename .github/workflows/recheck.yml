@@ -22,6 +22,10 @@ on:
         description: Notebook names to recheck, space-separated (default all)
         required: false
         default: ''
+      force_decisions:
+        description: Decision names to rerun, space-separated (default only stale decisions)
+        required: false
+        default: ''
       glitnir_tag:
         description: Glitnir release tag to use, such as v0.1.10 (default the latest published release)
         required: false
@@ -66,7 +70,7 @@ jobs:
         env:
           EVENT: ${{ github.event_name }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          INPUT_ONLY: ${{ needs.select.outputs.only }}
+          INPUT_ONLY: ${{ inputs.only }}
         run: |
           if [ "$EVENT" = pull_request ]; then
             git diff --name-only "$BASE_SHA...HEAD" | tee changed.txt
@@ -169,12 +173,20 @@ jobs:
           # Mathlib's kernel closure once, on a separate one-hour bound.
           GLITNIR_ELABORATION_TIMEOUT_MS: '1800000'
           ONLY: ${{ needs.select.outputs.only }}
+          FORCE_DECISIONS: ${{ inputs.force_decisions }}
         run: |
+          force=()
+          if [ -n "$FORCE_DECISIONS" ]; then
+            read -r -a decisions <<< "$FORCE_DECISIONS"
+            for decision in "${decisions[@]}"; do
+              force+=(--force-decision "$decision")
+            done
+          fi
           if [ -n "$ONLY" ]; then
             read -r -a only <<< "$ONLY"
-            python -m scripts.recheck --report recheck-report --only "${only[@]}"
+            python -m scripts.recheck --report recheck-report --only "${only[@]}" "${force[@]}"
           else
-            python -m scripts.recheck --report recheck-report
+            python -m scripts.recheck --report recheck-report "${force[@]}"
           fi
       - name: Summarize the recheck
         if: always()

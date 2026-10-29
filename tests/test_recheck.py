@@ -74,6 +74,18 @@ class RerunTests(unittest.TestCase):
         other = {"key": "o", "end_line": 10, "name": "other", "status": "unknown"}
         self.assertEqual(to_rerun([other], lines), [])
 
+    def test_forces_named_decisions_even_when_never_run_or_accepted(self) -> None:
+        """A release can refresh exact named receipts without running every card."""
+        cards = [
+            {"key": "a", "end_line": 2, "name": "proved", "status": "accepted"},
+            {"key": "b", "end_line": 3, "name": "unknown", "status": "never"},
+            {"key": "c", "end_line": 4, "name": "other", "status": "accepted"},
+        ]
+        self.assertEqual(
+            to_rerun(cards, NOTEBOOK.split("\n"), {"proved", "unknown"}),
+            ["a", "b"],
+        )
+
     def test_busy_names_only_the_lean_slot(self) -> None:
         """Only Glitnir's busy-slot refusal is retried."""
         self.assertTrue(busy("Another Lean run is in progress; retry when it finishes."))

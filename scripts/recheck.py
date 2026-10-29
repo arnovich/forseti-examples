@@ -21,7 +21,7 @@ written as ``report.json`` and ``report.md`` to the report directory.
 
 Usage::
 
-    python -m scripts.recheck [--only NAME ...] [--report DIR] [--no-runs]
+    python -m scripts.recheck [--only NAME ...] [--force-decision NAME] [--report DIR] [--no-runs]
 
 Lean, the notebooks' Lake build and the Glitnir backend with the Forseti
 provider (and Z3, for decisions) must be installed. Exits 1 when any notebook
@@ -153,7 +153,11 @@ def with_block(text: str, after_line: int, block: str) -> str:
     return "\n".join(lines[:after_line] + block.split("\n") + lines[after_line:])
 
 
-def to_rerun(cards: Iterable[dict[str, Any]], lines: list[str] | None = None) -> list[str]:
+def to_rerun(
+    cards: Iterable[dict[str, Any]],
+    lines: list[str] | None = None,
+    forced: set[str] | None = None,
+) -> list[str]:
     """Return the keys of the cards to run again, in file order.
 
     A card is run again when its saved run is out of date (``stale``). With
@@ -161,6 +165,7 @@ def to_rerun(cards: Iterable[dict[str, Any]], lines: list[str] | None = None) ->
     but is followed by an earlier decision's block is run again too, so that
     its block is replaced.
     """
+    forced = forced or set()
     keys = []
     for card in cards:
         replace = (
@@ -168,7 +173,7 @@ def to_rerun(cards: Iterable[dict[str, Any]], lines: list[str] | None = None) ->
             and card.get("status") != "accepted"
             and decided_block(lines, card["end_line"], card["name"]) is not None
         )
-        if card.get("status") == "stale" or replace:
+        if card.get("status") == "stale" or replace or card.get("name") in forced:
             keys.append(card["key"])
     return keys
 
@@ -207,12 +212,19 @@ def markdown(report: list[dict[str, Any]]) -> str:
 class Recheck:
     """Recheck one notebook through Glitnir's preview service."""
 
-    def __init__(self, path: Path, *, runs: bool = True) -> None:
+    def __init__(
+        self,
+        path: Path,
+        *,
+        runs: bool = True,
+        force_decisions: set[str] | None = None,
+    ) -> None:
         """Prepare the service for ``path``; nothing runs until `run`."""
         from glitnir.service.preview import SourcePreviewService
 
         self.path = path
         self.runs = runs
+        self.force_decisions = force_decisions or set()
         self.service = SourcePreviewService(path)
         self.problems: list[str] = []
         self.done: list[dict[str, str]] = []
@@ -255,7 +267,9 @@ class Recheck:
     def decide(self) -> None:
         """Decide every out-of-date decision again, replacing accepted blocks."""
         lines = normal_text(self.path).split("\n")
-        for key in to_rerun(self.service.snapshot()["decisions"], lines):
+        for key in to_rerun(
+            self.service.snapshot()["decisions"], lines, self.force_decisions
+        ):
             card = self._card("decisions", key)
             original = normal_text(self.path)
             span = decided_block(original.split("\n"), card["end_line"], card["name"])
@@ -389,6 +403,13 @@ def main(argv: list[str] | None = None) -> int:
     """Recheck the configured notebooks and write the report."""
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("--only", nargs="+", metavar="NAME", help="notebook names")
+    parser.add_argument(
+        "--force-decision",
+        action="append",
+        default=[],
+        metavar="NAME",
+        help="rerun a named decision even when its saved result is current or absent",
+    )
     parser.add_argument("--report", type=Path, default=Path("recheck-report"))
     parser.add_argument(
         "--no-runs",
@@ -407,7 +428,13 @@ def main(argv: list[str] | None = None) -> int:
     report: list[dict[str, Any]] = []
     for path in notebooks:
         log(f"recheck {path.relative_to(root)}")
-        report.append(Recheck(path, runs=not args.no_runs).run())
+        report.append(
+            Recheck(
+                path,
+                runs=not args.no_runs,
+                force_decisions=set(args.force_decision),
+            ).run()
+        )
         # Written after every notebook, so a run cut short keeps what it did.
         (args.report / "report.json").write_text(json.dumps(report, indent=2) + "\n")
         (args.report / "report.md").write_text(markdown(report))
