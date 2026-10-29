@@ -76,6 +76,16 @@ test('gallery provides related-product navigation without losing notebook entry 
     assert.ok(doc.querySelector('nav[aria-label="Main navigation"] a[href="https://glitnir.gimlelabs.com/"]'));
     assert.ok(doc.querySelector('a[href="https://gimlelabs.com/"]'));
     assert.ok(doc.querySelector('a.start[href="basics/ScalarDecay.html"]'));
+    const feature = doc.querySelector('.triptych');
+    assert.equal(feature.querySelector('h2').textContent, 'One model. Three honest outcomes.');
+    assert.equal(feature.querySelectorAll('.verdict').length, 3);
+    assert.ok(feature.querySelector('a[href="dynamics/Lorenz.html"]'));
+    assert.ok(feature.querySelector('a[href="galerkin/NS_T3.html"]'));
+    assert.equal(feature.querySelector('video source').getAttribute('src'), 'assets/triptych.webm');
+    const captions = feature.querySelector('video track[kind="captions"]');
+    assert.equal(captions.getAttribute('src'), 'assets/triptych.vtt');
+    assert.equal(captions.hasAttribute('default'), false);
+    assert.ok(feature.querySelector('a[href="receipts/proved-refuted-unknown.json"]'));
     assert.ok(doc.querySelector('nav[aria-label="Topics"] a[href="#pdes"]'));
     assert.ok(doc.querySelector('link[rel="icon"][href="assets/favicon.svg"]'));
     assert.equal(doc.querySelectorAll('h1').length, 1);
@@ -92,10 +102,14 @@ test('gallery packages its local fonts, marks and font license for offline hosti
   const output = await fs.mkdtemp(path.join(os.tmpdir(), 'forseti-gallery-assets-'));
   try {
     await copyGalleryAssets(output);
-    for (const asset of ['gimle.svg', 'favicon.svg', 'inter-regular.ttf', 'inter-medium.ttf', 'LICENSE-Inter.txt']) {
+    for (const asset of ['gimle.svg', 'favicon.svg', 'inter-regular.ttf', 'inter-medium.ttf', 'LICENSE-Inter.txt', 'triptych-poster.svg', 'triptych.vtt', 'triptych.webm']) {
       const source = await fs.readFile(path.join(__dirname, '../gallery/assets', asset));
       assert.deepEqual(await fs.readFile(path.join(output, 'assets', asset)), source);
     }
+    const transcript = await fs.readFile(path.join(output, 'triptych-transcript.html'), 'utf8');
+    assert.match(transcript, /finite simulation.*does not prove/i);
+    const receipt = await fs.readFile(path.join(output, 'receipts/proved-refuted-unknown.json'));
+    assert.deepEqual(receipt, await fs.readFile(path.join(__dirname, '../releases/proved-refuted-unknown.json')));
   } finally { await fs.rm(output, {recursive: true, force: true}); }
 });
 

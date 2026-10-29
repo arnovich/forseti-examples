@@ -1,0 +1,19 @@
+WEBVTT
+
+00:00.000 --> 00:05.000
+What if a scientific claim could end in one of three honest states?
+
+00:05.000 --> 00:12.000
+For the Lorenz system, a finite simulation draws the familiar butterfly-shaped trajectory. It is evidence, not proof.
+
+00:12.000 --> 00:20.000
+Proved: V stays at most 1600 for every time t at or after zero.
+
+00:20.000 --> 00:27.000
+Refuted: V stays at most 1300. The initial state already has V equal to 1371.
+
+00:27.000 --> 00:34.000
+Unresolved: V stays at most 1400. This bounded search found neither proof nor checked counterexample.
+
+00:34.000 --> 00:40.000
+The same proof, refutation, and unresolved outcome appears on a second three-mode system. Inspect every receipt in the notebooks.

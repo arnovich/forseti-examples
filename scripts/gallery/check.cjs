@@ -68,6 +68,41 @@ async function main() {
       await page.setViewportSize({width, height: 850});
       await page.goto(pathToFileURL(path.join(root, 'index.html')).href);
       assert.equal(await page.locator('.notebook-title').count(), manifest.notebooks.length);
+      if (width === 1100) {
+        const video = page.locator('.triptych video');
+        assert.equal(await video.count(), 1, 'Opening demonstration video is missing');
+        const mediaPaths = await video.evaluate(element => ({
+          poster: element.getAttribute('poster'),
+          source: element.querySelector('source')?.getAttribute('src'),
+          captions: element.querySelector('track[kind="captions"]')?.getAttribute('src'),
+        }));
+        assert.deepEqual(mediaPaths, {
+          poster: 'assets/triptych-poster.svg',
+          source: 'assets/triptych.webm',
+          captions: 'assets/triptych.vtt',
+        });
+        await Promise.all(Object.values(mediaPaths).map(relative => fs.access(path.join(root, relative))));
+        const metadata = await video.evaluate(async element => {
+          if (element.readyState < HTMLMediaElement.HAVE_METADATA) {
+            await new Promise((resolve, reject) => {
+              const timeout = setTimeout(() => reject(new Error('Timed out loading video metadata')), 10000);
+              element.addEventListener('loadedmetadata', () => { clearTimeout(timeout); resolve(); }, {once: true});
+              element.addEventListener('error', () => { clearTimeout(timeout); reject(new Error('Browser could not decode the opening video')); }, {once: true});
+              element.load();
+            });
+          }
+          return {
+            width: element.videoWidth,
+            height: element.videoHeight,
+            duration: element.duration,
+            vp9: element.canPlayType('video/webm; codecs="vp9"'),
+          };
+        });
+        assert.equal(metadata.width, 1280);
+        assert.equal(metadata.height, 720);
+        assert.ok(metadata.duration >= 40 && metadata.duration <= 42, `Unexpected video duration: ${metadata.duration}`);
+        assert.ok(metadata.vp9, 'Browser does not report VP9 playback support');
+      }
       const galleryImagesOK = await page.locator('img').evaluateAll(images => images.every(image => image.complete && image.naturalWidth > 0));
       assert.ok(galleryImagesOK, 'Gallery image failed to load');
       const fontsOK = await page.evaluate(async () => {

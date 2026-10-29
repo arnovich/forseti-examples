@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proved, refuted, unresolved — recording transcript</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <header class="masthead"><a class="brand" href="index.html"><img src="assets/gimle.svg" width="31" height="31" alt=""><span>Glitnir</span></a></header>
+  <main class="transcript">
+    <p class="eyebrow">Recording transcript</p>
+    <h1>Proved, refuted, unresolved.</h1>
+    <p class="lead">The opening demonstration, with every claim linked to its browser-readable Lean notebook and exact release receipt.</p>
+    <ol>
+      <li><time>00:00–00:05</time><p>What if a scientific claim could end in one of three honest states?</p></li>
+      <li><time>00:05–00:12</time><p>For the Lorenz system, <i>V</i> = <i>x</i>² + <i>y</i>² + (<i>z</i> − 38)². A finite RK4 simulation over <i>t</i> ∈ [0, 30] draws the familiar butterfly-shaped trajectory. This finite simulation is evidence about that run and does not prove any forever claim.</p></li>
+      <li><time>00:12–00:20</time><p><strong>Proved:</strong> <i>V</i> ≤ 1600 for every <i>t</i> ≥ 0. <a href="dynamics/Lorenz.html">Inspect the checked Lean theorem and receipt.</a></p></li>
+      <li><time>00:20–00:27</time><p><strong>Refuted:</strong> <i>V</i> ≤ 1300. The initial state has <i>V</i> = 1371, and Lean checks the negation theorem.</p></li>
+      <li><time>00:27–00:34</time><p><strong>Unresolved by this run:</strong> <i>V</i> ≤ 1400. The pinned, bounded search found neither a replayable proof nor a checked counterexample. This is not a statement that the claim is mathematically undecidable.</p></li>
+      <li><time>00:34–00:40</time><p>The same proved, refuted, and unresolved pattern appears on a second three-mode coefficient ODE. <a href="galerkin/NS_T3.html">Inspect that notebook.</a> It makes no claim about the full Navier–Stokes PDE.</p></li>
+    </ol>
+    <p><a href="receipts/proved-refuted-unknown.json">Inspect the exact release receipt</a> · <a href="index.html">Return to the notebook gallery</a></p>
+  </main>
+</body>
+</html>

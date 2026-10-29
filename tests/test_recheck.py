@@ -31,13 +31,26 @@ class BlockTests(unittest.TestCase):
         lines = NOTEBOOK.split("\n")
         self.assertEqual(decided_block(lines, 2, "bound"), (2, 8))
 
-    def test_needs_the_block_directly_after_the_directive(self) -> None:
-        """Another directive, a blank line or another name is no block."""
+    def test_allows_blank_lines_before_the_generated_block(self) -> None:
+        """Formatting whitespace does not hide an existing generated block."""
         lines = NOTEBOOK.split("\n")
         self.assertIsNone(decided_block(lines, 2, "other"))
         self.assertIsNone(decided_block(lines, 10, "other"))
         shifted = NOTEBOOK.replace("-- @decide bound : some goal\n", "-- @decide bound : x\n\n")
+        self.assertEqual(decided_block(shifted.split("\n"), 2, "bound"), (3, 9))
+
+    def test_rejects_other_content_before_the_generated_block(self) -> None:
+        """Only blank lines may separate a directive from its generated block."""
+        shifted = NOTEBOOK.replace(
+            "-- @decide bound : some goal\n", "-- @decide bound : x\n#check True\n"
+        )
         self.assertIsNone(decided_block(shifted.split("\n"), 2, "bound"))
+
+    def test_finds_a_block_after_an_older_shared_prelude(self) -> None:
+        """A legacy shared definition block does not hide the decision block."""
+        shared = "namespace DecidedShared_abc\n\ndef x := 1\n\nend DecidedShared_abc\n\n"
+        shifted = NOTEBOOK.replace(BLOCK, shared + BLOCK)
+        self.assertEqual(decided_block(shifted.split("\n"), 2, "bound"), (8, 14))
 
     def test_an_unclosed_block_is_not_replaced(self) -> None:
         """A namespace whose end is missing before the next directive is kept."""
@@ -73,6 +86,18 @@ class RerunTests(unittest.TestCase):
         self.assertEqual(to_rerun([{**card, "status": "accepted"}], lines), [])
         other = {"key": "o", "end_line": 10, "name": "other", "status": "unknown"}
         self.assertEqual(to_rerun([other], lines), [])
+
+    def test_forces_named_decisions_even_when_never_run_or_accepted(self) -> None:
+        """A release can refresh exact named receipts without running every card."""
+        cards = [
+            {"key": "a", "end_line": 2, "name": "proved", "status": "accepted"},
+            {"key": "b", "end_line": 3, "name": "unknown", "status": "never"},
+            {"key": "c", "end_line": 4, "name": "other", "status": "accepted"},
+        ]
+        self.assertEqual(
+            to_rerun(cards, NOTEBOOK.split("\n"), {"proved", "unknown"}),
+            ["a", "b"],
+        )
 
     def test_busy_names_only_the_lean_slot(self) -> None:
         """Only Glitnir's busy-slot refusal is retried."""

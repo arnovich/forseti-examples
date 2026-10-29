@@ -16,11 +16,11 @@
         }
       ],
       "declaration_sha256": "20c8d222c5d55b486aaf8aa2fc00be3e76ceafd5a8d5f3eabdd24a71ed8ecc11",
-      "end_line": 127,
+      "end_line": 135,
       "name": "Notebook.NST3.triad_lossless",
-      "prefix_sha256": "adae45d4799ee03bae124c1607f5ebe318871a17e880059ef576b13b35e7ff69",
-      "proposition_sha256": "3088f41b655f8f3079cfbf5b93842770ec83ef9aad1f9dac4bb73d89f1148281",
-      "start_line": 122,
+      "prefix_sha256": "c260879f3b16f87b67f026eeeef67977f9d59e67665cdeec00ddf0c3da656a81",
+      "proposition_sha256": "5b839188b0fff6c224289fc904c89337b8165a2adcafe64e05db51bffeeda4e6",
+      "start_line": 130,
       "status": "checked",
       "uses": []
     },
@@ -40,11 +40,11 @@
         }
       ],
       "declaration_sha256": "dbbb1113f0deb62f22485df1ebcfcbca41c9e44cf249eeb696a981044bb58b13",
-      "end_line": 143,
+      "end_line": 151,
       "name": "Notebook.NST3.energy_rate",
-      "prefix_sha256": "85c5f6399513f45664137bbccff449a216abee1b78d61359f40cb1eaf3c347ac",
-      "proposition_sha256": "323b5466d8b887cad098db07b78ff96e41dd3bb70f3ed065a90fda6ac2ccf259",
-      "start_line": 138,
+      "prefix_sha256": "4ad9f0a803b8f57e43da965c7e853ac6fa5798b5d3333ce3936d3d584a466012",
+      "proposition_sha256": "53c42b0970f9b20416def6c3df0eda388ebc6175581513b4b92561d4021a55ae",
+      "start_line": 146,
       "status": "checked",
       "uses": []
     },
@@ -64,11 +64,11 @@
         }
       ],
       "declaration_sha256": "80186de3c95ea872b142db4f40ce130decb294598466a22bd1853a7cbdb64d8c",
-      "end_line": 170,
+      "end_line": 179,
       "name": "Notebook.NST3.laminar_energy",
-      "prefix_sha256": "3040ba7101d0722c59dfc1abab7b9b6ad521067cbd60006a1baf541356bda263",
-      "proposition_sha256": "ea24fc0671cae8c201d4125eea3ff759958205f2afd05d34ad6192e9d6fd9b68",
-      "start_line": 168,
+      "prefix_sha256": "ac0c9724312b83ebab3566a575e835cee321161bbb383ce0b41df355101e6490",
+      "proposition_sha256": "bb3744ad4437bcdaabebcabd328ee8bb8ba694aa56ba0618e6c3f697a588a393",
+      "start_line": 177,
       "status": "checked",
       "uses": []
     },
@@ -88,11 +88,11 @@
         }
       ],
       "declaration_sha256": "61c03d1c4d0b16a335f5fcb4169d631187a75b8229e5ba9fe0d1655c12ce9890",
-      "end_line": 176,
+      "end_line": 185,
       "name": "Notebook.NST3.certificate_here",
-      "prefix_sha256": "8cb740688f1bda1d9ade2cfd97320e9e232d740a9078e395e81d0f0f3c1ef945",
-      "proposition_sha256": "a9ef2fd84ff79aa518559a2943831e39131d7ca11c135fec1c9f559cdd831ade",
-      "start_line": 172,
+      "prefix_sha256": "3c207def2f28aa54da075987c2bebd10b22bf04263c8da22bb563d887117661c",
+      "proposition_sha256": "08cd80af0d9f2c91725e4b907d0fcfc3e42aa0922145487e2c1e0e3ce6d337ca",
+      "start_line": 181,
       "status": "checked",
       "uses": []
     },
@@ -112,11 +112,11 @@
         }
       ],
       "declaration_sha256": "0cad1a8b911f992ff66ab190e580e98d6f46f1e08d85354e64b40c58ac6c3c07",
-      "end_line": 203,
+      "end_line": 212,
       "name": "Notebook.NST3.is_family_member",
-      "prefix_sha256": "bf2d74eeb5cbff20df9e30762def6e1f58aeed89ee58ab17e91d7811baae9bff",
-      "proposition_sha256": "c50768946d8518ca46a29db5abd367411a102349fa4da1ad5a5cc2b9ccbf363c",
-      "start_line": 199,
+      "prefix_sha256": "0ad379303761f1d04366661134cc29707125814b6d24b61059991fb2e0fb0e82",
+      "proposition_sha256": "fbee0c9c0134ee9fff8f0dc2ee015b95900d54074de01327597c5a9625ab3c99",
+      "start_line": 208,
       "status": "checked",
       "uses": []
     },
@@ -136,11 +136,11 @@
         }
       ],
       "declaration_sha256": "54abe91357b9ceffb44030ff3ccc80a619563641d078f0f1da93f589e96421e0",
-      "end_line": 218,
+      "end_line": 227,
       "name": "Notebook.NST3.every_member",
-      "prefix_sha256": "2e8383f7e9fe61575da0b3a7b673d9c3672605d162a6aabdfc21026be153dbaa",
-      "proposition_sha256": "3bac4b11d0af33d5a31726554aeb187f17c83ad8115404c60105bc6bb189075e",
-      "start_line": 205,
+      "prefix_sha256": "d9cc2c9250b22043015dea69bc6c2cd1e2560b5836d09f13cbd97a595215f5a3",
+      "proposition_sha256": "04d1862d00487d419f61a81046a6f143f125d3c7a12b1644c2bc827c33f4caaa",
+      "start_line": 214,
       "status": "checked",
       "uses": []
     },
@@ -160,11 +160,11 @@
         }
       ],
       "declaration_sha256": "dedabd6275acf02158c74d883c1e80ffdd8152a886ac44e0dcd7f3117860e110",
-      "end_line": 253,
+      "end_line": 262,
       "name": "Notebook.NST3.enstrophy_rate",
-      "prefix_sha256": "5daf87a5b04682bd3894d04feeb4b4a996b3a0e60e153497223b47307ebbbc1a",
-      "proposition_sha256": "ba4b37749d6672cfc8eaffd8466ed68e61d14a9533bc1388131642bca07f27f3",
-      "start_line": 248,
+      "prefix_sha256": "f8318781583574ff9612f9e462172ef6c94d77b611231ce4bdc0f52eada8d160",
+      "proposition_sha256": "513ec2ed36673763219fe507be333ad5330e4a8956b56218df54a1f627ed586d",
+      "start_line": 257,
       "status": "checked",
       "uses": []
     },
@@ -184,11 +184,11 @@
         }
       ],
       "declaration_sha256": "11561e6c487b34d155923a8f3d8eb13de57076b4ee21cb42ffe9a7424c1205d7",
-      "end_line": 257,
+      "end_line": 266,
       "name": "Notebook.NST3.laminar_enstrophy",
-      "prefix_sha256": "253a7104735ab55d7ceeeb0abfc578ec736897f398663508b1150e0616f014b5",
-      "proposition_sha256": "ed3aadcca4df1572d0d919ec3241edf0dfbd8bacbe98413ff6ca766ce0221cd6",
-      "start_line": 255,
+      "prefix_sha256": "83c61bc0556a7cb9aade290bf5b957307edd3379d894f7f8526e532365c11380",
+      "proposition_sha256": "97ce76ae5d52b0a1b91bc7d568f49eca6fb9892135d0e5c4c223ff0d5605ce8a",
+      "start_line": 264,
       "status": "checked",
       "uses": []
     },
@@ -208,11 +208,11 @@
         }
       ],
       "declaration_sha256": "4c2e6a889eca5610e6f6f5788e3f7d9f5a8a0e3eb6a3bdbd0d530739b88dcff4",
-      "end_line": 263,
+      "end_line": 272,
       "name": "Notebook.NST3.enstrophy_certificate_here",
-      "prefix_sha256": "d7fb3e0fa43972e63219bc9e9bb8e57a378baa6b24ab81dba32d2f887db42721",
-      "proposition_sha256": "be90594f3181eee1b543eef485cdd0d22ac6d9062e2ddc581929dfe8a39b73aa",
-      "start_line": 259,
+      "prefix_sha256": "1fbab4a3f9227d5d6799405f1bee3721095c64b23d954ca3878325c165f3b082",
+      "proposition_sha256": "d86fad06767fb63eabe8eab1802f37a079f542d6fe670730b7f6707ab0209213",
+      "start_line": 268,
       "status": "checked",
       "uses": []
     },
@@ -232,11 +232,11 @@
         }
       ],
       "declaration_sha256": "6f9c910b788b1e198bd372195cfbdeb41b65e97e3e5d131fb1b8afe50259ec60",
-      "end_line": 271,
+      "end_line": 280,
       "name": "Notebook.NST3.amplitude_bound",
-      "prefix_sha256": "b110d9cfbc0322bdede488bfbd0d279e5faef90f15a583835ab536483bc97b1e",
-      "proposition_sha256": "3dd8e05303936f94e7c88972186fd79c42ce889a5762b2f0cd82ae9590ec5c59",
-      "start_line": 265,
+      "prefix_sha256": "333af67cfb0271e614efd34502ca94a7ca0902bd24dd4ba9025b226e7237b8af",
+      "proposition_sha256": "d9dc25194e28a8e765a686da9ea8618a4131c590210d74969273609c0b58e9f1",
+      "start_line": 274,
       "status": "checked",
       "uses": []
     },
@@ -256,11 +256,11 @@
         }
       ],
       "declaration_sha256": "16d06f3a2d8f20252c85504ce1e84effb4efda85dcbc2de605816cc6124310f2",
-      "end_line": 297,
+      "end_line": 306,
       "name": "Notebook.NST3.only_two",
-      "prefix_sha256": "5eccb228832ad94688e7684ac81237541922ede133236287dcc17dbe95a4b942",
-      "proposition_sha256": "bfbe7a1c859ff0c15227ba3bd5c1e620626b582f4c6b69dc1037438f7b542e09",
-      "start_line": 290,
+      "prefix_sha256": "db4dd95a8853111a68207596c21e704e15eaa50e048405cd345217173c56e6bd",
+      "proposition_sha256": "f2621694d03893ec7828afe662bfb08f3f661e4d16d3e1477c25f307d45d7776",
+      "start_line": 299,
       "status": "checked",
       "uses": []
     },
@@ -280,58 +280,10 @@
         }
       ],
       "declaration_sha256": "78b77c25932082a0903f6e06dbbf19230808a69fbd99076685cd095f67ae57bf",
-      "end_line": 338,
+      "end_line": 347,
       "name": "Notebook.NST3.laminar_is_equilibrium",
-      "prefix_sha256": "9164ac8d5d5892241a69fe1c0f526bd3abac02be83d81cb6550912095f8d53d3",
-      "proposition_sha256": "806b40e1d84e20f867f48d7a9a786ecb3161f97875f441d8b7bcba8f99f4a9ce",
-      "start_line": 336,
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "e9cb6125cb42beec88dfa4605f40bbb675e837fc99dca98e3856a4ab88a5304c",
-      "end_line": 343,
-      "name": "Notebook.NST3.ellipsoid_excludes_laminar",
-      "prefix_sha256": "2dcaafc0dcf9cbba43ff2c2ce772a9ff8ebf8dcb7da6da967734409294a99bed",
-      "proposition_sha256": "24573c5aff9b349dab910dfb86506e5f40924309b9ed3cbcd4de1389a4c7cd4e",
-      "start_line": 340,
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "1633d9b9f467ad940d821dcb3e047c29cace0a68fd8ad43d0c1c06806eb6cfe2",
-      "end_line": 348,
-      "name": "Notebook.NST3.ellipsoid_below_twelve",
-      "prefix_sha256": "3ef19b3f888e968ed16eac9ec82092e81d16e13408bbc9dc1dd07ff6a03e661b",
-      "proposition_sha256": "d56dbecba38e749f52a61cdca963ff4e5e30300d104936d3acd0cab7624c5264",
+      "prefix_sha256": "39e13e5d5cd0868dcc3025ed170558503b6d057a6d3f4c46906e13d0f2509141",
+      "proposition_sha256": "5384066664df58bb107889a2db691c13a4e120e8c051450ea16ff92a4c203b63",
       "start_line": 345,
       "status": "checked",
       "uses": []
@@ -351,12 +303,60 @@
           "name": "Quot.sound"
         }
       ],
+      "declaration_sha256": "e9cb6125cb42beec88dfa4605f40bbb675e837fc99dca98e3856a4ab88a5304c",
+      "end_line": 352,
+      "name": "Notebook.NST3.ellipsoid_excludes_laminar",
+      "prefix_sha256": "bdd5bc93bcbb44b2b36e49f640026482002e34d90530e65e1fea60871c3560a0",
+      "proposition_sha256": "fb01895f96fdf556e1ba1d4bf7d1d7071b7a8d10a648646e357d93c7bb3cc6e6",
+      "start_line": 349,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "1633d9b9f467ad940d821dcb3e047c29cace0a68fd8ad43d0c1c06806eb6cfe2",
+      "end_line": 357,
+      "name": "Notebook.NST3.ellipsoid_below_twelve",
+      "prefix_sha256": "93619fbf82692b6675683151bbaaf18356e44b40081ec5ee61b3dfeb15ca6c97",
+      "proposition_sha256": "ef08bdb4168731cf573c79bbed0dd3050eaff93281b84609702e4c629f0003b3",
+      "start_line": 354,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Quot.sound"
+        }
+      ],
       "declaration_sha256": "c1236a3e226fdb783312ae8b5026ae42a82447d8e8688885a2380173e0d4d4f3",
-      "end_line": 368,
+      "end_line": 377,
       "name": "Notebook.NST3.tube_excludes_laminar",
-      "prefix_sha256": "086eff7055ac1b0cb8ea8cd95c27ab50da84bb5002630833c1fb9dbff33e0897",
-      "proposition_sha256": "dc8f578328e124a57c0e87e30be48edd97b64289168463c3d52128be46b070c3",
-      "start_line": 365,
+      "prefix_sha256": "2617974070dceb9c281734fbd0c2f3c1aa1a34762db568136246d1bf510cf805",
+      "proposition_sha256": "0513c443a8dce88b247ceafee7f7ddbe1481b3a65011f36dfb3178ac0db0b08a",
+      "start_line": 374,
       "status": "checked",
       "uses": []
     },
@@ -376,11 +376,11 @@
         }
       ],
       "declaration_sha256": "d1b8508e8aad30dff8f6850e604afabf10001c68249554ef3c8a5bed69878311",
-      "end_line": 373,
+      "end_line": 382,
       "name": "Notebook.NST3.tube_below_nine",
-      "prefix_sha256": "5e66b86cd05d5dcf1d20e7f7e6bd34996d78e6c50a3309cdb00acbb57339b068",
-      "proposition_sha256": "042d55dcc13035ad8f6a5570d0af3ccdbdbd555fcd50c75f58d71b146fb5c009",
-      "start_line": 370,
+      "prefix_sha256": "69150bdb0249115d7de3290bf7f920e72a2f96e42992c28c559639aca886812f",
+      "proposition_sha256": "fcf2c445c7283d6184f473febde70526dd6e7a64079ceef4fa261a4a55d312ad",
+      "start_line": 379,
       "status": "checked",
       "uses": []
     },
@@ -399,107 +399,36 @@
           "name": "Quot.sound"
         }
       ],
-      "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
-      "end_line": 423,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21492",
-      "prefix_sha256": "01055f93e976196feab7087c4b4a84778a234d3a62d6c1f3816fa0e06fe94cd7",
-      "proposition_sha256": "0d3bd2919561221e0d5d68402da84f06ca50d86329ccbf3c31e32336476197e6",
-      "start_line": 423,
-      "statement": "forsetiTime = forsetiTime",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
-      "end_line": 424,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21564",
-      "prefix_sha256": "fbfc40ccfb9fa627dbf3db0d20cd3aee334b5616da08bfa893fef94ad6e2f6fd",
-      "proposition_sha256": "3d1545ce252a97a13f3e0c32113b611ee8838aba7a31e599886db9e646928da5",
-      "start_line": 424,
-      "statement": "forsetiInitial = forsetiInitial",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [],
-      "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
-      "end_line": 425,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21642",
-      "prefix_sha256": "e8f101cc7900446b17a5fc705f75d651971245c6b331b6d0c258ddeeea51967b",
-      "proposition_sha256": "de2599d418bc5bf7463b009c081136ff7f670f9547b8d2b7c81f5a293cae94e4",
-      "start_line": 425,
-      "statement": "forsetiObservation = forsetiObservation",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
-      "end_line": 426,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_ball._glitnir_example_21728",
-      "prefix_sha256": "a6120abcf05445179e6c51c0ae1c9d3fa33ab29bc67a8e23ef5466ce840badbf",
-      "proposition_sha256": "89a976c1f05b1ab57d5fae7bdc94afe6a6f53e0b053fb1c9b6062cf718b3bfd3",
-      "start_line": 426,
-      "statement": "forsetiIdentities = forsetiIdentities",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "2fc929751221f48decdbb4149b91bbe2a20527340104af7dfc1f6af451ae012c",
-      "end_line": 486,
+      "declaration_sha256": "9bc4b34f1d0571b16eead5ec75ca8ed78b36f19a4cac86822e950208d65e2750",
+      "end_line": 483,
       "name": "Notebook.NST3.Decided_in_ball.in_ball",
-      "prefix_sha256": "584d6de77fee229beb9c8b83cda9d44ca4901198ffa2972f00a19aff1ed98033",
-      "proposition_sha256": "81bdd8bc6a205295d9e09397e5d371a9b15a49f186df9d18a7ba013b5aeef532",
-      "start_line": 445,
+      "prefix_sha256": "988ac2c6ac983e90451d3ab5ff473510d5bb4d6b7d574f543731bbbe89da5495",
+      "proposition_sha256": "66fb03ad3cba97d90d51f7aed04b77e40792fc7b87344ff87d88ed105ac9b7bb",
+      "start_line": 442,
+      "status": "checked",
+      "uses": []
+    },
+    {
+      "axioms": [
+        {
+          "module": "Init.Core",
+          "name": "propext"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Classical.choice"
+        },
+        {
+          "module": "Init.Prelude",
+          "name": "Quot.sound"
+        }
+      ],
+      "declaration_sha256": "fe0c69cc980edc1acb7185fb263aec333244e4532fe51f5aa5f0280a8fd1ecb5",
+      "end_line": 578,
+      "name": "Notebook.NST3.Decided_below_one.below_one_refuted",
+      "prefix_sha256": "47f51378d2e7a204494bcc02c292016fae94d35e19e369e7911cef6ed2252f13",
+      "proposition_sha256": "fbebdb8f9792ef42e4bd3cbabcccbf0243377fda4d709efa52f081aa5ac56c75",
+      "start_line": 536,
       "status": "checked",
       "uses": []
     },
@@ -519,13 +448,13 @@
         }
       ],
       "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
-      "end_line": 504,
+      "end_line": 590,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28229",
-      "prefix_sha256": "c73a1389c646a98881798993bb4b6b9395d2dee5771e813f68a7adadcdce3776",
-      "proposition_sha256": "0d3bd2919561221e0d5d68402da84f06ca50d86329ccbf3c31e32336476197e6",
-      "start_line": 504,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_35377",
+      "prefix_sha256": "d377bf6e63a9d26038f290d46c65f2d988014272ff2a0d007328ba6a1a5b0796",
+      "proposition_sha256": "1dc094fb8a491363f2be7b8c51b6bc59b3a2631a6324dacc33185aa8217be9f7",
+      "start_line": 590,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
       "uses": []
@@ -546,13 +475,13 @@
         }
       ],
       "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
-      "end_line": 505,
+      "end_line": 591,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28301",
-      "prefix_sha256": "42348820c7f8eef1be3a8fedbfa4e29ea9ce93d5a6bb68cdb25800ea6fc3bc80",
-      "proposition_sha256": "3d1545ce252a97a13f3e0c32113b611ee8838aba7a31e599886db9e646928da5",
-      "start_line": 505,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_35449",
+      "prefix_sha256": "c7c62310aaee355a926e8fff676f77822d7bf68b00eae476d0bbfdde8dad1aaf",
+      "proposition_sha256": "dafd9147bbef461dc60258cf41f21c2f055c101d00319aafbed57e14d5ebf3af",
+      "start_line": 591,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
       "uses": []
@@ -560,13 +489,13 @@
     {
       "axioms": [],
       "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
-      "end_line": 506,
+      "end_line": 592,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28379",
-      "prefix_sha256": "83f28c48b1ed79fd2f660a0c046d2c1c01a1f1e97ece29be3ebc1b1136ab1194",
-      "proposition_sha256": "de2599d418bc5bf7463b009c081136ff7f670f9547b8d2b7c81f5a293cae94e4",
-      "start_line": 506,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_35527",
+      "prefix_sha256": "1d4450fb37e7483470ffbfa3f5d232ead7aea2eee292388e2746e7a4e0dc8efe",
+      "proposition_sha256": "85e782c77846f55f9ace5004e9dc855130519606603a2a6aba5982926b09c0e1",
+      "start_line": 592,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
       "uses": []
@@ -587,136 +516,13 @@
         }
       ],
       "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
-      "end_line": 507,
+      "end_line": 593,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_one._glitnir_example_28465",
-      "prefix_sha256": "1299cc3ca5a3f753eae70e00dd09df2283d2abe9a1d26ea233a1f1655bbff57e",
-      "proposition_sha256": "89a976c1f05b1ab57d5fae7bdc94afe6a6f53e0b053fb1c9b6062cf718b3bfd3",
-      "start_line": 507,
-      "statement": "forsetiIdentities = forsetiIdentities",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "sorryAx"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "b8487a3de847d77b3e46a961415c074da45167c166841652dfb34f420d661bde",
-      "end_line": 532,
-      "name": "Notebook.NST3.Decided_below_one.below_one",
-      "prefix_sha256": "973e41b9e1889b2311cacd7eab84c7de4f48cad955d5a61887d6157b7e634c7e",
-      "proposition_sha256": "a08b1457ec8e0ab223457c7c64e04984c8158fd3ed2441930a7a4917f7419e5f",
-      "start_line": 521,
-      "status": "admitted",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
-      "end_line": 550,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30436",
-      "prefix_sha256": "0543eded9610faafd1409488c1862e538a2c63d1b272673bdc34533f8088ba99",
-      "proposition_sha256": "0d3bd2919561221e0d5d68402da84f06ca50d86329ccbf3c31e32336476197e6",
-      "start_line": 550,
-      "statement": "forsetiTime = forsetiTime",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
-      "end_line": 551,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30508",
-      "prefix_sha256": "23baba5970c68f5b27475717e20de3453475623c79bbb3aaf3febb9af4f5ce94",
-      "proposition_sha256": "3d1545ce252a97a13f3e0c32113b611ee8838aba7a31e599886db9e646928da5",
-      "start_line": 551,
-      "statement": "forsetiInitial = forsetiInitial",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [],
-      "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
-      "end_line": 552,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30586",
-      "prefix_sha256": "80ff12976b152cb3cc07937214c8678de08e255fc5b515dd19b4691d9dbfb0b4",
-      "proposition_sha256": "de2599d418bc5bf7463b009c081136ff7f670f9547b8d2b7c81f5a293cae94e4",
-      "start_line": 552,
-      "statement": "forsetiObservation = forsetiObservation",
-      "status": "checked",
-      "uses": []
-    },
-    {
-      "axioms": [
-        {
-          "module": "Init.Core",
-          "name": "propext"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Classical.choice"
-        },
-        {
-          "module": "Init.Prelude",
-          "name": "Quot.sound"
-        }
-      ],
-      "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
-      "end_line": 553,
-      "example": true,
-      "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_30672",
-      "prefix_sha256": "f926cc9e14f4132f7f3f9489f6a0f0de4c744a0282e62ac9084d7b1cc34469a0",
-      "proposition_sha256": "89a976c1f05b1ab57d5fae7bdc94afe6a6f53e0b053fb1c9b6062cf718b3bfd3",
-      "start_line": 553,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_10._glitnir_example_35613",
+      "prefix_sha256": "fe17e6d2573ca8088a93d83c0945b6db300121b2cae93fe15695cc85b84490df",
+      "proposition_sha256": "3f1454ee47feae47364126bb12f27fd6619813ced97e6ec296d277d570fd951c",
+      "start_line": 593,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
       "uses": []
@@ -737,11 +543,11 @@
         }
       ],
       "declaration_sha256": "400446b9af6086492901b76dbd18cc4dbf4774becc3ba8b3f54ef2068c244887",
-      "end_line": 613,
+      "end_line": 653,
       "name": "Notebook.NST3.Decided_below_10.below_10",
-      "prefix_sha256": "5fc39ecf71f298f1274bc40c48e7ca01a4091eea65e51cd467102ccc8e68de08",
-      "proposition_sha256": "41fab09853be3852e27cf8555afd0cb70d192a43517aa7b183125a3b24de1a9f",
-      "start_line": 572,
+      "prefix_sha256": "83709a6fb07f22a1a2f7914487340a6d91323c035d5cb1371a7d3af2c78230ec",
+      "proposition_sha256": "7b94a7f9096d92e19119e65facaace3db6c5cb8b34e292fb43eef3ef365a56bc",
+      "start_line": 612,
       "status": "checked",
       "uses": []
     },
@@ -761,13 +567,13 @@
         }
       ],
       "declaration_sha256": "3fd4ad11d378a5587cd9407df983cd418c5063c6707871a4a6f80f6c98950acc",
-      "end_line": 634,
+      "end_line": 674,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime Notebook.NST3.DecidedShared_5a37f797df5f.forsetiTime",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37177",
-      "prefix_sha256": "b0e64c778cc25d75a9117ef2975cdf21d3b3829b73c9d7eae461a90171adeaf5",
-      "proposition_sha256": "0d3bd2919561221e0d5d68402da84f06ca50d86329ccbf3c31e32336476197e6",
-      "start_line": 634,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_42118",
+      "prefix_sha256": "e8bc48e75f3d2529bc25f3c9c274c7b3029833629c7a30df046a3d754a56fde3",
+      "proposition_sha256": "1dc094fb8a491363f2be7b8c51b6bc59b3a2631a6324dacc33185aa8217be9f7",
+      "start_line": 674,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
       "uses": []
@@ -788,13 +594,13 @@
         }
       ],
       "declaration_sha256": "75c75c9e3455c6ce471a84156fe1adc875f30d77f328603b156a2ed0f79355a5",
-      "end_line": 635,
+      "end_line": 675,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial Notebook.NST3.DecidedShared_5a37f797df5f.forsetiInitial",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37249",
-      "prefix_sha256": "ce28ae9860d72bec63090528f12270ac70edaef73fae87ce5f06de033484946d",
-      "proposition_sha256": "3d1545ce252a97a13f3e0c32113b611ee8838aba7a31e599886db9e646928da5",
-      "start_line": 635,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_42190",
+      "prefix_sha256": "a6a0ebcad08267b7c2ec663553ea8cd559b3db230b51fe816838ae4e1c7f1fe7",
+      "proposition_sha256": "dafd9147bbef461dc60258cf41f21c2f055c101d00319aafbed57e14d5ebf3af",
+      "start_line": 675,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
       "uses": []
@@ -802,13 +608,13 @@
     {
       "axioms": [],
       "declaration_sha256": "63c24d69011d6c18e3a976e8747e12ff386e2d4aee0b8e4713e0c673b6e046bc",
-      "end_line": 636,
+      "end_line": 676,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation\n  Notebook.NST3.DecidedShared_5a37f797df5f.forsetiObservation",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37327",
-      "prefix_sha256": "0a9d9c5a3285a53bbded715b4e048f35ba0d56a2cca95469d9cc76090d615e84",
-      "proposition_sha256": "de2599d418bc5bf7463b009c081136ff7f670f9547b8d2b7c81f5a293cae94e4",
-      "start_line": 636,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_42268",
+      "prefix_sha256": "5ab4ab9b5ddefa0a942fb1c0cc3b47938fd663142f3ddde261e3ea47e706d0fc",
+      "proposition_sha256": "85e782c77846f55f9ace5004e9dc855130519606603a2a6aba5982926b09c0e1",
+      "start_line": 676,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
       "uses": []
@@ -829,13 +635,13 @@
         }
       ],
       "declaration_sha256": "80af4294e66bc1b7df6d5cf4cc70ed1f1a6d600227fdc7f6266e39115cc546c2",
-      "end_line": 637,
+      "end_line": 677,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities Notebook.NST3.DecidedShared_5a37f797df5f.forsetiIdentities",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_37413",
-      "prefix_sha256": "e25686f0fd82bed1013947f1dc6964175c480d6cdaba4028c38b7f778c692c67",
-      "proposition_sha256": "89a976c1f05b1ab57d5fae7bdc94afe6a6f53e0b053fb1c9b6062cf718b3bfd3",
-      "start_line": 637,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_below_12._glitnir_example_42354",
+      "prefix_sha256": "2ebd08803cb3e6e41298c66ab4680523ee7216246cbec7e03cc38b7728a81559",
+      "proposition_sha256": "3f1454ee47feae47364126bb12f27fd6619813ced97e6ec296d277d570fd951c",
+      "start_line": 677,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
       "uses": []
@@ -856,11 +662,11 @@
         }
       ],
       "declaration_sha256": "4af4691a7d93500b491ac54becd8ac309d434eb8f430059a42accc6c3099d4c3",
-      "end_line": 697,
+      "end_line": 737,
       "name": "Notebook.NST3.Decided_below_12.below_12",
-      "prefix_sha256": "e771367bcfd3eb627f6e6af32724fb7bf43871e37ea05ceaca06e11f32d128a0",
-      "proposition_sha256": "26f68020589454dd73c32678d8de6ed3501199c6cc412d30c4ef347b33f41aa6",
-      "start_line": 656,
+      "prefix_sha256": "4a2625a9ff6e8bea5f4aa8380d7489f0d3627cb5d2d311bb072768252e6a5cd6",
+      "proposition_sha256": "095b412189045f9e3cc0e6024de108802051cebf51f26081301433f1f94cb3dc",
+      "start_line": 696,
       "status": "checked",
       "uses": []
     },
@@ -880,13 +686,13 @@
         }
       ],
       "declaration_sha256": "3fa66b261b2055fee825b1241f508f89dc1fb3737618d8334c00ff4d482ca198",
-      "end_line": 734,
+      "end_line": 774,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiTime Notebook.NST3.DecidedShared_05178f0d2091.forsetiTime",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44553",
-      "prefix_sha256": "cc9cea2324486daa44567a37dd23c9b9b2c4c5480a7082a1f1a8721d30014e67",
-      "proposition_sha256": "9cccff999d9fa384078516ace44e1aaf07dd5850cc3c9b305760cc443ee77a5a",
-      "start_line": 734,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_49494",
+      "prefix_sha256": "a033da60b1baa593f0448c362fd537ba67b13a7bf8a6fc29cbeca0b633a5fe8d",
+      "proposition_sha256": "ce3935c8dfd58da3073034202ada4afc637fe37a701d5cb9fd910770292089e3",
+      "start_line": 774,
       "statement": "forsetiTime = forsetiTime",
       "status": "checked",
       "uses": []
@@ -907,13 +713,13 @@
         }
       ],
       "declaration_sha256": "b9bb4ec8bcfddac7bf4fc00555cb68abb1c88256a7a9cc74d7cef4cb25a0fd98",
-      "end_line": 735,
+      "end_line": 775,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiInitial Notebook.NST3.DecidedShared_05178f0d2091.forsetiInitial",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44625",
-      "prefix_sha256": "7b4ca3c0e743fa8adf8b2642d284024530166c100ccaaee487a5991510311aff",
-      "proposition_sha256": "2182ce3984479a6bf0a44faedc5ae691b5f5c276609878063aa9d49c1c20ef54",
-      "start_line": 735,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_49566",
+      "prefix_sha256": "1e8c0449610c7c00f8cf7f506e1bdbdf5726f380696b468afc344cc2e66b5039",
+      "proposition_sha256": "a4415cba24cf082a98700280d2477ec09cee0c45a7028f46d0bc05da86d7499d",
+      "start_line": 775,
       "statement": "forsetiInitial = forsetiInitial",
       "status": "checked",
       "uses": []
@@ -921,13 +727,13 @@
     {
       "axioms": [],
       "declaration_sha256": "d43036180dd9a601ca8b2ddb27e4c4ec726dd8dca01c600299d8ceca2e81d8ef",
-      "end_line": 736,
+      "end_line": 776,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiObservation\n  Notebook.NST3.DecidedShared_05178f0d2091.forsetiObservation",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44703",
-      "prefix_sha256": "eb65a5dbf9d435ac948be8ce910ab9ed785a4b61dd369418d8117da5e89cdfdf",
-      "proposition_sha256": "1a239814029cc1c9ec913257e57f2e8308b74af6287105b0e90c9b955a568bc3",
-      "start_line": 736,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_49644",
+      "prefix_sha256": "724428c00bb11332da141f41013cc4def2e5026fc358a6b460fbbc01304b2d3a",
+      "proposition_sha256": "95751a7260704377289102647f23ecaf1c25ef1b4284d31e0b7cf25149707a14",
+      "start_line": 776,
       "statement": "forsetiObservation = forsetiObservation",
       "status": "checked",
       "uses": []
@@ -948,13 +754,13 @@
         }
       ],
       "declaration_sha256": "a75c2161b8c48cf1c8263d0721dcb35c2c4cfa3bfd9add5b841f7cb59b5bb46f",
-      "end_line": 737,
+      "end_line": 777,
       "example": true,
       "kernel_statement": "Eq Notebook.NST3.DecidedShared_05178f0d2091.forsetiIdentities Notebook.NST3.DecidedShared_05178f0d2091.forsetiIdentities",
-      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_44789",
-      "prefix_sha256": "bd35d689341e7f53dc066e7ad334b73bc99ca8a81ce1733292b63bc64dd3b500",
-      "proposition_sha256": "00c76acab99e6a0c415e9721df752bc334e399deba365b4dba895c23f693bfe3",
-      "start_line": 737,
+      "name": "_private.NS_T3.0.Notebook.NST3.Decided_in_enstrophy_ball._glitnir_example_49730",
+      "prefix_sha256": "7862b399a7d3abfe48d16099f0be7440fdf5637f63e8f1ec2e9aaa87592c6594",
+      "proposition_sha256": "4902929b50d2a461168c6187259497e54a9ba4cba00fe9f7b430750721944450",
+      "start_line": 777,
       "statement": "forsetiIdentities = forsetiIdentities",
       "status": "checked",
       "uses": []
@@ -975,24 +781,139 @@
         }
       ],
       "declaration_sha256": "45afd5d0c0d1ebbb76faa561b40e00af25de2531fc7b1c8bd0497a0ee6e26fba",
-      "end_line": 797,
+      "end_line": 837,
       "name": "Notebook.NST3.Decided_in_enstrophy_ball.in_enstrophy_ball",
-      "prefix_sha256": "e1df5b8401c4aa30e9e081d278a840187587db60ed4f28e015d1a41db25eaced",
-      "proposition_sha256": "3e2147709216f9418dac45b03a39fe33998f587646e6de0cfa782c895bfdf4d8",
-      "start_line": 756,
+      "prefix_sha256": "cf92411abaf5f3c4e11dfdc2febe409cd478e33c5a9c914e549f37a660e44283",
+      "proposition_sha256": "df6033e80a2bd51c16a8ed0a17e9809bf7db2f7fbfbaa4dcd5a19df4019777f9",
+      "start_line": 796,
       "status": "checked",
       "uses": []
     }
   ],
+  "decisions": {
+    "370c14d440f89396e6e4a09db3c60e441bc1ac0a5900d5c6bbc1a81cc84d75a9": {
+      "created": "2026-10-29T12:33:52+00:00",
+      "fingerprint": "f77e7900f95078b571d34cd474a9581af5e8fa6f48233943b53628a84e465ff2",
+      "outcome": {
+        "block": "namespace Decided_in_ball\n\ndef forsetiTime : Gimle.Asgard.Dynamics.TimeDomain :=\n  \u27e8\"time\", (((mkRat (0) 1) : \u211a) : \u211d)\u27e9\n\ndef forsetiInitial : Gimle.Asgard.Point 3 :=\n  ![(((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (1) 1) : \u211a) : \u211d)]\n\ndef forsetiObservation : Fin 6 := \u27e83, by decide\u27e9\n\ndef forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=\n  (.and (.atom .ge (.var \u27e80, by decide\u27e9)) (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (9) 1))))))\n\ndef forsetiLeaf : Gimle.Forseti.Syntax.Goal :=\n  \u27e8\u27e8[\"E\"], by decide, by decide, by decide\u27e9,\n    (.and (.atom .le (.neg (.var \u27e80, by decide\u27e9))) (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (9) 1)))))),\n    forsetiPost\u27e9\n\ndef forsetiIdentities : Prop :=\n  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.states.map (\u00b7.initialId) = [\"initial-a10\", \"initial-a11\", \"initial-a21\"] \u2227\n  (Gimle.Forseti.Examples.GalerkinNS.T3.body.observations.get forsetiObservation).port.id =\n    \"obs-e\" \u2227\n  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.axis.id = \"time\"\n\ndef forsetiContract : Prop :=\n  Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.GalerkinNS.T3.observed forsetiTime\n    (Gimle.Forseti.Trajectory.Initialized forsetiTime (fun _ => True)\n      (\u00b7 = forsetiInitial))\n    (Gimle.Forseti.Trajectory.Always forsetiTime\n      fun o => forsetiPost.holds (fun _ => o forsetiObservation))\n\ndef forsetiRoot : Prop := forsetiIdentities \u2227 forsetiContract\n\n/-- E is output 3 of the compiled circuit, the port obs-e; the input's initial wires (initial-a10, initial-a11, initial-a21) start at (1, 1, 1) at time = 0. The trajectory decider proved it. Goal (trajectory): trajectory ns-t3 interpretation continuous-real obligation contract start time = 0 initial initial-a10 = 1, initial-a11 = 1, initial-a21 = 1 observe obs-e as E always : E >= 0 and E <= 9 -/\ntheorem in_ball :\n    have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed\n    have time : Gimle.Asgard.Dynamics.TimeDomain := \u27e8\"time\", 0\u27e9\n    \u2200 u : Gimle.Asgard.Dynamics.Signal (0 + 3),\n      Gimle.Asgard.Dynamics.signalRight u 0 = ![1, 1, 1] \u2192\n      (\u2203 y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y) \u2227\n      (\u2200 y y' : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y \u2192 circuit.Rel time u y' \u2192\n        \u2200 t \u2265 0, y t = y' t) \u2227\n      (\u2200 y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y \u2192\n        \u2200 t \u2265 0, have E := y t 3; E \u2265 0 \u2227 E \u2264 9) := by\n  have root : forsetiRoot := by\n    unfold forsetiRoot forsetiIdentities forsetiContract\n    refine \u27e8\u27e8by decide, by decide, by decide\u27e9, ?_\u27e9\n    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]\n    have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]\n    have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl\n    rw [time, init, obs]\n    refine Gimle.Forseti.Trajectory.Contract.consequence Gimle.Forseti.Examples.GalerkinNS.T3.below9_contract (fun _ admitted => admitted) ?_\n    intro o band t within\n    have leaf := Gimle.Forseti.Syntax.EntailmentCertificate.sound forsetiLeaf \u27e8[\u27e8\u27e8[]\u27e9, [\u27e8[((mkRat (1) 1), (.constant (mkRat (1) 1)))]\u27e9, \u27e8[]\u27e9]\u27e9, \u27e8\u27e8[]\u27e9, [\u27e8[]\u27e9, \u27e8[((mkRat (1) 1), (.constant (mkRat (1) 1)))]\u27e9]\u27e9]\u27e9 (by decide +kernel)\n    apply leaf\n    simp only [forsetiLeaf, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval]\n    obtain \u27e8low, high\u27e9 := band t within\n    refine \u27e8?_, ?_\u27e9 <;> norm_num [Rat.mkRat_eq_div] <;> linarith\n  have forsetiCast0 : (((mkRat (9) 1) : \u211a) : \u211d) = 9 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (0) 1) : \u211a) : \u211d) = 0 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast2 : (((mkRat (1) 1) : \u211a) : \u211d) = 1 := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ \u2194 forsetiContract) => bridge.mpr (show forsetiIdentities \u2227 forsetiContract from root).2) ?_\n  constructor\n  \u00b7 intro claim\n    unfold forsetiContract\n    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, \u2190 sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at claim\n    refine \u27e8?_, ?_, ?_\u27e9 <;> set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, \u2190 sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc]\n    \u00b7 exact fun u start => (claim u start).1\n    \u00b7 exact fun u start => (claim u start).2.1\n    \u00b7 exact fun u start => (claim u start).2.2\n  \u00b7 intro lane\n    unfold forsetiContract at lane\n    obtain \u27e8realizable, unique, holds\u27e9 := lane\n    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, forsetiCast2, \u2190 sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at realizable unique holds \u22a2\n    exact fun u start => \u27e8realizable u start, unique u start, holds u start\u27e9\n\nend Decided_in_ball",
+        "reason": "Found by the certificate stage.",
+        "stages": [
+          [
+            "binding",
+            "supported",
+            "ns-t3/obs-e"
+          ],
+          [
+            "certificate",
+            "found",
+            "z3 sat"
+          ],
+          [
+            "imports",
+            "needed",
+            "import Gimle.Forseti.Syntax.Certificate\nimport Gimle.Forseti.Examples.GalerkinNS.T3\nimport Gimle.Forseti.Examples.GalerkinNS.T3Below9"
+          ]
+        ],
+        "status": "proven",
+        "theorem": "in_ball"
+      },
+      "prefix_sha256": "2d6d4b919876eb446088c1599cc9b49bd1c339e3ea73f1b406b9715aff893370",
+      "provider": "forseti",
+      "verification": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "message": "The checker reports `Notebook.NST3.Decided_in_ball.in_ball` as checked.",
+        "status": "checked",
+        "type": "have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed;\nhave time := { axis := \"time\", start := 0 };\n\u2200 (u : Gimle.Asgard.Dynamics.Signal (instHAdd.hAdd 0 3)),\n  Eq (Gimle.Asgard.Dynamics.signalRight u 0) (Matrix.vecCons 1 (Matrix.vecCons 1 (Matrix.vecCons 1 Matrix.vecEmpty))) \u2192\n    And (Exists fun y => circuit.Rel time u y)\n      (And\n        (\u2200 (y y' : Gimle.Asgard.Dynamics.Signal 6),\n          circuit.Rel time u y \u2192 circuit.Rel time u y' \u2192 \u2200 (t : Real), GE.ge t 0 \u2192 Eq (y t) (y' t))\n        (\u2200 (y : Gimle.Asgard.Dynamics.Signal 6),\n          circuit.Rel time u y \u2192\n            \u2200 (t : Real),\n              GE.ge t 0 \u2192\n                have E := y t 3;\n                And (GE.ge E 0) (Real.instLE.le E 9)))"
+      }
+    },
+    "814669a0e467508cc071e693d5872dd3285c0c99003a0b4ee96e7c1dc6b3e332": {
+      "created": "2026-10-29T13:50:22+00:00",
+      "fingerprint": "f77e7900f95078b571d34cd474a9581af5e8fa6f48233943b53628a84e465ff2",
+      "outcome": {
+        "block": "namespace Decided_below_one\n\ndef forsetiTime : Gimle.Asgard.Dynamics.TimeDomain :=\n  \u27e8\"time\", (((mkRat (0) 1) : \u211a) : \u211d)\u27e9\n\ndef forsetiInitial : Gimle.Asgard.Point 3 :=\n  ![(((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (1) 1) : \u211a) : \u211d), (((mkRat (1) 1) : \u211a) : \u211d)]\n\ndef forsetiObservation : Fin 6 := \u27e83, by decide\u27e9\n\ndef forsetiPost : Gimle.Forseti.Syntax.Formula 1 :=\n  (.atom .le (.add (.var \u27e80, by decide\u27e9) (.neg (.constant (mkRat (1) 1)))))\n\ndef forsetiIdentities : Prop :=\n  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.states.map (\u00b7.initialId) = [\"initial-a10\", \"initial-a11\", \"initial-a21\"] \u2227\n  (Gimle.Forseti.Examples.GalerkinNS.T3.body.observations.get forsetiObservation).port.id =\n    \"obs-e\" \u2227\n  Gimle.Forseti.Examples.GalerkinNS.T3.evolution.axis.id = \"time\"\n\ndef forsetiContract : Prop :=\n  Gimle.Forseti.Trajectory.Contract Gimle.Forseti.Examples.GalerkinNS.T3.observed forsetiTime\n    (Gimle.Forseti.Trajectory.Initialized forsetiTime (fun _ => True)\n      (\u00b7 = forsetiInitial))\n    (Gimle.Forseti.Trajectory.Always forsetiTime\n      fun o => forsetiPost.holds (fun _ => o forsetiObservation))\n\ndef forsetiRoot : Prop := forsetiIdentities \u2227 forsetiContract\n\n/-- E is output 3 of the compiled circuit, the port obs-e; the input's initial wires (initial-a10, initial-a11, initial-a21) start at (1, 1, 1) at time = 0. The trajectory decider refuted it. Goal (trajectory): trajectory ns-t3 interpretation continuous-real obligation contract start time = 0 initial initial-a10 = 1, initial-a11 = 1, initial-a21 = 1 observe obs-e as E always : E <= 1 -/\ntheorem below_one_refuted : \u00ac (have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed\n    have time : Gimle.Asgard.Dynamics.TimeDomain := \u27e8\"time\", 0\u27e9\n    \u2200 u : Gimle.Asgard.Dynamics.Signal (0 + 3),\n      Gimle.Asgard.Dynamics.signalRight u 0 = ![1, 1, 1] \u2192\n      (\u2203 y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y) \u2227\n      (\u2200 y y' : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y \u2192 circuit.Rel time u y' \u2192\n        \u2200 t \u2265 0, y t = y' t) \u2227\n      (\u2200 y : Gimle.Asgard.Dynamics.Signal 6, circuit.Rel time u y \u2192\n        \u2200 t \u2265 0, have E := y t 3; E \u2264 1)) := by\n  have refuted : forsetiIdentities \u2227 \u00ac forsetiContract := by\n    unfold forsetiIdentities forsetiContract\n    refine \u27e8\u27e8by decide, by decide, by decide\u27e9, ?_\u27e9\n    intro contract\n    have time : forsetiTime = Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time := by simp [forsetiTime, Gimle.Asgard.Model.Evolution.time, Gimle.Forseti.Examples.GalerkinNS.T3.evolution] <;> norm_num [Rat.mkRat_eq_div]\n    have init : forsetiInitial = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by rw [Gimle.Forseti.Examples.GalerkinNS.T3.initial_eq]; funext i; fin_cases i <;> norm_num [forsetiInitial, Rat.mkRat_eq_div]\n    have obs : forsetiObservation = Gimle.Forseti.Examples.GalerkinNS.T3.energyIndex := rfl\n    rw [time, init, obs] at contract\n    obtain \u27e8state, realized\u27e9 := Gimle.Forseti.Examples.GalerkinNS.T3.compiled_exists\n    have start : state Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time.start = Gimle.Forseti.Examples.GalerkinNS.T3.compiled.initial := by unfold Gimle.Asgard.Model.ContinuousModel.Realizes Gimle.Asgard.Model.ContinuousModel.feedback at realized; exact ((Gimle.Forseti.Trajectory.close_rel _ _ _ _ _ _).mp realized).2.1\n    have bounded := contract.holds _ Gimle.Forseti.Examples.GalerkinNS.T3.declared_input_admitted _ \u27e8state, (Gimle.Forseti.Examples.GalerkinNS.T3.feedback_reads _ Gimle.Forseti.Examples.GalerkinNS.T3.declared_input_admitted state).mpr realized, rfl\u27e9 Gimle.Forseti.Examples.GalerkinNS.T3.evolution.time.start (by simp [Gimle.Asgard.Dynamics.TimeDomain.domain])\n    simp only at bounded\n    rw [start, Gimle.Forseti.Examples.GalerkinNS.T3.energy_at_initial] at bounded\n    have witness : forsetiPost.holds (fun i => (((fun _ : Fin 1 => (mkRat (17) 10)) i : \u211a) : \u211d)) := by convert bounded using 2; norm_num [Rat.mkRat_eq_div]\n    rw [\u2190 Gimle.Forseti.Syntax.Formula.holdsQ_iff] at witness\n    exact absurd witness (by decide +kernel)\n  intro claim\n  have forsetiCast0 : (((mkRat (1) 1) : \u211a) : \u211d) = 1 := by norm_num [Rat.mkRat_eq_div]\n  have forsetiCast1 : (((mkRat (0) 1) : \u211a) : \u211d) = 0 := by norm_num [Rat.mkRat_eq_div]\n  refine (fun (bridge : _ \u2194 forsetiContract) => refuted.2 (bridge.mp claim)) ?_\n  constructor\n  \u00b7 intro claim\n    unfold forsetiContract\n    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, \u2190 sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at claim\n    refine \u27e8?_, ?_, ?_\u27e9 <;> set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, \u2190 sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc]\n    \u00b7 exact fun u start => (claim u start).1\n    \u00b7 exact fun u start => (claim u start).2.1\n    \u00b7 exact fun u start => (claim u start).2.2\n  \u00b7 intro lane\n    unfold forsetiContract at lane\n    obtain \u27e8realizable, unique, holds\u27e9 := lane\n    set_option linter.unusedSimpArgs false in simp only [Gimle.Forseti.Trajectory.Realizable, Gimle.Forseti.Trajectory.Unique, Gimle.Forseti.Trajectory.Holds, Gimle.Forseti.Trajectory.Initialized, Gimle.Forseti.Trajectory.Always, Set.EqOn, Gimle.Asgard.Dynamics.TimeDomain.domain, Set.mem_Ici, forsetiTime, forsetiInitial, forsetiPost, forsetiObservation, Gimle.Forseti.Syntax.Formula.holds, Gimle.Forseti.Syntax.Relation.holds, Gimle.Asgard.Polynomial.Expr.eval, true_and, forsetiCast0, forsetiCast1, \u2190 sub_eq_add_neg, sub_zero, sub_nonpos, sub_neg, sub_eq_zero, sub_nonneg, sub_pos, ge_iff_le, gt_iff_lt, and_assoc, or_assoc] at realizable unique holds \u22a2\n    exact fun u start => \u27e8realizable u start, unique u start, holds u start\u27e9\n\nend Decided_below_one",
+        "reason": "Found by the initial-witness stage.",
+        "stages": [
+          [
+            "binding",
+            "supported",
+            "ns-t3/obs-e"
+          ],
+          [
+            "certificate",
+            "none",
+            "z3 unsat: the 2-square dictionary is exhausted; so is its 4-square dsos widening"
+          ],
+          [
+            "initial-witness",
+            "found",
+            "z3 sat"
+          ],
+          [
+            "imports",
+            "needed",
+            "import Gimle.Forseti.Syntax.Certificate\nimport Gimle.Forseti.Examples.GalerkinNS.T3\nimport Gimle.Forseti.Examples.GalerkinNS.T3Below9"
+          ]
+        ],
+        "status": "refuted",
+        "theorem": "below_one_refuted"
+      },
+      "prefix_sha256": "59d2938cf179001bffb0fc83e3e843eeff203d442fbe69c2461ab582e7a46eeb",
+      "provider": "forseti",
+      "verification": {
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "message": "The checker reports `Notebook.NST3.Decided_below_one.below_one_refuted` as checked.",
+        "status": "checked",
+        "type": "Not\n  (have circuit := Gimle.Forseti.Examples.GalerkinNS.T3.observed;\n  have time := { axis := \"time\", start := 0 };\n  \u2200 (u : Gimle.Asgard.Dynamics.Signal (instHAdd.hAdd 0 3)),\n    Eq (Gimle.Asgard.Dynamics.signalRight u 0)\n        (Matrix.vecCons 1 (Matrix.vecCons 1 (Matrix.vecCons 1 Matrix.vecEmpty))) \u2192\n      And (Exists fun y => circuit.Rel time u y)\n        (And\n          (\u2200 (y y' : Gimle.Asgard.Dynamics.Signal 6),\n            circuit.Rel time u y \u2192 circuit.Rel time u y' \u2192 \u2200 (t : Real), GE.ge t 0 \u2192 Eq (y t) (y' t))\n          (\u2200 (y : Gimle.Asgard.Dynamics.Signal 6),\n            circuit.Rel time u y \u2192\n              \u2200 (t : Real),\n                GE.ge t 0 \u2192\n                  have E := y t 3;\n                  Real.instLE.le E 1)))"
+      }
+    },
+    "e74c526025e53d117d181629cd1522e16c43c0b48bfcdbe033a4c187f0f508b2": {
+      "created": "2026-10-29T13:50:38+00:00",
+      "fingerprint": "f77e7900f95078b571d34cd474a9581af5e8fa6f48233943b53628a84e465ff2",
+      "outcome": {
+        "block": null,
+        "reason": "exhausted",
+        "stages": [
+          [
+            "binding",
+            "supported",
+            "ns-t3/obs-e"
+          ],
+          [
+            "certificate",
+            "none",
+            "z3 unsat: the 2-square dictionary is exhausted; so is its 4-square dsos widening"
+          ],
+          [
+            "initial-witness",
+            "none",
+            "z3 unsat: no counterexample exists to check"
+          ]
+        ],
+        "status": "unknown",
+        "theorem": null
+      },
+      "prefix_sha256": "4394879198dca0d1f6129945d350dcfdf39ee4617a6cea4c59ac52455664f12f",
+      "provider": "forseti",
+      "verification": null
+    }
+  },
   "environment": {
-    "check": "385212f7e68a84f042541cb1e01fbd82f8bb01ed343a866c13b558e7d3825b3e",
+    "check": "93820a623da0d0f31aff4e29d64b1b352cf62783da2c9bc002513e788ef34d73",
     "fingerprint": "f77e7900f95078b571d34cd474a9581af5e8fa6f48233943b53628a84e465ff2"
   },
   "format": "glitnir.project-checks/v2",
-  "source_sha256": "26ca33b5993d530874874e0dbe65dc9f01f6a00c298a195e4c5ef5550e83b205",
+  "source_sha256": "8ca0540dec9969d8b13bf4ba9afe4a61346b2a3f73c0ffa1bfd879866cb71b2f",
   "views": {
     "bb3933fe5270615a9943616253027c029644ead958cb191f66f801387d5f79d5": {
-      "created": "2026-10-28T14:23:19+00:00",
+      "created": "2026-10-29T14:07:17+00:00",
       "drawing": {
         "contracts": [],
         "detail": null,
@@ -1049,7 +970,7 @@
         "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1156 781\" width=\"1156\" height=\"781\" role=\"img\" font-family=\"system-ui, sans-serif\"><title>Asgard circuit</title><rect width=\"100%\" height=\"100%\" fill=\"#ffffff\"></rect><text x=\"35\" y=\"35\" font-size=\"20\" fill=\"#172f43\" textLength=\"528\" lengthAdjust=\"spacingAndGlyphs\">Continuous circuit \u00b7 compiled model overview</text><text x=\"35\" y=\"62\" font-size=\"14\" fill=\"#172f43\" textLength=\"369\" lengthAdjust=\"spacingAndGlyphs\">Axis t [time] \u2022 start 0 \u2022 exact coefficients</text><rect x=\"100\" y=\"100\" width=\"526\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"120\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"189\" lengthAdjust=\"spacingAndGlyphs\">Compiled vector field</text><rect x=\"736\" y=\"100\" width=\"240\" height=\"330\" rx=\"8\" fill=\"#edf5f8\" stroke=\"#476579\"></rect><text x=\"756\" y=\"125\" font-size=\"15\" fill=\"#172f43\" textLength=\"153\" lengthAdjust=\"spacingAndGlyphs\">Integrate along t</text><g><title>state: state-a10; derivative: da10; initial: initial-a10</title><text x=\"120\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"445\" lengthAdjust=\"spacingAndGlyphs\">da10/dt = (((-1/10) \u00d7 a10) + (((-3/20) \u00d7 a11) \u00d7 a21))</text><polyline points=\"626,165 736,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"736,165 729,161 729,169\" fill=\"#476579\"></polygon><text x=\"756\" y=\"165\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a10</text><text x=\"756\" y=\"189\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a10(0) = 1</text><polyline points=\"976,165 1126,165\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1126,165 1119,161 1119,169\" fill=\"#476579\"></polygon><text x=\"991\" y=\"155\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">0: a10</text></g><g><title>state: state-a11; derivative: da11; initial: initial-a11</title><text x=\"120\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"453\" lengthAdjust=\"spacingAndGlyphs\">da11/dt = ((1 + ((-1/5) \u00d7 a11)) + ((2/5 \u00d7 a10) \u00d7 a21))</text><polyline points=\"626,255 736,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"736,255 729,251 729,259\" fill=\"#476579\"></polygon><text x=\"756\" y=\"255\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a11</text><text x=\"756\" y=\"279\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a11(0) = 1</text><polyline points=\"976,255 1126,255\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1126,255 1119,251 1119,259\" fill=\"#476579\"></polygon><text x=\"991\" y=\"245\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">1: a11</text></g><g><title>state: state-a21; derivative: da21; initial: initial-a21</title><text x=\"120\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"428\" lengthAdjust=\"spacingAndGlyphs\">da21/dt = (((-1/2) \u00d7 a21) + (((-1/4) \u00d7 a10) \u00d7 a11))</text><polyline points=\"626,345 736,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"736,345 729,341 729,349\" fill=\"#476579\"></polygon><text x=\"756\" y=\"345\" font-size=\"14\" fill=\"#172f43\" textLength=\"75\" lengthAdjust=\"spacingAndGlyphs\">\u222b  \u2192  a21</text><text x=\"756\" y=\"369\" font-size=\"13\" fill=\"#172f43\" textLength=\"78\" lengthAdjust=\"spacingAndGlyphs\">a21(0) = 1</text><polyline points=\"976,345 1126,345\" fill=\"none\" stroke=\"#476579\" stroke-width=\"2\"></polyline><polygon points=\"1126,345 1119,341 1119,349\" fill=\"#476579\"></polygon><text x=\"991\" y=\"335\" font-size=\"12\" fill=\"#172f43\" textLength=\"43\" lengthAdjust=\"spacingAndGlyphs\">2: a21</text></g><circle cx=\"1106\" cy=\"165\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1106,165 1106,470 20,470 20,165 100,165\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,165 93,161 93,169\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"463\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 0: a10</text><circle cx=\"1094\" cy=\"255\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1094,255 1094,498 32,498 32,255 100,255\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,255 93,251 93,259\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"491\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 1: a11</text><circle cx=\"1082\" cy=\"345\" r=\"3\" fill=\"#a65328\"></circle><polyline points=\"1082,345 1082,526 44,526 44,345 100,345\" fill=\"none\" stroke=\"#a65328\" stroke-width=\"2\"></polyline><polygon points=\"100,345 93,341 93,349\" fill=\"#a65328\"></polygon><text x=\"120\" y=\"519\" font-size=\"12\" fill=\"#172f43\" textLength=\"108\" lengthAdjust=\"spacingAndGlyphs\">Feedback 2: a21</text><text x=\"35\" y=\"574\" font-size=\"13\" fill=\"#172f43\" textLength=\"234\" lengthAdjust=\"spacingAndGlyphs\">Observations (declared order):</text><text x=\"35\" y=\"599\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">0: a10 \u2190 state-a10</text><text x=\"35\" y=\"621\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">1: a11 \u2190 state-a11</text><text x=\"35\" y=\"643\" font-size=\"13\" fill=\"#172f43\" textLength=\"140\" lengthAdjust=\"spacingAndGlyphs\">2: a21 \u2190 state-a21</text><text x=\"35\" y=\"665\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">3: E \u2190 E</text><text x=\"35\" y=\"687\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">4: Z \u2190 Z</text><text x=\"35\" y=\"709\" font-size=\"13\" fill=\"#172f43\" textLength=\"62\" lengthAdjust=\"spacingAndGlyphs\">5: R \u2190 R</text><text x=\"35\" y=\"731\" font-size=\"12\" fill=\"#172f43\" textLength=\"475\" lengthAdjust=\"spacingAndGlyphs\">Crossings are not junctions. IC inputs are read at the start time.</text><text x=\"35\" y=\"756\" font-size=\"12\" fill=\"#172f43\" textLength=\"511\" lengthAdjust=\"spacingAndGlyphs\">Diagram only. Existence, uniqueness and bounds require separate proofs.</text></svg>"
       },
       "fingerprint": "b4ebff0eddaa43104537148a548f3561489be308165505a0bcb404616d656a5a",
-      "prefix_sha256": "313148e68421060a3ff96d38849866ed52b109a5e1b3bad4ab7602798fee28f3",
+      "prefix_sha256": "ce1c75a067563a1b4ec4eff2ce8bb35efdb04a2e6be5041020d5ed308f12d208",
       "provider": "forseti",
       "provider_sha256": "51946c3ef2c2bad7edb99ca1877898330242fbc4d779a6d739c4c58e85812ff3"
     }
