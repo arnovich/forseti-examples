@@ -128,14 +128,31 @@ def decided_block(lines: list[str], end_line: int, name: str) -> tuple[int, int]
 
     Returns:
         The block's zero-based start and end (exclusive) line indexes, or None
-        when the directive is not directly followed by such a block.
+        when the directive is not followed by such a block. Formatting blank
+        lines and an older generated ``DecidedShared_*`` prelude may appear
+        between the directive and its decision namespace.
     """
     opening, closing = f"namespace Decided_{name}", f"end Decided_{name}"
-    if end_line >= len(lines) or lines[end_line] != opening:
+    start = end_line
+    while start < len(lines) and not lines[start].strip():
+        start += 1
+    if start < len(lines) and lines[start].startswith("namespace DecidedShared_"):
+        shared_close = f"end {lines[start].removeprefix('namespace ')}"
+        for index in range(start + 1, len(lines)):
+            if lines[index] == shared_close:
+                start = index + 1
+                while start < len(lines) and not lines[start].strip():
+                    start += 1
+                break
+            if lines[index].startswith("-- @decide "):
+                return None
+        else:
+            return None
+    if start >= len(lines) or lines[start] != opening:
         return None
-    for index in range(end_line + 1, len(lines)):
+    for index in range(start + 1, len(lines)):
         if lines[index] == closing:
-            return end_line, index + 1
+            return start, index + 1
         if lines[index].startswith("-- @decide "):
             break
     return None
