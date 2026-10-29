@@ -221,6 +221,7 @@ function galleryIndex(manifest, entries) {
 
 async function copyGalleryAssets(output) {
   await fs.cp(path.join(ROOT, 'gallery/assets'), path.join(output, 'assets'), {recursive: true});
+  await fs.copyFile(path.join(ROOT, 'gallery/triptych-transcript.html'), path.join(output, 'triptych-transcript.html'));
 }
 
 async function main(inputs, output) {

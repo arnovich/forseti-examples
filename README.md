@@ -13,6 +13,11 @@ claims. Saved observations are shown as recorded; simulations are evidence.
 
 In the [notebook gallery](https://notebooks.gimlelabs.com/) you can see rendered HTML snapshots of all the examples without installing Lean or Glitnir.
 
+Start with the gallery's **proved, refuted, unresolved** demonstration: one
+Lorenz model, three exact questions, a captioned recording, and the complete
+browser-readable receipts. The same triptych is repeated on a three-mode
+coefficient ODE, with its Navier–Stokes PDE nonclaim stated explicitly.
+
 | A model in motion | How circuits compose |
 | --- | --- |
 | [![ThreeState notebook preview](https://notebooks.gimlelabs.com/previews/ThreeState.png)](https://notebooks.gimlelabs.com/basics/ThreeState.html) | [![CircuitProofs notebook preview](https://notebooks.gimlelabs.com/previews/CircuitProofs.png)](https://notebooks.gimlelabs.com/circuits/CircuitProofs.html) |

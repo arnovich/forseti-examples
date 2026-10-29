@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280, initial-scale=1">
+<title>Proved, refuted, unresolved</title>
+<style>
+  @font-face { font-family: Inter; src: url("../../gallery/assets/inter-regular.ttf"); font-weight: 400; }
+  @font-face { font-family: Inter; src: url("../../gallery/assets/inter-medium.ttf"); font-weight: 600; }
+  * { box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; margin: 0; overflow: hidden; background: #08111e; color: white; font-family: Inter, Arial, sans-serif; }
+  .poster { position: absolute; inset: 0; width: 100%; height: 100%; transform: scale(1.025); animation: settle 8s ease-out forwards; }
+  .veil { position: absolute; inset: 0; background: rgba(5, 10, 17, .7); opacity: 1; transition: opacity .8s ease; }
+  body[data-stage="simulation"] .veil, body[data-stage="proved"] .veil, body[data-stage="refuted"] .veil, body[data-stage="unknown"] .veil { opacity: 0; }
+  .opening, .ending { position: absolute; inset: 0; display: grid; place-content: center; padding: 100px; text-align: center; background: radial-gradient(circle at 50% 42%, rgba(43, 72, 112, .55), rgba(5, 10, 17, .95)); opacity: 0; transform: scale(.98); transition: opacity .7s ease, transform .7s ease; }
+  body[data-stage="opening"] .opening, body[data-stage="ending"] .ending { opacity: 1; transform: scale(1); }
+  .opening p, .ending p { margin: 0 0 18px; color: #8ebaff; font-size: 17px; letter-spacing: .16em; text-transform: uppercase; }
+  .opening h1, .ending h2 { max-width: 1020px; margin: 0; font-size: 72px; line-height: 1.06; letter-spacing: -.045em; }
+  .opening small, .ending small { display: block; margin-top: 28px; color: #aab9cc; font-size: 21px; }
+  .ending h2 { font-size: 58px; }
+  .triplet { display: flex; justify-content: center; gap: 16px; margin-top: 38px; }
+  .triplet span { padding: 12px 18px; border: 1px solid #3a4b63; border-radius: 7px; background: #121d2b; font-size: 16px; text-transform: uppercase; letter-spacing: .08em; }
+  .triplet span:nth-child(1) { color: #63deb0; }.triplet span:nth-child(2) { color: #ff8b93; }.triplet span:nth-child(3) { color: #f3c66b; }
+  .focus { position: absolute; left: 760px; width: 460px; height: 117px; border: 3px solid transparent; border-radius: 13px; opacity: 0; transition: opacity .4s ease, box-shadow .4s ease; }
+  .focus.proved { top: 200px; border-color: #63deb0; }.focus.refuted { top: 321px; border-color: #ff8b93; }.focus.unknown { top: 442px; border-color: #f3c66b; }
+  body[data-stage="proved"] .focus.proved, body[data-stage="refuted"] .focus.refuted, body[data-stage="unknown"] .focus.unknown { opacity: 1; box-shadow: 0 0 34px currentColor; }
+  .caption { position: absolute; left: 70px; right: 70px; bottom: 28px; min-height: 66px; display: flex; align-items: center; justify-content: center; padding: 13px 25px; color: #f7fbff; background: rgba(5, 10, 17, .9); border: 1px solid #40526b; border-radius: 8px; font-size: 24px; line-height: 1.35; text-align: center; opacity: 0; transition: opacity .25s ease; }
+  body:not([data-stage="opening"]):not([data-stage="ending"]) .caption { opacity: 1; }
+  .progress { position: absolute; left: 0; bottom: 0; height: 5px; width: 0; background: linear-gradient(90deg, #5da8ff, #a879ff, #63deb0); }
+  body.started .progress { animation: progress 40s linear forwards; }
+  @keyframes settle { from { transform: scale(1.06); } to { transform: scale(1.025); } }
+  @keyframes progress { to { width: 100%; } }
+</style>
+</head>
+<body data-stage="opening">
+  <img class="poster" src="../../gallery/assets/triptych-poster.svg" alt="">
+  <div class="veil"></div>
+  <div class="focus proved"></div><div class="focus refuted"></div><div class="focus unknown"></div>
+  <section class="opening"><p>Glitnir + Forseti + Lean</p><h1>What if a scientific claim had three honest outcomes?</h1><small>Ask. Search. Check. Keep the receipts.</small></section>
+  <section class="ending"><p>Second system · same test</p><h2>The three-mode coefficient ODE returns the same triptych.</h2><div class="triplet"><span>Proved E ≤ 9</span><span>Refuted E ≤ 1</span><span>Unresolved E ≤ 8</span></div><small>Every theorem, negation, search limit and exact pin is browser-readable.</small></section>
+  <div class="caption" role="status"></div><div class="progress"></div>
+<script>
+  const stages = [
+    [0, 'opening', ''],
+    [5000, 'simulation', 'A finite RK4 simulation draws the Lorenz attractor. It is evidence about this run, not proof.'],
+    [12000, 'proved', 'PROVED — V stays at most 1600 for every time t at or after zero.'],
+    [20000, 'refuted', 'REFUTED — V stays at most 1300. The initial state already has V equal to 1371.'],
+    [27000, 'unknown', 'UNRESOLVED BY THIS RUN — the bounded search for V at most 1400 found neither proof nor checked counterexample.'],
+    [34000, 'ending', '']
+  ];
+  const caption = document.querySelector('.caption');
+  document.body.classList.add('started');
+  for (const [at, stage, text] of stages) setTimeout(() => { document.body.dataset.stage = stage; caption.textContent = text; }, at);
+  setTimeout(() => { document.body.dataset.done = 'true'; }, 40000);
+</script>
+</body>
+</html>
